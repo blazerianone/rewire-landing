@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI for Product Managers | Live Cohort — rewire.school</title>
+<meta name="description" content="Land AI PM interviews in 8 weeks. Build 4 portfolio assets — AI opportunity teardown, ship-ready PRD, roadmap presentation, positioning story. Live cohort for working PMs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --purple-dark: #7C3AED;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: var(--night);
+  color: var(--snow);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+}
+
+/* Badge */
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--purple-light);
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  background: var(--purple);
+  color: white;
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--purple-light);
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--purple);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+/* Hero Section */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+}
+
+.hero .badge {
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 56px);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--snow) 0%, var(--purple-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero .subtitle {
+  font-size: 20px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  padding-top: 32px;
+  border-top: 1px solid var(--card-border);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-stats .stat {
+  text-align: center;
+}
+
+.hero-stats .stat-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--purple-light);
+}
+
+.hero-stats .stat-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Problem Section */
+.problem {
+  padding: 80px 0;
+}
+
+.problem h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.problem .intro {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 18px;
+  max-width: 700px;
+  margin: 0 auto 48px;
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.problem-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s;
+}
+
+.problem-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-4px);
+}
+
+.problem-card .icon {
+  font-size: 32px;
+  margin-bottom: 16px;
+}
+
+.problem-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: var(--snow);
+}
+
+.problem-card p {
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* Solution Section */
+.solution {
+  padding: 80px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.05) 50%, transparent 100%);
+}
+
+.solution h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.solution-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.solution-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.solution-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple), var(--purple-light));
+}
+
+.solution-card .week {
+  font-size: 12px;
+  color: var(--purple-light);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.solution-card h3 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.solution-card ul {
+  list-style: none;
+}
+
+.solution-card li {
+  color: var(--text-secondary);
+  font-size: 15px;
+  padding: 8px 0;
+  padding-left: 24px;
+  position: relative;
+}
+
+.solution-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* Instructor Section */
+.instructor {
+  padding: 80px 0;
+}
+
+.instructor h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.instructor-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 48px;
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.instructor-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  flex-shrink: 0;
+}
+
+.instructor-info h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.instructor-info .title {
+  color: var(--purple-light);
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.instructor-info p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.instructor-creds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.instructor-creds .cred {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: var(--success);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Format Section */
+.format {
+  padding: 80px 0;
+  background: var(--card);
+}
+
+.format h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.format-item {
+  text-align: center;
+  padding: 32px 24px;
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  background: var(--night);
+}
+
+.format-item .icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.format-item h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.format-item p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+/* Social Proof */
+.social-proof {
+  padding: 80px 0;
+}
+
+.social-proof h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.social-proof .intro {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-bottom: 48px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.testimonial {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.testimonial .quote {
+  font-size: 16px;
+  color: var(--snow);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.testimonial .author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial .avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple), var(--purple-light));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.testimonial .author-info .name {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.testimonial .author-info .role {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+/* Pricing Section */
+.pricing {
+  padding: 80px 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.08) 100%);
+}
+
+.pricing h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.pricing .intro {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 18px;
+  margin-bottom: 48px;
+}
+
+.pricing-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+}
+
+.pricing-card.featured {
+  border-color: var(--purple);
+  position: relative;
+}
+
+.pricing-card.featured::before {
+  content: 'MOST POPULAR';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--purple);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 16px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+}
+
+.pricing-card .region {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.pricing-card .price {
+  font-family: 'Manrope', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--snow);
+  margin-bottom: 8px;
+}
+
+.pricing-card .price-note {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 32px;
+}
+
+.pricing-card li {
+  padding: 10px 0;
+  padding-left: 28px;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 15px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.pricing-card li:last-child {
+  border-bottom: none;
+}
+
+.pricing-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 600;
+}
+
+/* FAQ Section */
+.faq {
+  padding: 80px 0;
+}
+
+.faq h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  padding: 20px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 16px;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: '+';
+  font-size: 24px;
+  color: var(--purple-light);
+  transition: transform 0.3s;
+}
+
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item .answer {
+  padding: 0 24px 20px;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+/* Final CTA */
+.final-cta {
+  padding: 100px 0;
+  text-align: center;
+  background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.1) 50%, transparent 100%);
+}
+
+.final-cta h2 {
+  font-size: 40px;
+  margin-bottom: 16px;
+}
+
+.final-cta p {
+  color: var(--text-secondary);
+  font-size: 18px;
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.final-cta .cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Footer */
+footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--card-border);
+  text-align: center;
+}
+
+footer .brand {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+footer .tagline {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+footer .links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+footer .links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+footer .links a:hover {
+  color: var(--purple-light);
+}
+
+/* Sticky Header */
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--card-border);
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sticky-header.visible {
+  transform: translateY(0);
+}
+
+.sticky-header .brand {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.sticky-header .btn-primary {
+  padding: 10px 24px;
+  font-size: 14px;
+}
+
+/* Logo Bar */
+.logo-bar {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.logo-bar p {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 24px;
+}
+
+.logo-bar .logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  opacity: 0.7;
+}
+
+.logo-bar .logo {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text-secondary);
+}
+
+/* Who For Section */
+.who-for {
+  padding: 80px 0;
+  background: var(--card);
+}
+
+.who-for h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.who-for-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.who-for-card {
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+}
+
+.who-for-card.yes {
+  background: rgba(34, 197, 94, 0.05);
+  border-color: rgba(34, 197, 94, 0.2);
+}
+
+.who-for-card.no {
+  background: rgba(239, 68, 68, 0.05);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.who-for-card h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.who-for-card.yes h3 { color: var(--success); }
+.who-for-card.no h3 { color: #ef4444; }
+
+.who-for-card ul {
+  list-style: none;
+}
+
+.who-for-card li {
+  padding: 10px 0;
+  padding-left: 28px;
+  position: relative;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.who-for-card.yes li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.who-for-card.no li::before {
+  content: '✗';
+  position: absolute;
+  left: 0;
+  color: #ef4444;
+  font-weight: 600;
+}
+
+/* Comparison Table */
+.comparison {
+  padding: 80px 0;
+}
+
+.comparison h2 {
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.comparison-table {
+  max-width: 900px;
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.comparison-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.comparison-table th {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.comparison-table td {
+  font-size: 15px;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table .highlight {
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.comparison-table .highlight td:first-child {
+  color: var(--purple-light);
+  font-weight: 600;
+}
+
+.comparison-table .price-cell {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+}
+
+.comparison-table .check {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.comparison-table .cross {
+  color: #ef4444;
+}
+
+/* Guarantee Section */
+.guarantee {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.guarantee-box {
+  max-width: 700px;
+  margin: 0 auto;
+  background: rgba(34, 197, 94, 0.05);
+  border: 2px solid rgba(34, 197, 94, 0.3);
+  border-radius: 20px;
+  padding: 48px;
+}
+
+.guarantee-box .icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.guarantee-box h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+  color: var(--success);
+}
+
+.guarantee-box p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Mid-page CTA */
+.mid-cta {
+  padding: 60px 0;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.05) 0%, transparent 100%);
+}
+
+.mid-cta p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero { padding: 60px 0 40px; }
+  .hero h1 { font-size: 32px; }
+  .hero-stats { gap: 32px; }
+
+  .instructor-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 32px;
+  }
+
+  .instructor-creds { justify-content: center; }
+
+  .pricing-card { padding: 32px 24px; }
+  .pricing-card .price { font-size: 40px; }
+
+  .final-cta h2 { font-size: 28px; }
+
+  .who-for-grid { grid-template-columns: 1fr; }
+
+  .logo-bar .logos { gap: 24px; }
+  .logo-bar .logo { font-size: 14px; }
+
+  .comparison-table { font-size: 14px; }
+  .comparison-table th, .comparison-table td { padding: 12px; }
+
+  .guarantee-box { padding: 32px 24px; }
+
+  /* Roadmap responsive */
+  section > div > div[style*="grid-template-columns: repeat(4"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Self-study comparison responsive */
+  section > div > div[style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* What happens on call responsive */
+  section > div > div[style*="grid-template-columns: repeat(3"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+</style>
+
+<script>
+// Sticky header on scroll
+window.addEventListener('scroll', function() {
+  const header = document.querySelector('.sticky-header');
+  if (window.scrollY > 600) {
+    header.classList.add('visible');
+  } else {
+    header.classList.remove('visible');
+  }
+});
+</script>
+</head>
+<body>
+
+<!-- Sticky Header -->
+<div class="sticky-header">
+  <div class="brand">rewire.school</div>
+  <a href="#book-call" class="btn-primary">Get My Gap Assessment →</a>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <span class="badge">Live Cohort for Product Managers</span>
+    <h1>Land AI PM Interviews Using<br>The Portfolio Method</h1>
+    <p class="subtitle">In 8 weeks, you'll build 4 interview-ready assets — an AI opportunity teardown, a ship-ready PRD, a roadmap presentation, and your positioning story. Show up to interviews with proof, not promises.</p>
+
+    <!-- Hero Video Placeholder -->
+    <div style="max-width: 800px; margin: 0 auto 32px; aspect-ratio: 16/9; background: var(--card); border: 1px solid var(--card-border); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.borderColor='var(--purple)'" onmouseout="this.style.borderColor='var(--card-border)'">
+      <div style="width: 80px; height: 80px; border-radius: 50%; background: var(--purple); display: flex; align-items: center; justify-content: center;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 14px;">[Watch: How The Portfolio Method Works — 3 min]</p>
+    </div>
+
+    <div class="hero-cta">
+      <a href="#book-call" class="btn-primary">See If I Qualify →</a>
+      <a href="#curriculum" class="btn-secondary">View The 4 Assets</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-value">200+</div>
+        <div class="stat-label">PMs Trained</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">4.7</div>
+        <div class="stat-label">Avg Rating</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">40</div>
+        <div class="stat-label">Max Per Cohort</div>
+      </div>
+    </div>
+
+    <!-- Urgency Bar -->
+    <div style="margin-top: 32px; padding: 16px 24px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 12px; display: inline-flex; gap: 24px; flex-wrap: wrap; justify-content: center;">
+      <span style="color: var(--snow); font-size: 15px;"><strong>Next cohort:</strong> May 12 - Jul 7, 2026</span>
+      <span style="color: var(--purple-light); font-size: 15px;">12 seats remaining</span>
+    </div>
+  </div>
+</section>
+
+<!-- Logo Bar -->
+<section class="logo-bar">
+  <div class="container">
+    <p>Our students work at</p>
+    <div class="logos">
+      <span class="logo">Google</span>
+      <span class="logo">Meta</span>
+      <span class="logo">Stripe</span>
+      <span class="logo">Shopify</span>
+      <span class="logo">Notion</span>
+      <span class="logo">Datadog</span>
+    </div>
+  </div>
+</section>
+
+<!-- Why Book a Call Section -->
+<section class="why-call" style="padding: 60px 0; background: rgba(139, 92, 246, 0.05);">
+  <div class="container" style="max-width: 800px; text-align: center;">
+    <h2 style="font-size: 28px; margin-bottom: 16px;">Not Sure If AI PM Is Your Next Move?</h2>
+    <p style="color: var(--text-secondary); font-size: 18px; margin-bottom: 32px;">On a 15-minute call, we'll look at your background, identify what's blocking you from AI PM roles, and tell you honestly if this cohort is the fastest path — or not.</p>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; margin-bottom: 32px;">
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <span style="color: var(--success); font-size: 20px;">1</span>
+        <span style="color: var(--text-secondary);">Audit your current PM experience for AI-transferable skills</span>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <span style="color: var(--success); font-size: 20px;">2</span>
+        <span style="color: var(--text-secondary);">Identify the 2-3 gaps keeping you out of AI PM interviews</span>
+      </div>
+      <div style="display: flex; gap: 12px; align-items: flex-start;">
+        <span style="color: var(--success); font-size: 20px;">3</span>
+        <span style="color: var(--text-secondary);">Get a clear recommendation — cohort, self-study, or something else</span>
+      </div>
+    </div>
+    <a href="#book-call" class="btn-primary">Get My Gap Assessment →</a>
+    <p style="color: var(--text-secondary); font-size: 13px; margin-top: 16px;">15 minutes. Free. No sales pitch — just honest advice.</p>
+  </div>
+</section>
+
+<!-- Problem Section -->
+<section class="problem">
+  <div class="container">
+    <h2>The AI PM Gap Is Costing You Roles</h2>
+    <p class="intro">You've got the PM fundamentals. But AI PM interviews expose gaps you can't fake — and interviewers know it in the first 10 minutes.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <h3>"Walk me through an AI product you'd build"</h3>
+        <p>You scramble for an answer. They wanted a structured framework — opportunity sizing, technical feasibility, success metrics. You gave them vague ideas.</p>
+      </div>
+      <div class="problem-card">
+        <h3>"How would you spec this AI feature?"</h3>
+        <p>You write PRDs all day. But AI specs need accuracy targets, failure modes, edge cases, latency constraints. Different playbook. You don't have it.</p>
+      </div>
+      <div class="problem-card">
+        <h3>"Can you explain RAG vs fine-tuning?"</h3>
+        <p>ML engineers test you. Can you hold your own or do you nod and hope? They're deciding if you're a PM they want to work with — or work around.</p>
+      </div>
+      <div class="problem-card">
+        <h3>"Show me AI work you've done"</h3>
+        <p>The interview ends here. No portfolio, no proof. They'll pick the candidate who can link a PRD, show a teardown, and defend their AI thinking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Solution Section -->
+<section class="solution" id="curriculum">
+  <div class="container">
+    <h2>The 4 Assets That Make You Hireable</h2>
+    <p class="intro" style="text-align: center; color: var(--text-secondary); font-size: 18px; max-width: 700px; margin: -32px auto 48px;">Each asset answers a specific interview question. Link them on LinkedIn. Reference them in conversations. Walk in with proof.</p>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="week">Weeks 1-2</div>
+        <h3>The AI Opportunity Teardown</h3>
+        <ul>
+          <li>The 5-question framework to separate AI hype from real opportunities</li>
+          <li>Build vs. buy vs. API decision matrix (the one ML teams actually use)</li>
+          <li>How to spot high-value AI use cases in 30 minutes</li>
+          <li><strong>You'll publish:</strong> A written teardown of 3 AI products — ready to discuss in any interview</li>
+        </ul>
+      </div>
+      <div class="solution-card">
+        <div class="week">Weeks 3-4</div>
+        <h3>The Ship-Ready AI PRD</h3>
+        <ul>
+          <li>The AI PRD template with success metrics, tradeoffs, and failure modes</li>
+          <li>How to set accuracy/latency targets that engineers can actually hit</li>
+          <li>Edge case planning that prevents "works in demo, fails in prod"</li>
+          <li><strong>You'll publish:</strong> A complete AI feature PRD — peer-reviewed by the cohort</li>
+        </ul>
+      </div>
+      <div class="solution-card">
+        <div class="week">Weeks 5-6</div>
+        <h3>The AI Roadmap Presentation</h3>
+        <ul>
+          <li>RAG, embeddings, fine-tuning explained in PM language (not ML jargon)</li>
+          <li>AI product metrics that actually matter for business outcomes</li>
+          <li>How to prioritize AI features against traditional product work</li>
+          <li><strong>You'll publish:</strong> A stakeholder-ready AI roadmap you can present to executives</li>
+        </ul>
+      </div>
+      <div class="solution-card">
+        <div class="week">Weeks 7-8</div>
+        <h3>Your AI PM Positioning Story</h3>
+        <ul>
+          <li>How to reframe your traditional PM experience for AI roles</li>
+          <li>Resume bullets and LinkedIn updates that signal "I ship AI products"</li>
+          <li>The 7 most common AI PM interview questions (with battle-tested answers)</li>
+          <li><strong>You'll leave with:</strong> Your complete interview narrative and answer bank</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Career Outcome Roadmap -->
+<section style="padding: 80px 0;">
+  <div class="container">
+    <h2 style="font-size: 32px; text-align: center; margin-bottom: 16px;">From "Learning About AI" to Interview-Ready</h2>
+    <p style="text-align: center; color: var(--text-secondary); font-size: 18px; max-width: 700px; margin: 0 auto 48px;">The cohort follows a 4-phase arc. Each phase builds capability you can demonstrate — not just knowledge you can claim.</p>
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1000px; margin: 0 auto;">
+      <div style="text-align: center; position: relative;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--purple); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 24px; margin: 0 auto 16px;">1</div>
+        <h4 style="font-size: 16px; margin-bottom: 8px;">Clarify Your AI PM Positioning</h4>
+        <p style="color: var(--text-secondary); font-size: 14px;">Define your unique angle for AI PM roles</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--purple); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 24px; margin: 0 auto 16px;">2</div>
+        <h4 style="font-size: 16px; margin-bottom: 8px;">Learn Core AI Product Skills</h4>
+        <p style="color: var(--text-secondary); font-size: 14px;">Master what employers actually want</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--purple); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 24px; margin: 0 auto 16px;">3</div>
+        <h4 style="font-size: 16px; margin-bottom: 8px;">Build Real Portfolio Projects</h4>
+        <p style="color: var(--text-secondary); font-size: 14px;">Ship work you can show in interviews</p>
+      </div>
+      <div style="text-align: center;">
+        <div style="width: 60px; height: 60px; border-radius: 50%; background: var(--purple); color: white; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 24px; margin: 0 auto 16px;">4</div>
+        <h4 style="font-size: 16px; margin-bottom: 8px;">Nail The Interview Story</h4>
+        <p style="color: var(--text-secondary); font-size: 14px;">Resume + narrative that lands offers</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mid-page CTA -->
+<section class="mid-cta">
+  <div class="container">
+    <p>Not sure if you're ready? Let's find out in 15 minutes.</p>
+    <a href="#book-call" class="btn-primary">Get My Gap Assessment →</a>
+  </div>
+</section>
+
+<!-- Instructor Section -->
+<section class="instructor">
+  <div class="container">
+    <h2>Learn From Someone Who's Hired AI PMs</h2>
+    <!-- Instructor Video Placeholder -->
+    <div style="max-width: 700px; margin: 0 auto 48px; aspect-ratio: 16/9; background: var(--card); border: 2px dashed var(--card-border); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;">
+      <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; justify-content: center;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple-light)" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 14px;">[Instructor Intro Video - 60-90 seconds]</p>
+    </div>
+    <div class="instructor-card">
+      <div class="instructor-photo" style="background: var(--card); border: 2px dashed var(--card-border); font-size: 14px; color: var(--text-secondary);">Photo</div>
+      <div class="instructor-info">
+        <h3>[Instructor Name]</h3>
+        <div class="title">Sr. AI Product Manager @ [FAANG/AI Company] | Previously: [Company], [Company]</div>
+        <p>I've shipped AI products to millions of users and hired dozens of AI PMs. I know exactly what separates candidates who get offers from those who don't — and it's not technical depth. It's proving you can think in AI product terms.</p>
+        <div class="instructor-creds">
+          <span class="cred">8+ AI products shipped</span>
+          <span class="cred">Hired 20+ AI PMs</span>
+          <span class="cred">200+ PMs trained</span>
+        </div>
+      </div>
+    </div>
+    <p style="text-align: center; color: var(--text-secondary); font-size: 14px; margin-top: 24px; font-style: italic;">"I was tired of seeing great PMs fail AI interviews because they couldn't show proof. This program exists to fix that."</p>
+  </div>
+</section>
+
+<!-- Format Section -->
+<section class="format">
+  <div class="container">
+    <h2>Designed For Working PMs (Not Career Changers)</h2>
+    <div class="format-grid">
+      <div class="format-item">
+        <h3>Saturdays Only</h3>
+        <p>4 hours, 9am-1pm PT. Sundays free. No weeknight commitments.</p>
+      </div>
+      <div class="format-item">
+        <h3>40 Seats Max</h3>
+        <p>Small enough for real discussion. Everyone gets feedback on their work.</p>
+      </div>
+      <div class="format-item">
+        <h3>Ship, Don't Study</h3>
+        <p>You'll publish 4 portfolio assets — not sit through lectures.</p>
+      </div>
+      <div class="format-item">
+        <h3>AI PM Network</h3>
+        <p>Private Slack with 400+ AI PMs. Job posts. Referrals. Stays open forever.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Social Proof Section -->
+<section class="social-proof">
+  <div class="container">
+    <h2>PMs Who Showed Up With Proof</h2>
+    <p class="intro">They built the portfolio. They landed the interviews. Here's what changed.</p>
+    <div class="testimonial-grid">
+      <div class="testimonial">
+        <p class="quote">"I sent my AI PRD to my manager before the cohort even ended. His response: 'This is the most thorough AI spec I've seen from our team.' Got promoted to lead our AI initiative 6 weeks later."</p>
+        <div class="author">
+          <div class="avatar">MR</div>
+          <div class="author-info">
+            <div class="name">Michael R.</div>
+            <div class="role">Now: AI Product Lead @ Series C Fintech</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="quote">"Failed 3 AI PM interviews before this. The portfolio changed everything — interviewers actually asked me to walk through my teardown and PRD. Got 2 offers within 45 days of completing."</p>
+        <div class="author">
+          <div class="avatar">SL</div>
+          <div class="author-info">
+            <div class="name">Sarah L.</div>
+            <div class="role">Now: AI PM @ Series B (ex-Ecommerce PM)</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <p class="quote">"Went from 'the PM who nods in ML meetings' to presenting our AI roadmap to the exec team. The positioning story framework made me realize I already had relevant experience — I just didn't know how to frame it."</p>
+        <div class="author">
+          <div class="avatar">JC</div>
+          <div class="author-info">
+            <div class="name">James C.</div>
+            <div class="role">Now: Sr. PM, AI Platform @ Datadog</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Case Studies -->
+<section style="padding: 80px 0; background: var(--card);">
+  <div class="container">
+    <h2 style="font-size: 32px; text-align: center; margin-bottom: 48px;">The Before/After (With Actual Timelines)</h2>
+    <!-- Video Testimonial Placeholder -->
+    <div style="max-width: 800px; margin: 0 auto 48px; aspect-ratio: 16/9; background: var(--night); border: 2px dashed var(--card-border); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;">
+      <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; justify-content: center;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple-light)" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 14px;">[Video Testimonial - Student success story]</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 32px;">
+      <div style="background: var(--night); border: 1px solid var(--card-border); border-radius: 16px; padding: 32px;">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--purple-light)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">MR</div>
+          <div>
+            <div style="font-weight: 600; font-size: 18px;">Michael R.</div>
+            <div style="color: var(--text-secondary); font-size: 14px;">Now: Staff PM @ Series C Fintech, SF</div>
+          </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <div style="font-size: 13px; color: #ef4444; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Before</div>
+          <ul style="list-style: none; color: var(--text-secondary); font-size: 15px;">
+            <li style="padding: 4px 0;">• Traditional PM with zero AI portfolio</li>
+            <li style="padding: 4px 0;">• Passed over for AI product launches</li>
+            <li style="padding: 4px 0;">• Struggled to explain AI in interviews</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size: 13px; color: var(--success); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">After</div>
+          <ul style="list-style: none; color: var(--snow); font-size: 15px;">
+            <li style="padding: 4px 0;">• Built 3 portfolio projects in 8 weeks</li>
+            <li style="padding: 4px 0;">• Promoted to Staff PM 4 months later</li>
+            <li style="padding: 4px 0;"><strong>Now leads AI product initiatives</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div style="background: var(--night); border: 1px solid var(--card-border); border-radius: 16px; padding: 32px;">
+        <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 24px;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--purple-light)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 24px;">SL</div>
+          <div>
+            <div style="font-weight: 600; font-size: 18px;">Sarah L.</div>
+            <div style="color: var(--text-secondary); font-size: 14px;">Now: AI PM @ Series B Startup</div>
+          </div>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <div style="font-size: 13px; color: #ef4444; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Before</div>
+          <ul style="list-style: none; color: var(--text-secondary); font-size: 15px;">
+            <li style="padding: 4px 0;">• E-commerce PM, no ML exposure</li>
+            <li style="padding: 4px 0;">• Terrified of AI PM interviews</li>
+            <li style="padding: 4px 0;">• Rejected from 3 AI PM roles</li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-size: 13px; color: var(--success); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">After</div>
+          <ul style="list-style: none; color: var(--snow); font-size: 15px;">
+            <li style="padding: 4px 0;">Confident in AI PM interviews</li>
+            <li style="padding: 4px 0;">Landed AI PM role within 8 weeks</li>
+            <li style="padding: 4px 0;"><strong>Now ships AI features at a funded startup</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#book-call" class="btn-secondary">Talk To An Advisor About Your Transition →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Why This Beats Self-Study -->
+<section style="padding: 80px 0;">
+  <div class="container">
+    <h2 style="font-size: 32px; text-align: center; margin-bottom: 48px;">"I'll Just Learn This On My Own" (Why It Doesn't Work)</h2>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; max-width: 900px; margin: 0 auto;">
+      <div>
+        <h3 style="color: #ef4444; font-size: 18px; margin-bottom: 24px;">The Self-Study Trap</h3>
+        <ul style="list-style: none;">
+          <li style="padding: 12px 0; color: var(--text-secondary); border-bottom: 1px solid var(--card-border);">You watch tutorials but never build anything</li>
+          <li style="padding: 12px 0; color: var(--text-secondary); border-bottom: 1px solid var(--card-border);">No one tells you if your PRD would actually ship</li>
+          <li style="padding: 12px 0; color: var(--text-secondary); border-bottom: 1px solid var(--card-border);">Work gets busy. You'll "get back to it"</li>
+          <li style="padding: 12px 0; color: var(--text-secondary); border-bottom: 1px solid var(--card-border);">6 months later: no portfolio, no progress</li>
+          <li style="padding: 12px 0; color: var(--text-secondary);">Interview asks "show me your AI work" — nothing to show</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="color: var(--success); font-size: 18px; margin-bottom: 24px;">The Portfolio Method</h3>
+        <ul style="list-style: none;">
+          <li style="padding: 12px 0; color: var(--snow); border-bottom: 1px solid var(--card-border);">You publish real work every 2 weeks</li>
+          <li style="padding: 12px 0; color: var(--snow); border-bottom: 1px solid var(--card-border);">Instructor + peers review every asset</li>
+          <li style="padding: 12px 0; color: var(--snow); border-bottom: 1px solid var(--card-border);">Cohort creates accountability (people notice if you skip)</li>
+          <li style="padding: 12px 0; color: var(--snow); border-bottom: 1px solid var(--card-border);">8 weeks later: 4 assets you can link on LinkedIn</li>
+          <li style="padding: 12px 0; color: var(--snow);">Interview asks "show me your AI work" — you send links</li>
+        </ul>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="#book-call" class="btn-primary">Talk To Us About Your Situation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Who This Is For / Not For -->
+<section class="who-for">
+  <div class="container">
+    <h2>Is This Right For You?</h2>
+    <div class="who-for-grid">
+      <div class="who-for-card yes">
+        <h3>✓ This Is For You If...</h3>
+        <ul>
+          <li>You have 2+ years PM experience and want to move into AI-focused roles</li>
+          <li>You want live coaching, accountability, and real portfolio projects</li>
+          <li>You can commit 4 hours on Saturdays for 8 weeks</li>
+          <li>You're serious about career acceleration, not passive learning</li>
+          <li>You want to stop "learning about AI" and start shipping AI products</li>
+        </ul>
+      </div>
+      <div class="who-for-card no">
+        <h3>✗ Probably Not A Fit If...</h3>
+        <ul>
+          <li>You want a self-paced video course you can watch "someday"</li>
+          <li>You can't attend live weekend sessions (no PST-friendly time)</li>
+          <li>You want broad PM theory, not AI role positioning</li>
+          <li>You're looking for a certificate to hang on your wall</li>
+          <li>You're not ready to do real project work</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Why PMs Stay Stuck -->
+<section style="padding: 80px 0;">
+  <div class="container">
+    <h2 style="font-size: 32px; text-align: center; margin-bottom: 48px;">4 Reasons PMs Keep Failing AI PM Interviews</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;">
+      <div style="background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: #ef4444; font-weight: 700;">1</div>
+        <p style="color: var(--text-secondary); font-size: 15px;">They learn theory but never build proof-of-skill</p>
+      </div>
+      <div style="background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: #ef4444; font-weight: 700;">2</div>
+        <p style="color: var(--text-secondary); font-size: 15px;">They can't explain AI in product terms during interviews</p>
+      </div>
+      <div style="background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: #ef4444; font-weight: 700;">3</div>
+        <p style="color: var(--text-secondary); font-size: 15px;">They try to figure it out alone and waste months</p>
+      </div>
+      <div style="background: var(--card); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px; text-align: center;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: #ef4444; font-weight: 700;">4</div>
+        <p style="color: var(--text-secondary); font-size: 15px;">They choose broad programs that don't position them for AI roles</p>
+      </div>
+    </div>
+    <p style="text-align: center; color: var(--purple-light); font-size: 18px; margin-top: 32px; font-weight: 600;">This cohort was built to solve exactly those four problems.</p>
+  </div>
+</section>
+
+
+<!-- Why Different Section -->
+<section style="padding: 80px 0; background: rgba(139, 92, 246, 0.03);">
+  <div class="container" style="max-width: 800px;">
+    <h2 style="font-size: 32px; text-align: center; margin-bottom: 16px;">Why This Instead of a $2,500 Course</h2>
+    <p style="text-align: center; color: var(--text-secondary); font-size: 18px; margin-bottom: 48px;">Most AI PM courses teach you concepts. We make you build proof.</p>
+    <div style="display: grid; gap: 24px;">
+      <div style="display: flex; gap: 16px; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--success); font-weight: 700;">1</div>
+        <div>
+          <h4 style="font-size: 16px; margin-bottom: 4px; color: var(--snow);">Portfolio-first, not content-first</h4>
+          <p style="color: var(--text-secondary); font-size: 15px;">Other programs give you 40 hours of video. You leave with knowledge. We give you 4 published assets. You leave with proof interviewers can click.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--success); font-weight: 700;">2</div>
+        <div>
+          <h4 style="font-size: 16px; margin-bottom: 4px; color: var(--snow);">Interview-ready, not just AI-literate</h4>
+          <p style="color: var(--text-secondary); font-size: 15px;">We don't just teach you what RAG is. We help you build an answer to "walk me through an AI product decision you made" — with supporting artifacts.</p>
+        </div>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: flex-start;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--success); font-weight: 700;">3</div>
+        <div>
+          <h4 style="font-size: 16px; margin-bottom: 4px; color: var(--snow);">40 PMs, not 200</h4>
+          <p style="color: var(--text-secondary); font-size: 15px;">In a 200-person cohort, you're invisible. In a 40-person cohort, the instructor knows your work, your gaps, and gives you direct feedback every week.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="pricing">
+  <div class="container">
+    <h2>What You Get In 8 Weeks</h2>
+    <p class="intro">The complete system to go from "interested in AI" to interview-ready.</p>
+    <div class="pricing-card featured" style="max-width: 520px; margin: 0 auto;">
+      <div class="region">Live Cohort Program</div>
+      <ul>
+        <li>8 live weekend sessions (32 hours of instruction)</li>
+        <li>4 portfolio assets (teardown, PRD, roadmap, positioning)</li>
+        <li>Weekly 1:1 feedback on your work from instructor</li>
+        <li>Peer review from 39 other PMs building alongside you</li>
+        <li>$500 in AI tool credits (OpenAI, Claude, Cursor)</li>
+        <li>LinkedIn-verified AI PM Certificate</li>
+        <li>12-month Slack community access (job posts, referrals)</li>
+        <li><strong>"See It Working" 14-day guarantee</strong></li>
+      </ul>
+      <a href="#book-call" class="btn-primary" style="width: 100%;">Book My Strategy Call →</a>
+      <div style="display: flex; justify-content: center; gap: 24px; margin-top: 16px; color: var(--text-secondary); font-size: 13px;">
+        <span>15 min call</span>
+        <span>Free</span>
+        <span>No pressure</span>
+      </div>
+    </div>
+
+    <!-- Social proof under pricing -->
+    <div style="text-align: center; margin-top: 40px;">
+      <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">Trusted by PMs from</p>
+      <div style="display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; opacity: 0.6;">
+        <span style="font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--text-secondary);">Google</span>
+        <span style="font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--text-secondary);">Stripe</span>
+        <span style="font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--text-secondary);">Shopify</span>
+        <span style="font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--text-secondary);">Coinbase</span>
+        <span style="font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--text-secondary);">Datadog</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Happens On The Call -->
+<section style="padding: 60px 0; background: var(--card);">
+  <div class="container" style="max-width: 700px;">
+    <h2 style="font-size: 28px; text-align: center; margin-bottom: 32px;">What To Expect On Your Call</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;">
+      <div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 800; color: var(--purple-light); margin: 0 auto 12px;">1</div>
+        <p style="color: var(--text-secondary); font-size: 14px;">We look at your background, goals, and current PM experience</p>
+      </div>
+      <div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 800; color: var(--purple-light); margin: 0 auto 12px;">2</div>
+        <p style="color: var(--text-secondary); font-size: 14px;">We map the shortest path to becoming competitive for AI PM roles</p>
+      </div>
+      <div>
+        <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 800; color: var(--purple-light); margin: 0 auto 12px;">3</div>
+        <p style="color: var(--text-secondary); font-size: 14px;">If the program fits, we show you how the next cohort works</p>
+      </div>
+    </div>
+    <p style="text-align: center; color: var(--text-secondary); font-size: 15px; margin-top: 24px; font-style: italic;">No pressure. No generic pitch. Just a clear recommendation based on your goals.</p>
+  </div>
+</section>
+
+<!-- Guarantee Section -->
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-box">
+      <h3>The "See It Working" Guarantee</h3>
+      <p>Attend the first 2 sessions. Complete your first portfolio asset. If you don't feel measurably more prepared for AI PM interviews by day 14, email us for a full refund. No hoops. We want you in this cohort only if it's clearly working.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq">
+  <div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Do I need coding experience?</summary>
+        <div class="answer">No. This is for product managers, not engineers. You'll learn to work with AI teams and evaluate AI products — not build ML models yourself. We focus on what PMs actually need.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What's the time commitment?</summary>
+        <div class="answer">4 hours on weekends (Saturday or Sunday) for 8 weeks. Plus 2-3 hours of project work between sessions. Designed for working professionals.</div>
+      </details>
+      <details class="faq-item">
+        <summary>When is the next cohort?</summary>
+        <div class="answer">We run cohorts every 2-3 months. Book a free call to check availability and reserve your seat for the next batch.</div>
+      </details>
+      <details class="faq-item">
+        <summary>What if I can't attend a live session?</summary>
+        <div class="answer">All sessions are recorded. But the real value is in live participation — discussions, Q&A, peer learning. We recommend attending live whenever possible.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is there a refund policy?</summary>
+        <div class="answer">Yes. If you attend the first 2 sessions and feel it's not for you, we'll refund 100%. No questions asked. We're confident you'll find it valuable.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from other AI PM courses?</summary>
+        <div class="answer">Smaller cohorts (40 max), weekly hands-on feedback on your work, and focused specifically on building portfolio assets rather than just learning concepts. You leave with 4 concrete deliverables you can show in interviews.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA Section -->
+<section class="final-cta" id="book-call">
+  <div class="container">
+    <h2>Find Out If You Can Be Interview-Ready In 8 Weeks</h2>
+    <p>In 15 minutes, we'll audit your background, identify your gaps, and tell you honestly if this is the fastest path to AI PM roles — or if something else makes more sense.</p>
+    <div class="cta-buttons">
+      <a href="https://calendly.com/rewire-school/pm-course" class="btn-primary" style="padding: 20px 48px; font-size: 18px;">Get My AI PM Gap Assessment →</a>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 32px; margin-top: 20px; color: var(--text-secondary); font-size: 14px; flex-wrap: wrap;">
+      <span>15 minutes</span>
+      <span>Free</span>
+      <span>Honest advice, not a sales pitch</span>
+      <span>Get a plan even if you don't join</span>
+    </div>
+    <p style="color: var(--text-secondary); font-size: 14px; margin-top: 24px;">Prefer email? <a href="mailto:hello@rewire.school" style="color: var(--purple-light);">hello@rewire.school</a></p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="brand">rewire.school</div>
+    <div class="tagline">Built with AI. Obviously.</div>
+    <div class="links">
+      <a href="https://rewire.school">Home</a>
+      <a href="mailto:hello@rewire.school">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
