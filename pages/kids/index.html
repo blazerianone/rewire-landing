@@ -319,6 +319,10 @@ section { padding: 96px 0; }
 @media (max-width: 600px) { .skills-grid { grid-template-columns: 1fr !important; } }
 @media (max-width: 768px) { .build-method-grid { grid-template-columns: repeat(3, 1fr) !important; } }
 @media (max-width: 500px) { .build-method-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+
+/* Week cards responsive */
+.week-cards-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 960px; margin: 0 auto; }
+@media (max-width: 768px) { .week-cards-grid { grid-template-columns: 1fr; gap: 32px; } }
 </style>
 </head>
 <body>
@@ -375,45 +379,45 @@ section { padding: 96px 0; }
   <div class="container">
     <p style="text-align: center; font-size: 11px; color: var(--text-secondary); margin-bottom: 28px; letter-spacing: 1.5px; text-transform: uppercase;">Tools Your Child Will Master</p>
     <div style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap;">
-      <!-- ChatGPT -->
+      <!-- ChatGPT - Official OpenAI logo -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <div style="width: 48px; height: 48px; background: #10A37F; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zM3.6 18.304a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.0993 3.8558L12.6 8.3829l2.02-1.1638a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997z"/></svg>
+        <div style="width: 48px; height: 48px; background: #000; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>
         </div>
         <span style="font-size: 12px; color: var(--text-secondary);">ChatGPT</span>
       </div>
-      <!-- Claude -->
+      <!-- Claude - Official Anthropic logo -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #D4A574 0%, #CC774D 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3C7.03 3 3 7.03 3 12C3 14.76 4.21 17.23 6.13 18.87L6 21L9.13 19.13C10.03 19.36 10.99 19.5 12 19.5C16.97 19.5 21 15.47 21 10.5C21 7.03 18.47 4.13 15 3.26" stroke="white" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="11" r="1.5" fill="white"/><circle cx="12" cy="11" r="1.5" fill="white"/><circle cx="16" cy="11" r="1.5" fill="white"/></svg>
+        <div style="width: 48px; height: 48px; background: #D97706; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
         </div>
         <span style="font-size: 12px; color: var(--text-secondary);">Claude</span>
       </div>
-      <!-- Gemini -->
+      <!-- Gemini - Official Google Gemini logo -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #1A73E8 0%, #8E44AD 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2C12 2 12 7 12 12C12 17 12 22 12 22" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M2 12C2 12 7 12 12 12C17 12 22 12 22 12" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M4.93 4.93C4.93 4.93 8.46 8.46 12 12C15.54 15.54 19.07 19.07 19.07 19.07" stroke="white" stroke-width="2" stroke-linecap="round"/><path d="M19.07 4.93C19.07 4.93 15.54 8.46 12 12C8.46 15.54 4.93 19.07 4.93 19.07" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+        <div style="width: 48px; height: 48px; background: #fff; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="gem1" x1="0" y1="12" x2="24" y2="12"><stop stop-color="#4285F4"/><stop offset="0.5" stop-color="#9B72CB"/><stop offset="1" stop-color="#D96570"/></linearGradient></defs><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81" fill="url(#gem1)"/></svg>
         </div>
         <span style="font-size: 12px; color: var(--text-secondary);">Gemini</span>
       </div>
-      <!-- Leonardo AI -->
+      <!-- Leonardo AI - Official logo -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M2 12C2 12 4 4 12 4C20 4 22 12 22 12"/><circle cx="12" cy="14" r="5"/><circle cx="12" cy="14" r="2" fill="white"/></svg>
+        <div style="width: 48px; height: 48px; border-radius: 12px; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+          <img src="assets/leonardo-ai-logo.png" alt="Leonardo AI" style="width: 48px; height: 48px; object-fit: cover;">
         </div>
         <span style="font-size: 12px; color: var(--text-secondary);">Leonardo AI</span>
       </div>
-      <!-- Canva -->
+      <!-- Canva - Official logo -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <div style="width: 48px; height: 48px; background: linear-gradient(135deg, #00C4CC 0%, #7D2AE8 100%); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 4C7.58 4 4 7.58 4 12C4 16.42 7.58 20 12 20C13.1 20 14.15 19.77 15.1 19.35L15 19.5C15 19.5 13.5 20 12 20C6.48 20 2 15.52 2 10C2 4.48 6.48 0 12 0C17.52 0 22 4.48 22 10C22 12.21 21.21 14.21 19.9 15.77" stroke="white" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+        <div style="width: 48px; height: 48px; background: #00C4CC; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM6.962 7.68c.754 0 1.337.549 1.405 1.2.069.583-.171 1.097-.822 1.406-.343.171-.48.172-.549.069-.034-.069 0-.137.069-.206.617-.514.617-.926.548-1.508-.034-.378-.308-.618-.583-.618-1.2 0-2.914 2.674-2.674 4.629.103.754.549 1.646 1.509 1.646.308 0 .65-.103.96-.24.5-.264.799-.47 1.097-.8-.073-.885.704-2.046 1.851-2.046.515 0 .926.205.96.583.068.514-.377.582-.514.582s-.378-.034-.378-.17c-.034-.138.309-.07.275-.378-.035-.206-.24-.274-.446-.274-.72 0-1.131.994-1.029 1.611.035.275.172.549.447.549.205 0 .514-.31.617-.755.068-.308.343-.514.583-.514.102 0 .17.034.205.171v.138c-.034.137-.137.548-.102.651 0 .069.034.171.17.171.092 0 .436-.18.777-.459.117-.59.253-1.298.253-1.357.034-.24.137-.48.617-.48.103 0 .171.034.205.171v.138l-.136.617c.445-.583 1.097-.994 1.508-.994.172 0 .309.102.309.274 0 .103 0 .274-.069.446-.137.377-.309.96-.412 1.474 0 .137.035.274.207.274.171 0 .685-.206 1.096-.754l.007-.004c-.002-.068-.007-.134-.007-.202 0-.411.035-.754.104-.994.068-.274.411-.514.617-.514.103 0 .205.069.205.171 0 .035 0 .103-.034.137-.137.446-.24.857-.24 1.269 0 .24.034.582.102.788 0 .034.035.069.07.069.068 0 .548-.445.89-1.028-.308-.206-.48-.549-.48-.96 0-.72.446-1.097.858-1.097.343 0 .617.24.617.72 0 .308-.103.65-.274.96h.102a.77.77 0 0 0 .584-.24.293.293 0 0 1 .134-.117c.335-.425.83-.74 1.41-.74.48 0 .924.205.959.582.068.515-.378.618-.515.618l-.002-.002c-.138 0-.377-.035-.377-.172 0-.137.309-.068.274-.376-.034-.206-.24-.275-.446-.275-.686 0-1.13.891-1.028 1.611.034.275.171.583.445.583.206 0 .515-.308.652-.754.068-.274.343-.514.583-.514.103 0 .17.034.205.171 0 .069 0 .206-.137.652-.17.308-.171.48-.137.617.034.274.171.48.309.583.034.034.068.102.068.102 0 .069-.034.138-.137.138-.034 0-.068 0-.103-.035-.514-.205-.72-.548-.789-.891-.205.24-.445.377-.72.377-.445 0-.89-.411-.96-.926a1.609 1.609 0 0 1 .075-.649c-.203.13-.422.203-.623.203h-.17c-.447.652-.927 1.098-1.27 1.303a.896.896 0 0 1-.377.104c-.068 0-.171-.035-.205-.104-.095-.152-.156-.392-.193-.667-.481.527-1.145.805-1.453.805-.343 0-.548-.206-.582-.55v-.376c.102-.754.377-1.2.377-1.337a.074.074 0 0 0-.069-.07c-.24 0-1.028.824-1.166 1.373l-.103.445c-.068.309-.377.515-.582.515-.103 0-.172-.035-.206-.172v-.137l.046-.233c-.435.31-.87.508-1.075.508-.308 0-.48-.172-.514-.412-.206.274-.445.412-.754.412-.352 0-.696-.24-.862-.593-.244.275-.523.553-.852.764-.48.309-1.028.549-1.68.549-.582 0-1.097-.309-1.371-.583-.412-.377-.651-.96-.686-1.509-.205-1.68.823-3.84 2.4-4.8.378-.205.755-.343 1.132-.343zm9.77 3.291c-.104 0-.172.172-.172.343 0 .274.137.583.309.755a1.74 1.74 0 0 0 .102-.583c0-.343-.137-.515-.24-.515z"/></svg>
         </div>
         <span style="font-size: 12px; color: var(--text-secondary);">Canva</span>
       </div>
       <!-- Bolt.new -->
       <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
-        <div style="width: 48px; height: 48px; background: #1a1a1a; border: 2px solid #333; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="#FFCC00"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        <div style="width: 48px; height: 48px; background: #1a1a1a; border: 1.5px solid #333; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" fill="#F59E0B"/></svg>
         </div>
         <span style="font-size: 12px; color: var(--text-secondary);">Bolt.new</span>
       </div>
@@ -683,65 +687,180 @@ section { padding: 96px 0; }
   <div class="container">
     <div class="section-header">
       <h2>The 4-Week Journey</h2>
-      <p>From curious to confident AI creator</p>
+      <p>8 live sessions across 4 weekends — from curious to confident AI creator</p>
     </div>
 
-    <!-- Horizontal Timeline -->
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; max-width: 900px; margin: 0 auto; position: relative;">
-      <!-- Connecting line -->
-      <div style="position: absolute; top: 28px; left: 12.5%; right: 12.5%; height: 2px; background: linear-gradient(90deg, var(--purple), var(--purple-light), var(--success));"></div>
+    <!-- Week Cards Grid -->
+    <div class="week-cards-grid">
 
-      <!-- Week 1 -->
-      <div style="text-align: center; position: relative; padding: 0 8px;">
-        <div style="width: 56px; height: 56px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; position: relative; z-index: 1; border: 3px solid var(--night);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      <!-- Week 1 Card -->
+      <div class="card" style="position: relative; overflow: visible;">
+        <div style="position: absolute; top: -12px; left: 20px; background: var(--purple); color: white; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 10px; letter-spacing: 0.5px;">WEEK 1</div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; margin-top: 8px;">
+          <div style="width: 44px; height: 44px; background: rgba(139,92,246,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 2px;">AI Foundations</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Understand AI & become a power user</p>
+          </div>
         </div>
-        <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 4px;">WEEK 1</p>
-        <p style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Master AI</p>
-        <p style="font-size: 12px; color: var(--text-secondary);">ChatGPT, Claude, Gemini</p>
+        <div style="border-top: 1px solid var(--card-border); padding-top: 16px;">
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 6px;">SATURDAY — AI Tools</p>
+            <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              <li>What is AI? How does it work?</li>
+              <li>ChatGPT, Claude, Gemini — hands-on exploration</li>
+              <li>When to use which tool</li>
+            </ul>
+          </div>
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 6px;">SUNDAY — Prompt Engineering</p>
+            <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              <li>The art of asking AI better questions</li>
+              <li>Prompt frameworks that actually work</li>
+              <li>Turn AI into a research assistant</li>
+            </ul>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px dashed var(--card-border);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            <span style="font-size: 12px; color: var(--success); font-weight: 500;">Output: First AI-generated research project</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Week 2 -->
-      <div style="text-align: center; position: relative; padding: 0 8px;">
-        <div style="width: 56px; height: 56px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; position: relative; z-index: 1; border: 3px solid var(--night);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+      <!-- Week 2 Card -->
+      <div class="card" style="position: relative; overflow: visible;">
+        <div style="position: absolute; top: -12px; left: 20px; background: var(--purple); color: white; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 10px; letter-spacing: 0.5px;">WEEK 2</div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; margin-top: 8px;">
+          <div style="width: 44px; height: 44px; background: rgba(139,92,246,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 2px;">AI Art Creation</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Create stunning visuals with AI</p>
+          </div>
         </div>
-        <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 4px;">WEEK 2</p>
-        <p style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Create Art</p>
-        <p style="font-size: 12px; color: var(--success);">5+ piece portfolio</p>
+        <div style="border-top: 1px solid var(--card-border); padding-top: 16px;">
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 6px;">SATURDAY — AI Image Generation</p>
+            <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              <li>Leonardo AI & DALL-E introduction</li>
+              <li>Art styles, prompts, and techniques</li>
+              <li>Creating consistent visual themes</li>
+            </ul>
+          </div>
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 6px;">SUNDAY — Portfolio Building</p>
+            <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              <li>Create 5+ unique AI artworks</li>
+              <li>Learn to iterate and refine outputs</li>
+              <li>Curate a personal art portfolio</li>
+            </ul>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px dashed var(--card-border);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            <span style="font-size: 12px; color: var(--success); font-weight: 500;">Output: 5+ piece AI art portfolio</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Week 3 -->
-      <div style="text-align: center; position: relative; padding: 0 8px;">
-        <div style="width: 56px; height: 56px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; position: relative; z-index: 1; border: 3px solid var(--night);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      <!-- Week 3 Card -->
+      <div class="card" style="position: relative; overflow: visible;">
+        <div style="position: absolute; top: -12px; left: 20px; background: var(--purple); color: white; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 10px; letter-spacing: 0.5px;">WEEK 3</div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; margin-top: 8px;">
+          <div style="width: 44px; height: 44px; background: rgba(139,92,246,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 2px;">Build Real Things</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Website + app with no coding</p>
+          </div>
         </div>
-        <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 4px;">WEEK 3</p>
-        <p style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Build Things</p>
-        <p style="font-size: 12px; color: var(--success);">Website + App</p>
+        <div style="border-top: 1px solid var(--card-border); padding-top: 16px;">
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 6px;">SATURDAY — Website Creation</p>
+            <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              <li>Design a personal website (no coding)</li>
+              <li>AI-assisted copywriting</li>
+              <li>Publish live to the internet</li>
+            </ul>
+          </div>
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 6px;">SUNDAY — App Building</p>
+            <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              <li>Build a working app with AI (Bolt.new)</li>
+              <li>No code needed — AI generates it</li>
+              <li>Deploy and share with friends</li>
+            </ul>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px dashed var(--card-border);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            <span style="font-size: 12px; color: var(--success); font-weight: 500;">Output: Live website + working app</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Week 4 -->
-      <div style="text-align: center; position: relative; padding: 0 8px;">
-        <div style="width: 56px; height: 56px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; position: relative; z-index: 1; border: 3px solid var(--night);">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      <!-- Week 4 Card -->
+      <div class="card" style="position: relative; overflow: visible;">
+        <div style="position: absolute; top: -12px; left: 20px; background: var(--success); color: white; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 10px; letter-spacing: 0.5px;">WEEK 4</div>
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; margin-top: 8px;">
+          <div style="width: 44px; height: 44px; background: rgba(34,197,94,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <div>
+            <h3 style="font-size: 18px; margin-bottom: 2px;">Demo Day</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Present to parents + certificate</p>
+          </div>
         </div>
-        <p style="font-size: 11px; color: var(--success); font-weight: 600; margin-bottom: 4px;">WEEK 4</p>
-        <p style="font-weight: 600; font-size: 14px; margin-bottom: 4px;">Demo Day</p>
-        <p style="font-size: 12px; color: var(--success);">Present to Parents</p>
+        <div style="border-top: 1px solid var(--card-border); padding-top: 16px;">
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 11px; color: var(--success); font-weight: 600; margin-bottom: 6px;">SATURDAY — AI Ethics & Safety</p>
+            <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              <li>Responsible AI usage</li>
+              <li>Fact-checking AI outputs</li>
+              <li>Prepare Demo Day presentation</li>
+            </ul>
+          </div>
+          <div style="margin-bottom: 14px;">
+            <p style="font-size: 11px; color: var(--success); font-weight: 600; margin-bottom: 6px;">SUNDAY — Demo Day Presentation</p>
+            <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
+              <li>Present all 3 projects to parents</li>
+              <li>Live Q&A with family</li>
+              <li>Certificate ceremony</li>
+            </ul>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px dashed var(--card-border);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            <span style="font-size: 12px; color: var(--success); font-weight: 500;">Output: Presentation skills + Certificate</span>
+          </div>
+        </div>
       </div>
+
     </div>
 
-    <!-- Output summary -->
-    <div style="text-align: center; margin-top: 48px; padding: 24px; background: rgba(139,92,246,0.06); border-radius: 16px; max-width: 700px; margin-left: auto; margin-right: auto;">
-      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">By the end, your child will have built:</p>
-      <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap;">
-        <span style="font-size: 15px; font-weight: 600; color: var(--snow);">AI Art Portfolio</span>
-        <span style="color: var(--purple-light);">+</span>
-        <span style="font-size: 15px; font-weight: 600; color: var(--snow);">Live Website</span>
-        <span style="color: var(--purple-light);">+</span>
-        <span style="font-size: 15px; font-weight: 600; color: var(--snow);">Working App</span>
+    <!-- Final output summary -->
+    <div style="text-align: center; margin-top: 48px; padding: 28px 24px; background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(34,197,94,0.08) 100%); border: 1px solid rgba(139,92,246,0.2); border-radius: 16px; max-width: 700px; margin-left: auto; margin-right: auto;">
+      <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 12px;">After 16 hours across 4 weekends, your child will have:</p>
+      <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 16px;">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span style="font-size: 15px; font-weight: 600; color: var(--snow);">AI Art Portfolio</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span style="font-size: 15px; font-weight: 600; color: var(--snow);">Live Website</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          <span style="font-size: 15px; font-weight: 600; color: var(--snow);">Working App</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4M8 3v4M4 11h16"/><path d="M8 15h.01M12 15h.01M16 15h.01"/></svg>
+          <span style="font-size: 15px; font-weight: 600; color: var(--snow);">Certificate</span>
+        </div>
       </div>
+      <p style="font-size: 12px; color: var(--text-secondary);">Plus the confidence to present their work in front of an audience</p>
     </div>
   </div>
 </section>
