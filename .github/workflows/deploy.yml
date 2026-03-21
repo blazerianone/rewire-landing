@@ -18,5 +18,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
             cd /home/solsafepayment/dev-2026/rewire-landing
-            git pull origin main
-            echo "Deployed at $(date)"
+            git fetch origin main
+            git reset --hard origin/main
+            echo "Deployed at $(date)" >> deploy.log
+            echo "✅ Deploy complete"

@@ -21,7 +21,7 @@ shared/
 1. Create or edit your landing page in `pages/`
 2. Commit and push to `main`
 3. GitHub Actions auto-deploys to the server
-4. Your page is live at `rewire.school/lp/[page-name]/`
+4. Your page is live at `https://rewire.school/lp/[page-name]/` (auto-deploys in ~30 seconds)
 
 ## Quick Start
 
