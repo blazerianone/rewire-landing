@@ -1,0 +1,133 @@
+/* ═══════════════════════════════════════════════
+   rewire.school — Landing Page Base Styles
+   Include via: <link rel="stylesheet" href="/lp/shared/styles.css">
+   ═══════════════════════════════════════════════ */
+
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --purple-dark: #7C3AED;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+  --alert: #EF4444;
+  --amber: #F59E0B;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+::selection { background: var(--purple); color: white; }
+
+/* ─── Typography ─── */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(32px, 5vw, 52px); font-weight: 800; letter-spacing: -1.5px; }
+h2 { font-size: clamp(24px, 3.5vw, 36px); }
+h3 { font-size: clamp(18px, 2.5vw, 24px); }
+
+.highlight { color: var(--purple); }
+
+/* ─── Container ─── */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  padding: 14px 28px; border-radius: 10px;
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 15px; cursor: pointer; transition: all 0.3s;
+  border: none; display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--purple); color: white;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+.btn-primary:hover {
+  background: var(--purple-dark); transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+}
+
+.btn-lg { padding: 18px 36px; font-size: 17px; border-radius: 12px; }
+
+.btn-outline {
+  background: transparent; color: var(--snow);
+  border: 1.5px solid var(--card-border);
+}
+.btn-outline:hover { border-color: var(--purple); color: var(--purple); }
+
+/* ─── Cards ─── */
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  transition: all 0.3s;
+}
+.card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ─── Sections ─── */
+section { padding: 80px 0; }
+
+/* ─── Badge/Tag ─── */
+.badge {
+  display: inline-block; padding: 6px 14px; border-radius: 20px;
+  font-family: var(--font-mono); font-size: 11px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--purple-light);
+}
+
+/* ─── Form inputs ─── */
+input, textarea {
+  padding: 14px 16px; border-radius: 10px;
+  background: var(--night); border: 1px solid var(--card-border);
+  color: var(--snow); font-family: var(--font-body); font-size: 14px;
+  outline: none; transition: border-color 0.2s; width: 100%;
+}
+input:focus, textarea:focus { border-color: var(--purple); }
+input::placeholder, textarea::placeholder { color: var(--text-secondary); }
+
+/* ─── Logo ─── */
+.rewire-logo {
+  display: inline-flex; align-items: center; text-decoration: none;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 768px) {
+  section { padding: 48px 0; }
+  .container, .container-narrow { padding: 0 16px; }
+}
