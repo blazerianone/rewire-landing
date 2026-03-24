@@ -4,6 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build with AI for Kids — rewire.school</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878213525249030&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 <meta name="description" content="Help your 12-16 year old become an AI creator. Live weekend course. No coding needed. Demo Day for parents.">
 <meta property="og:title" content="Build with AI for Kids — rewire.school">
 <meta property="og:description" content="Turn screen time into creation time. AI course for ages 12-16.">
@@ -204,14 +221,131 @@ section { padding: 96px 0; }
   border: 4px solid var(--purple);
 }
 .instructor-photo img {
-  width: 180%; height: 180%; object-fit: cover; object-position: 50% 15%;
-  margin-left: -40%; margin-top: -10%;
+  width: 160%; height: 160%; object-fit: cover; object-position: center 25%;
+  transform: scaleX(-1);
+  margin-left: -20%; margin-top: -15%;
 }
 .instructor-info h3 { margin-bottom: 4px; font-size: 20px; }
 .instructor-info .role { color: var(--purple-light); font-size: 14px; margin-bottom: 12px; }
 .instructor-info .bio { color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
 .instructor-trust { display: flex; gap: 16px; margin-top: 12px; flex-wrap: wrap; }
 .instructor-trust span { font-size: 11px; color: var(--text-secondary); background: rgba(139,92,246,0.1); padding: 4px 10px; border-radius: 12px; }
+
+/* Registration Form Card */
+.reg-form-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+.reg-form-header {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+  padding: 20px 24px;
+  text-align: center;
+  color: white;
+}
+.reg-form-date {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.reg-form-header h3 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+.reg-form-header p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+.reg-form-body {
+  padding: 24px;
+}
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  text-align: left;
+}
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: #333;
+  background: #F9FAFB;
+  transition: all 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--purple);
+  background: white;
+}
+.form-group input::placeholder {
+  color: #9CA3AF;
+}
+.phone-row {
+  display: flex;
+  gap: 8px;
+}
+.phone-row .phone-country {
+  width: 70px !important;
+  flex-shrink: 0;
+  text-align: center;
+  background: #F3F4F6 !important;
+  font-weight: 600;
+}
+.phone-row .phone-number {
+  flex: 1;
+  width: auto !important;
+}
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+}
+.form-footer {
+  text-align: center;
+  margin-top: 16px;
+}
+.form-footer p {
+  font-size: 12px;
+  color: #6B7280;
+  line-height: 1.5;
+}
+.form-footer .free-note {
+  color: var(--success);
+  font-weight: 600;
+  font-size: 13px;
+}
 
 /* Course offer */
 .course-section { text-align: center; }
@@ -655,7 +789,7 @@ section { padding: 96px 0; }
     <div class="section-header">
       <h2>Your Child's Instructor</h2>
     </div>
-    <div class="card instructor-card">
+    <div class="instructor-card">
       <div class="instructor-photo"><img src="assets/trainer-shaik.jpg" alt="Shaik Abdul Quddus"></div>
       <div class="instructor-info">
         <h3>Shaik Abdul Quddus</h3>
@@ -937,7 +1071,7 @@ section { padding: 96px 0; }
   </div>
 </section>
 
-<!-- OFFER -->
+<!-- OFFER + FORM (Unified Card) -->
 <section id="whats-included" class="course-section">
   <div class="container">
     <div class="section-header">
@@ -945,70 +1079,113 @@ section { padding: 96px 0; }
       <p>Summer 2026 batch — limited to 30 students</p>
     </div>
 
-    <div class="course-card">
-      <div class="course-badge">SUMMER 2026</div>
+    <!-- Single unified card -->
+    <div class="course-card" style="padding: 0; overflow: hidden; max-width: 900px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr;" class="offer-grid">
 
-      <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px; margin-top: 16px;">
-        <div class="course-price">₹12,999</div>
-        <div style="font-size: 18px; color: var(--text-secondary); text-decoration: line-through;">₹49,999</div>
-        <span style="font-size: 12px; padding: 4px 10px; background: rgba(34,197,94,0.15); color: var(--success); border-radius: 6px; font-weight: 600;">Save ₹37,000</span>
-      </div>
-      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">One-time payment · 4 weekends · 16 live hours</p>
+        <!-- LEFT: Pricing & Features -->
+        <div style="padding: 36px;">
+          <span style="display: inline-block; font-size: 11px; padding: 6px 12px; background: var(--purple); color: white; border-radius: 4px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 20px;">SUMMER 2026</span>
 
-      <!-- What's included -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px;">
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-          16 live hours
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Max 30 students
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Parent kickoff call
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Weekly updates
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Session replays
-        </div>
-        <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-          Certificate
-        </div>
-      </div>
+          <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px;">
+            <div class="course-price">₹12,999</div>
+            <div style="font-size: 16px; color: var(--text-secondary); text-decoration: line-through;">₹49,999</div>
+          </div>
+          <span style="display: inline-block; font-size: 12px; padding: 4px 10px; background: rgba(34,197,94,0.15); color: var(--success); border-radius: 6px; font-weight: 600; margin-bottom: 20px;">Save ₹37,000</span>
 
-      <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
-        <span style="font-size: 13px; padding: 8px 14px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; color: var(--purple-light);">Starts April 14</span>
-        <span style="font-size: 13px; padding: 8px 14px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; color: var(--purple-light);">Online</span>
-      </div>
+          <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 24px;">One-time payment · 4 weekends · 16 live hours</p>
 
-      <div class="course-cta">
-        <!-- Registration Form -->
-        <form id="registration-form" style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto 20px;">
-          <input type="text" name="parent_name" placeholder="Your Name" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.05); color: var(--snow); font-size: 15px;">
-          <input type="tel" name="phone" placeholder="WhatsApp Number" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.05); color: var(--snow); font-size: 15px;">
-          <input type="text" name="child_age" placeholder="Child's Age (12-16)" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.05); color: var(--snow); font-size: 15px;">
-          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Reserve My Child's Seat</button>
-        </form>
-        <p style="text-align: center; font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Or message us directly on WhatsApp</p>
-        <a href="https://wa.me/917305082534?text=Hi%2C%20I%27m%20interested%20in%20Build%20with%20AI%20for%20Kids%20for%20my%20child" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 auto; width: fit-content;">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Chat on WhatsApp
-        </a>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 13px; color: var(--text-secondary);">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-          <span><strong style="color: var(--snow);">100% refund</strong> after first session if it's not the right fit</span>
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              16 live hours (Sat + Sun)
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Max 30 students per batch
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Parent kickoff call
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Weekly progress updates
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Session replays included
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 14px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Certificate on completion
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <span style="font-size: 12px; padding: 6px 12px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 6px; color: var(--purple-light);">Starts April 14</span>
+            <span style="font-size: 12px; padding: 6px 12px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 6px; color: var(--purple-light);">Online via Zoom</span>
+          </div>
         </div>
+
+        <!-- RIGHT: Form -->
+        <div style="padding: 36px; background: rgba(139,92,246,0.06); border-left: 1px solid var(--card-border);">
+          <h3 style="font-size: 22px; margin-bottom: 24px;">Register Now</h3>
+
+          <form id="registration-form" style="display: flex; flex-direction: column; gap: 16px;">
+            <div>
+              <label style="display: block; font-size: 14px; font-weight: 600; color: var(--snow); margin-bottom: 6px;">Parent's Name *</label>
+              <input type="text" name="parent_name" placeholder="Enter your full name" required style="width: 100%; padding: 13px 16px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--night); color: var(--snow); font-size: 15px; font-family: var(--font-body);">
+            </div>
+            <div>
+              <label style="display: block; font-size: 14px; font-weight: 600; color: var(--snow); margin-bottom: 6px;">Email Address *</label>
+              <input type="email" name="email" placeholder="your@email.com" required style="width: 100%; padding: 13px 16px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--night); color: var(--snow); font-size: 15px; font-family: var(--font-body);">
+            </div>
+            <div>
+              <label style="display: block; font-size: 14px; font-weight: 600; color: var(--snow); margin-bottom: 6px;">WhatsApp Number *</label>
+              <div style="display: flex; gap: 8px;">
+                <input type="text" value="+91" readonly style="width: 64px; padding: 13px 8px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--card); color: var(--snow); font-size: 15px; text-align: center; font-weight: 600;">
+                <input type="tel" name="phone" placeholder="98765 43210" required style="flex: 1; padding: 13px 16px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--night); color: var(--snow); font-size: 15px; font-family: var(--font-body);">
+              </div>
+            </div>
+            <div>
+              <label style="display: block; font-size: 14px; font-weight: 600; color: var(--snow); margin-bottom: 6px;">Child's Grade *</label>
+              <select name="grade" required style="width: 100%; padding: 13px 16px; border-radius: 8px; border: 1px solid var(--card-border); background: var(--night); color: var(--snow); font-size: 15px; font-family: var(--font-body);">
+                <option value="">Select grade</option>
+                <option value="6">Grade 6</option>
+                <option value="7">Grade 7</option>
+                <option value="8">Grade 8</option>
+                <option value="9">Grade 9</option>
+                <option value="10">Grade 10</option>
+                <option value="11">Grade 11</option>
+                <option value="12">Grade 12</option>
+              </select>
+            </div>
+            <button type="submit" style="width: 100%; padding: 16px 24px; border-radius: 10px; border: none; background: white; color: var(--purple); font-size: 16px; font-weight: 600; font-family: var(--font-display); cursor: pointer; margin-top: 8px; transition: all 0.3s; box-shadow: 0 4px 24px rgba(255, 255, 255, 0.2);">Start My Child's AI Journey</button>
+          </form>
+
+          <div style="display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 12px; color: var(--text-secondary); margin-top: 14px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+            <span><strong style="color: var(--snow);">100% refund</strong> if not satisfied after first session</span>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
 </section>
+
+<style>
+@media (max-width: 768px) {
+  .offer-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .offer-grid > div:last-child {
+    border-left: none !important;
+    border-top: 1px solid var(--card-border);
+  }
+}
+</style>
 
 <!-- URGENCY -->
 <section class="urgency">
@@ -1203,40 +1380,44 @@ document.getElementById('registration-form').addEventListener('submit', async fu
   const btn = form.querySelector('button[type="submit"]');
 
   const parentName = form.parent_name.value;
+  const email = form.email.value;
   const phone = form.phone.value;
-  const childAge = form.child_age.value;
+  const grade = form.grade.value;
 
   // Show loading state
-  btn.textContent = 'Submitting...';
+  btn.textContent = 'Reserving...';
   btn.disabled = true;
 
-  // Save to Google Sheet first
+  // Save to Google Sheet
   try {
     await fetch('https://script.google.com/macros/s/AKfycbxU2w7Eih8p1wAKAfSWbxp9G0PO5QgekdtUi2fyUwfItCu3GMGRg7WlYRCC8Vfb_J0GEQ/exec', {
       method: 'POST',
       mode: 'no-cors',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ parent_name: parentName, phone: phone, child_age: childAge })
+      body: JSON.stringify({
+        parent_name: parentName,
+        email: email,
+        phone: phone,
+        grade: grade,
+        course: 'Build with AI for Kids - Paid',
+        timestamp: new Date().toISOString()
+      })
     });
   } catch (err) {
     console.log('Sheet save attempted');
   }
 
-  // Open WhatsApp with pre-filled message
-  const message = `Hi, I'm interested in Build with AI for Kids.%0A%0AParent Name: ${encodeURIComponent(parentName)}%0AWhatsApp: ${encodeURIComponent(phone)}%0AChild's Age: ${encodeURIComponent(childAge)}`;
-  window.open(`https://wa.me/917305082534?text=${message}`, '_blank');
+  // Fire Meta Pixel Lead event
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', {
+      content_name: 'Build with AI for Kids - Paid',
+      value: 12999,
+      currency: 'INR'
+    });
+  }
 
-  // Show success state
-  form.innerHTML = `
-    <div style="text-align: center; padding: 24px;">
-      <div style="width: 56px; height: 56px; background: rgba(34,197,94,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-      </div>
-      <p style="font-size: 18px; font-weight: 600; color: var(--snow); margin-bottom: 8px;">We've received your details!</p>
-      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 16px;">Check WhatsApp — we'll message you within 2 hours</p>
-      <a href="https://wa.me/917305082534" style="color: var(--purple-light); font-size: 14px;">Didn't get a message? Tap here</a>
-    </div>
-  `;
+  // Redirect to thank you page
+  window.location.href = 'thank-you.html';
 });
 </script>
 </body>
