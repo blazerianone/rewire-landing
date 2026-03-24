@@ -94,7 +94,8 @@ section { padding: 96px 0; }
 }
 .hero h1 { margin-bottom: 20px; }
 .hero-copy > p { color: #A3A3A3; font-size: 17px; line-height: 1.65; margin-bottom: 28px; }
-.hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.hero-cta-row { display: flex; gap: 12px; margin-bottom: 16px; }
+@media (max-width: 500px) { .hero-cta-row { flex-direction: column; } }
 @media (max-width: 900px) { .hero-cta-row { justify-content: center; } }
 .hero-microcopy { font-size: 13px; color: var(--text-secondary); }
 
@@ -162,7 +163,7 @@ section { padding: 96px 0; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
 @media (max-width: 768px) { .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: repeat(2, 1fr); } .before-after-grid { grid-template-columns: 1fr !important; gap: 16px !important; } .before-after-grid .arrow-desktop { display: none; } .before-after-grid .arrow-mobile { display: flex !important; } }
-.before-after-grid .arrow-mobile { display: none; flex-direction: column; align-items: center; gap: 6px; padding: 12px 0; }
+.arrow-mobile { display: none; }
 
 /* Why cards (before/after) */
 .why-card { text-align: center; }
@@ -352,8 +353,7 @@ section { padding: 96px 0; }
       <h1><span class="highlight">Build with AI</span> for Kids</h1>
       <p style="font-size: 22px; color: var(--snow); font-weight: 500; margin-bottom: 16px;">Your Child Builds a Website, an App, and an AI Portfolio — In 4 Weekends</p>
       <p>Live instructor-led course for ages 12-16. No coding needed. They present everything to you on Demo Day.</p>
-      <p style="font-size: 14px; color: var(--purple-light); margin-bottom: 24px; font-style: italic;">"AI isn't coming — it's here. The question is whether your child uses it or gets replaced by it."</p>
-      <div class="hero-cta-row">
+      <div class="hero-cta-row" style="margin-top: 28px;">
         <a href="#whats-included" class="btn btn-primary btn-lg">Reserve My Child's Seat</a>
         <a href="#curriculum" class="btn btn-secondary btn-lg">See Full Curriculum</a>
       </div>
@@ -485,8 +485,8 @@ section { padding: 96px 0; }
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         <span style="font-size: 11px; color: var(--purple-light); font-weight: 600;">4 WEEKENDS</span>
       </div>
-      <!-- Arrow Mobile (vertical) -->
-      <div class="arrow-mobile">
+      <!-- Arrow Mobile (vertical) - hidden on desktop, shown on mobile via media query -->
+      <div class="arrow-mobile" style="flex-direction: column; align-items: center; gap: 6px; padding: 12px 0;">
         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
         <span style="font-size: 11px; color: var(--purple-light); font-weight: 600;">4 WEEKENDS</span>
       </div>
@@ -1189,11 +1189,10 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 
 // Registration form submission
-document.getElementById('registration-form').addEventListener('submit', function(e) {
+document.getElementById('registration-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type="submit"]');
-  const originalText = btn.textContent;
 
   const parentName = form.parent_name.value;
   const phone = form.phone.value;
@@ -1203,10 +1202,20 @@ document.getElementById('registration-form').addEventListener('submit', function
   btn.textContent = 'Submitting...';
   btn.disabled = true;
 
-  // Send to WhatsApp with form data
-  const message = `Hi, I'm interested in Build with AI for Kids.%0A%0AParent Name: ${encodeURIComponent(parentName)}%0AWhatsApp: ${encodeURIComponent(phone)}%0AChild's Age: ${encodeURIComponent(childAge)}`;
+  // Save to Google Sheet first
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbxU2w7Eih8p1wAKAfSWbxp9G0PO5QgekdtUi2fyUwfItCu3GMGRg7WlYRCC8Vfb_J0GEQ/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ parent_name: parentName, phone: phone, child_age: childAge })
+    });
+  } catch (err) {
+    console.log('Sheet save attempted');
+  }
 
   // Open WhatsApp with pre-filled message
+  const message = `Hi, I'm interested in Build with AI for Kids.%0A%0AParent Name: ${encodeURIComponent(parentName)}%0AWhatsApp: ${encodeURIComponent(phone)}%0AChild's Age: ${encodeURIComponent(childAge)}`;
   window.open(`https://wa.me/917305082534?text=${message}`, '_blank');
 
   // Show success state
