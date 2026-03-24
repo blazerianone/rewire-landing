@@ -488,6 +488,10 @@ footer a { color: var(--purple-light); text-decoration: none; }
             <span style="font-size: 20px;">⏱️</span>
             <span style="font-weight: 600;">90 Minutes</span>
           </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">🗣️</span>
+            <span style="font-weight: 600;">English</span>
+          </div>
         </div>
 
         <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px;">
@@ -744,15 +748,13 @@ document.getElementById('regForm').addEventListener('submit', async function(e) 
       body: JSON.stringify({ parentName, email, phone, grade })
     });
 
-    // Show success
+    // Show success and redirect to thank you page
     btn.textContent = 'Registered!';
     btn.style.background = '#22C55E';
 
-    // Open WhatsApp after short delay
     setTimeout(() => {
-      const message = `Hi, I just registered my child for the Free AI Workshop on March 29.\n\nParent: ${parentName}\nEmail: ${email}\nWhatsApp: +91 ${phone}\nGrade: ${grade}`;
-      window.open(`https://wa.me/917305082534?text=${encodeURIComponent(message)}`, '_blank');
-    }, 1000);
+      window.location.href = 'thank-you.html';
+    }, 500);
 
   } catch (err) {
     btn.textContent = 'Try Again';
