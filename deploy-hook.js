@@ -6,7 +6,7 @@ const SECRET = process.env.DEPLOY_SECRET || 'rw-deploy-2026';
 const REPO_DIR = '/home/solsafepayment/dev-2026/rewire-landing';
 
 const server = http.createServer((req, res) => {
-  if (req.method === 'POST' && req.url === '/deploy') {
+  if (req.method === 'POST' && req.url.startsWith('/deploy')) {
     let body = '';
     req.on('data', chunk => body += chunk);
     req.on('end', () => {
