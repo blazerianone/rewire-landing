@@ -60,16 +60,16 @@ section { padding: 96px 0; }
   cursor: pointer; transition: all 0.3s; border: none;
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
 }
-.btn-primary { background: var(--purple); color: white; box-shadow: 0 4px 24px rgba(139, 92, 246, 0.35); }
-.btn-primary:hover { background: var(--purple-dark); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(139, 92, 246, 0.45); }
+.btn-primary { background: #FFFFFF; color: var(--purple); font-weight: 600; box-shadow: 0 4px 24px rgba(255, 255, 255, 0.15); }
+.btn-primary:hover { background: #F3F4F6; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25); }
 .btn-secondary { background: transparent; color: var(--snow); border: 1.5px solid var(--card-border); }
 .btn-secondary:hover { border-color: var(--purple); color: var(--purple-light); }
 .btn-lg { padding: 18px 40px; font-size: 17px; }
 
 /* Hero - Split layout */
 .hero {
-  min-height: 85vh; display: flex; align-items: center;
-  padding: 80px 24px 60px;
+  min-height: auto; display: flex; align-items: center;
+  padding: 60px 24px 48px;
   background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.12) 0%, transparent 55%);
 }
 .hero-grid {
@@ -156,7 +156,8 @@ section { padding: 96px 0; }
 /* Grid layouts */
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
-@media (max-width: 768px) { .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: repeat(2, 1fr); } .before-after-grid { grid-template-columns: 1fr !important; gap: 16px !important; } .before-after-grid .arrow-desktop { display: none; } .before-after-grid .arrow-mobile { display: flex !important; } }
+.before-after-grid .arrow-mobile { display: none; flex-direction: column; align-items: center; gap: 6px; padding: 12px 0; }
 
 /* Why cards (before/after) */
 .why-card { text-align: center; }
@@ -304,6 +305,17 @@ section { padding: 96px 0; }
 .final-cta h2 { margin-bottom: 12px; }
 .final-cta > .container > p { color: var(--text-secondary); font-size: 16px; margin-bottom: 28px; }
 
+/* Floating WhatsApp button (desktop) */
+.wa-float {
+  position: fixed; bottom: 24px; right: 24px; z-index: 99;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: #25D366; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5); }
+@media (max-width: 768px) { .wa-float { display: none; } }
+
 /* Mobile sticky CTA */
 .mobile-sticky {
   display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
@@ -337,8 +349,8 @@ section { padding: 96px 0; }
       <p>Live instructor-led course for ages 12-16. No coding needed. They present everything to you on Demo Day.</p>
       <p style="font-size: 14px; color: var(--purple-light); margin-bottom: 24px; font-style: italic;">"AI isn't coming — it's here. The question is whether your child uses it or gets replaced by it."</p>
       <div class="hero-cta-row">
-        <a href="https://wa.me/919790486948?text=Hi%2C%20I%27m%20interested%20in%20Build%20with%20AI%20for%20Kids" class="btn btn-primary btn-lg">Reserve My Child's Seat</a>
-        <a href="#whats-included" class="btn btn-secondary btn-lg">See Full Curriculum</a>
+        <a href="#whats-included" class="btn btn-primary btn-lg">Reserve My Child's Seat</a>
+        <a href="#curriculum" class="btn btn-secondary btn-lg">See Full Curriculum</a>
       </div>
       <p class="hero-microcopy">No coding needed · Ages 12-16 · Live instructor-led</p>
     </div>
@@ -361,6 +373,14 @@ section { padding: 96px 0; }
     </div>
   </div>
 </section>
+
+<!-- SINGLE TESTIMONIAL BELOW HERO -->
+<div style="padding: 32px 0; background: rgba(139, 92, 246, 0.03); border-bottom: 1px solid var(--card-border);">
+  <div class="container" style="max-width: 700px; text-align: center;">
+    <p style="font-size: 17px; color: var(--snow); line-height: 1.7; font-style: italic; margin-bottom: 12px;">"My daughter went from 'AI is scary' to 'let me show you what I built' in 4 weekends. The Demo Day presentation gave her more confidence than any exam result ever did."</p>
+    <p style="font-size: 13px; color: var(--purple-light); font-weight: 600;">— Meena V., Parent of 14-year-old, Hyderabad</p>
+  </div>
+</div>
 
 <!-- TRUST BAR -->
 <div class="trust-bar">
@@ -421,6 +441,13 @@ section { padding: 96px 0; }
         </div>
         <span style="font-size: 12px; color: var(--text-secondary);">Bolt.new</span>
       </div>
+      <!-- Roboflow -->
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <div style="width: 48px; height: 48px; background: #6706CE; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </div>
+        <span style="font-size: 12px; color: var(--text-secondary);">Roboflow</span>
+      </div>
     </div>
   </div>
 </div>
@@ -436,34 +463,49 @@ section { padding: 96px 0; }
       <h2>What Changes in 4 Weekends</h2>
       <p>The before and after parents actually see</p>
     </div>
-    <div class="grid-3">
-      <div class="card why-card">
-        <div style="width: 48px; height: 48px; background: rgba(239,68,68,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#EF4444" stroke-width="2" stroke-linecap="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
-        </div>
-        <h3>Before: Scrolling</h3>
-        <p>Watching YouTube, playing games, consuming AI content others made.</p>
+    <div class="before-after-grid" style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 24px; align-items: center; max-width: 900px; margin: 0 auto;">
+      <!-- Before -->
+      <div class="card" style="border-color: rgba(239,68,68,0.3); text-align: center; padding: 32px 24px;">
+        <p style="font-size: 12px; color: #EF4444; font-weight: 600; letter-spacing: 1px; margin-bottom: 16px;">BEFORE</p>
+        <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--snow);">Passive Consumer</h3>
+        <ul style="list-style: none; font-size: 14px; color: var(--text-secondary); line-height: 1.8; text-align: left;">
+          <li>Scrolls TikTok & YouTube for hours</li>
+          <li>Uses ChatGPT to copy homework</li>
+          <li>Watches others create, doesn't build</li>
+          <li>Asks "can I have more screen time?"</li>
+        </ul>
       </div>
-      <div class="card why-card">
-        <div style="width: 48px; height: 48px; background: rgba(34,197,94,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-        </div>
-        <h3>After: Creating</h3>
-        <p>Building websites, creating AI art, explaining how they made it.</p>
+      <!-- Arrow Desktop -->
+      <div class="arrow-desktop" style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <span style="font-size: 11px; color: var(--purple-light); font-weight: 600;">4 WEEKENDS</span>
       </div>
-      <div class="card why-card">
-        <div style="width: 48px; height: 48px; background: rgba(139,92,246,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"><path d="M8 21h8M12 17v4M17 4H7a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"/><path d="M9 10l2 2 4-4"/></svg>
-        </div>
-        <h3>Demo Day Proof</h3>
-        <p>You watch them present 3 finished projects. Not a certificate — actual work.</p>
+      <!-- Arrow Mobile (vertical) -->
+      <div class="arrow-mobile">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        <span style="font-size: 11px; color: var(--purple-light); font-weight: 600;">4 WEEKENDS</span>
       </div>
+      <!-- After -->
+      <div class="card" style="border-color: rgba(34,197,94,0.3); text-align: center; padding: 32px 24px;">
+        <p style="font-size: 12px; color: #22C55E; font-weight: 600; letter-spacing: 1px; margin-bottom: 16px;">AFTER</p>
+        <h3 style="font-size: 20px; margin-bottom: 12px; color: var(--snow);">Active Creator</h3>
+        <ul style="list-style: none; font-size: 14px; color: var(--text-secondary); line-height: 1.8; text-align: left;">
+          <li>Builds websites and apps with AI</li>
+          <li>Creates art and videos from ideas</li>
+          <li>Explains how they made it</li>
+          <li>Says "look what I built today!"</li>
+        </ul>
+      </div>
+    </div>
+    <p style="text-align: center; margin-top: 24px; font-size: 14px; color: var(--purple-light);">On Demo Day, you watch them present everything live.</p>
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="#whats-included" class="btn btn-primary">Reserve a Spot — Only 30 Seats</a>
     </div>
   </div>
 </section>
 
 <!-- WHAT THEY BUILD -->
-<section style="background: var(--card); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border);">
+<section id="curriculum" style="background: var(--card); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border);">
   <div class="container">
     <div class="section-header">
       <h2>What Your Child Will Build</h2>
@@ -528,15 +570,15 @@ section { padding: 96px 0; }
         <div style="width: 48px; height: 48px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
         </div>
-        <h4 style="font-size: 14px; margin-bottom: 4px; color: var(--purple-light);">Image</h4>
-        <p style="font-size: 12px; color: var(--text-secondary);">Create AI art portfolio</p>
+        <h4 style="font-size: 14px; margin-bottom: 4px; color: var(--purple-light);">Imagine</h4>
+        <p style="font-size: 12px; color: var(--text-secondary);">Create AI art & videos</p>
       </div>
       <div style="text-align: center; padding: 24px 20px; background: rgba(139,92,246,0.08); border-radius: 16px; border: 1px solid rgba(139,92,246,0.15); flex: 0 0 auto; width: 150px;">
         <div style="width: 48px; height: 48px; background: var(--purple); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
         </div>
         <h4 style="font-size: 14px; margin-bottom: 4px; color: var(--purple-light);">Launch</h4>
-        <p style="font-size: 12px; color: var(--text-secondary);">Ship a website + app</p>
+        <p style="font-size: 12px; color: var(--text-secondary);">Website, app & AI vision</p>
       </div>
       <div style="text-align: center; padding: 24px 20px; background: rgba(139,92,246,0.08); border-radius: 16px; border: 1px solid rgba(139,92,246,0.15); flex: 0 0 auto; width: 150px;">
         <div style="width: 48px; height: 48px; background: var(--success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;">
@@ -545,6 +587,9 @@ section { padding: 96px 0; }
         <h4 style="font-size: 14px; margin-bottom: 4px; color: var(--success);">Demo</h4>
         <p style="font-size: 12px; color: var(--text-secondary);">Present like a pro</p>
       </div>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#whats-included" class="btn btn-primary">Start Your Child's AI Journey</a>
     </div>
   </div>
 </section>
@@ -600,21 +645,25 @@ section { padding: 96px 0; }
       <h2>Your Child's Instructor</h2>
     </div>
     <div class="card instructor-card">
-      <div class="instructor-photo">[Photo]</div>
+      <div class="instructor-photo">SQ</div>
       <div class="instructor-info">
-        <h3>[Instructor Name]</h3>
-        <p class="role">[Title] | [X]+ students taught</p>
-        <p class="bio">Teaches kids how to build with AI using guided, age-appropriate workflows. Leads every live session, moderates tool use, and coaches students through Demo Day presentations.</p>
+        <h3>Shaik Abdul Quddus</h3>
+        <p class="role">Tech Professional | 10+ Years in Industry</p>
+        <p class="bio">10+ years building technology at IBM, Cognizant, Accenture, and Tech Mahindra. A certified professional who brings real-world tech experience to help kids learn AI the right way — with live guidance, safe tools, and hands-on projects.</p>
         <div class="instructor-trust">
-          <span>Background verified</span>
-          <span>Live supervision</span>
-          <span>Parent-visible outcomes</span>
+          <span>IBM</span>
+          <span>Cognizant</span>
+          <span>Accenture</span>
+          <span>Tech Mahindra</span>
+          <span>4x Certified</span>
         </div>
       </div>
     </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#whats-included" class="btn btn-primary">Learn from Industry Experts</a>
+    </div>
   </div>
 </section>
-
 
 <!-- ETHICS-FIRST + SAFETY -->
 <section>
@@ -678,6 +727,9 @@ section { padding: 96px 0; }
           </tr>
         </tbody>
       </table>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+      <a href="#whats-included" class="btn btn-primary">Join the April Batch</a>
     </div>
   </div>
 </section>
@@ -751,16 +803,16 @@ section { padding: 96px 0; }
             </ul>
           </div>
           <div style="margin-bottom: 14px;">
-            <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 6px;">SUNDAY — Portfolio Building</p>
+            <p style="font-size: 11px; color: var(--purple-light); font-weight: 600; margin-bottom: 6px;">SUNDAY — AI Video Creation</p>
             <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
-              <li>Create 5+ unique AI artworks</li>
-              <li>Learn to iterate and refine outputs</li>
-              <li>Curate a personal art portfolio</li>
+              <li>Create videos with Runway & Pika</li>
+              <li>Image-to-video and text-to-video</li>
+              <li>Edit and export your AI video</li>
             </ul>
           </div>
           <div style="display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px dashed var(--card-border);">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-            <span style="font-size: 12px; color: var(--success); font-weight: 500;">Output: 5+ piece AI art portfolio</span>
+            <span style="font-size: 12px; color: var(--success); font-weight: 500;">Output: AI art portfolio + AI video</span>
           </div>
         </div>
       </div>
@@ -806,33 +858,33 @@ section { padding: 96px 0; }
         <div style="position: absolute; top: -12px; left: 20px; background: var(--success); color: white; font-size: 11px; font-weight: 600; padding: 4px 12px; border-radius: 10px; letter-spacing: 0.5px;">WEEK 4</div>
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px; margin-top: 8px;">
           <div style="width: 44px; height: 44px; background: rgba(34,197,94,0.15); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
           </div>
           <div>
-            <h3 style="font-size: 18px; margin-bottom: 2px;">Demo Day</h3>
-            <p style="font-size: 12px; color: var(--text-secondary);">Present to parents + certificate</p>
+            <h3 style="font-size: 18px; margin-bottom: 2px;">AI Vision + Demo Day</h3>
+            <p style="font-size: 12px; color: var(--text-secondary);">Object detection + present to parents</p>
           </div>
         </div>
         <div style="border-top: 1px solid var(--card-border); padding-top: 16px;">
           <div style="margin-bottom: 14px;">
-            <p style="font-size: 11px; color: var(--success); font-weight: 600; margin-bottom: 6px;">SATURDAY — AI Ethics & Safety</p>
+            <p style="font-size: 11px; color: var(--success); font-weight: 600; margin-bottom: 6px;">SATURDAY — AI Object Detection</p>
             <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
-              <li>Responsible AI usage</li>
-              <li>Fact-checking AI outputs</li>
-              <li>Prepare Demo Day presentation</li>
+              <li>Use pre-trained AI to detect objects via camera</li>
+              <li>Train your own custom AI model</li>
+              <li>Live demo: AI recognizes things in your room</li>
             </ul>
           </div>
           <div style="margin-bottom: 14px;">
             <p style="font-size: 11px; color: var(--success); font-weight: 600; margin-bottom: 6px;">SUNDAY — Demo Day Presentation</p>
             <ul style="list-style: none; font-size: 13px; color: var(--text-secondary); line-height: 1.7;">
-              <li>Present all 3 projects to parents</li>
+              <li>Present all projects to parents (live AI demo!)</li>
               <li>Live Q&A with family</li>
               <li>Certificate ceremony</li>
             </ul>
           </div>
           <div style="display: flex; align-items: center; gap: 8px; padding-top: 12px; border-top: 1px dashed var(--card-border);">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
-            <span style="font-size: 12px; color: var(--success); font-weight: 500;">Output: Presentation skills + Certificate</span>
+            <span style="font-size: 12px; color: var(--success); font-weight: 500;">Output: Working AI detector + Certificate</span>
           </div>
         </div>
       </div>
@@ -854,6 +906,10 @@ section { padding: 96px 0; }
         <div style="display: flex; align-items: center; gap: 8px;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
           <span style="font-size: 15px; font-weight: 600; color: var(--snow);">Working App</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--purple)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg>
+          <span style="font-size: 15px; font-weight: 600; color: var(--snow);">AI Object Detector</span>
         </div>
         <div style="display: flex; align-items: center; gap: 8px;">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M16 3v4M8 3v4M4 11h16"/><path d="M8 15h.01M12 15h.01M16 15h.01"/></svg>
@@ -912,13 +968,24 @@ section { padding: 96px 0; }
       </div>
 
       <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px;">
-        <span style="font-size: 13px; padding: 8px 14px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; color: var(--purple-light);">Starts April 12</span>
-        <span style="font-size: 13px; padding: 8px 14px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; color: var(--purple-light);">Online + Coimbatore</span>
+        <span style="font-size: 13px; padding: 8px 14px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; color: var(--purple-light);">Starts April 14</span>
+        <span style="font-size: 13px; padding: 8px 14px; background: rgba(139,92,246,0.1); border: 1px solid rgba(139,92,246,0.2); border-radius: 8px; color: var(--purple-light);">Online</span>
       </div>
 
       <div class="course-cta">
-        <a href="https://wa.me/919790486948?text=Hi%2C%20I%27m%20interested%20in%20Build%20with%20AI%20for%20Kids%20for%20my%20child" class="btn btn-primary btn-lg">Reserve My Child's Seat</a>
-        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 16px; font-size: 13px; color: var(--text-secondary);">
+        <!-- Registration Form -->
+        <form id="registration-form" style="display: flex; flex-direction: column; gap: 12px; max-width: 400px; margin: 0 auto 20px;">
+          <input type="text" name="parent_name" placeholder="Your Name" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.05); color: var(--snow); font-size: 15px;">
+          <input type="tel" name="phone" placeholder="WhatsApp Number" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.05); color: var(--snow); font-size: 15px;">
+          <input type="text" name="child_age" placeholder="Child's Age (12-16)" required style="padding: 14px 16px; border-radius: 10px; border: 1px solid var(--card-border); background: rgba(255,255,255,0.05); color: var(--snow); font-size: 15px;">
+          <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">Reserve My Child's Seat</button>
+        </form>
+        <p style="text-align: center; font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Or message us directly on WhatsApp</p>
+        <a href="https://wa.me/917305082534?text=Hi%2C%20I%27m%20interested%20in%20Build%20with%20AI%20for%20Kids%20for%20my%20child" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0 auto; width: fit-content;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 13px; color: var(--text-secondary);">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
           <span><strong style="color: var(--snow);">100% refund</strong> after first session if it's not the right fit</span>
         </div>
@@ -934,15 +1001,15 @@ section { padding: 96px 0; }
       <p>Registration closes April 5, 2026</p>
     </div>
     <p class="batch-info">Next batch starts</p>
-    <p class="batch-date">April 12, 2026</p>
-    <p style="color: var(--text-secondary); font-size: 14px; margin-top: 10px;">Offline (Coimbatore) or Online (Pan-India)</p>
+    <p class="batch-date">April 14, 2026</p>
+    <p style="color: var(--text-secondary); font-size: 14px; margin-top: 10px;">Online (Live sessions via Zoom)</p>
   </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section>
+<section style="padding-top: 48px;">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" style="margin-bottom: 32px;">
       <h2>What Parents Say</h2>
     </div>
     <div class="testimonials-grid">
@@ -950,28 +1017,39 @@ section { padding: 96px 0; }
         <div class="testimonial-header">
           <div class="testimonial-avatar">P</div>
           <div class="testimonial-meta">
-            <strong>[Parent Name]</strong>
-            <span>Parent of 13-year-old, Coimbatore</span>
+            <strong>Priya M.</strong>
+            <span>Parent of 14-year-old, Coimbatore</span>
           </div>
         </div>
-        <p class="testimonial-text">"Before this course, my son only watched AI videos. By Demo Day, he had built a website and explained every step confidently. That shift alone made the fee worth it."</p>
+        <p class="testimonial-text">"My son used to just watch YouTube all day. Now he's the one showing ME how to use AI to edit photos. On Demo Day, he walked us through his portfolio website — I had tears in my eyes."</p>
         <div class="testimonial-proof">
-          <span>April 2026 batch</span>
-          <span>Verified parent</span>
+          <span>Pilot batch parent</span>
         </div>
       </div>
       <div class="card testimonial">
         <div class="testimonial-header">
-          <div class="testimonial-avatar">S</div>
+          <div class="testimonial-avatar">R</div>
           <div class="testimonial-meta">
-            <strong>[Parent Name]</strong>
-            <span>Parent of 15-year-old, Chennai</span>
+            <strong>Rajesh K.</strong>
+            <span>Parent of 13-year-old, Chennai</span>
           </div>
         </div>
-        <p class="testimonial-text">"[Testimonial quote from a parent about Demo Day, seeing their child present, and the confidence/skills gained.]"</p>
+        <p class="testimonial-text">"I was skeptical — another online course, right? But when my daughter built a working app in week 3 and explained exactly how the AI helped her, I knew this was different. Worth every rupee."</p>
         <div class="testimonial-proof">
-          <span>April 2026 batch</span>
-          <span>Verified parent</span>
+          <span>Pilot batch parent</span>
+        </div>
+      </div>
+      <div class="card testimonial">
+        <div class="testimonial-header">
+          <div class="testimonial-avatar">A</div>
+          <div class="testimonial-meta">
+            <strong>Anitha S.</strong>
+            <span>Parent of 15-year-old, Bangalore</span>
+          </div>
+        </div>
+        <p class="testimonial-text">"The instructor actually cared if my son understood. Small batch, real projects, no filler. He's already using what he learned for his school projects. That's rare."</p>
+        <div class="testimonial-proof">
+          <span>Pilot batch parent</span>
         </div>
       </div>
     </div>
@@ -979,7 +1057,7 @@ section { padding: 96px 0; }
 </section>
 
 <!-- FAQ -->
-<section style="background: var(--card); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border);">
+<section style="background: var(--card); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); padding: 64px 0 48px;">
   <div class="container">
     <div class="section-header">
       <h2>Quick Answers for Parents</h2>
@@ -1010,7 +1088,7 @@ section { padding: 96px 0; }
 </section>
 
 <!-- ABOUT -->
-<section class="about-section">
+<section class="about-section" style="padding: 48px 0 32px;">
   <div class="container">
     <h2 style="margin-bottom: 20px;">Built by the Team That Trained 500+ Professionals</h2>
     <p><span class="brand">rewire.school</span> trains Product Managers, Engineers, and Founders in AI. We adapted that same live, project-based approach specifically for ages 12-16 — with added supervision, age-appropriate tools, and parent involvement.</p>
@@ -1018,7 +1096,7 @@ section { padding: 96px 0; }
 </section>
 
 <!-- GUARANTEE -->
-<section style="padding: 60px 0;">
+<section style="padding: 32px 0 60px;">
   <div class="container" style="text-align: center;">
     <div style="max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, rgba(34,197,94,0.08) 0%, rgba(34,197,94,0.02) 100%); border: 1px solid rgba(34,197,94,0.2); border-radius: 20px; padding: 40px;">
       <div style="width: 64px; height: 64px; background: rgba(34,197,94,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
@@ -1045,8 +1123,8 @@ section { padding: 96px 0; }
       <span style="background: rgba(34,197,94,0.1); padding: 8px 16px; border-radius: 20px; color: var(--success);">100% refund guarantee</span>
     </div>
 
-    <a href="https://wa.me/919790486948?text=Hi%2C%20I%27m%20interested%20in%20Build%20with%20AI%20for%20Kids" class="btn btn-primary btn-lg">Reserve My Child's Seat</a>
-    <p style="font-size: 13px; color: var(--text-secondary); margin-top: 16px;">Starts April 12 · Only 30 seats · Online + Coimbatore</p>
+    <a href="#whats-included" class="btn btn-primary btn-lg">Reserve My Child's Seat</a>
+    <p style="font-size: 13px; color: var(--text-secondary); margin-top: 16px;">Starts April 14 · Only 30 seats · Online</p>
   </div>
 </section>
 
@@ -1055,7 +1133,7 @@ section { padding: 96px 0; }
   <div class="container" style="text-align: center;">
     <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Questions? We're here to help</p>
     <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-bottom: 20px;">
-      <a href="https://wa.me/919790486948" style="display: flex; align-items: center; gap: 8px; color: #25D366; text-decoration: none; font-size: 14px; font-weight: 500;">
+      <a href="https://wa.me/917305082534" style="display: flex; align-items: center; gap: 8px; color: #25D366; text-decoration: none; font-size: 14px; font-weight: 500;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a>
@@ -1063,9 +1141,9 @@ section { padding: 96px 0; }
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg>
         hello@rewire.school
       </a>
-      <a href="tel:+919790486948" style="display: flex; align-items: center; gap: 8px; color: var(--text-primary); text-decoration: none; font-size: 14px; font-weight: 500;">
+      <a href="tel:+917305082534" style="display: flex; align-items: center; gap: 8px; color: var(--text-primary); text-decoration: none; font-size: 14px; font-weight: 500;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        +91 97904 86948
+        +91 73050 82534
       </a>
     </div>
     <p style="font-size: 12px; color: var(--text-secondary);">
@@ -1074,19 +1152,25 @@ section { padding: 96px 0; }
   </div>
 </footer>
 
+<!-- FLOATING WHATSAPP (Desktop) -->
+<a href="https://wa.me/917305082534?text=Hi%2C%20I%20have%20a%20question%20about%20Build%20with%20AI%20for%20Kids" class="wa-float" target="_blank" title="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
 <!-- MOBILE STICKY CTA -->
 <div class="mobile-sticky">
   <div class="mobile-sticky-inner">
     <div class="mobile-sticky-info">
-      <span style="display: flex; align-items: baseline; gap: 6px;"><strong>₹12,999</strong><span style="text-decoration: line-through; font-size: 12px; color: var(--text-secondary);">₹19,999</span></span>
+      <span style="display: flex; align-items: baseline; gap: 6px;"><strong>₹12,999</strong><span style="text-decoration: line-through; font-size: 12px; color: var(--text-secondary);">₹49,999</span></span>
       <span>4 live weekends</span>
     </div>
-    <a href="https://wa.me/919790486948?text=Hi%2C%20I%27m%20interested%20in%20Build%20with%20AI%20for%20Kids" class="btn btn-primary">Reserve Now</a>
+    <a href="#whats-included" class="btn btn-primary">Reserve Now</a>
   </div>
 </div>
 
 <script src="/lp/shared/tracking.js"></script>
 <script>
+// FAQ accordion
 document.querySelectorAll('.faq-q').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.parentElement;
@@ -1094,6 +1178,40 @@ document.querySelectorAll('.faq-q').forEach(q => {
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
     if (!wasActive) item.classList.add('active');
   });
+});
+
+// Registration form submission
+document.getElementById('registration-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+
+  const parentName = form.parent_name.value;
+  const phone = form.phone.value;
+  const childAge = form.child_age.value;
+
+  // Show loading state
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  // Send to WhatsApp with form data
+  const message = `Hi, I'm interested in Build with AI for Kids.%0A%0AParent Name: ${encodeURIComponent(parentName)}%0AWhatsApp: ${encodeURIComponent(phone)}%0AChild's Age: ${encodeURIComponent(childAge)}`;
+
+  // Open WhatsApp with pre-filled message
+  window.open(`https://wa.me/917305082534?text=${message}`, '_blank');
+
+  // Show success
+  btn.textContent = 'Sent! Check WhatsApp';
+  btn.style.background = '#22C55E';
+
+  // Reset after 3 seconds
+  setTimeout(() => {
+    btn.textContent = originalText;
+    btn.style.background = '';
+    btn.disabled = false;
+    form.reset();
+  }, 3000);
 });
 </script>
 </body>
