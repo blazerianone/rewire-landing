@@ -1374,7 +1374,7 @@ document.querySelectorAll('.faq-q').forEach(q => {
 });
 
 // Registration form submission
-document.getElementById('registration-form').addEventListener('submit', async function(e) {
+document.getElementById('registration-form').addEventListener('submit', function(e) {
   e.preventDefault();
   const form = e.target;
   const btn = form.querySelector('button[type="submit"]');
@@ -1384,28 +1384,35 @@ document.getElementById('registration-form').addEventListener('submit', async fu
   const phone = form.phone.value;
   const grade = form.grade.value;
 
+  // Capture UTM params
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source') || '';
+  const utmMedium = urlParams.get('utm_medium') || '';
+  const utmCampaign = urlParams.get('utm_campaign') || '';
+  const utmContent = urlParams.get('utm_content') || '';
+
   // Show loading state
   btn.textContent = 'Reserving...';
   btn.disabled = true;
 
-  // Save to Google Sheet
-  try {
-    await fetch('https://script.google.com/macros/s/AKfycbxU2w7Eih8p1wAKAfSWbxp9G0PO5QgekdtUi2fyUwfItCu3GMGRg7WlYRCC8Vfb_J0GEQ/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        parent_name: parentName,
-        email: email,
-        phone: phone,
-        grade: grade,
-        course: 'Build with AI for Kids - Paid',
-        timestamp: new Date().toISOString()
-      })
-    });
-  } catch (err) {
-    console.log('Sheet save attempted');
-  }
+  // Fire-and-forget to Google Sheet (don't await - Apps Script is slow)
+  fetch('https://script.google.com/macros/s/AKfycbxU2w7Eih8p1wAKAfSWbxp9G0PO5QgekdtUi2fyUwfItCu3GMGRg7WlYRCC8Vfb_J0GEQ/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      parent_name: parentName,
+      email: email,
+      phone: phone,
+      child_age: grade,
+      course: 'Build with AI for Kids - Paid',
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      timestamp: new Date().toISOString()
+    })
+  });
 
   // Fire Meta Pixel Lead event
   if (typeof fbq !== 'undefined') {
@@ -1416,7 +1423,7 @@ document.getElementById('registration-form').addEventListener('submit', async fu
     });
   }
 
-  // Redirect to thank you page
+  // Redirect immediately (don't wait for sheet)
   window.location.href = 'thank-you.html';
 });
 </script>
