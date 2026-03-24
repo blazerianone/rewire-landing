@@ -356,8 +356,8 @@ section { padding: 72px 0; }
   border: 4px solid var(--purple);
 }
 .instructor-photo img {
-  width: 180%; height: 180%; object-fit: cover; object-position: 50% 15%;
-  margin-left: -40%; margin-top: -10%;
+  width: 100%; height: 100%; object-fit: cover; object-position: center 20%;
+  transform: scaleX(-1);
 }
 
 .instructor-info h3 { font-size: 24px; margin-bottom: 4px; }
@@ -458,10 +458,9 @@ footer a { color: var(--purple-light); text-decoration: none; }
 </head>
 <body>
 
-<!-- Top Bar with Countdown -->
+<!-- Top Bar -->
 <div class="top-bar">
-  <span>This Sunday, March 29 at 10 AM</span>
-  <span style="margin-left: 16px; background: rgba(0,0,0,0.2); padding: 4px 12px; border-radius: 4px;" id="countdown">Loading...</span>
+  This Sunday, March 29 at 10 AM IST
 </div>
 
 <!-- Hero -->
@@ -763,32 +762,6 @@ document.getElementById('regForm').addEventListener('submit', async function(e) 
     console.error('Registration error:', err);
   }
 });
-
-// Countdown timer
-function updateCountdown() {
-  const eventDate = new Date('2026-03-29T10:00:00+05:30');
-  const now = new Date();
-  const diff = eventDate - now;
-
-  if (diff <= 0) {
-    document.getElementById('countdown').textContent = 'LIVE NOW!';
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-  let text = '';
-  if (days > 0) text += `${days}d `;
-  text += `${hours}h ${mins}m ${secs}s`;
-
-  document.getElementById('countdown').textContent = text;
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
 
 // FAQ Accordion
 document.querySelectorAll('.faq-q').forEach(q => {
