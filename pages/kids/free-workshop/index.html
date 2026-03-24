@@ -722,23 +722,43 @@ footer a { color: var(--purple-light); text-decoration: none; }
 
 <script>
 // Form submission
-document.getElementById('regForm').addEventListener('submit', function(e) {
+document.getElementById('regForm').addEventListener('submit', async function(e) {
   e.preventDefault();
+
+  const btn = this.querySelector('button[type="submit"]');
+  const originalText = btn.textContent;
+  btn.textContent = 'Registering...';
+  btn.disabled = true;
 
   const parentName = this.parentName.value;
   const email = this.email.value;
   const phone = this.phone.value;
   const grade = this.grade.value;
 
-  const message = `Hi, I want to register my child for the Free AI Workshop on March 29.
+  try {
+    // Save to Google Sheet
+    await fetch('https://script.google.com/macros/s/AKfycbxa2rf26d2rNk_vL_iYOeamjoeZqoj6D2CjBbEfCCFd_IUZfdVeJAapOKHM1_lEZN0DpA/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ parentName, email, phone, grade })
+    });
 
-Parent Name: ${parentName}
-Email: ${email}
-WhatsApp: +91 ${phone}
-Child's Grade: ${grade}`;
+    // Show success
+    btn.textContent = 'Registered!';
+    btn.style.background = '#22C55E';
 
-  const waUrl = `https://wa.me/917305082534?text=${encodeURIComponent(message)}`;
-  window.open(waUrl, '_blank');
+    // Open WhatsApp after short delay
+    setTimeout(() => {
+      const message = `Hi, I just registered my child for the Free AI Workshop on March 29.\n\nParent: ${parentName}\nEmail: ${email}\nWhatsApp: +91 ${phone}\nGrade: ${grade}`;
+      window.open(`https://wa.me/917305082534?text=${encodeURIComponent(message)}`, '_blank');
+    }, 1000);
+
+  } catch (err) {
+    btn.textContent = 'Try Again';
+    btn.disabled = false;
+    console.error('Registration error:', err);
+  }
 });
 
 // Countdown timer
