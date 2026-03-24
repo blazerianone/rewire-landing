@@ -749,11 +749,10 @@ footer a { color: var(--purple-light); text-decoration: none; }
 
 <script>
 // Form submission
-document.getElementById('regForm').addEventListener('submit', async function(e) {
+document.getElementById('regForm').addEventListener('submit', function(e) {
   e.preventDefault();
 
   const btn = this.querySelector('button[type="submit"]');
-  const originalText = btn.textContent;
   btn.textContent = 'Registering...';
   btn.disabled = true;
 
@@ -762,28 +761,39 @@ document.getElementById('regForm').addEventListener('submit', async function(e) 
   const phone = this.phone.value;
   const grade = this.grade.value;
 
-  try {
-    // Save to Google Sheet
-    await fetch('https://script.google.com/macros/s/AKfycbxa2rf26d2rNk_vL_iYOeamjoeZqoj6D2CjBbEfCCFd_IUZfdVeJAapOKHM1_lEZN0DpA/exec', {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ parentName, email, phone, grade })
-    });
+  // Capture UTM params
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source') || '';
+  const utmMedium = urlParams.get('utm_medium') || '';
+  const utmCampaign = urlParams.get('utm_campaign') || '';
+  const utmContent = urlParams.get('utm_content') || '';
 
-    // Show success and redirect to thank you page
-    btn.textContent = 'Registered!';
-    btn.style.background = '#22C55E';
+  // Fire-and-forget to Google Sheet
+  fetch('https://script.google.com/macros/s/AKfycbxa2rf26d2rNk_vL_iYOeamjoeZqoj6D2CjBbEfCCFd_IUZfdVeJAapOKHM1_lEZN0DpA/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      parent_name: parentName,
+      email: email,
+      phone: phone,
+      child_age: grade,
+      course: 'Build with AI for Kids - Free Workshop',
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      timestamp: new Date().toISOString()
+    })
+  });
 
-    setTimeout(() => {
-      window.location.href = 'thank-you.html';
-    }, 500);
+  // Show success and redirect
+  btn.textContent = 'Registered!';
+  btn.style.background = '#22C55E';
 
-  } catch (err) {
-    btn.textContent = 'Try Again';
-    btn.disabled = false;
-    console.error('Registration error:', err);
-  }
+  setTimeout(() => {
+    window.location.href = 'thank-you.html';
+  }, 500);
 });
 
 // FAQ Accordion
