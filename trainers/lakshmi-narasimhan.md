@@ -89,7 +89,7 @@ Lead Product Manager at Grab, one of Southeast Asia's largest super-apps. Manage
 
 | Platform | Status | Notes |
 |----------|--------|-------|
-| LinkedIn | Active | [To be verified] |
+| LinkedIn | Active | [linkedin.com/in/lakshmi-narasimhan-m-c-033497109](https://www.linkedin.com/in/lakshmi-narasimhan-m-c-033497109/) |
 | Substack/Newsletter | Unknown | Check if he publishes |
 | Conference Speaking | Unknown | Check speaking history |
 | Twitter/X | Unknown | |
