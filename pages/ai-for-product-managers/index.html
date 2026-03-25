@@ -373,14 +373,39 @@ h1, h2, h3 {
 }
 
 .instructor-info .prev {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-secondary);
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
-.instructor-info .prev strong {
-  color: var(--snow);
+.instructor-info .prev-label {
+  color: var(--text-secondary);
+}
+
+.instructor-info .prev-company {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--purple-light);
+  padding: 4px 12px;
+  border-radius: 14px;
   font-weight: 600;
+  font-size: 13px;
+}
+
+.linkedin-link {
+  color: var(--purple-light);
+  margin-left: 8px;
+  vertical-align: middle;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.linkedin-link:hover {
+  opacity: 1;
 }
 
 .instructor-info .bio {
@@ -1276,9 +1301,9 @@ window.addEventListener('scroll', function() {
           <img src="photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan M C">
         </div>
         <div class="instructor-info">
-          <h3>Lakshmi Narasimhan M C</h3>
+          <h3>Lakshmi Narasimhan M C <a href="https://www.linkedin.com/in/lakshmi-narasimhan-m-c-033497109/" target="_blank" class="linkedin-link" title="LinkedIn Profile"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></h3>
           <p class="role">Lead Product Manager @ <span class="company">Grab</span></p>
-          <p class="prev">Previously: <strong>Delivery Hero</strong>, <strong>Dell EMC</strong></p>
+          <p class="prev"><span class="prev-label">Previously:</span> <span class="prev-company">Delivery Hero</span> <span class="prev-company">Dell EMC</span></p>
           <p class="bio">Manages the transaction platform powering millions of daily orders. Drove 5x growth launching Foodpanda's co-branded card in Taiwan.</p>
           <div class="instructor-trust">
             <span>Millions of daily transactions</span>
@@ -1296,9 +1321,9 @@ window.addEventListener('scroll', function() {
           <img src="photos/siddharth-saoji.png" alt="Siddharth Saoji">
         </div>
         <div class="instructor-info">
-          <h3>Siddharth Saoji</h3>
+          <h3>Siddharth Saoji <a href="https://www.linkedin.com/in/siddharthsaoji/" target="_blank" class="linkedin-link" title="LinkedIn Profile"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a></h3>
           <p class="role">Product Lead (AI Solutions) @ <span class="company">Grab</span></p>
-          <p class="prev">Previously: <strong>Meta</strong>, <strong>Uber</strong></p>
+          <p class="prev"><span class="prev-label">Previously:</span> <span class="prev-company">Meta</span> <span class="prev-company">Uber</span></p>
           <p class="bio">Builds recommendation engines and LLM agents. At Meta, recovered $100M+ revenue while cutting false-positive ad takedowns.</p>
           <div class="instructor-trust">
             <span>$100M+ impact at Meta</span>
