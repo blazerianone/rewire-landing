@@ -61,22 +61,23 @@ h1, h2, h3 {
 /* Buttons */
 .btn-primary {
   display: inline-block;
-  background: var(--purple);
-  color: white;
+  background: #FFFFFF;
+  color: var(--purple);
   padding: 16px 40px;
   border-radius: 12px;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 16px;
   text-decoration: none;
   transition: all 0.3s ease;
   border: none;
   cursor: pointer;
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.15);
 }
 
 .btn-primary:hover {
-  background: var(--purple-dark);
+  background: #F3F4F6;
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
 }
 
 .btn-secondary {
@@ -294,64 +295,125 @@ h1, h2, h3 {
 .instructor h2 {
   font-size: 32px;
   text-align: center;
-  margin-bottom: 48px;
-}
-
-.instructor-card {
-  background: var(--card);
-  border: 1px solid var(--card-border);
-  border-radius: 20px;
-  padding: 48px;
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  gap: 40px;
-  align-items: center;
-}
-
-.instructor-photo {
-  width: 180px;
-  height: 180px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--purple), var(--purple-dark));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 64px;
-  flex-shrink: 0;
-}
-
-.instructor-info h3 {
-  font-size: 24px;
-  margin-bottom: 8px;
-}
-
-.instructor-info .title {
-  color: var(--purple-light);
-  font-size: 16px;
   margin-bottom: 16px;
 }
 
-.instructor-info p {
+.instructor-subtitle {
+  text-align: center;
   color: var(--text-secondary);
-  font-size: 15px;
+  font-size: 17px;
+  margin-bottom: 48px;
+}
+
+.instructor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .instructor-grid { grid-template-columns: 1fr; }
+}
+
+.instructor-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%), var(--card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.instructor-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(139, 92, 246, 0.1);
+}
+
+.instructor-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--purple-light);
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
-.instructor-creds {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+.instructor-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid var(--purple);
+  margin: 0 auto 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.25);
 }
 
-.instructor-creds .cred {
-  background: rgba(34, 197, 94, 0.1);
-  border: 1px solid rgba(34, 197, 94, 0.2);
-  color: var(--success);
-  padding: 6px 14px;
-  border-radius: 8px;
+.instructor-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.instructor-info h3 {
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.instructor-info .role {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.instructor-info .role .company {
+  color: var(--purple-light);
+  font-weight: 600;
+}
+
+.instructor-info .prev {
   font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.instructor-info .prev strong {
+  color: var(--snow);
+  font-weight: 600;
+}
+
+.instructor-info .bio {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.instructor-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.instructor-trust span {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--purple-light);
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 12px;
   font-weight: 500;
+}
+
+.instructor-quote {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--card-border);
+  line-height: 1.5;
 }
 
 /* Format Section */
@@ -1204,47 +1266,49 @@ window.addEventListener('scroll', function() {
 <section class="instructor">
   <div class="container">
     <h2>Learn From Leaders Who Build AI at Scale</h2>
-    <!-- Instructor Video Placeholder -->
-    <div style="max-width: 700px; margin: 0 auto 48px; aspect-ratio: 16/9; background: var(--card); border: 2px dashed var(--card-border); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 16px;">
-      <div style="width: 80px; height: 80px; border-radius: 50%; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); display: flex; align-items: center; justify-content: center;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--purple-light)" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-      </div>
-      <p style="color: var(--text-secondary); font-size: 14px;">[Instructor Intro Video - 60-90 seconds]</p>
-    </div>
+    <p class="instructor-subtitle">Both instructors work at Grab — Southeast Asia's leading super-app</p>
 
-    <!-- Lead Instructor -->
-    <p style="text-align: center; color: var(--purple-light); font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 16px; font-weight: 600;">Lead Instructor</p>
-    <div class="instructor-card">
-      <img src="photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan M C" class="instructor-photo" style="object-fit: cover;">
-      <div class="instructor-info">
-        <h3>Lakshmi Narasimhan M C</h3>
-        <div class="title">Lead Product Manager @ Grab | Previously: Delivery Hero, Dell EMC</div>
-        <p>I manage the transaction platform that powers millions of daily orders at Grab. At Delivery Hero, I launched Foodpanda's co-branded card in Taiwan and drove a 5x increase in applications. I don't teach AI as theory — I teach it as production systems that must work perfectly at scale.</p>
-        <div class="instructor-creds">
-          <span class="cred">Millions of daily transactions</span>
-          <span class="cred">5x growth at Foodpanda</span>
-          <span class="cred">10+ years global PM</span>
+    <div class="instructor-grid">
+      <!-- Lead Instructor -->
+      <div class="instructor-card">
+        <div class="instructor-label">Lead Instructor</div>
+        <div class="instructor-photo">
+          <img src="photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan M C">
+        </div>
+        <div class="instructor-info">
+          <h3>Lakshmi Narasimhan M C</h3>
+          <p class="role">Lead Product Manager @ <span class="company">Grab</span></p>
+          <p class="prev">Previously: <strong>Delivery Hero</strong>, <strong>Dell EMC</strong></p>
+          <p class="bio">Manages the transaction platform powering millions of daily orders. Drove 5x growth launching Foodpanda's co-branded card in Taiwan.</p>
+          <div class="instructor-trust">
+            <span>Millions of daily transactions</span>
+            <span>5x growth</span>
+            <span>10+ years PM</span>
+          </div>
+          <p class="instructor-quote">"I teach AI as production systems that must work perfectly at scale."</p>
+        </div>
+      </div>
+
+      <!-- Guest Lecturer -->
+      <div class="instructor-card">
+        <div class="instructor-label">Guest Lecturer</div>
+        <div class="instructor-photo">
+          <img src="photos/siddharth-saoji.png" alt="Siddharth Saoji">
+        </div>
+        <div class="instructor-info">
+          <h3>Siddharth Saoji</h3>
+          <p class="role">Product Lead (AI Solutions) @ <span class="company">Grab</span></p>
+          <p class="prev">Previously: <strong>Meta</strong>, <strong>Uber</strong></p>
+          <p class="bio">Builds recommendation engines and LLM agents. At Meta, recovered $100M+ revenue while cutting false-positive ad takedowns.</p>
+          <div class="instructor-trust">
+            <span>$100M+ impact at Meta</span>
+            <span>18 years exp</span>
+            <span>NUS + BITS</span>
+          </div>
+          <p class="instructor-quote">"AI governance is about building products that earn user trust at scale."</p>
         </div>
       </div>
     </div>
-    <p style="text-align: center; color: var(--text-secondary); font-size: 14px; margin-top: 24px; font-style: italic;">"The AI revolution is changing how we build, but the principles of scale and user trust remain the same. I'll show you how to architect AI products that don't just innovate — but endure."</p>
-
-    <!-- Guest Lecturer -->
-    <p style="text-align: center; color: var(--purple-light); font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; margin: 48px 0 16px; font-weight: 600;">Guest Lecturer</p>
-    <div class="instructor-card">
-      <img src="photos/siddharth-saoji.png" alt="Siddharth Saoji" class="instructor-photo" style="object-fit: cover;">
-      <div class="instructor-info">
-        <h3>Siddharth Saoji</h3>
-        <div class="title">Product Lead (AI Solutions) @ Grab | Previously: Meta, Uber</div>
-        <p>I build recommendation engines and LLM agents at Grab. At Meta, I led ML and Analytics solutions for Trust & Safety — recovering hundreds of millions in revenue while cutting false-positive ad takedowns. I bring 18 years of experience across cyber security, ad tech, and AI product delivery.</p>
-        <div class="instructor-creds">
-          <span class="cred">$100M+ revenue impact at Meta</span>
-          <span class="cred">18 years experience</span>
-          <span class="cred">NUS + BITS Pilani</span>
-        </div>
-      </div>
-    </div>
-    <p style="text-align: center; color: var(--text-secondary); font-size: 14px; margin-top: 24px; font-style: italic;">"AI governance isn't about slowing down — it's about building products that earn and keep user trust at scale."</p>
   </div>
 </section>
 
