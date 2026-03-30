@@ -614,199 +614,133 @@ footer a { color: var(--purple-light); text-decoration: none; }
     </div>
 
     <!-- Websites Built - Device Mockups -->
-    <p style="font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 32px; text-align: center;">Websites Built with AI</p>
+    <p style="font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; text-align: center;">Websites Built with AI</p>
+    <p style="text-align: center; color: var(--snow); font-size: 18px; margin-bottom: 40px;">Built by kids aged 11-15, in under 2 hours — and live on the web</p>
 
     <style>
-      .device-showcase {
-        position: relative;
-        height: 520px;
-        max-width: 950px;
+      .device-grid {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 32px;
+        max-width: 900px;
         margin: 0 auto;
       }
-      .device {
-        position: absolute;
-        transition: transform 0.4s ease, box-shadow 0.4s ease;
+      .device-card {
         text-decoration: none;
+        transition: transform 0.3s ease;
       }
-      .device:hover {
-        transform: scale(1.05) !important;
-        z-index: 100 !important;
+      .device-card:hover {
+        transform: translateY(-8px);
       }
-      .laptop-frame {
+      .laptop-mock {
+        width: 400px;
+      }
+      .laptop-mock .screen {
         background: linear-gradient(145deg, #2d2d2d 0%, #1a1a1a 100%);
-        border-radius: 16px 16px 0 0;
-        padding: 12px 12px 0;
-        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        border-radius: 12px 12px 0 0;
+        padding: 8px 8px 0;
       }
-      .laptop-screen {
-        background: #000;
+      .laptop-mock .screen img {
+        width: 100%;
         border-radius: 4px;
-        overflow: hidden;
-        border: 2px solid #3a3a3a;
+        display: block;
       }
-      .laptop-base {
+      .laptop-mock .base {
         background: linear-gradient(145deg, #3a3a3a 0%, #2a2a2a 100%);
-        height: 14px;
+        height: 12px;
         border-radius: 0 0 8px 8px;
         position: relative;
       }
-      .laptop-base::before {
+      .laptop-mock .base::after {
         content: '';
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        bottom: -6px;
-        width: 35%;
-        height: 6px;
+        bottom: -4px;
+        width: 30%;
+        height: 4px;
         background: #2a2a2a;
-        border-radius: 0 0 6px 6px;
+        border-radius: 0 0 4px 4px;
       }
-      .tablet-frame {
+      .phone-mock {
+        width: 140px;
+      }
+      .phone-mock .frame {
         background: linear-gradient(145deg, #2d2d2d 0%, #1a1a1a 100%);
-        border-radius: 20px;
-        padding: 14px;
-        box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+        border-radius: 24px;
+        padding: 8px;
       }
-      .tablet-screen {
-        border-radius: 8px;
-        overflow: hidden;
-      }
-      .phone-frame {
-        background: linear-gradient(145deg, #2d2d2d 0%, #1a1a1a 100%);
-        border-radius: 28px;
-        padding: 10px;
-        box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
-      }
-      .phone-notch {
-        width: 40%;
-        height: 16px;
+      .phone-mock .notch {
+        width: 35%;
+        height: 12px;
         background: #1a1a1a;
-        border-radius: 0 0 12px 12px;
-        margin: 0 auto -8px;
+        border-radius: 0 0 10px 10px;
+        margin: 0 auto -6px;
         position: relative;
         z-index: 2;
       }
-      .phone-screen {
-        border-radius: 20px;
-        overflow: hidden;
+      .phone-mock .frame img {
+        width: 100%;
+        border-radius: 16px;
+        display: block;
       }
       .device-label {
         color: var(--snow);
-        font-size: 12px;
+        font-size: 13px;
         text-align: center;
         margin-top: 12px;
         font-weight: 600;
         font-family: var(--font-display);
       }
-      .floating-tag {
-        background: rgba(139, 92, 246, 0.2);
-        backdrop-filter: blur(8px);
-        padding: 10px 20px;
-        border-radius: 24px;
-        border: 1px solid rgba(139, 92, 246, 0.3);
-        color: white;
-        font-size: 13px;
-        font-weight: 600;
-        font-family: var(--font-display);
+      .device-label span {
+        color: var(--purple-light);
+        font-weight: 400;
       }
       @media (max-width: 768px) {
-        .device-showcase { height: 400px; transform: scale(0.7); transform-origin: top center; }
+        .device-grid {
+          flex-direction: column;
+          align-items: center;
+          gap: 24px;
+        }
+        .laptop-mock { width: 320px; }
+        .phone-mock { width: 120px; }
       }
     </style>
 
-    <div class="device-showcase">
-
-      <!-- LAPTOP - Center (Rahul) -->
-      <a href="https://rahul-purple-spark.lovable.app" target="_blank" class="device" style="left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 10;">
-        <div class="laptop-frame" style="width: 420px;">
-          <div class="laptop-screen" style="height: 260px; background: linear-gradient(160deg, #0f0a1a 0%, #1a1030 50%, #251540 100%);">
-            <div style="text-align: center; padding: 30px 20px;">
-              <p style="color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 3px; text-transform: uppercase;">Welcome to my world</p>
-              <p style="color: #d4a853; font-size: 14px; margin-top: 16px; font-weight: 500;">RS</p>
-              <p style="color: white; font-size: 36px; font-weight: 800; margin-top: 8px; line-height: 1;">Hey, I'm <span style="color: #a855f7;">Rahul S</span></p>
-              <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 16px;">15-year-old student | cricketer | thriller enthusiast | AI art creator</p>
-            </div>
+    <div class="device-grid">
+      <!-- Phone - Sanjay -->
+      <a href="https://sanjays-art-port.lovable.app" target="_blank" class="device-card">
+        <div class="phone-mock">
+          <div class="frame">
+            <div class="notch"></div>
+            <img src="../assets/sanjay-site.png" alt="Sanjay's Art Gallery">
           </div>
         </div>
-        <div class="laptop-base" style="width: 420px;"></div>
-        <p class="device-label">Rahul, 15 - Portfolio Site</p>
+        <p class="device-label">Sanjay <span>Age 11</span></p>
       </a>
 
-      <!-- TABLET - Left (Nirja) -->
-      <a href="https://nirjas-dancing-dream.lovable.app" target="_blank" class="device" style="left: -10px; top: 30px; transform: rotate(-8deg); z-index: 5;">
-        <div class="tablet-frame" style="width: 220px;">
-          <div class="tablet-screen" style="height: 300px; background: linear-gradient(180deg, #1a0a2e 0%, #2a1545 100%);">
-            <div style="padding: 16px;">
-              <p style="color: #c084fc; font-size: 16px; font-weight: 700;">Nirja.S</p>
-              <div style="display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap;">
-                <span style="background: rgba(192,132,252,0.25); color: white; font-size: 10px; padding: 5px 10px; border-radius: 14px;">Hello!</span>
-                <span style="background: rgba(192,132,252,0.25); color: white; font-size: 10px; padding: 5px 10px; border-radius: 14px;">Namaste!</span>
-                <span style="background: rgba(192,132,252,0.25); color: white; font-size: 10px; padding: 5px 10px; border-radius: 14px;">Hey there!</span>
-              </div>
-              <div style="margin-top: 30px; text-align: center; opacity: 0.6;">
-                <div style="width: 80px; height: 100px; background: linear-gradient(135deg, rgba(192,132,252,0.3), rgba(192,132,252,0.1)); border-radius: 12px; margin: 0 auto;"></div>
-              </div>
-            </div>
+      <!-- Laptop - Rahul -->
+      <a href="https://rahul-purple-spark.lovable.app" target="_blank" class="device-card">
+        <div class="laptop-mock">
+          <div class="screen">
+            <img src="../assets/rahul-site.png" alt="Rahul's Portfolio">
+          </div>
+          <div class="base"></div>
+        </div>
+        <p class="device-label">Rahul <span>Age 15</span></p>
+      </a>
+
+      <!-- Phone - QuickBite -->
+      <a href="https://quickbiter.lovable.app" target="_blank" class="device-card">
+        <div class="phone-mock">
+          <div class="frame">
+            <div class="notch"></div>
+            <img src="../assets/quickbite-site.png" alt="QuickBite Food App">
           </div>
         </div>
-        <p class="device-label">Nirja, 13 - Dance Portfolio</p>
+        <p class="device-label">Food App <span>Project</span></p>
       </a>
-
-      <!-- PHONE - Right Top (QuickBiter) -->
-      <a href="https://quickbiter.lovable.app" target="_blank" class="device" style="right: 10px; top: 0; transform: rotate(6deg); z-index: 8;">
-        <div class="phone-frame" style="width: 150px;">
-          <div class="phone-notch"></div>
-          <div class="phone-screen" style="height: 280px; background: #0a0a0a;">
-            <div style="padding: 14px;">
-              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-                <span style="color: #f97316; font-size: 14px; font-weight: 800;">QuickBite</span>
-              </div>
-              <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 12px;">
-                <span style="background: #f97316; color: white; font-size: 9px; padding: 4px 8px; border-radius: 10px;">Pizza</span>
-                <span style="background: #262626; color: white; font-size: 9px; padding: 4px 8px; border-radius: 10px;">Biryani</span>
-                <span style="background: #262626; color: white; font-size: 9px; padding: 4px 8px; border-radius: 10px;">Burger</span>
-              </div>
-              <div style="background: #1a1a1a; border-radius: 10px; padding: 10px; margin-bottom: 8px;">
-                <div style="width: 100%; height: 40px; background: linear-gradient(90deg, #f97316 0%, #fb923c 100%); border-radius: 6px; opacity: 0.3;"></div>
-                <p style="color: white; font-size: 10px; font-weight: 600; margin-top: 6px;">Pizza Paradise</p>
-                <p style="color: #666; font-size: 8px;">20-30 min</p>
-              </div>
-              <div style="background: #1a1a1a; border-radius: 10px; padding: 10px;">
-                <div style="width: 100%; height: 40px; background: linear-gradient(90deg, #eab308 0%, #facc15 100%); border-radius: 6px; opacity: 0.3;"></div>
-                <p style="color: white; font-size: 10px; font-weight: 600; margin-top: 6px;">Biryani Blues</p>
-                <p style="color: #666; font-size: 8px;">25-35 min</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="device-label">Student Project - Food App</p>
-      </a>
-
-      <!-- PHONE - Left Bottom (Sanjay) -->
-      <a href="https://sanjays-art-port.lovable.app" target="_blank" class="device" style="left: 80px; bottom: 0; transform: rotate(-5deg); z-index: 7;">
-        <div class="phone-frame" style="width: 140px;">
-          <div class="phone-notch"></div>
-          <div class="phone-screen" style="height: 250px; background: linear-gradient(160deg, #1a1040 0%, #2a1860 100%);">
-            <div style="padding: 14px; text-align: center;">
-              <p style="color: #22c55e; font-size: 12px; font-weight: 700;">SS</p>
-              <p style="color: #c084fc; font-size: 11px; margin-top: 4px;">Hello!</p>
-              <p style="color: #fbbf24; font-size: 22px; font-weight: 800; margin-top: 12px;">Sanjay S</p>
-              <p style="color: rgba(255,255,255,0.7); font-size: 9px; margin-top: 8px; line-height: 1.4;">11-year-old artist, dreamer & AI art explorer</p>
-              <div style="margin-top: 16px; display: flex; justify-content: center; gap: 16px;">
-                <span style="color: #666; font-size: 16px;">About</span>
-                <span style="color: #666; font-size: 16px;">Gallery</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="device-label">Sanjay, 11 - Art Gallery</p>
-      </a>
-
-      <!-- Floating Tags -->
-      <div class="floating-tag" style="position: absolute; right: 160px; top: 80px;">Ages 11-15</div>
-      <div class="floating-tag" style="position: absolute; left: 260px; bottom: 60px;">Made in 2 Hours</div>
-      <div class="floating-tag" style="position: absolute; right: 200px; bottom: 100px;">Live on the Web</div>
-
     </div>
   </div>
 </section>
