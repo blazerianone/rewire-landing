@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Workshop for Kids | April 4 | Rewire</title>
+<meta name="description" content="2-hour AI workshop for kids aged 10-16. Create AI art live. No coding needed. Just Rs.99">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878213525249030&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 38' fill='none'><path d='M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='19' r='2' fill='%238b5cf6'/><circle cx='26' cy='19' r='2' fill='%238b5cf6'/><line x1='20' y1='19' x2='24' y2='19' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --purple-dark: #7C3AED;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+  --alert: #EF4444;
+  --orange: #F97316;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--night); color: var(--snow); font-family: var(--font-body); line-height: 1.6; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.1; }
+h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -1.5px; }
+h2 { font-size: clamp(26px, 3.8vw, 36px); letter-spacing: -0.8px; }
+h3 { font-size: clamp(18px, 2.5vw, 22px); letter-spacing: -0.3px; }
+
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.highlight { color: var(--purple); }
+section { padding: 72px 0; }
+@media (max-width: 768px) { section { padding: 56px 0; } .container { padding: 0 16px; } }
+@media (max-width: 600px) { .student-art-grid { grid-template-columns: repeat(2, 1fr) !important; } .student-sites-grid { grid-template-columns: 1fr !important; } }
+
+/* Buttons */
+.btn {
+  padding: 16px 32px; border-radius: 10px;
+  font-family: var(--font-display); font-weight: 600; font-size: 16px;
+  cursor: pointer; transition: all 0.3s; border: none;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
+  white-space: nowrap;
+}
+.btn-primary { background: #FFFFFF; color: var(--purple); font-weight: 600; box-shadow: 0 4px 24px rgba(255, 255, 255, 0.15); }
+.btn-primary:hover { background: #F3F4F6; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25); }
+.btn-secondary { background: transparent; color: var(--snow); border: 1.5px solid var(--card-border); }
+.btn-secondary:hover { border-color: var(--purple); color: var(--purple-light); }
+.btn-lg { padding: 18px 40px; font-size: 17px; }
+
+/* Top Bar */
+.top-bar {
+  background: var(--orange);
+  padding: 12px 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Hero */
+.hero {
+  padding: 60px 24px 48px;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.12) 0%, transparent 55%);
+}
+
+.hero-badge {
+  display: inline-block; padding: 8px 16px; border-radius: 20px;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px;
+  background: rgba(34, 197, 94, 0.12); border: 1px solid rgba(34, 197, 94, 0.25);
+  color: var(--success); margin-bottom: 24px; font-weight: 500;
+}
+
+.hero h1 { margin-bottom: 16px; }
+.hero-sub { color: #A3A3A3; font-size: 18px; line-height: 1.65; margin-bottom: 32px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+/* Event Box */
+.event-box {
+  background: var(--card);
+  border: 2px solid var(--purple);
+  border-radius: 16px;
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  display: inline-block;
+}
+
+.event-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.event-item { text-align: center; }
+.event-icon { font-size: 24px; margin-bottom: 4px; }
+.event-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--font-mono); }
+.event-value { font-size: 18px; font-weight: 700; font-family: var(--font-display); }
+
+.hero-microcopy { font-size: 13px; color: var(--text-secondary); margin-top: 16px; }
+
+/* Registration Form */
+.reg-form-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.reg-form-header {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+  padding: 20px 24px;
+  text-align: center;
+  color: white;
+}
+
+.reg-form-date {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.reg-form-header h3 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.reg-form-header p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.reg-form-body {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: #333;
+  background: #F9FAFB;
+  transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--purple);
+  background: white;
+}
+
+.form-group input::placeholder {
+  color: #9CA3AF;
+}
+
+.phone-row {
+  display: flex;
+  gap: 8px;
+}
+
+.phone-row .phone-country {
+  width: 70px !important;
+  flex-shrink: 0;
+  text-align: center;
+  background: #F3F4F6 !important;
+  font-weight: 600;
+}
+
+.phone-row .phone-number {
+  flex: 1;
+  width: auto !important;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.form-footer p {
+  font-size: 12px;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+.form-footer .free-note {
+  color: var(--success);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%), var(--card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+/* What You'll Learn */
+.learn-section { border-top: 1px solid var(--card-border); }
+.learn-section h2 { text-align: center; margin-bottom: 40px; }
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 700px) { .learn-grid { grid-template-columns: 1fr; } }
+
+.learn-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.learn-card:hover { border-color: var(--purple); transform: translateY(-4px); }
+
+.learn-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; height: 40px;
+  background: var(--purple);
+  border-radius: 50%;
+  font-size: 16px; font-weight: 800;
+  font-family: var(--font-display);
+  margin-bottom: 16px;
+}
+
+.learn-card h3 { font-size: 18px; margin-bottom: 8px; }
+.learn-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.6; }
+
+/* Mid CTA */
+.mid-cta {
+  padding: 48px 0;
+  text-align: center;
+  background: var(--card);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+.mid-cta p { font-size: 20px; font-weight: 700; margin-bottom: 20px; font-family: var(--font-display); }
+
+/* Who Section */
+.who-section { border-top: 1px solid var(--card-border); }
+.who-section h2 { text-align: center; margin-bottom: 40px; }
+
+.who-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) { .who-grid { grid-template-columns: 1fr; } }
+
+.who-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+}
+.who-card.yes { border-color: var(--success); }
+.who-card.no { border-color: #4B5563; }
+
+.who-card h3 {
+  font-size: 16px; font-weight: 700; margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.who-card.yes h3 { color: var(--success); }
+.who-card.no h3 { color: var(--text-secondary); }
+
+.who-list { list-style: none; }
+.who-list li {
+  padding: 10px 0;
+  font-size: 15px;
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.who-list li:last-child { border-bottom: none; }
+.who-list li::before { content: ">"; color: var(--purple); font-weight: 700; }
+
+/* Instructor */
+.instructor-section {
+  background: var(--card);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+.instructor-section h2 { text-align: center; margin-bottom: 40px; }
+
+.instructor-card {
+  max-width: 800px; margin: 0 auto;
+  display: flex; gap: 40px; align-items: center;
+}
+@media (max-width: 600px) { .instructor-card { flex-direction: column; text-align: center; } }
+
+.instructor-photo {
+  width: 280px; height: 280px; border-radius: 50%; flex-shrink: 0;
+  overflow: hidden;
+  border: 4px solid var(--purple);
+}
+.instructor-photo img {
+  width: 160%; height: 160%; object-fit: cover; object-position: center 25%;
+  transform: scaleX(-1);
+  margin-left: -20%; margin-top: -15%;
+}
+
+.instructor-info h3 { font-size: 24px; margin-bottom: 4px; }
+.instructor-role { color: var(--purple-light); font-size: 14px; margin-bottom: 12px; }
+.instructor-bio { color: var(--text-secondary); font-size: 15px; line-height: 1.7; margin-bottom: 16px; }
+
+.instructor-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+@media (max-width: 600px) { .instructor-tags { justify-content: center; } }
+.instructor-tag {
+  font-size: 12px; color: var(--text-secondary);
+  background: rgba(139,92,246,0.1); padding: 6px 12px; border-radius: 12px;
+}
+
+/* FAQ Accordion */
+.faq-section { border-top: 1px solid var(--card-border); }
+.faq-section h2 { text-align: center; margin-bottom: 40px; }
+
+.faq-list { max-width: 700px; margin: 0 auto; }
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-q {
+  font-size: 16px; font-weight: 600;
+  font-family: var(--font-display);
+  display: flex; align-items: center; gap: 12px;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.faq-q:hover { background: rgba(139,92,246,0.05); }
+
+.faq-q::before {
+  content: "+";
+  background: var(--purple);
+  color: white;
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 600;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+}
+
+.faq-item.open .faq-q::before {
+  content: "−";
+}
+
+.faq-a {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  padding: 0 24px 20px 60px;
+  display: none;
+}
+
+.faq-item.open .faq-a {
+  display: block;
+}
+
+/* Final CTA */
+.final-cta {
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 100%, rgba(139,92,246,0.1) 0%, transparent 50%);
+}
+.final-cta h2 { margin-bottom: 12px; }
+.final-sub { color: var(--text-secondary); font-size: 18px; margin-bottom: 28px; }
+
+.urgency-badge {
+  display: inline-block;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  color: var(--orange);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  margin-bottom: 24px;
+}
+
+.final-microcopy { font-size: 13px; color: var(--text-secondary); margin-top: 16px; }
+
+/* Footer */
+footer {
+  padding: 32px;
+  text-align: center;
+  border-top: 1px solid var(--card-border);
+}
+footer p { color: var(--text-secondary); font-size: 14px; }
+footer a { color: var(--purple-light); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  This Saturday, April 4 at 10 AM IST
+  <a href="https://rzp.io/rzp/0ZqqeGMp" style="margin-left: 16px; background: white; color: var(--orange); padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 13px;">Register Now - Rs.99</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" style="padding: 60px 24px;">
+  <div class="container" style="max-width: 1100px;">
+    <div style="display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center;">
+
+      <!-- Left: Copy -->
+      <div>
+        <div class="hero-badge">JUST Rs.99 | LIVE ON ZOOM | THIS SATURDAY</div>
+        <h1 style="margin-bottom: 20px;"><span class="highlight">AI Workshop</span> for Kids (Ages 10-16)</h1>
+        <p style="color: #A3A3A3; font-size: 18px; line-height: 1.7; margin-bottom: 28px;">In this 2-hour live session, your child will learn how to generate images using AI — and walk away with artwork they created themselves.</p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">📅</span>
+            <span style="font-weight: 600;">Saturday, Apr 4</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">🕙</span>
+            <span style="font-weight: 600;">10:00 AM IST</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">⏱️</span>
+            <span style="font-weight: 600;">2 Hours</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span style="font-size: 20px;">🗣️</span>
+            <span style="font-weight: 600;">English</span>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 24px;">
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);"><span style="color: var(--success);">&#10003;</span> 2-Hour Live Class</span>
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);"><span style="color: var(--success);">&#10003;</span> No Coding Needed</span>
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);"><span style="color: var(--success);">&#10003;</span> Create Real AI Art</span>
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);"><span style="color: var(--success);">&#10003;</span> Just Rs.99</span>
+          <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-secondary);"><span style="color: var(--success);">&#10003;</span> Live Only — No Recording</span>
+        </div>
+
+        <div style="margin-top: 28px; text-align: center;">
+          <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 1px;">Tools They'll Learn</p>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+            <span style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 13px; font-weight: 500;">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" style="width: 18px; height: 18px;">ChatGPT
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 13px; font-weight: 500;">
+              <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini" style="width: 18px; height: 18px;">Gemini
+            </span>
+            <span style="display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; font-size: 13px; font-weight: 500;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF6B6B"/></svg>Lovable
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Price Card + CTA -->
+      <div class="reg-form-card" style="text-align: center;">
+        <div class="reg-form-header">
+          <div class="reg-form-date">April 4, 2026 | 10:00 AM IST</div>
+          <div style="margin: 16px 0;">
+            <span style="font-size: 20px; color: rgba(255,255,255,0.6); text-decoration: line-through;">Rs.499</span>
+            <span style="font-size: 48px; font-weight: 800; margin-left: 12px;">Rs.99</span>
+          </div>
+          <p style="font-weight: 600;">Live Zoom Workshop</p>
+        </div>
+        <div class="reg-form-body">
+          <a href="https://rzp.io/rzp/0ZqqeGMp" class="form-submit" style="display: block; text-align: center; text-decoration: none;">
+            Register Now - Rs.99
+          </a>
+          <div class="form-footer" style="margin-top: 16px;">
+            <p style="color: #22C55E; font-weight: 600;">Limited to 30 Seats</p>
+            <p style="margin-top: 8px; font-size: 12px; color: #666;">100% Money-Back Guarantee</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+@media (max-width: 900px) {
+  .hero > .container > div { grid-template-columns: 1fr !important; text-align: center; }
+  .hero > .container > div > div:first-child > div { justify-content: center; }
+}
+</style>
+
+<!-- What You'll Learn -->
+<section class="learn-section">
+  <div class="container">
+    <h2>What Your Child Will <span class="highlight">Learn & Create</span></h2>
+
+    <div class="learn-grid">
+      <div class="learn-card">
+        <div class="learn-num">01</div>
+        <h3>Understand AI Basics</h3>
+        <p>What AI is, how it works, and what it can (and can't) do — explained simply for beginners.</p>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">02</div>
+        <h3>Write AI Prompts</h3>
+        <p>Learn how to give clear instructions to AI so it creates better images and outputs.</p>
+      </div>
+      <div class="learn-card">
+        <div class="learn-num">03</div>
+        <h3>Build a Website with AI</h3>
+        <p>Introduction to creating websites using AI tools — no coding required.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Student Creations -->
+<section style="padding: 72px 0; border-top: 1px solid var(--card-border);">
+  <div class="container">
+    <h2 style="text-align: center; margin-bottom: 16px;">What <span class="highlight">Past Students</span> Created</h2>
+    <p style="text-align: center; color: var(--text-secondary); margin-bottom: 40px;">Real projects from kids who attended our workshops</p>
+
+    <!-- AI Art Gallery -->
+    <p style="font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px; text-align: center;">AI-Generated Movie Posters</p>
+    <div class="student-art-grid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 40px;">
+      <img src="assets/student-art-1.jpeg" alt="Student AI Art" style="width: 100%; border-radius: 12px; border: 1px solid var(--card-border);">
+      <img src="assets/student-art-2.jpeg" alt="Student AI Art" style="width: 100%; border-radius: 12px; border: 1px solid var(--card-border);">
+      <img src="assets/student-art-3.jpeg" alt="Student AI Art" style="width: 100%; border-radius: 12px; border: 1px solid var(--card-border);">
+      <img src="assets/student-art-4.jpeg" alt="Student AI Art" style="width: 100%; border-radius: 12px; border: 1px solid var(--card-border);">
+    </div>
+
+    <!-- Websites Built - Device Mockups -->
+    <p style="font-size: 12px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 32px; text-align: center;">Websites Built with AI</p>
+
+    <style>
+      .device-showcase {
+        position: relative;
+        height: 520px;
+        max-width: 950px;
+        margin: 0 auto;
+      }
+      .device {
+        position: absolute;
+        transition: transform 0.4s ease, box-shadow 0.4s ease;
+        text-decoration: none;
+      }
+      .device:hover {
+        transform: scale(1.05) !important;
+        z-index: 100 !important;
+      }
+      .laptop-frame {
+        background: linear-gradient(145deg, #2d2d2d 0%, #1a1a1a 100%);
+        border-radius: 16px 16px 0 0;
+        padding: 12px 12px 0;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+      }
+      .laptop-screen {
+        background: #000;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 2px solid #3a3a3a;
+      }
+      .laptop-base {
+        background: linear-gradient(145deg, #3a3a3a 0%, #2a2a2a 100%);
+        height: 14px;
+        border-radius: 0 0 8px 8px;
+        position: relative;
+      }
+      .laptop-base::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -6px;
+        width: 35%;
+        height: 6px;
+        background: #2a2a2a;
+        border-radius: 0 0 6px 6px;
+      }
+      .tablet-frame {
+        background: linear-gradient(145deg, #2d2d2d 0%, #1a1a1a 100%);
+        border-radius: 20px;
+        padding: 14px;
+        box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+      }
+      .tablet-screen {
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .phone-frame {
+        background: linear-gradient(145deg, #2d2d2d 0%, #1a1a1a 100%);
+        border-radius: 28px;
+        padding: 10px;
+        box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+      }
+      .phone-notch {
+        width: 40%;
+        height: 16px;
+        background: #1a1a1a;
+        border-radius: 0 0 12px 12px;
+        margin: 0 auto -8px;
+        position: relative;
+        z-index: 2;
+      }
+      .phone-screen {
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .device-label {
+        color: var(--snow);
+        font-size: 12px;
+        text-align: center;
+        margin-top: 12px;
+        font-weight: 600;
+        font-family: var(--font-display);
+      }
+      .floating-tag {
+        background: rgba(139, 92, 246, 0.2);
+        backdrop-filter: blur(8px);
+        padding: 10px 20px;
+        border-radius: 24px;
+        border: 1px solid rgba(139, 92, 246, 0.3);
+        color: white;
+        font-size: 13px;
+        font-weight: 600;
+        font-family: var(--font-display);
+      }
+      @media (max-width: 768px) {
+        .device-showcase { height: 400px; transform: scale(0.7); transform-origin: top center; }
+      }
+    </style>
+
+    <div class="device-showcase">
+
+      <!-- LAPTOP - Center (Rahul) -->
+      <a href="https://rahul-purple-spark.lovable.app" target="_blank" class="device" style="left: 50%; top: 45%; transform: translate(-50%, -50%); z-index: 10;">
+        <div class="laptop-frame" style="width: 420px;">
+          <div class="laptop-screen" style="height: 260px; background: linear-gradient(160deg, #0f0a1a 0%, #1a1030 50%, #251540 100%);">
+            <div style="text-align: center; padding: 30px 20px;">
+              <p style="color: rgba(255,255,255,0.5); font-size: 10px; letter-spacing: 3px; text-transform: uppercase;">Welcome to my world</p>
+              <p style="color: #d4a853; font-size: 14px; margin-top: 16px; font-weight: 500;">RS</p>
+              <p style="color: white; font-size: 36px; font-weight: 800; margin-top: 8px; line-height: 1;">Hey, I'm <span style="color: #a855f7;">Rahul S</span></p>
+              <p style="color: rgba(255,255,255,0.6); font-size: 12px; margin-top: 16px;">15-year-old student | cricketer | thriller enthusiast | AI art creator</p>
+            </div>
+          </div>
+        </div>
+        <div class="laptop-base" style="width: 420px;"></div>
+        <p class="device-label">Rahul's Personal Site</p>
+      </a>
+
+      <!-- TABLET - Left (Nirja) -->
+      <a href="https://nirjas-dancing-dream.lovable.app" target="_blank" class="device" style="left: -10px; top: 30px; transform: rotate(-8deg); z-index: 5;">
+        <div class="tablet-frame" style="width: 220px;">
+          <div class="tablet-screen" style="height: 300px; background: linear-gradient(180deg, #1a0a2e 0%, #2a1545 100%);">
+            <div style="padding: 16px;">
+              <p style="color: #c084fc; font-size: 16px; font-weight: 700;">Nirja.S</p>
+              <div style="display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap;">
+                <span style="background: rgba(192,132,252,0.25); color: white; font-size: 10px; padding: 5px 10px; border-radius: 14px;">Hello!</span>
+                <span style="background: rgba(192,132,252,0.25); color: white; font-size: 10px; padding: 5px 10px; border-radius: 14px;">Namaste!</span>
+                <span style="background: rgba(192,132,252,0.25); color: white; font-size: 10px; padding: 5px 10px; border-radius: 14px;">Hey there!</span>
+              </div>
+              <div style="margin-top: 30px; text-align: center; opacity: 0.6;">
+                <div style="width: 80px; height: 100px; background: linear-gradient(135deg, rgba(192,132,252,0.3), rgba(192,132,252,0.1)); border-radius: 12px; margin: 0 auto;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="device-label">Nirja's Dance Portfolio</p>
+      </a>
+
+      <!-- PHONE - Right Top (QuickBiter) -->
+      <a href="https://quickbiter.lovable.app" target="_blank" class="device" style="right: 10px; top: 0; transform: rotate(6deg); z-index: 8;">
+        <div class="phone-frame" style="width: 150px;">
+          <div class="phone-notch"></div>
+          <div class="phone-screen" style="height: 280px; background: #0a0a0a;">
+            <div style="padding: 14px;">
+              <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
+                <span style="color: #f97316; font-size: 14px; font-weight: 800;">QuickBite</span>
+              </div>
+              <div style="display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 12px;">
+                <span style="background: #f97316; color: white; font-size: 9px; padding: 4px 8px; border-radius: 10px;">Pizza</span>
+                <span style="background: #262626; color: white; font-size: 9px; padding: 4px 8px; border-radius: 10px;">Biryani</span>
+                <span style="background: #262626; color: white; font-size: 9px; padding: 4px 8px; border-radius: 10px;">Burger</span>
+              </div>
+              <div style="background: #1a1a1a; border-radius: 10px; padding: 10px; margin-bottom: 8px;">
+                <div style="width: 100%; height: 40px; background: linear-gradient(90deg, #f97316 0%, #fb923c 100%); border-radius: 6px; opacity: 0.3;"></div>
+                <p style="color: white; font-size: 10px; font-weight: 600; margin-top: 6px;">Pizza Paradise</p>
+                <p style="color: #666; font-size: 8px;">20-30 min</p>
+              </div>
+              <div style="background: #1a1a1a; border-radius: 10px; padding: 10px;">
+                <div style="width: 100%; height: 40px; background: linear-gradient(90deg, #eab308 0%, #facc15 100%); border-radius: 6px; opacity: 0.3;"></div>
+                <p style="color: white; font-size: 10px; font-weight: 600; margin-top: 6px;">Biryani Blues</p>
+                <p style="color: #666; font-size: 8px;">25-35 min</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="device-label">QuickBiter Food App</p>
+      </a>
+
+      <!-- PHONE - Left Bottom (Sanjay) -->
+      <a href="https://sanjays-art-port.lovable.app" target="_blank" class="device" style="left: 80px; bottom: 0; transform: rotate(-5deg); z-index: 7;">
+        <div class="phone-frame" style="width: 140px;">
+          <div class="phone-notch"></div>
+          <div class="phone-screen" style="height: 250px; background: linear-gradient(160deg, #1a1040 0%, #2a1860 100%);">
+            <div style="padding: 14px; text-align: center;">
+              <p style="color: #22c55e; font-size: 12px; font-weight: 700;">SS</p>
+              <p style="color: #c084fc; font-size: 11px; margin-top: 4px;">Hello!</p>
+              <p style="color: #fbbf24; font-size: 22px; font-weight: 800; margin-top: 12px;">Sanjay S</p>
+              <p style="color: rgba(255,255,255,0.7); font-size: 9px; margin-top: 8px; line-height: 1.4;">11-year-old artist, dreamer & AI art explorer</p>
+              <div style="margin-top: 16px; display: flex; justify-content: center; gap: 16px;">
+                <span style="color: #666; font-size: 16px;">About</span>
+                <span style="color: #666; font-size: 16px;">Gallery</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="device-label">Sanjay's Art Gallery</p>
+      </a>
+
+      <!-- Floating Tags -->
+      <div class="floating-tag" style="position: absolute; right: 160px; top: 80px;">AI + Creativity</div>
+      <div class="floating-tag" style="position: absolute; left: 260px; bottom: 60px;">No Coding Needed</div>
+      <div class="floating-tag" style="position: absolute; right: 200px; bottom: 100px;">Built by Kids</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Mid CTA -->
+<section class="mid-cta">
+  <div class="container">
+    <p>Ready to give your child a head start in AI?</p>
+    <a href="https://rzp.io/rzp/0ZqqeGMp" class="btn btn-primary">Register Now - Rs.99</a>
+  </div>
+</section>
+
+<!-- Who Is This For -->
+<section class="who-section">
+  <div class="container">
+    <h2>Is This <span class="highlight">Right</span> For Your Child?</h2>
+
+    <div class="who-grid">
+      <div class="who-card yes">
+        <h3>This is PERFECT if...</h3>
+        <ul class="who-list">
+          <li>They're curious about AI and want to try it</li>
+          <li>They enjoy creating — art, stories, games</li>
+          <li>They've never used AI tools before</li>
+          <li>They're between 10-16 years old</li>
+        </ul>
+      </div>
+      <div class="who-card no">
+        <h3>This is NOT for...</h3>
+        <ul class="who-list">
+          <li>Kids looking for coding/programming classes</li>
+          <li>Children under 10 years old</li>
+          <li>Those who can't join live on Zoom</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Instructor -->
+<section class="instructor-section">
+  <div class="container">
+    <h2>Meet Your <span class="highlight">Instructor</span></h2>
+
+    <div class="instructor-card">
+      <div class="instructor-photo"><img src="assets/trainer-shaik.jpg" alt="Shaik Abdul Quddus"></div>
+      <div class="instructor-info">
+        <h3>Shaik Abdul Quddus</h3>
+        <p class="instructor-role">Tech Professional | 10+ Years in Industry</p>
+        <p class="instructor-bio">10+ years building technology at companies like IBM, Cognizant, Accenture, and Tech Mahindra. A certified professional who brings real-world tech experience to help kids learn AI the right way — with live guidance, safe tools, and hands-on projects.</p>
+        <div class="instructor-tags">
+          <span class="instructor-tag">IBM</span>
+          <span class="instructor-tag">Cognizant</span>
+          <span class="instructor-tag">Accenture</span>
+          <span class="instructor-tag">Tech Mahindra</span>
+          <span class="instructor-tag">4x Certified</span>
+        </div>
+        <a href="https://www.linkedin.com/in/shaikabdulquddus/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; color: #0A66C2; font-size: 14px; font-weight: 600; text-decoration: none;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          View LinkedIn Profile
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="container">
+    <h2>Frequently Asked <span class="highlight">Questions</span></h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">Does my child need to know coding?</div>
+        <p class="faq-a">No. This is a no-code workshop. AI does the technical work. Your child just needs curiosity.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What device do they need?</div>
+        <p class="faq-a">A laptop or desktop with internet and Zoom. Tablets are not recommended for this workshop.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Are AI tools safe for kids?</div>
+        <p class="faq-a">Yes. We use age-appropriate tools and settings. We also cover AI ethics and responsible use.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Will there be a recording?</div>
+        <p class="faq-a">This is a hands-on workshop, not a lecture. Live participation is essential. No recording will be shared.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Why Rs.99 and not free?</div>
+        <p class="faq-a">A small commitment means serious learners. Free workshops see 30% attendance. Paid workshops see 80%+. We want kids who will actually show up and participate.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What happens after this workshop?</div>
+        <p class="faq-a">If your child loves it, they can join our full "Build with AI for Kids" course starting April 14. No pressure — this workshop is complete on its own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+  <div class="container">
+    <div class="urgency-badge">Limited Seats for Interactive Session</div>
+
+    <h2>This Saturday. 2 Hours. <span class="highlight">Rs.99.</span></h2>
+    <p class="final-sub">They'll walk away with AI artwork they created — and a skill for the future.</p>
+
+    <a href="https://rzp.io/rzp/0ZqqeGMp" class="btn btn-primary btn-lg">Save My Child's Spot</a>
+    <p class="final-microcopy">Saturday, April 4 | 10:00 AM IST | Zoom</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>A workshop by <strong style="color: var(--snow);">Rewire</strong> | <a href="https://rewire.school">rewire.school</a></p>
+</footer>
+
+<script>
+// Form submission
+document.getElementById('regForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const btn = this.querySelector('button[type="submit"]');
+  btn.textContent = 'Registering...';
+  btn.disabled = true;
+
+  const parentName = this.parentName.value;
+  const email = this.email.value;
+  const phone = this.phone.value;
+  const grade = this.grade.value;
+
+  // Capture UTM params
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source') || '';
+  const utmMedium = urlParams.get('utm_medium') || '';
+  const utmCampaign = urlParams.get('utm_campaign') || '';
+  const utmContent = urlParams.get('utm_content') || '';
+
+  // Fire-and-forget to Google Sheet
+  fetch('https://script.google.com/macros/s/AKfycbxa2rf26d2rNk_vL_iYOeamjoeZqoj6D2CjBbEfCCFd_IUZfdVeJAapOKHM1_lEZN0DpA/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      parent_name: parentName,
+      email: email,
+      phone: phone,
+      child_age: grade,
+      course: 'Build with AI for Kids - Rs.99 Workshop',
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      timestamp: new Date().toISOString()
+    })
+  });
+
+  // Show success and redirect
+  btn.textContent = 'Registered!';
+  btn.style.background = '#22C55E';
+
+  setTimeout(() => {
+    window.location.href = 'thank-you.html';
+  }, 500);
+});
+
+// FAQ Accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement;
+    // Close others
+    document.querySelectorAll('.faq-item').forEach(i => {
+      if (i !== item) i.classList.remove('open');
+    });
+    // Toggle current
+    item.classList.toggle('open');
+  });
+});
+</script>
+
+</body>
+</html>

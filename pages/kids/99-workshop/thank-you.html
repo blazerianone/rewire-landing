@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In! | AI Workshop for Kids | Rewire</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+fbq('track', 'Purchase', {
+  value: 99,
+  currency: 'INR',
+  content_name: 'AI Workshop for Kids - Rs.99'
+});
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-dark: #7C3AED;
+  --green: #22C55E;
+  --orange: #F97316;
+  --night: #0A0A0A;
+  --card: #111111;
+  --snow: #FAFAFA;
+  --muted: #888888;
+  --border: #222222;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+h1, h2, h3 {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+}
+
+.container {
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Success Icon */
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--green) 0%, #16a34a 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  box-shadow: 0 10px 40px rgba(34, 197, 94, 0.3);
+}
+
+.success-icon svg {
+  width: 40px;
+  height: 40px;
+  stroke: white;
+  stroke-width: 3;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.header p span {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* Workshop Details Card */
+.details-card {
+  background: linear-gradient(135deg, var(--orange) 0%, #ea580c 100%);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.details-card h2 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 12px;
+}
+
+.details-card .date {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: 'Manrope', sans-serif;
+  margin-bottom: 4px;
+}
+
+.details-card .time {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* Info Card */
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.info-card h3 {
+  font-size: 16px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-card h3 span {
+  font-size: 20px;
+}
+
+.info-list {
+  list-style: none;
+}
+
+.info-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+}
+
+.info-list li:last-child {
+  border-bottom: none;
+}
+
+.info-list .num {
+  width: 24px;
+  height: 24px;
+  background: var(--purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* Zoom Link Card */
+.zoom-card {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.zoom-card h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.zoom-card p {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.zoom-card .highlight {
+  color: var(--purple);
+  font-weight: 600;
+}
+
+/* Buttons */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Manrope', sans-serif;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: white;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.btn-whatsapp:hover {
+  box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+}
+
+.btn-calendar {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--snow);
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.btn-calendar:hover {
+  border-color: var(--purple);
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.contact p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.contact a {
+  color: var(--purple);
+  text-decoration: none;
+}
+
+/* Share */
+.share-section {
+  text-align: center;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.share-section p {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.share-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.share-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--snow);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.share-btn:hover {
+  border-color: var(--purple);
+  transform: scale(1.1);
+}
+
+.share-btn svg {
+  width: 20px;
+  height: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Success Icon -->
+  <div class="success-icon">
+    <svg viewBox="0 0 24 24" fill="none">
+      <polyline points="20 6 9 17 4 12"></polyline>
+    </svg>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>You're In!</h1>
+    <p>Registration confirmed for <span>AI Workshop for Kids</span></p>
+  </div>
+
+  <!-- Workshop Details -->
+  <div class="details-card">
+    <h2>Workshop Date & Time</h2>
+    <div class="date">Saturday, April 4, 2026</div>
+    <div class="time">10:00 AM - 12:00 PM IST</div>
+  </div>
+
+  <!-- Zoom Link Info -->
+  <div class="zoom-card">
+    <h3>Zoom Link</h3>
+    <p>Will be sent to your <span class="highlight">WhatsApp</span> 24 hours before the workshop</p>
+  </div>
+
+  <!-- What to Expect -->
+  <div class="info-card">
+    <h3><span>📋</span> What to Expect</h3>
+    <ul class="info-list">
+      <li>
+        <div class="num">1</div>
+        <div>Keep a <strong>laptop/desktop</strong> ready with stable internet</div>
+      </li>
+      <li>
+        <div class="num">2</div>
+        <div>You'll receive a <strong>reminder on WhatsApp</strong> before the session</div>
+      </li>
+      <li>
+        <div class="num">3</div>
+        <div>Your child will create an <strong>AI poster + website</strong> during the workshop</div>
+      </li>
+      <li>
+        <div class="num">4</div>
+        <div><strong>Recording access</strong> for 48 hours after the session</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- WhatsApp Button -->
+  <a href="https://wa.me/917305082534?text=Hi%2C%20I%20just%20registered%20for%20the%20AI%20Workshop%20for%20Kids%20(Rs.99)" class="btn btn-whatsapp">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    Message Us on WhatsApp
+  </a>
+
+  <!-- Add to Calendar -->
+  <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=AI+Workshop+for+Kids+-+Rewire&dates=20260404T043000Z/20260404T063000Z&details=Live+Zoom+Workshop.+Link+will+be+sent+via+WhatsApp.&location=Zoom" target="_blank" class="btn btn-calendar">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+      <line x1="16" y1="2" x2="16" y2="6"></line>
+      <line x1="8" y1="2" x2="8" y2="6"></line>
+      <line x1="3" y1="10" x2="21" y2="10"></line>
+    </svg>
+    Add to Google Calendar
+  </a>
+
+  <!-- Contact -->
+  <div class="contact">
+    <p>Questions? Reach out to us</p>
+    <p><a href="mailto:hello@rewire.school">hello@rewire.school</a> | <a href="tel:+917305082534">+91 73050 82534</a></p>
+  </div>
+
+  <!-- Share -->
+  <div class="share-section">
+    <p>Know someone who'd love this?</p>
+    <div class="share-buttons">
+      <a href="https://wa.me/?text=Check%20out%20this%20AI%20Workshop%20for%20Kids%20by%20Rewire!%20Just%20Rs.99%20%F0%9F%94%A5%20https://rewire.school/lp/kids/online-99/" target="_blank" class="share-btn" title="Share on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=Just%20signed%20up%20for%20an%20AI%20Workshop%20for%20Kids!%20%F0%9F%A4%96%20Check%20it%20out%3A&url=https://rewire.school/lp/kids/online-99/" target="_blank" class="share-btn" title="Share on Twitter">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
