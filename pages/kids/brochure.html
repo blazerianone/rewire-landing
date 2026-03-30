@@ -1,0 +1,2617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build with AI for Kids — Complete Course Guide | rewire.school</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --purple-dark: #7C3AED;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+  --orange: #F59E0B;
+  --alert: #EF4444;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.brochure {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Utility */
+.container { padding: 0 40px; }
+@media (max-width: 600px) { .container { padding: 0 20px; } }
+
+/* Page breaks for PDF */
+.page-break { page-break-after: always; }
+
+/* ===== COVER PAGE ===== */
+.cover {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, var(--night) 0%, #0f0a1a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139,92,246,0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cover-header {
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Manrope', sans-serif;
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--purple);
+}
+
+.batch-tag {
+  background: var(--purple);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.cover-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.cover-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .cover-grid { grid-template-columns: 1fr; text-align: center; }
+  .cover-image { order: -1; }
+}
+
+.cover-eyebrow {
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: var(--success);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.cover h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 20px;
+}
+
+.cover h1 span { color: var(--purple); }
+
+.cover-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  line-height: 1.6;
+}
+
+.cover-stats {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 800px) {
+  .cover-stats { justify-content: center; }
+}
+
+.cover-stat {
+  text-align: center;
+}
+
+.cover-stat strong {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.cover-stat span {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.cover-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--purple);
+  color: white;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+}
+
+.cover-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+.cover-footer {
+  padding: 24px 40px;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.cover-footer-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.cover-footer-item svg { color: var(--success); }
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 80px 40px;
+  border-top: 1px solid var(--card-border);
+}
+
+@media (max-width: 600px) {
+  .section { padding: 48px 20px; }
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 600px;
+}
+
+/* ===== WHY NOW SECTION ===== */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+.why-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.why-card.highlight {
+  background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, rgba(139,92,246,0.02) 100%);
+  border-color: rgba(139,92,246,0.3);
+  grid-column: span 2;
+}
+
+@media (max-width: 600px) {
+  .why-card.highlight { grid-column: span 1; }
+}
+
+.why-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.why-card h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.why-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.stat-highlight {
+  font-family: 'Manrope', sans-serif;
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--purple);
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* ===== TRANSFORMATION SECTION ===== */
+.transform-grid {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .transform-grid { grid-template-columns: 1fr; }
+  .transform-arrow { transform: rotate(90deg); margin: 16px auto; }
+}
+
+.transform-box {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.transform-box.before {
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.transform-box.after {
+  border-color: rgba(34, 197, 94, 0.3);
+  background: linear-gradient(135deg, rgba(34,197,94,0.05) 0%, transparent 100%);
+}
+
+.transform-label {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+.transform-box.before .transform-label {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--alert);
+}
+
+.transform-box.after .transform-label {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.transform-box h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.transform-list {
+  list-style: none;
+}
+
+.transform-list li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.transform-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.transform-box.before .transform-list li::before {
+  background: var(--alert);
+}
+
+.transform-box.after .transform-list li::before {
+  background: var(--success);
+}
+
+.transform-arrow {
+  width: 60px;
+  height: 60px;
+  background: var(--purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+}
+
+/* ===== OUTCOMES SECTION ===== */
+.outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 700px) {
+  .outcomes-grid { grid-template-columns: 1fr; }
+}
+
+.outcome-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.outcome-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-4px);
+}
+
+.outcome-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0.05) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.outcome-card h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.outcome-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.outcome-features {
+  text-align: left;
+  background: rgba(139, 92, 246, 0.05);
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.outcome-features li {
+  list-style: none;
+  padding: 6px 0;
+  padding-left: 24px;
+  position: relative;
+  font-size: 13px;
+  color: var(--snow);
+}
+
+.outcome-features li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  background: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14' stroke='%2322C55E' stroke-width='2'/%3E%3Cpath d='M22 4L12 14.01l-3-3' stroke='%2322C55E' stroke-width='2'/%3E%3C/svg%3E") no-repeat center;
+}
+
+/* ===== CURRICULUM SECTION ===== */
+.curriculum-week {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.week-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 24px 28px;
+  background: linear-gradient(90deg, rgba(139,92,246,0.1) 0%, transparent 100%);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.week-number {
+  width: 56px;
+  height: 56px;
+  background: var(--purple);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.week-number span {
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: white;
+}
+
+.week-info h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.week-info p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.week-content {
+  padding: 28px;
+}
+
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.day-card {
+  background: var(--night);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.day-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--purple);
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.day-card h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.day-card ul {
+  list-style: none;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.day-card li {
+  padding: 3px 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.day-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 5px;
+  background: var(--success);
+  border-radius: 50%;
+}
+
+.week-output {
+  margin-top: 20px;
+  padding: 16px 20px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.week-output svg { flex-shrink: 0; color: var(--success); }
+
+.week-output strong {
+  font-size: 13px;
+  color: var(--success);
+}
+
+.week-output span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ===== FRAMEWORKS SECTION ===== */
+.framework-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 700px) {
+  .framework-grid { grid-template-columns: 1fr; }
+}
+
+.framework-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 32px;
+}
+
+.framework-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+}
+
+.framework-card.spark .framework-badge {
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  color: white;
+}
+
+.framework-card.think .framework-badge {
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+  color: white;
+}
+
+.framework-card h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.framework-card > p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.framework-steps {
+  list-style: none;
+}
+
+.framework-steps li {
+  display: flex;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.framework-steps li:last-child { border-bottom: none; }
+
+.step-letter {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.framework-card.spark .step-letter {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--orange);
+}
+
+.framework-card.think .step-letter {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.step-content strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.step-content span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ===== TOOLS SECTION ===== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.tool-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.tool-card:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.tool-icon {
+  width: 56px;
+  height: 56px;
+  background: var(--night);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.tool-card h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.tool-card p {
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* ===== STUDENT WORK SECTION ===== */
+.work-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .work-grid { grid-template-columns: 1fr; }
+}
+
+.work-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.work-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.work-info {
+  padding: 20px;
+}
+
+.work-info h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.work-info p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.work-tag {
+  display: inline-block;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--purple-light);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* ===== INSTRUCTOR SECTION ===== */
+.instructor-card {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 40px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  padding: 40px;
+  align-items: center;
+}
+
+@media (max-width: 700px) {
+  .instructor-card { grid-template-columns: 1fr; text-align: center; }
+}
+
+.instructor-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  border: 4px solid var(--purple);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.3);
+}
+
+@media (max-width: 700px) {
+  .instructor-photo { margin: 0 auto; }
+}
+
+.instructor-info h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.instructor-title {
+  font-size: 16px;
+  color: var(--purple-light);
+  margin-bottom: 20px;
+}
+
+.instructor-bio {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.7;
+}
+
+.instructor-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .instructor-stats { justify-content: center; }
+}
+
+.instructor-stat strong {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--purple);
+}
+
+.instructor-stat span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ===== DEMO DAY SECTION ===== */
+.demo-day-box {
+  background: linear-gradient(135deg, rgba(139,92,246,0.15) 0%, rgba(139,92,246,0.02) 100%);
+  border: 1px solid rgba(139,92,246,0.3);
+  border-radius: 20px;
+  padding: 48px;
+  text-align: center;
+}
+
+.demo-day-box h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.demo-day-box > p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.demo-timeline {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.demo-step {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  text-align: center;
+  min-width: 140px;
+}
+
+.demo-step-num {
+  width: 32px;
+  height: 32px;
+  background: var(--purple);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 auto 12px;
+}
+
+.demo-step strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.demo-step span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.demo-quote {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px 32px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.demo-quote p {
+  font-size: 16px;
+  font-style: italic;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.demo-quote cite {
+  font-size: 13px;
+  color: var(--purple-light);
+  font-style: normal;
+}
+
+/* ===== TESTIMONIALS SECTION ===== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 700px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+.testimonial-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+}
+
+.testimonial-stars {
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+
+.testimonial-card blockquote {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonial-avatar {
+  width: 44px;
+  height: 44px;
+  background: var(--purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+}
+
+.testimonial-meta strong {
+  display: block;
+  font-size: 14px;
+}
+
+.testimonial-meta span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ===== PRICING SECTION ===== */
+.pricing-card {
+  background: linear-gradient(135deg, rgba(139,92,246,0.1) 0%, var(--card) 100%);
+  border: 2px solid rgba(139,92,246,0.4);
+  border-radius: 24px;
+  padding: 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--purple) 0%, var(--purple-light) 100%);
+}
+
+.pricing-tag {
+  display: inline-block;
+  background: var(--orange);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+
+.pricing-amount {
+  margin-bottom: 8px;
+}
+
+.pricing-amount .price {
+  font-family: 'Manrope', sans-serif;
+  font-size: 56px;
+  font-weight: 800;
+}
+
+.pricing-amount .original {
+  font-size: 24px;
+  color: var(--text-secondary);
+  text-decoration: line-through;
+  margin-left: 12px;
+}
+
+.pricing-savings {
+  display: inline-block;
+  background: rgba(34, 197, 94, 0.1);
+  color: var(--success);
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.pricing-includes {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto 32px;
+}
+
+.pricing-includes h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.pricing-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .pricing-list { grid-template-columns: 1fr; }
+}
+
+.pricing-list li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.pricing-list li svg {
+  flex-shrink: 0;
+  color: var(--success);
+}
+
+.pricing-bonuses {
+  background: var(--night);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+
+.pricing-bonuses h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--orange);
+}
+
+.bonus-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .bonus-list { grid-template-columns: 1fr; }
+}
+
+.bonus-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.bonus-item svg {
+  flex-shrink: 0;
+  color: var(--orange);
+}
+
+.pricing-guarantee {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.pricing-guarantee svg {
+  flex-shrink: 0;
+  color: var(--success);
+}
+
+.pricing-guarantee p {
+  font-size: 15px;
+  color: var(--success);
+  font-weight: 600;
+}
+
+.pricing-cta {
+  display: inline-block;
+  background: var(--purple);
+  color: white;
+  padding: 18px 48px;
+  border-radius: 12px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+  transition: all 0.3s;
+}
+
+.pricing-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.5);
+}
+
+/* ===== FAQ SECTION ===== */
+.faq-list {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+
+.faq-question {
+  padding: 20px 24px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 24px;
+  color: var(--purple);
+}
+
+.faq-answer {
+  padding: 0 24px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ===== COMPARISON SECTION ===== */
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px 20px;
+  text-align: left;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.comparison-table th {
+  background: var(--night);
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.comparison-table th:first-child { width: 40%; }
+
+.comparison-table td {
+  font-size: 14px;
+}
+
+.comparison-table tr:last-child td { border-bottom: none; }
+
+.comparison-table .check {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.comparison-table .cross {
+  color: var(--alert);
+}
+
+.comparison-table .highlight-col {
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.comparison-table th.highlight-col {
+  background: var(--purple);
+  color: white;
+}
+
+/* ===== BATCH INFO SECTION ===== */
+.batch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 600px) {
+  .batch-grid { grid-template-columns: 1fr; }
+}
+
+.batch-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.batch-card h4 {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.batch-card strong {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 4px;
+}
+
+.batch-card span {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.enrollment-steps {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.enrollment-steps h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.steps-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.step-item {
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  background: var(--purple);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 auto 12px;
+}
+
+.step-item strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.step-item span {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+.contact-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.contact-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.contact-card h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.contact-card a {
+  color: var(--purple-light);
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.contact-card p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 40px;
+  text-align: center;
+  border-top: 1px solid var(--card-border);
+}
+
+.footer-logo {
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 16px;
+}
+
+.footer p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.footer a {
+  color: var(--purple-light);
+  text-decoration: none;
+}
+
+/* Print styles - preserve dark theme */
+@media print {
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+  html, body {
+    background: #0A0A0A !important;
+    color: #FAFAFA !important;
+    margin: 0;
+    padding: 0;
+  }
+  .brochure { max-width: 100%; }
+  .section {
+    padding: 40px 20px;
+    background: #0A0A0A !important;
+    page-break-inside: avoid;
+  }
+  /* Cover page fixes - compact for one page */
+  .cover {
+    min-height: auto !important;
+    height: auto !important;
+    display: block !important;
+    padding: 20px 30px !important;
+    background: #0A0A0A !important;
+    page-break-after: always;
+  }
+  .cover::before { display: none !important; }
+  .cover-header {
+    display: flex !important;
+    justify-content: space-between;
+    padding: 0 0 15px 0 !important;
+  }
+  .cover-content {
+    display: block !important;
+    padding: 0 !important;
+  }
+  .cover-grid {
+    display: flex !important;
+    gap: 30px !important;
+    align-items: flex-start !important;
+  }
+  .cover-copy {
+    flex: 1;
+  }
+  .cover h1 {
+    font-size: 26px !important;
+    color: #FAFAFA !important;
+    margin-bottom: 10px !important;
+  }
+  .cover h1 span { color: #8B5CF6 !important; }
+  .cover-eyebrow {
+    color: #FAFAFA !important;
+    font-size: 11px !important;
+    margin-bottom: 8px !important;
+  }
+  .cover-subtitle {
+    color: #A3A3A3 !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 15px !important;
+  }
+  .cover-stats {
+    gap: 20px !important;
+    margin-bottom: 15px !important;
+  }
+  .cover-stat strong {
+    font-size: 22px !important;
+  }
+  .cover-stat span {
+    font-size: 9px !important;
+  }
+  .cover-image {
+    flex: 0 0 280px !important;
+  }
+  .cover-image img {
+    width: 280px !important;
+    height: auto;
+    border-radius: 12px;
+  }
+  .cover-footer {
+    margin-top: 15px !important;
+    padding: 12px 0 !important;
+    position: static !important;
+    gap: 20px !important;
+  }
+  .cover-footer-item {
+    color: #FAFAFA !important;
+    font-size: 11px !important;
+  }
+  .cover-cta {
+    display: inline-flex !important;
+    width: auto !important;
+    max-width: fit-content !important;
+    background: #8B5CF6 !important;
+    padding: 10px 20px !important;
+    font-size: 13px !important;
+  }
+  .section-title { font-size: 24px; color: #FAFAFA !important; }
+
+  /* Prevent page breaks inside elements */
+  .card,
+  .week-card,
+  .tool-card,
+  .testimonial-card,
+  .framework-card,
+  .bonus-item,
+  .outcome-card,
+  .stat-card,
+  .quick-fact-strip,
+  .instructor-card,
+  .pricing-card,
+  .week-header,
+  .week-content,
+  [class*="week-"],
+  [class*="card"],
+  [class*="testimonial"],
+  [class*="framework"],
+  [class*="bonus"] {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Keep headers with their content */
+  h2, h3, .section-label, .section-title, .week-header {
+    page-break-after: avoid !important;
+    break-after: avoid !important;
+  }
+
+  /* Force page breaks before major sections */
+  .section {
+    page-break-before: auto;
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Backgrounds */
+  .card, [class*="card"] {
+    background: #111111 !important;
+  }
+
+  .page-break { page-break-after: always; }
+}
+</style>
+</head>
+<body>
+
+<div class="brochure">
+
+<!-- ===== COVER PAGE ===== -->
+<section class="cover">
+  <header class="cover-header">
+    <div class="logo" style="display: flex; align-items: center; gap: 12px;">
+      <svg width="36" height="32" viewBox="0 0 44 38" fill="none"><path d="M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="19" r="2" fill="#8b5cf6"/><circle cx="26" cy="19" r="2" fill="#8b5cf6"/><line x1="20" y1="19" x2="24" y2="19" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/></svg>
+      <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px;"><span style="color: #fff;">re</span> <span style="color: #8b5cf6;">wire</span></span>
+    </div>
+    <div class="batch-tag">APRIL 2026 BATCH</div>
+  </header>
+
+  <div class="cover-content">
+    <div class="cover-grid">
+      <div class="cover-copy">
+        <div class="cover-eyebrow">Live Online Course for Ages 10-16</div>
+        <h1>Your Child Builds <span>Real AI Projects</span> in 21 Days</h1>
+        <p class="cover-subtitle">Turn screen time into creation time. In just 1 hour a day, your child will build a website, a web app, and an AI portfolio — then present it all to you on Demo Day.</p>
+
+        <div class="cover-stats">
+          <div class="cover-stat">
+            <strong>21</strong>
+            <span>Live Sessions</span>
+          </div>
+          <div class="cover-stat">
+            <strong>1 hr</strong>
+            <span>Per Day</span>
+          </div>
+          <div class="cover-stat">
+            <strong>30</strong>
+            <span>Max Batch</span>
+          </div>
+        </div>
+
+        <a href="https://rewire.school/lp/kids/" class="cover-cta">
+          <span>Reserve Your Child's Seat</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="cover-image">
+        <img src="assets/hero-kid-building-app.png" alt="Student building an app with AI">
+      </div>
+    </div>
+  </div>
+
+  <footer class="cover-footer">
+    <div class="cover-footer-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      No coding needed
+    </div>
+    <div class="cover-footer-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      Live instructor-led
+    </div>
+    <div class="cover-footer-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      Parent Demo Day
+    </div>
+    <div class="cover-footer-item">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+      100% refund guarantee
+    </div>
+  </footer>
+</section>
+
+<!-- Quick Facts Strip -->
+<div style="background: linear-gradient(90deg, var(--purple) 0%, var(--purple-dark) 100%); padding: 20px 40px;">
+  <div style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap; text-align: center;">
+    <div style="color: white;">
+      <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">April 14</strong>
+      <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">Batch Starts</span>
+    </div>
+    <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.3);"></div>
+    <div style="color: white;">
+      <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">5-6 PM IST</strong>
+      <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">Daily Session</span>
+    </div>
+    <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.3);"></div>
+    <div style="color: white;">
+      <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">21 Days</strong>
+      <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">1 Hour/Day</span>
+    </div>
+    <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.3);"></div>
+    <div style="color: white;">
+      <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">&#8377;14,999</strong>
+      <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">Full Course</span>
+    </div>
+    <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.3);"></div>
+    <div style="color: white;">
+      <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">Max 30</strong>
+      <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">Seats Only</span>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ===== WHY NOW SECTION ===== -->
+<section class="section">
+  <div class="section-label">Why This Matters</div>
+  <h2 class="section-title">AI Will Be Part of Everything Your Child Does</h2>
+  <p class="section-subtitle">The question isn't whether they'll use AI — it's whether they'll be passive consumers or confident creators.</p>
+
+  <div class="why-grid">
+    <div class="why-card highlight">
+      <span class="stat-highlight">AI</span>
+      <h3>is becoming part of everything</h3>
+      <p>AI is rapidly becoming part of how students study, create, and eventually work. The advantage will go to children who know how to build with these tools responsibly — not just consume what AI gives them.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      </div>
+      <h3>Screen Time Problem</h3>
+      <p>Most kids spend 4-6 hours daily consuming content. This course transforms that time into creation — building real things they can show you.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>Schools Aren't Teaching This</h3>
+      <p>There's no formal AI curriculum in Indian schools. Kids are learning from random YouTube videos. They need structured, guided learning.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      </div>
+      <h3>The Window Is Now</h3>
+      <p>Kids who start learning AI tools at 10-16 will have years of practice by the time they enter college or the workforce. Early exposure = lasting advantage.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRANSFORMATION SECTION ===== -->
+<section class="section">
+  <div class="section-label">The Transformation</div>
+  <h2 class="section-title">From Consumer to Creator in 21 Days</h2>
+
+  <div class="transform-grid">
+    <div class="transform-box before">
+      <div class="transform-label">BEFORE THE COURSE</div>
+      <h4>Passive AI User</h4>
+      <ul class="transform-list">
+        <li>Uses ChatGPT to copy homework answers</li>
+        <li>Thinks AI is "magic" or "scary"</li>
+        <li>Consumes content for hours, creates nothing</li>
+        <li>No idea how apps and websites are made</li>
+        <li>Struggles to explain what they're learning</li>
+      </ul>
+    </div>
+
+    <div class="transform-arrow">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </div>
+
+    <div class="transform-box after">
+      <div class="transform-label">AFTER 21 DAYS</div>
+      <h4>Confident AI Builder</h4>
+      <ul class="transform-list">
+        <li>Uses AI as a creative partner for projects</li>
+        <li>Understands how AI works and its limitations</li>
+        <li>Has built 3 real projects they can show anyone</li>
+        <li>Knows how to build websites and apps</li>
+        <li>Presents their work confidently to parents</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ===== OUTCOMES SECTION ===== -->
+<section class="section">
+  <div class="section-label">Tangible Outcomes</div>
+  <h2 class="section-title">What Your Child Walks Away With</h2>
+  <p class="section-subtitle">Not worksheets. Not theory. By the end of 21 days, your child will have a live website, a working app, AI-generated creative assets, and a presentation they can confidently walk you through.</p>
+
+  <div class="outcomes-grid">
+    <div class="outcome-card">
+      <div class="outcome-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+      </div>
+      <h3>Personal Website</h3>
+      <p>A live portfolio website showcasing their work, interests, and AI creations.</p>
+      <ul class="outcome-features">
+        <li>Custom design with AI assistance</li>
+        <li>Live on the internet (real URL)</li>
+        <li>Mobile-responsive layout</li>
+        <li>Shareable with family & friends</li>
+      </ul>
+    </div>
+
+    <div class="outcome-card">
+      <div class="outcome-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+      </div>
+      <h3>Functional Web App</h3>
+      <p>A real application with user accounts, database, and working features.</p>
+      <ul class="outcome-features">
+        <li>User login & authentication</li>
+        <li>Database to store data</li>
+        <li>Interactive features</li>
+        <li>Works on any device</li>
+      </ul>
+    </div>
+
+    <div class="outcome-card">
+      <div class="outcome-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <h3>AI Portfolio</h3>
+      <p>Collection of AI-generated images, videos, and multimedia projects.</p>
+      <ul class="outcome-features">
+        <li>AI-generated artwork</li>
+        <li>AI video creations</li>
+        <li>Multimedia presentations</li>
+        <li>Ready for school projects</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DETAILED CURRICULUM ===== -->
+<section class="section">
+  <div class="section-label">Day-by-Day Curriculum</div>
+  <h2 class="section-title">The 21-Day Journey</h2>
+  <p class="section-subtitle">Every day is hands-on. Every day they build something real.</p>
+
+  <!-- Week 1 -->
+  <div class="curriculum-week">
+    <div class="week-header">
+      <div class="week-number"><span>1</span></div>
+      <div class="week-info">
+        <h3>AI Explorer</h3>
+        <p>Days 1-7: Discover AI tools and create stunning visuals</p>
+      </div>
+    </div>
+    <div class="week-content">
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="day-label">DAY 1-2</div>
+          <h4>AI Image Creation</h4>
+          <ul>
+            <li>Generate stunning AI artwork</li>
+            <li>Learn the SPARK prompting framework</li>
+            <li>Create movie posters & portraits</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 3-4</div>
+          <h4>AI Video Basics</h4>
+          <ul>
+            <li>Turn images into videos</li>
+            <li>Add motion and effects</li>
+            <li>Create short animations</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 5-6</div>
+          <h4>AI Music & Audio</h4>
+          <ul>
+            <li>Generate background music</li>
+            <li>Create voiceovers with AI</li>
+            <li>Combine audio with video</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 7</div>
+          <h4>Weekend Project</h4>
+          <ul>
+            <li>Create multimedia presentation</li>
+            <li>Combine all Week 1 skills</li>
+            <li>Present to classmates</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-output">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        <strong>Week 1 Output:</strong>
+        <span>AI multimedia presentation with images, video, and music</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Week 2 -->
+  <div class="curriculum-week">
+    <div class="week-header">
+      <div class="week-number"><span>2</span></div>
+      <div class="week-info">
+        <h3>AI Builder</h3>
+        <p>Days 8-14: Build websites and web apps from scratch</p>
+      </div>
+    </div>
+    <div class="week-content">
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="day-label">DAY 8-9</div>
+          <h4>Website Fundamentals</h4>
+          <ul>
+            <li>Design with AI assistance</li>
+            <li>Build responsive layouts</li>
+            <li>Add content and images</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 10-11</div>
+          <h4>Personal Portfolio Site</h4>
+          <ul>
+            <li>Create about page</li>
+            <li>Add project gallery</li>
+            <li>Publish to live URL</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 12-13</div>
+          <h4>Web App Development</h4>
+          <ul>
+            <li>Add user authentication</li>
+            <li>Connect to database</li>
+            <li>Build interactive features</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 14</div>
+          <h4>THINK Framework + Review</h4>
+          <ul>
+            <li>AI safety and ethics</li>
+            <li>Responsible AI usage</li>
+            <li>Test and debug apps</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-output">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        <strong>Week 2 Output:</strong>
+        <span>Live portfolio website + functional web app with login system</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Week 3 -->
+  <div class="curriculum-week">
+    <div class="week-header">
+      <div class="week-number"><span>3</span></div>
+      <div class="week-info">
+        <h3>AI Creator</h3>
+        <p>Days 15-21: Polish projects and prepare for Demo Day</p>
+      </div>
+    </div>
+    <div class="week-content">
+      <div class="day-grid">
+        <div class="day-card">
+          <div class="day-label">DAY 15-16</div>
+          <h4>Project Enhancement</h4>
+          <ul>
+            <li>Add advanced features</li>
+            <li>Improve design and UX</li>
+            <li>Fix bugs and optimize</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 17-18</div>
+          <h4>Android App Export</h4>
+          <ul>
+            <li>Convert web app to Android</li>
+            <li>Generate APK file</li>
+            <li>Test on mobile devices</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 19-20</div>
+          <h4>Demo Day Preparation</h4>
+          <ul>
+            <li>Create presentation</li>
+            <li>Practice explaining projects</li>
+            <li>Rehearse for parents</li>
+          </ul>
+        </div>
+        <div class="day-card">
+          <div class="day-label">DAY 21</div>
+          <h4>Parent Demo Day</h4>
+          <ul>
+            <li>Live presentation to parents</li>
+            <li>Q&A session</li>
+            <li>Certificate ceremony</li>
+          </ul>
+        </div>
+      </div>
+      <div class="week-output">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+        <strong>Week 3 Output:</strong>
+        <span>Polished portfolio + Android APK + live Demo Day presentation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ===== FRAMEWORKS SECTION ===== -->
+<section class="section">
+  <div class="section-label">Proprietary Frameworks</div>
+  <h2 class="section-title">Two Frameworks They'll Master for Life</h2>
+  <p class="section-subtitle">These aren't just course concepts — they're mental models for working with AI effectively and responsibly.</p>
+
+  <div class="framework-grid">
+    <div class="framework-card spark">
+      <div class="framework-badge">SPARK</div>
+      <h3>How to Talk to AI</h3>
+      <p>A 5-step framework for writing prompts that get exactly what you want from AI tools.</p>
+      <ul class="framework-steps">
+        <li>
+          <span class="step-letter">S</span>
+          <div class="step-content">
+            <strong>Specificity</strong>
+            <span>Be precise about what you want</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-letter">P</span>
+          <div class="step-content">
+            <strong>Persona</strong>
+            <span>Tell AI who it should be</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-letter">A</span>
+          <div class="step-content">
+            <strong>Action</strong>
+            <span>Define the exact task</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-letter">R</span>
+          <div class="step-content">
+            <strong>Result</strong>
+            <span>Describe the desired output</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-letter">K</span>
+          <div class="step-content">
+            <strong>Keep refining</strong>
+            <span>Iterate until perfect</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="framework-card think">
+      <div class="framework-badge">THINK</div>
+      <h3>How to Use AI Responsibly</h3>
+      <p>A 5-step framework for making ethical decisions when working with AI tools.</p>
+      <ul class="framework-steps">
+        <li>
+          <span class="step-letter">T</span>
+          <div class="step-content">
+            <strong>True?</strong>
+            <span>Is the information accurate?</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-letter">H</span>
+          <div class="step-content">
+            <strong>Helpful?</strong>
+            <span>Does this add value?</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-letter">I</span>
+          <div class="step-content">
+            <strong>Inspiring?</strong>
+            <span>Is it positive and constructive?</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-letter">N</span>
+          <div class="step-content">
+            <strong>Necessary?</strong>
+            <span>Is AI the right tool here?</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-letter">K</span>
+          <div class="step-content">
+            <strong>Kind?</strong>
+            <span>Does it respect others?</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TOOLS SECTION ===== -->
+<section class="section">
+  <div class="section-label">Industry-Standard Tools</div>
+  <h2 class="section-title">10+ AI Tools Your Child Will Master</h2>
+  <p class="section-subtitle">The same AI tools used by professionals at top tech companies.</p>
+
+  <div style="display: flex; justify-content: center; align-items: flex-start; gap: 24px; flex-wrap: wrap; margin-top: 32px;">
+    <!-- ChatGPT -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px;">
+      <div style="width: 56px; height: 56px; background: #000; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg>
+      </div>
+      <span style="font-size: 12px; color: var(--text-secondary); text-align: center;">ChatGPT</span>
+    </div>
+    <!-- Claude -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px;">
+      <div style="width: 56px; height: 56px; background: #D97706; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg>
+      </div>
+      <span style="font-size: 12px; color: var(--text-secondary); text-align: center;">Claude</span>
+    </div>
+    <!-- Gemini -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px;">
+      <div style="width: 56px; height: 56px; background: #fff; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><defs><linearGradient id="gem1" x1="0" y1="12" x2="24" y2="12"><stop stop-color="#4285F4"/><stop offset="0.5" stop-color="#9B72CB"/><stop offset="1" stop-color="#D96570"/></linearGradient></defs><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81" fill="url(#gem1)"/></svg>
+      </div>
+      <span style="font-size: 12px; color: var(--text-secondary); text-align: center;">Gemini</span>
+    </div>
+    <!-- Lovable -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px;">
+      <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+      </div>
+      <span style="font-size: 12px; color: var(--text-secondary); text-align: center;">Lovable</span>
+    </div>
+    <!-- Bolt.new -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px;">
+      <div style="width: 56px; height: 56px; background: #1a1a1a; border: 1.5px solid #333; border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14H12L11 22L20 10H12L13 2Z" fill="#F59E0B"/></svg>
+      </div>
+      <span style="font-size: 12px; color: var(--text-secondary); text-align: center;">Bolt.new</span>
+    </div>
+    <!-- Runway -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px;">
+      <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #000000 0%, #333333 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 8l8-4 8 4v8l-8 4-8-4V8z" stroke="white" stroke-width="1.5"/><path d="M12 4v16M4 8l8 4 8-4M4 16l8-4 8 4" stroke="white" stroke-width="1.5"/></svg>
+      </div>
+      <span style="font-size: 12px; color: var(--text-secondary); text-align: center;">Runway</span>
+    </div>
+    <!-- NotebookLM -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px;">
+      <div style="width: 56px; height: 56px; background: linear-gradient(135deg, #EA4335 0%, #FBBC04 50%, #34A853 100%); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+      </div>
+      <span style="font-size: 12px; color: var(--text-secondary); text-align: center;">NotebookLM</span>
+    </div>
+    <!-- +10 more -->
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; width: 80px;">
+      <div style="width: 56px; height: 56px; background: rgba(139,92,246,0.15); border: 2px dashed var(--purple); border-radius: 14px; display: flex; align-items: center; justify-content: center;">
+        <span style="font-size: 18px; font-weight: 800; color: var(--purple);">+10</span>
+      </div>
+      <span style="font-size: 12px; color: var(--purple-light); text-align: center;">& more</span>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ===== STUDENT WORK SECTION ===== -->
+<section class="section">
+  <div class="section-label">Real Results</div>
+  <h2 class="section-title">What Students Built in Our Workshop</h2>
+  <p class="section-subtitle">Created by students aged 10-14 in a free workshop session. Imagine what your child can build with 21 live sessions and guided instruction.</p>
+
+  <div class="work-grid">
+    <div class="work-card">
+      <img src="assets/2026-03-29-free-workshop-websites.jpeg" alt="Student-built portfolio website">
+      <div class="work-info">
+        <h4>Portfolio Website</h4>
+        <p>A 12-year-old student built this complete portfolio website in under 2 hours, with AI assistance. Includes about section, project gallery, and contact page.</p>
+        <span class="work-tag">Built in 2 hours</span>
+      </div>
+    </div>
+    <div class="work-card">
+      <img src="assets/2026-03-29-free-workshop-ai-posters.jpeg" alt="AI-generated movie posters">
+      <div class="work-info">
+        <h4>AI Movie Posters</h4>
+        <p>Students created their own superhero movie posters using AI image generation. Each poster is unique, designed with the SPARK prompting framework.</p>
+        <span class="work-tag">AI-generated art</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INSTRUCTOR SECTION ===== -->
+<section class="section">
+  <div class="section-label">Expert Instruction</div>
+  <h2 class="section-title">Learn from an Experienced AI Trainer</h2>
+
+  <div class="instructor-card">
+    <img src="assets/trainer-shaik.jpg" alt="Shaik Abdul Quddus" class="instructor-photo">
+    <div class="instructor-info">
+      <h3>Shaik Abdul Quddus</h3>
+      <p class="instructor-title">Tech Professional | 10+ Years in Industry</p>
+      <p class="instructor-bio">10+ years building technology at IBM, Cognizant, Accenture, and Tech Mahindra. A certified professional who brings real-world tech experience to help kids learn AI the right way — with live guidance, safe tools, and hands-on projects.</p>
+      <div class="instructor-stats">
+        <div class="instructor-stat">
+          <strong>10+</strong>
+          <span>Years in Tech</span>
+        </div>
+        <div class="instructor-stat">
+          <strong>4</strong>
+          <span>Top Companies</span>
+        </div>
+        <div class="instructor-stat">
+          <strong>4x</strong>
+          <span>Certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DEMO DAY SECTION ===== -->
+<section class="section">
+  <div class="section-label">The Grand Finale</div>
+  <h2 class="section-title">Parent Demo Day</h2>
+  <p class="section-subtitle">On Day 21, your child presents everything they built — to you.</p>
+
+  <div class="demo-day-box">
+    <h3>Watch Your Child Shine</h3>
+    <p>This isn't just a course completion event. It's your child standing up, explaining their projects, and showing you exactly what they've learned. For many parents, this is the most powerful moment of the entire program.</p>
+
+    <div class="demo-timeline">
+      <div class="demo-step">
+        <div class="demo-step-num">1</div>
+        <strong>Project Showcase</strong>
+        <span>Walk through their website, app, and portfolio</span>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">2</div>
+        <strong>Live Demo</strong>
+        <span>Show working features and explain how they built it</span>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">3</div>
+        <strong>Q&A Session</strong>
+        <span>Parents ask questions, kids answer confidently</span>
+      </div>
+      <div class="demo-step">
+        <div class="demo-step-num">4</div>
+        <strong>Certificate Ceremony</strong>
+        <span>Formal recognition of completion</span>
+      </div>
+    </div>
+
+    <div class="demo-quote">
+      <p>"Watching my son explain his app to us on Demo Day — how it works, why he built it that way — was incredible. It was the first time I saw him take ownership of something technical and explain it with real confidence."</p>
+      <cite>— Rajesh K., Parent of 12-year-old, Chennai</cite>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ===== TESTIMONIALS SECTION ===== -->
+<section class="section">
+  <div class="section-label">Parent Feedback</div>
+  <h2 class="section-title">What Parents Say</h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"My son used to just watch YouTube all day. Now he's the one showing ME how to use AI to edit photos. On Demo Day, he walked us through his portfolio website — I had tears in my eyes."</blockquote>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">PM</div>
+        <div class="testimonial-meta">
+          <strong>Priya M.</strong>
+          <span>Parent of 14-year-old, Coimbatore | Pilot batch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"I was skeptical — another online course, right? But when my daughter built a working app in week 3 and explained exactly how the AI helped her, I knew this was different. Worth every rupee."</blockquote>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">RK</div>
+        <div class="testimonial-meta">
+          <strong>Rajesh K.</strong>
+          <span>Parent of 13-year-old, Chennai | Pilot batch</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote>"The instructor actually cared if my son understood. Small batch, real projects, no filler. He's already using what he learned for his school projects. That's rare."</blockquote>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">AS</div>
+        <div class="testimonial-meta">
+          <strong>Anitha S.</strong>
+          <span>Parent of 15-year-old, Bangalore | Pilot batch</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARISON SECTION ===== -->
+<section class="section">
+  <div class="section-label">How We Compare</div>
+  <h2 class="section-title">Why rewire.school?</h2>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Feature</th>
+        <th class="highlight-col">rewire.school</th>
+        <th>YouTube / Free Courses</th>
+        <th>Other Coding Classes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Live Instructor</td>
+        <td class="highlight-col check">Yes - daily live sessions</td>
+        <td class="cross">No</td>
+        <td class="check">Sometimes</td>
+      </tr>
+      <tr>
+        <td>Batch Size</td>
+        <td class="highlight-col check">Max 30 students</td>
+        <td class="cross">Unlimited</td>
+        <td>50-100+</td>
+      </tr>
+      <tr>
+        <td>Real Projects</td>
+        <td class="highlight-col check">Live website + working app + AI portfolio</td>
+        <td class="cross">Rarely</td>
+        <td>Basic games</td>
+      </tr>
+      <tr>
+        <td>AI Focus</td>
+        <td class="highlight-col check">100% AI-focused</td>
+        <td>Mixed</td>
+        <td class="cross">Coding only</td>
+      </tr>
+      <tr>
+        <td>Parent Demo Day</td>
+        <td class="highlight-col check">Yes - Day 21</td>
+        <td class="cross">No</td>
+        <td class="cross">Rarely</td>
+      </tr>
+      <tr>
+        <td>Weekly Updates</td>
+        <td class="highlight-col check">Yes - to parents</td>
+        <td class="cross">No</td>
+        <td>Sometimes</td>
+      </tr>
+      <tr>
+        <td>Refund Policy</td>
+        <td class="highlight-col check">100% after first session</td>
+        <td>N/A</td>
+        <td>Varies</td>
+      </tr>
+      <tr>
+        <td>Duration</td>
+        <td class="highlight-col">21 days, 1 hr/day</td>
+        <td>Self-paced</td>
+        <td>3-6 months</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ===== PRICING SECTION ===== -->
+<section class="section">
+  <div class="section-label">Investment</div>
+  <h2 class="section-title">Course Fee</h2>
+
+  <div class="pricing-card">
+    <div class="pricing-tag">LAUNCH BATCH PRICE</div>
+
+    <div class="pricing-amount">
+      <span class="price">&#8377;14,999</span>
+      <span class="original">&#8377;24,999</span>
+    </div>
+
+    <div class="pricing-savings">Less than &#8377;715 per live session for hands-on instruction, project feedback, and parent visibility</div>
+
+    <div class="pricing-includes">
+      <h4>What's Included</h4>
+      <ul class="pricing-list">
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          21 live sessions (1 hr each)
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Small batch (max 30 students)
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Project feedback & review
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Weekly parent updates
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Parent Demo Day
+        </li>
+        <li>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          Certificate of completion
+        </li>
+      </ul>
+    </div>
+
+    <div class="pricing-bonuses">
+      <h4>Bonuses Included (Worth &#8377;5,000+)</h4>
+      <div class="bonus-list">
+        <div class="bonus-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+          Session recordings (lifetime access)
+        </div>
+        <div class="bonus-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+          SPARK + THINK framework cards
+        </div>
+        <div class="bonus-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+          Android APK export
+        </div>
+        <div class="bonus-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/></svg>
+          WhatsApp support group
+        </div>
+      </div>
+    </div>
+
+    <div class="pricing-guarantee">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <p>100% Money-Back Guarantee — Full refund after the first session if it's not the right fit</p>
+    </div>
+
+    <div style="background: var(--night); border: 1px solid var(--card-border); border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; text-align: center;">
+      <p style="font-size: 14px; color: var(--snow); margin: 0;">This batch is intentionally capped at 30 seats to keep sessions interactive. Once filled, enrollment closes. Reserve early and decide after the first session with the refund guarantee.</p>
+    </div>
+
+    <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">Safe for beginners. No coding required. Laptop only. Guided live by an instructor.</p>
+
+    <a href="https://rewire.school/lp/kids/" class="pricing-cta">Reserve Your Child's Seat</a>
+    <p style="margin-top: 16px; font-size: 14px; color: var(--text-secondary);">Takes 2 minutes. Full refund available after the first live session.</p>
+  </div>
+</section>
+
+<!-- ===== FAQ SECTION ===== -->
+<section class="section">
+  <div class="section-label">Questions Answered</div>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">What age group is this for?</div>
+      <div class="faq-answer">This course is designed for students aged 10-16. The curriculum is flexible enough to challenge older students while remaining accessible for younger ones. The instructor adapts the pace based on the batch composition.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Does my child need coding experience?</div>
+      <div class="faq-answer">No coding experience is required. We use AI-assisted tools that allow students to build websites and apps without writing traditional code. The focus is on understanding concepts and creating real projects, not memorizing syntax.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What device does my child need?</div>
+      <div class="faq-answer">A laptop or desktop computer with a stable internet connection. Tablets and phones are not suitable for the hands-on building activities. Chrome or Firefox browser is recommended.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What if my child misses a session?</div>
+      <div class="faq-answer">All sessions are recorded and shared within 24 hours so students can catch up quickly. If your child misses multiple sessions, our team will guide them on how to get back on track.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What if my child is shy or introverted?</div>
+      <div class="faq-answer">Our small batch size (max 30) ensures every student gets attention. The instructor creates a supportive environment where students can participate at their comfort level. Camera is optional during regular sessions, but encouraged for Demo Day.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Why is the fee &#8377;14,999?</div>
+      <div class="faq-answer">This is a live, guided cohort — not a video course. Your child gets 21 live sessions, project feedback, small-batch attention (max 30), parent updates, session recordings, Demo Day, and a full refund option after the first session if it doesn't feel right.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How does the refund guarantee work?</div>
+      <div class="faq-answer">After the first session, if you or your child feel this isn't the right fit, simply email us within 24 hours and we'll refund 100% of your fee. No questions asked, no hassle.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Will my child's projects stay live after the course?</div>
+      <div class="faq-answer">Yes. The website and web app they build will remain live on the internet. They'll have full ownership of their projects and can continue updating them after the course ends.</div>
+    </div>
+  </div>
+</section>
+
+<div class="page-break"></div>
+
+<!-- ===== BATCH INFO SECTION ===== -->
+<section class="section">
+  <div class="section-label">Next Batch</div>
+  <h2 class="section-title">April 2026 Batch Details</h2>
+
+  <div class="batch-grid">
+    <div class="batch-card">
+      <h4>Batch Starts</h4>
+      <strong>April 14</strong>
+      <span>2026</span>
+    </div>
+    <div class="batch-card">
+      <h4>Session Time</h4>
+      <strong>5 PM - 6 PM</strong>
+      <span>IST (Daily)</span>
+    </div>
+    <div class="batch-card">
+      <h4>Registration Closes</h4>
+      <strong>April 5</strong>
+      <span>or when full</span>
+    </div>
+  </div>
+
+  <div class="enrollment-steps">
+    <h4>How to Enroll</h4>
+    <div class="steps-list">
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <strong>Fill Form</strong>
+        <span>Parent & child details</span>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <strong>Make Payment</strong>
+        <span>Secure online payment</span>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <strong>Get Confirmation</strong>
+        <span>Email + WhatsApp</span>
+      </div>
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <strong>Join Zoom</strong>
+        <span>Link sent before Day 1</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT SECTION ===== -->
+<section class="section">
+  <div class="section-label">Get in Touch</div>
+  <h2 class="section-title">Questions? We're Here to Help</h2>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <h4>WhatsApp</h4>
+      <a href="https://wa.me/919790486948">+91 97904 86948</a>
+      <p>Quick responses, 9 AM - 9 PM</p>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+      </div>
+      <h4>Email</h4>
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <p>Response within 24 hours</p>
+    </div>
+
+    <div class="contact-card">
+      <div class="contact-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      </div>
+      <h4>Website</h4>
+      <a href="https://rewire.school">rewire.school</a>
+      <p>Full course details</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-logo" style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+    <svg width="36" height="32" viewBox="0 0 44 38" fill="none"><path d="M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="19" r="2" fill="#8b5cf6"/><circle cx="26" cy="19" r="2" fill="#8b5cf6"/><line x1="20" y1="19" x2="24" y2="19" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/></svg>
+    <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px;"><span style="color: #fff;">re</span> <span style="color: #8b5cf6;">wire</span></span>
+  </div>
+  <p>AI School for Kids & Professionals</p>
+  <p><a href="https://rewire.school">rewire.school</a> | <a href="mailto:hello@rewire.school">hello@rewire.school</a></p>
+  <p style="margin-top: 16px; font-size: 12px;">This brochure was last updated on March 30, 2026</p>
+</footer>
+
+</div>
+
+</body>
+</html>
