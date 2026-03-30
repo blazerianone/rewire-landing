@@ -228,7 +228,8 @@ body {
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--text-secondary);
+  color: var(--purple-light);
+  opacity: 0.7;
   margin-bottom: 12px;
 }
 
@@ -1324,6 +1325,10 @@ body {
   font-size: 28px;
   font-weight: 800;
   color: var(--snow);
+}
+.batch-card:first-child strong,
+.batch-card:last-child strong {
+  color: var(--purple-light);
   margin-bottom: 4px;
 }
 
@@ -1363,9 +1368,9 @@ body {
 .step-num {
   width: 40px;
   height: 40px;
-  background: transparent;
-  border: 2px solid var(--card-border);
-  color: var(--snow);
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--purple-light);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1678,7 +1683,7 @@ body {
 </section>
 
 <!-- Quick Facts Strip -->
-<div style="background: var(--card); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); padding: 24px 40px;">
+<div style="background: var(--card); border-top: 3px solid var(--purple); border-bottom: 1px solid var(--card-border); padding: 24px 40px;">
   <div style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap; text-align: center;">
     <div style="color: white;">
       <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">April 14</strong>
