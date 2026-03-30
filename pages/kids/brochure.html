@@ -228,7 +228,7 @@ body {
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--purple);
+  color: var(--text-secondary);
   margin-bottom: 12px;
 }
 
@@ -1323,7 +1323,7 @@ body {
   font-family: 'Manrope', sans-serif;
   font-size: 28px;
   font-weight: 800;
-  color: var(--purple);
+  color: var(--snow);
   margin-bottom: 4px;
 }
 
@@ -1363,8 +1363,9 @@ body {
 .step-num {
   width: 40px;
   height: 40px;
-  background: var(--purple);
-  color: white;
+  background: transparent;
+  border: 2px solid var(--card-border);
+  color: var(--snow);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1408,7 +1409,8 @@ body {
 .contact-icon {
   width: 56px;
   height: 56px;
-  background: rgba(139, 92, 246, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--card-border);
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -1424,7 +1426,7 @@ body {
 }
 
 .contact-card a {
-  color: var(--purple-light);
+  color: var(--snow);
   text-decoration: none;
   font-size: 15px;
 }
@@ -1676,28 +1678,28 @@ body {
 </section>
 
 <!-- Quick Facts Strip -->
-<div style="background: linear-gradient(90deg, var(--purple) 0%, var(--purple-dark) 100%); padding: 20px 40px;">
+<div style="background: var(--card); border-top: 1px solid var(--card-border); border-bottom: 1px solid var(--card-border); padding: 24px 40px;">
   <div style="display: flex; justify-content: center; align-items: center; gap: 32px; flex-wrap: wrap; text-align: center;">
     <div style="color: white;">
       <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">April 14</strong>
       <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">Batch Starts</span>
     </div>
-    <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.3);"></div>
+    <div style="width: 1px; height: 32px; background: var(--card-border);"></div>
     <div style="color: white;">
       <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">5-6 PM IST</strong>
       <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">Daily Session</span>
     </div>
-    <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.3);"></div>
+    <div style="width: 1px; height: 32px; background: var(--card-border);"></div>
     <div style="color: white;">
       <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">21 Days</strong>
       <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">1 Hour/Day</span>
     </div>
-    <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.3);"></div>
+    <div style="width: 1px; height: 32px; background: var(--card-border);"></div>
     <div style="color: white;">
       <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">&#8377;14,999</strong>
       <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">Full Course</span>
     </div>
-    <div style="width: 1px; height: 32px; background: rgba(255,255,255,0.3);"></div>
+    <div style="width: 1px; height: 32px; background: var(--card-border);"></div>
     <div style="color: white;">
       <strong style="display: block; font-size: 20px; font-family: 'Manrope', sans-serif; font-weight: 800;">Max 30</strong>
       <span style="font-size: 11px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.5px;">Seats Only</span>
@@ -1721,21 +1723,21 @@ body {
     </div>
     <div class="why-card">
       <div class="why-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
       </div>
       <h3>Screen Time Problem</h3>
       <p>Most kids spend 4-6 hours daily consuming content. This course transforms that time into creation — building real things they can show you.</p>
     </div>
     <div class="why-card">
       <div class="why-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
       </div>
       <h3>Schools Aren't Teaching This</h3>
       <p>There's no formal AI curriculum in Indian schools. Kids are learning from random YouTube videos. They need structured, guided learning.</p>
     </div>
     <div class="why-card">
       <div class="why-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
       </div>
       <h3>The Window Is Now</h3>
       <p>Kids who start learning AI tools at 10-16 will have years of practice by the time they enter college or the workforce. Early exposure = lasting advantage.</p>
@@ -1790,7 +1792,7 @@ body {
   <div class="outcomes-grid">
     <div class="outcome-card">
       <div class="outcome-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
       </div>
       <h3>Personal Website</h3>
       <p>A live portfolio website showcasing their work, interests, and AI creations.</p>
@@ -1804,7 +1806,7 @@ body {
 
     <div class="outcome-card">
       <div class="outcome-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
       </div>
       <h3>Functional Web App</h3>
       <p>A real application with user accounts, database, and working features.</p>
@@ -1818,7 +1820,7 @@ body {
 
     <div class="outcome-card">
       <div class="outcome-icon">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
       </div>
       <h3>AI Portfolio</h3>
       <p>Collection of AI-generated images, videos, and multimedia projects.</p>
@@ -2573,7 +2575,7 @@ body {
   <div class="contact-grid">
     <div class="contact-card">
       <div class="contact-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       </div>
       <h4>WhatsApp</h4>
       <a href="https://wa.me/919790486948">+91 97904 86948</a>
@@ -2582,7 +2584,7 @@ body {
 
     <div class="contact-card">
       <div class="contact-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
       </div>
       <h4>Email</h4>
       <a href="mailto:hello@rewire.school">hello@rewire.school</a>
@@ -2591,7 +2593,7 @@ body {
 
     <div class="contact-card">
       <div class="contact-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888888" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
       </div>
       <h4>Website</h4>
       <a href="https://rewire.school">rewire.school</a>
