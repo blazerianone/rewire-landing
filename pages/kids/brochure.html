@@ -218,6 +218,16 @@ body {
   border-top: 1px solid var(--card-border);
 }
 
+.section-label::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--purple) 0%, transparent 100%);
+  margin-bottom: 16px;
+  border-radius: 2px;
+}
+
 @media (max-width: 600px) {
   .section { padding: 48px 20px; }
 }
@@ -240,6 +250,10 @@ body {
   letter-spacing: -1px;
   margin-bottom: 16px;
   line-height: 1.2;
+  background: linear-gradient(135deg, #fff 0%, #A78BFA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .section-subtitle {
@@ -480,6 +494,86 @@ body {
   width: 12px;
   height: 12px;
   background: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14' stroke='%2322C55E' stroke-width='2'/%3E%3Cpath d='M22 4L12 14.01l-3-3' stroke='%2322C55E' stroke-width='2'/%3E%3C/svg%3E") no-repeat center;
+}
+
+/* ===== JOURNEY TIMELINE ===== */
+.journey-timeline {
+  margin-bottom: 48px;
+  padding: 32px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+}
+
+.timeline-track {
+  height: 4px;
+  background: var(--card-border);
+  border-radius: 2px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.timeline-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 33%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple) 0%, var(--purple-light) 100%);
+  border-radius: 2px;
+}
+
+.timeline-weeks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 600px) {
+  .timeline-weeks { grid-template-columns: 1fr; }
+}
+
+.timeline-week {
+  text-align: center;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--card-border);
+  border: 3px solid var(--night);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  position: relative;
+}
+
+.timeline-dot.active {
+  background: var(--purple);
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.timeline-content .timeline-days {
+  display: block;
+  font-size: 11px;
+  color: var(--purple-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.timeline-content strong {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.timeline-content p {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin: 0;
 }
 
 /* ===== CURRICULUM SECTION ===== */
@@ -1047,6 +1141,19 @@ body {
   background: linear-gradient(90deg, var(--purple) 0%, var(--purple-light) 100%);
 }
 
+.pricing-badge {
+  position: absolute;
+  top: -1px;
+  right: 32px;
+  background: var(--success);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 0 0 8px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
 .pricing-tag {
   display: inline-block;
   background: var(--orange);
@@ -1057,6 +1164,43 @@ body {
   font-weight: 700;
   letter-spacing: 0.5px;
   margin-bottom: 24px;
+}
+
+.pricing-breakdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 16px 24px;
+  margin: 20px 0;
+}
+
+.breakdown-item {
+  text-align: center;
+}
+
+.breakdown-value {
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--snow);
+}
+
+.breakdown-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.breakdown-divider {
+  width: 1px;
+  height: 40px;
+  background: rgba(139, 92, 246, 0.3);
 }
 
 .pricing-amount {
@@ -1845,6 +1989,39 @@ body {
   <h2 class="section-title">The 21-Day Journey</h2>
   <p class="section-subtitle">Every day is hands-on. Every day they build something real.</p>
 
+  <!-- Visual Timeline -->
+  <div class="journey-timeline">
+    <div class="timeline-track">
+      <div class="timeline-progress"></div>
+    </div>
+    <div class="timeline-weeks">
+      <div class="timeline-week">
+        <div class="timeline-dot active"></div>
+        <div class="timeline-content">
+          <span class="timeline-days">Days 1-7</span>
+          <strong>AI Explorer</strong>
+          <p>Images, Videos & Podcasts</p>
+        </div>
+      </div>
+      <div class="timeline-week">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-days">Days 8-14</span>
+          <strong>Website Builder</strong>
+          <p>Personal Portfolio Site</p>
+        </div>
+      </div>
+      <div class="timeline-week">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="timeline-days">Days 15-21</span>
+          <strong>App Creator</strong>
+          <p>Working Web App + Demo Day</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Week 1 -->
   <div class="curriculum-week">
     <div class="week-header">
@@ -2395,6 +2572,7 @@ body {
   <h2 class="section-title">Course Fee</h2>
 
   <div class="pricing-card">
+    <div class="pricing-badge">MOST POPULAR</div>
     <div class="pricing-tag">LAUNCH BATCH PRICE</div>
 
     <div class="pricing-amount">
@@ -2402,7 +2580,24 @@ body {
       <span class="original">&#8377;24,999</span>
     </div>
 
-    <div class="pricing-savings">Less than &#8377;715 per live session for hands-on instruction, project feedback, and parent visibility</div>
+    <div class="pricing-breakdown">
+      <div class="breakdown-item">
+        <span class="breakdown-value">&#8377;714</span>
+        <span class="breakdown-label">per session</span>
+      </div>
+      <div class="breakdown-divider"></div>
+      <div class="breakdown-item">
+        <span class="breakdown-value">40%</span>
+        <span class="breakdown-label">savings</span>
+      </div>
+      <div class="breakdown-divider"></div>
+      <div class="breakdown-item">
+        <span class="breakdown-value">21</span>
+        <span class="breakdown-label">live sessions</span>
+      </div>
+    </div>
+
+    <div class="pricing-savings">Hands-on instruction, project feedback, and weekly parent updates included</div>
 
     <div class="pricing-includes">
       <h4>What's Included</h4>
