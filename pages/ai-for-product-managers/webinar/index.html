@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Masterclass: How to Become an AI-Ready PM in 2026 | Rewire</title>
+<meta name="description" content="Join Lakshmi (Grab) and Siddharth (CleverTap) for a free 90-minute masterclass on becoming an AI-ready Product Manager. Sunday, April 19, 10 AM IST.">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878213525249030&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 38' fill='none'><path d='M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='19' r='2' fill='%238b5cf6'/><circle cx='26' cy='19' r='2' fill='%238b5cf6'/><line x1='20' y1='19' x2='24' y2='19' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --purple-dark: #7C3AED;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+  --orange: #F97316;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--night); color: var(--snow); font-family: var(--font-body); line-height: 1.6; }
+
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.1; }
+h1 { font-size: clamp(32px, 5vw, 48px); font-weight: 800; letter-spacing: -1.5px; }
+h2 { font-size: clamp(26px, 3.8vw, 36px); letter-spacing: -0.8px; }
+h3 { font-size: clamp(18px, 2.5vw, 22px); letter-spacing: -0.3px; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+.highlight { color: var(--purple); }
+section { padding: 72px 0; }
+@media (max-width: 768px) { section { padding: 56px 0; } .container { padding: 0 16px; } }
+
+/* Top Bar */
+.top-bar {
+  background: var(--purple);
+  padding: 12px 16px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Hero */
+.hero {
+  padding: 60px 24px 48px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.12) 0%, transparent 55%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 48px;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1px;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: var(--success);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.hero h1 { margin-bottom: 16px; }
+.hero-sub { color: #A3A3A3; font-size: 18px; line-height: 1.65; margin-bottom: 28px; }
+
+/* Event Box */
+.event-box {
+  background: var(--card);
+  border: 2px solid var(--purple);
+  border-radius: 16px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  display: inline-block;
+}
+@media (max-width: 900px) {
+  .event-box { display: block; }
+}
+
+.event-grid {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.event-item { text-align: center; }
+.event-icon { font-size: 24px; margin-bottom: 4px; }
+.event-label { font-size: 11px; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 1.5px; font-family: var(--font-mono); }
+.event-value { font-size: 16px; font-weight: 700; font-family: var(--font-display); }
+
+/* Registration Form */
+.reg-form-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+@media (max-width: 900px) {
+  .reg-form-card { margin-top: 32px; }
+}
+
+.reg-form-header {
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+  padding: 20px 24px;
+  text-align: center;
+  color: white;
+}
+
+.reg-form-date {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.reg-form-header h3 {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.reg-form-header p {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.reg-form-body {
+  padding: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: #333;
+  background: #F9FAFB;
+  transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--purple);
+  background: white;
+}
+
+.form-group input::placeholder {
+  color: #9CA3AF;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--purple) 0%, var(--purple-dark) 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+}
+
+.form-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.4);
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.form-footer p {
+  font-size: 12px;
+  color: #6B7280;
+  line-height: 1.5;
+}
+
+.form-footer .free-note {
+  color: var(--success);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* What You'll Learn */
+.learn-section {
+  border-top: 1px solid var(--card-border);
+}
+
+.learn-section h2 {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media (max-width: 768px) {
+  .learn-grid { grid-template-columns: 1fr; }
+}
+
+.learn-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+  transition: all 0.3s;
+}
+.learn-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-4px);
+}
+
+.learn-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--purple);
+  border-radius: 50%;
+  font-size: 16px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  margin-bottom: 16px;
+}
+
+.learn-card h3 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.learn-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Hosts Section */
+.hosts-section {
+  background: var(--card);
+  border-top: 1px solid var(--card-border);
+  border-bottom: 1px solid var(--card-border);
+}
+
+.hosts-section h2 {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.hosts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) {
+  .hosts-grid { grid-template-columns: 1fr; }
+}
+
+.host-card {
+  background: var(--night);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: center;
+}
+
+.host-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 16px;
+  border: 3px solid var(--purple);
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+}
+
+.host-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.host-card h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.host-role {
+  color: var(--purple-light);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.host-bio {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Mid CTA */
+.mid-cta {
+  padding: 56px 0;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 50%, rgba(139,92,246,0.08) 0%, transparent 60%);
+}
+
+.mid-cta p {
+  font-size: 22px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  margin-bottom: 24px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #FFFFFF;
+  color: var(--purple);
+  padding: 16px 40px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  text-decoration: none;
+  font-family: var(--font-display);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 24px rgba(255, 255, 255, 0.15);
+}
+
+.btn-primary:hover {
+  background: #F3F4F6;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25);
+}
+
+/* Footer */
+footer {
+  padding: 32px;
+  text-align: center;
+  border-top: 1px solid var(--card-border);
+}
+
+footer p {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+footer a {
+  color: var(--purple-light);
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="top-bar">
+  Sunday, April 19 at 10:00 AM IST
+  <a href="#regForm" style="margin-left: 16px; background: white; color: var(--purple); padding: 6px 16px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 13px;">Register Free</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Left: Copy -->
+      <div>
+        <div class="hero-badge">FREE LIVE MASTERCLASS | 90 MINUTES | ZOOM</div>
+        <h1>How to Become an <span class="highlight">AI-Ready PM</span> in 2026</h1>
+        <p class="hero-sub">Learn from PMs at Grab how the AI revolution is transforming product management - and what skills separate AI-native PMs from the rest in 2026.</p>
+
+        <div class="event-box">
+          <div class="event-grid">
+            <div class="event-item">
+              <div class="event-icon">&#128197;</div>
+              <div class="event-label">Date</div>
+              <div class="event-value">Sunday, Apr 19</div>
+            </div>
+            <div class="event-item">
+              <div class="event-icon">&#128337;</div>
+              <div class="event-label">Time</div>
+              <div class="event-value">10:00 AM IST</div>
+            </div>
+            <div class="event-item">
+              <div class="event-icon">&#9201;</div>
+              <div class="event-label">Duration</div>
+              <div class="event-value">90 minutes</div>
+            </div>
+            <div class="event-item">
+              <div class="event-icon">&#128187;</div>
+              <div class="event-label">Platform</div>
+              <div class="event-value">Zoom</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="reg-form-card" id="regForm">
+        <div class="reg-form-header">
+          <div class="reg-form-date">April 19, 2026</div>
+          <h3>Reserve Your Spot</h3>
+          <p>Free. No credit card required.</p>
+        </div>
+        <form class="reg-form-body" id="webinarForm">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="you@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone (for WhatsApp reminder) *</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-group">
+            <label for="role">Current Role</label>
+            <select id="role" name="role">
+              <option value="">Select your role</option>
+              <option value="Associate PM">Associate PM</option>
+              <option value="Product Manager">Product Manager</option>
+              <option value="Senior PM">Senior PM</option>
+              <option value="Lead/Principal PM">Lead / Principal PM</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <button type="submit" class="form-submit">Reserve My Spot</button>
+          <div class="form-footer">
+            <p class="free-note">100% Free. 90 minutes of value.</p>
+            <p>We'll send Zoom link via WhatsApp and email.</p>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- What You'll Learn -->
+<section class="learn-section">
+  <div class="container">
+    <h2>What You'll Learn</h2>
+    <div class="learn-grid">
+
+      <div class="learn-card">
+        <div class="learn-num">1</div>
+        <h3>The AI Evolution</h3>
+        <p>From Transformers (2017) to Agentic AI (2026) - understand how we moved from "chatting" to "doing" and why PMs must adapt now.</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-num">2</div>
+        <h3>Industry Unlocks</h3>
+        <p>How Amazon, Netflix, and Uber are using AI to transform their products - and what this means for the PM role in 2026.</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-num">3</div>
+        <h3>Live Vibe Coding Demo</h3>
+        <p>Watch the difference between an "amateur" AI prompt and an "AI-native PM" prompt - same tool, completely different output.</p>
+      </div>
+
+      <div class="learn-card">
+        <div class="learn-num">4</div>
+        <h3>The 2026 PM Skill Reset</h3>
+        <p>From APIs to RAG, from PRDs to System Prompts - the concrete skills that separate traditional PMs from AI-native PMs.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Hosts Section -->
+<section class="hosts-section">
+  <div class="container">
+    <h2>Your Hosts</h2>
+    <div class="hosts-grid">
+
+      <div class="host-card">
+        <div class="host-photo">
+          <img src="../photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan">
+        </div>
+        <h3>Lakshmi Narasimhan</h3>
+        <div class="host-role">Lead PM at Grab</div>
+        <p class="host-bio">10+ years in product. Manages the transaction platform powering millions of daily orders at SE Asia's largest super-app.</p>
+      </div>
+
+      <div class="host-card">
+        <div class="host-photo">
+          <img src="../photos/siddharth-saoji.jpg" alt="Siddharth Saoji">
+        </div>
+        <h3>Siddharth Saoji</h3>
+        <div class="host-role">Product Lead (AI) at Grab</div>
+        <p class="host-bio">Ex-Meta, Ex-Uber. Built AI systems that recovered $100M+ in ad revenue. Builds recommendation engines and LLM agents.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Mid CTA -->
+<section class="mid-cta">
+  <div class="container">
+    <p>Free. 90 minutes. Actionable insights you can use Monday morning.</p>
+    <a href="#regForm" class="btn-primary">Register Now</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <p>rewire.school | Questions? Email <a href="mailto:hello@rewire.school">hello@rewire.school</a></p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('webinarForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const btn = this.querySelector('button[type="submit"]');
+  btn.textContent = 'Registering...';
+  btn.disabled = true;
+
+  const name = this.name.value;
+  const email = this.email.value;
+  const phone = this.phone.value;
+  const role = this.role.value;
+
+  // Capture UTM params
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmSource = urlParams.get('utm_source') || '';
+  const utmMedium = urlParams.get('utm_medium') || '';
+  const utmCampaign = urlParams.get('utm_campaign') || '';
+  const utmContent = urlParams.get('utm_content') || '';
+
+  // Fire-and-forget to Google Sheet
+  // TODO: Replace with actual Apps Script URL after creating the sheet
+  fetch('https://script.google.com/macros/s/YOUR_APPS_SCRIPT_ID_HERE/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      sheet: 'webinar',
+      name: name,
+      email: email,
+      phone: phone,
+      role: role,
+      event: 'PM Webinar - April 19, 2026',
+      utm_source: utmSource,
+      utm_medium: utmMedium,
+      utm_campaign: utmCampaign,
+      utm_content: utmContent,
+      timestamp: new Date().toISOString()
+    })
+  });
+
+  // Show success and redirect
+  btn.textContent = 'Registered!';
+  btn.style.background = '#22C55E';
+
+  setTimeout(() => {
+    window.location.href = 'thank-you.html';
+  }, 500);
+});
+</script>
+
+</body>
+</html>
