@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI PM Skills Checklist | Rewire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  padding: 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  color: var(--purple);
+}
+
+.tagline {
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Title Section */
+.title-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.highlight {
+  color: var(--purple);
+}
+
+/* Instructions */
+.instructions {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 32px;
+  font-size: 14px;
+}
+
+.instructions strong {
+  color: var(--purple-light);
+}
+
+/* Category */
+.category {
+  margin-bottom: 32px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.category-num {
+  background: var(--purple);
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.category-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Checklist */
+.checklist {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 4px 0;
+}
+
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--purple);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.item-content {
+  flex: 1;
+}
+
+.item-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.item-desc {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+/* Score Section */
+.score-section {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 100%);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  margin-top: 40px;
+  text-align: center;
+}
+
+.score-title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.score-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.score-box {
+  background: var(--card);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.score-range {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--purple-light);
+}
+
+.score-label {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.my-score {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.my-score span {
+  font-size: 14px;
+}
+
+.score-input {
+  width: 60px;
+  height: 36px;
+  background: var(--card);
+  border: 2px solid var(--purple);
+  border-radius: 8px;
+  color: var(--snow);
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Footer */
+.footer {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+  text-align: center;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 18px;
+  color: var(--purple);
+  margin-bottom: 8px;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.footer-link {
+  color: var(--purple-light);
+  text-decoration: none;
+}
+
+/* Print styles */
+@media print {
+  body {
+    background: white;
+    color: #1a1a1a;
+    padding: 20px;
+  }
+
+  .header, .category-header, .score-section, .footer {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .checklist, .instructions {
+    background: #f8f8f8;
+    border-color: #e0e0e0;
+  }
+
+  .item {
+    border-color: #e0e0e0;
+  }
+
+  .checkbox {
+    border-color: var(--purple);
+  }
+
+  .item-desc, .subtitle, .tagline, .footer-text {
+    color: #666;
+  }
+
+  .score-section {
+    background: #f0ecfe;
+  }
+
+  .score-box {
+    background: white;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">rewire.school</div>
+  <div class="tagline">AI School for Professionals</div>
+</div>
+
+<div class="title-section">
+  <h1>AI PM Skills <span class="highlight">Checklist</span></h1>
+  <p class="subtitle">24 skills that separate AI-ready PMs from the rest</p>
+</div>
+
+<div class="instructions">
+  <strong>How to use:</strong> Check off skills you're confident in. Be honest — this is for you. Count your checks at the end to see where you stand.
+</div>
+
+<!-- Category 1: Foundational -->
+<div class="category">
+  <div class="category-header">
+    <span class="category-num">1</span>
+    <span class="category-title">AI Foundations</span>
+  </div>
+  <div class="checklist">
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Probabilistic vs Deterministic Logic</div>
+        <div class="item-desc">Understand why AI outputs vary and how to manage uncertainty in product specs</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">LLM Capabilities & Limitations</div>
+        <div class="item-desc">Know what LLMs can/can't do — avoid overpromising to stakeholders</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">AI Impact Assessment</div>
+        <div class="item-desc">Map existing product features to AI feasibility and business impact</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Model Selection Basics</div>
+        <div class="item-desc">Know when to use GPT-4 vs Claude vs open-source models</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Category 2: Building -->
+<div class="category">
+  <div class="category-header">
+    <span class="category-num">2</span>
+    <span class="category-title">Hands-on Building</span>
+  </div>
+  <div class="checklist">
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">CustomGPT / Agent Creation</div>
+        <div class="item-desc">Build functional AI agents with instructions, knowledge files, and tools</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Advanced Prompting (CoT, Few-Shot)</div>
+        <div class="item-desc">Write prompts that produce consistent, high-quality outputs</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Multimodal AI (Vision + Audio)</div>
+        <div class="item-desc">Use vision models for UI analysis, audio for transcription/voice</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Rapid UI Prototyping</div>
+        <div class="item-desc">Build functional prototypes using v0.dev, Lovable, or similar tools</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">API & Webhook Integration</div>
+        <div class="item-desc">Connect LLMs to real-world triggers using Zapier/Make</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Agentic Logic Design</div>
+        <div class="item-desc">Design flows for autonomous, tool-using AI agents</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Category 3: Product Strategy -->
+<div class="category">
+  <div class="category-header">
+    <span class="category-num">3</span>
+    <span class="category-title">AI Product Strategy</span>
+  </div>
+  <div class="checklist">
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">AI-Powered User Research</div>
+        <div class="item-desc">Use AI for sentiment analysis and synthesizing large feedback datasets</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">AI-Driven Prioritization</div>
+        <div class="item-desc">Apply AI to RICE/Kano scoring with strategic weighting</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Writing AI Feature Specs</div>
+        <div class="item-desc">Define acceptance criteria for probabilistic features</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">AI Roadmap Planning</div>
+        <div class="item-desc">Build a realistic AI product roadmap stakeholders can trust</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Cost-Quality Tradeoffs</div>
+        <div class="item-desc">Balance API costs, latency, and output quality in production</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Category 4: Safety & Quality -->
+<div class="category">
+  <div class="category-header">
+    <span class="category-num">4</span>
+    <span class="category-title">Safety & Quality</span>
+  </div>
+  <div class="checklist">
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Hallucination Management</div>
+        <div class="item-desc">Identify, prevent, and mitigate AI hallucinations in production</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Bias Detection & Mitigation</div>
+        <div class="item-desc">Recognize bias patterns and implement guardrails</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Red Teaming AI Features</div>
+        <div class="item-desc">Test AI products for edge cases and failure modes before launch</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">AI Compliance Basics</div>
+        <div class="item-desc">Understand data privacy, copyright, and regulatory considerations</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Category 5: Leadership -->
+<div class="category">
+  <div class="category-header">
+    <span class="category-num">5</span>
+    <span class="category-title">AI Leadership</span>
+  </div>
+  <div class="checklist">
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Stakeholder AI Communication</div>
+        <div class="item-desc">Explain AI feasibility, timelines, and limitations to non-technical leaders</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">AI Team Collaboration</div>
+        <div class="item-desc">Work effectively with ML engineers, data scientists, and AI researchers</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">AI Vendor Evaluation</div>
+        <div class="item-desc">Assess build vs buy decisions for AI capabilities</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">AI Strategy Pitching</div>
+        <div class="item-desc">Present AI initiatives with clear ROI and strategic rationale</div>
+      </div>
+    </div>
+    <div class="item">
+      <div class="checkbox"></div>
+      <div class="item-content">
+        <div class="item-title">Staying Current</div>
+        <div class="item-desc">Have a system for tracking AI developments relevant to your product</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Score Section -->
+<div class="score-section">
+  <div class="score-title">What's Your Score?</div>
+  <div class="score-grid">
+    <div class="score-box">
+      <div class="score-range">0-8</div>
+      <div class="score-label">Getting Started</div>
+    </div>
+    <div class="score-box">
+      <div class="score-range">9-16</div>
+      <div class="score-label">Building Momentum</div>
+    </div>
+    <div class="score-box">
+      <div class="score-range">17-24</div>
+      <div class="score-label">AI-Ready</div>
+    </div>
+  </div>
+  <div class="my-score">
+    <span>My score:</span>
+    <input type="text" class="score-input" placeholder="__">
+    <span>/ 24</span>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-logo">rewire.school</div>
+  <div class="footer-text">
+    Want to level up? Join our free AI PM Masterclass<br>
+    <a href="https://rewire.school/lp/ai-for-product-managers/webinar/" class="footer-link">rewire.school/lp/ai-for-product-managers/webinar/</a>
+  </div>
+</div>
+
+</body>
+</html>
