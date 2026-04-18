@@ -755,6 +755,16 @@ document.getElementById('webinarForm').addEventListener('submit', function(e) {
   const utmCampaign = urlParams.get('utm_campaign') || '';
   const utmContent = urlParams.get('utm_content') || '';
 
+  // Store UTMs for thank-you page Lead pixel
+  sessionStorage.setItem('rewire_lead_data', JSON.stringify({
+    content_name: 'PM Webinar - April 19, 2026',
+    content_category: 'webinar_registration',
+    utm_source: utmSource,
+    utm_medium: utmMedium,
+    utm_campaign: utmCampaign,
+    utm_content: utmContent
+  }));
+
   // Submit to Google Sheet
   fetch('https://script.google.com/macros/s/AKfycbwUUQeSQS_y5ooeKut5MSM2_QAwXqHfMBsu8Q1rmMxS64Hn1GZS3ah-bFoxFmtOE_cd/exec', {
     method: 'POST',
@@ -775,14 +785,6 @@ document.getElementById('webinarForm').addEventListener('submit', function(e) {
       timestamp: new Date().toISOString()
     })
   });
-
-  // Fire Meta Lead event
-  if (typeof fbq !== 'undefined') {
-    fbq('track', 'Lead', {
-      content_name: 'PM Webinar - April 19, 2026',
-      content_category: 'webinar_registration'
-    });
-  }
 
   // Show success and redirect
   btn.textContent = 'Registered!';

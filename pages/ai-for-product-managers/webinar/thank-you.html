@@ -18,10 +18,20 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '878213525249030');
 fbq('track', 'PageView');
-fbq('track', 'Lead');
+
+// Fire Lead with UTM data from sessionStorage
+var leadData = {};
+try {
+  var stored = sessionStorage.getItem('rewire_lead_data');
+  if (stored) {
+    leadData = JSON.parse(stored);
+    sessionStorage.removeItem('rewire_lead_data');
+  }
+} catch(e) {}
+fbq('track', 'Lead', leadData);
 </script>
 <noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=878213525249030&ev=Lead&noscript=1"/></noscript>
+src="https://www.facebook.com/tr?id=878213525249030&ev=PageView&noscript=1"/></noscript>
 <!-- End Meta Pixel Code -->
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 38' fill='none'><path d='M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='19' r='2' fill='%238b5cf6'/><circle cx='26' cy='19' r='2' fill='%238b5cf6'/><line x1='20' y1='19' x2='24' y2='19' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round'/></svg>">
