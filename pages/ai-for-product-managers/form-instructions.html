@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PM Course Booking Form - Calendly Setup Guide</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+}
+h1 {
+  font-size: 28px;
+  color: #8B5CF6;
+  margin-bottom: 8px;
+  border-bottom: 3px solid #8B5CF6;
+  padding-bottom: 12px;
+}
+.subtitle {
+  color: #666;
+  margin-bottom: 32px;
+}
+h2 {
+  font-size: 18px;
+  color: #222;
+  margin: 32px 0 16px;
+  padding: 8px 12px;
+  background: #f5f3ff;
+  border-left: 4px solid #8B5CF6;
+}
+h3 {
+  font-size: 15px;
+  color: #444;
+  margin: 20px 0 10px;
+}
+p { margin-bottom: 12px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 14px;
+}
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+th {
+  background: #8B5CF6;
+  color: white;
+  font-weight: 600;
+}
+tr:nth-child(even) { background: #f9f9f9; }
+code {
+  background: #f1f1f1;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 13px;
+}
+pre {
+  background: #1a1a1a;
+  color: #f0f0f0;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 13px;
+  margin: 12px 0;
+}
+pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+ol, ul {
+  margin: 12px 0;
+  padding-left: 24px;
+}
+li { margin: 8px 0; }
+.note {
+  background: #fff7ed;
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+}
+.step-box {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 16px 0;
+}
+.badge {
+  display: inline-block;
+  background: #8B5CF6;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-right: 8px;
+}
+hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 32px 0;
+}
+@media print {
+  body { padding: 20px; }
+  h2 { page-break-after: avoid; }
+  .step-box { page-break-inside: avoid; }
+  table { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<h1>PM Course Booking Form</h1>
+<p class="subtitle">Calendly Setup Guide for Sathish</p>
+
+<hr>
+
+<h2>Step 1: Create Calendly Account</h2>
+<div class="step-box">
+<ol>
+  <li>Go to <strong>calendly.com</strong></li>
+  <li>Sign up with <code>hello@rewire.school</code> (or dedicated booking email)</li>
+  <li>Set display name: <strong>rewire.school</strong></li>
+  <li>Free plan is fine for now</li>
+</ol>
+</div>
+
+<h2>Step 2: Create Event Type</h2>
+<div class="step-box">
+<ol>
+  <li>Click <strong>"Create"</strong> then <strong>"Event type"</strong></li>
+  <li>Select <strong>"One-on-One"</strong></li>
+  <li>Event name: <strong>AI PM Gap Assessment</strong></li>
+  <li>Duration: <strong>15 minutes</strong></li>
+  <li>Location: <strong>Zoom</strong> (or Google Meet)</li>
+</ol>
+</div>
+
+<h2>Step 3: Add Custom Questions</h2>
+<p>Go to: <strong>Event Type &rarr; Edit &rarr; Booking form</strong></p>
+<p>Add these questions:</p>
+
+<table>
+  <tr>
+    <th>#</th>
+    <th>Question</th>
+    <th>Type</th>
+    <th>Required</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Phone</td>
+    <td>Phone number</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>City</td>
+    <td>Short answer</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Current Role</td>
+    <td>Short answer</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Years of Experience</td>
+    <td>Dropdown</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>LinkedIn Profile</td>
+    <td>Short answer</td>
+    <td>No</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Why are you interested in the AI PM Course?</td>
+    <td>Multiple lines</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Referred By</td>
+    <td>Short answer</td>
+    <td>No</td>
+  </tr>
+</table>
+
+<h3>Years of Experience - Dropdown Options:</h3>
+<ul>
+  <li>0-2 years</li>
+  <li>3-5 years</li>
+  <li>5-8 years</li>
+  <li>8+ years</li>
+</ul>
+
+<div class="note">
+<strong>Note:</strong> Name and Email are collected by default in Calendly - no need to add them.
+</div>
+
+<h2>Step 4: Branding</h2>
+<div class="step-box">
+<p>Go to: <strong>Account &rarr; Branding</strong></p>
+<ul>
+  <li>Logo: Upload rewire.school logo</li>
+  <li>Brand color: <code>#8B5CF6</code> (purple)</li>
+</ul>
+</div>
+
+<h2>Step 5: Set Availability</h2>
+<div class="step-box">
+<p>Go to: <strong>Event Type &rarr; Edit &rarr; Availability</strong></p>
+<p>Set available hours for calls (India time / IST).</p>
+</div>
+
+<h2>Step 6: Get Embed Code</h2>
+<div class="step-box">
+<ol>
+  <li>Go to your event type</li>
+  <li>Click <strong>"Share"</strong> then <strong>"Add to website"</strong></li>
+  <li>Select <strong>"Inline embed"</strong></li>
+  <li>Copy the embed code</li>
+</ol>
+</div>
+
+<p>Or use this format (update the URL slug):</p>
+<pre><code>&lt;div class="calendly-inline-widget"
+     data-url="https://calendly.com/rewire-school/ai-pm-gap-assessment?hide_gdpr_banner=1&amp;background_color=0a0a0a&amp;text_color=fafafa&amp;primary_color=8b5cf6"
+     style="min-width:320px;height:700px;"&gt;
+&lt;/div&gt;
+&lt;script src="https://assets.calendly.com/assets/external/widget.js" async&gt;&lt;/script&gt;</code></pre>
+
+<hr>
+
+<h2>Calendly Free vs Pro</h2>
+
+<table>
+  <tr>
+    <th>Feature</th>
+    <th>Free</th>
+    <th>Pro ($10/mo)</th>
+  </tr>
+  <tr>
+    <td>Custom questions</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Embed on website</td>
+    <td>Yes</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Redirect to thank-you page</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+  <tr>
+    <td>Remove Calendly branding</td>
+    <td>No</td>
+    <td>Yes</td>
+  </tr>
+</table>
+
+<div class="note">
+<strong>For now:</strong> Free plan works. Upgrade to Pro later for redirect to thank-you page (Meta Pixel tracking).
+</div>
+
+<hr>
+
+<h2>After Setup</h2>
+<p>Share the Calendly event URL (e.g., <code>calendly.com/rewire-school/ai-pm-gap-assessment</code>) so we can update the embed code on the LP.</p>
+
+<p style="margin-top: 40px; color: #888; font-size: 13px;">
+File: <code>pages/ai-for-product-managers/index.html</code> (LP) | <code>pages/ai-for-product-managers/thank-you.html</code> (Thank You Page)
+</p>
+
+</body>
+</html>
