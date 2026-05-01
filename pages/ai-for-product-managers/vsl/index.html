@@ -1,830 +1,1604 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rewire PM Course — VSL Script V6</title>
-    <style>
-        :root {
-            --primary: #7c3aed;
-            --primary-dark: #5b21b6;
-            --accent: #f59e0b;
-            --success: #10b981;
-            --danger: #ef4444;
-            --dark: #1f2937;
-            --gray: #6b7280;
-            --light: #f3f4f6;
-            --white: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Training: Land Your First AI PM Role in 8 Weeks | rewire.school</title>
+<meta name="description" content="Watch this free 17-minute training to learn how business analysts, project managers, and engineers are landing AI Product Manager roles paying 30-50 lakh.">
+<meta name="robots" content="noindex, nofollow">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878213525249030&ev=PageView&noscript=1"/></noscript>
 
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.7;
-        }
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 38' fill='none'><path d='M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='19' r='2' fill='%238b5cf6'/><circle cx='26' cy='19' r='2' fill='%238b5cf6'/><line x1='20' y1='19' x2='24' y2='19' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --purple-dark: #7C3AED;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #a0a0a0;
+  --success: #22C55E;
+  --amber: #F59E0B;
+  --gold: #FBBF24;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-        header {
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  min-height: 100vh;
+  font-size: 18px;
+}
 
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-        header .subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 1.5rem;
-        }
+.top-bar {
+  background: var(--purple);
+  padding: 18px 0;
+  text-align: center;
+  width: 100%;
+}
 
-        .meta {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            font-size: 0.85rem;
-        }
+.top-bar p {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
 
-        .meta span {
-            background: rgba(255,255,255,0.2);
-            padding: 0.4rem 0.8rem;
-            border-radius: 20px;
-        }
+.top-bar strong {
+  font-weight: 700;
+}
 
-        .audience-tag {
-            background: var(--accent);
-            color: var(--dark);
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-weight: 600;
-            display: inline-block;
-            margin-top: 1rem;
-        }
+.top-bar span {
+  opacity: 0.7;
+  margin: 0 8px;
+}
 
-        .section {
-            background: white;
-            border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
+.hero {
+  padding: 48px 0 60px;
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.12) 0%, transparent 70%);
+}
 
-        .section-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--light);
-        }
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 5%;
+}
 
-        .section-number {
-            background: var(--primary);
-            color: white;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin-bottom: 16px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-        .section-title {
-            font-size: 1.3rem;
-            color: var(--primary-dark);
-        }
+.audience-tag {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--purple-light);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
 
-        .section-time {
-            margin-left: auto;
-            background: var(--light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--gray);
-        }
+.highlight-purple {
+  color: var(--purple-light);
+}
 
-        .script-content {
-            font-size: 1.1rem;
-        }
+.highlight-gold {
+  color: var(--gold);
+  position: relative;
+}
 
-        .script-content p {
-            margin-bottom: 1rem;
-        }
+.subheadline {
+  font-size: 20px;
+  color: var(--snow);
+  max-width: 720px;
+  margin: 0 auto 16px;
+  line-height: 1.7;
+}
 
-        .highlight {
-            background: linear-gradient(to right, #fef3c7, #fde68a);
-            padding: 0 4px;
-            border-radius: 3px;
-        }
+.objection-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  margin-bottom: 28px;
+}
 
-        .threat-box {
-            background: linear-gradient(135deg, #fef2f2, #fee2e2);
-            border-left: 4px solid var(--danger);
-            padding: 1.5rem;
-            border-radius: 0 10px 10px 0;
-            margin: 1.5rem 0;
-        }
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  color: var(--purple-light);
+}
 
-        .opportunity-box {
-            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
-            border-left: 4px solid var(--success);
-            padding: 1.5rem;
-            border-radius: 0 10px 10px 0;
-            margin: 1.5rem 0;
-        }
+.pill::before {
+  content: "✓";
+  font-weight: 700;
+}
 
-        .advantage-card {
-            background: var(--light);
-            border: 2px solid var(--primary);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-        }
+.social-proof-line {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  font-style: italic;
+}
 
-        .advantage-card-role {
-            font-weight: 700;
-            color: var(--primary-dark);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
+.watch-cta {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
 
-        .case-study {
-            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
-            border-left: 4px solid var(--success);
-            padding: 1.5rem;
-            border-radius: 0 10px 10px 0;
-            margin: 1.5rem 0;
-        }
+.watch-cta::after {
+  content: "↓";
+  font-size: 20px;
+  animation: bounce 2s infinite;
+}
 
-        .case-study-name {
-            font-weight: 700;
-            color: var(--success);
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(6px); }
+  60% { transform: translateY(3px); }
+}
 
-        .case-study-result {
-            background: var(--success);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            display: inline-block;
-            margin-top: 0.75rem;
-            font-weight: 600;
-        }
+.presenter-card {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--card);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+}
 
-        .fear-item {
-            background: #fef2f2;
-            border-left: 4px solid var(--danger);
-            padding: 1rem 1.5rem;
-            margin: 0.75rem 0;
-            border-radius: 0 8px 8px 0;
-        }
+.presenter-photo {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--purple);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  color: white;
+  flex-shrink: 0;
+  border: 2px solid var(--purple);
+}
 
-        .what-recruiters-want {
-            background: var(--primary);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-        }
+.presenter-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-        .recruiter-point {
-            display: flex;
-            gap: 1rem;
-            margin: 1rem 0;
-            align-items: flex-start;
-        }
+.presenter-info {
+  text-align: left;
+}
 
-        .recruiter-point-number {
-            background: rgba(255,255,255,0.2);
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
+.presenter-transformation {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
 
-        .step-card {
-            background: var(--light);
-            border: 2px solid var(--primary);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-        }
+.presenter-meta {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
 
-        .step-card-title {
-            font-weight: 700;
-            color: var(--primary-dark);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
+.video-container {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto 20px;
+}
 
-        .bonus-card {
-            background: linear-gradient(135deg, #fefce8, #fef9c3);
-            border-left: 4px solid var(--accent);
-            padding: 1.5rem;
-            margin: 1rem 0;
-            border-radius: 0 10px 10px 0;
-        }
+.video-thumbnail {
+  position: relative;
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  cursor: pointer;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-        .bonus-title {
-            font-weight: 700;
-            color: #92400e;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
+.thumbnail-content-v2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 32px;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+}
 
-        .two-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
+.thumbnail-micro {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--purple-light);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
 
-        .option {
-            padding: 1.5rem;
-            border-radius: 10px;
-        }
+.thumbnail-headline {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -1px;
+  margin: 0 0 28px 0;
+  color: var(--snow);
+}
 
-        .option.diy {
-            background: #fef2f2;
-            border: 2px solid #fca5a5;
-        }
+.thumb-line {
+  display: block;
+}
 
-        .option.system {
-            background: #ecfdf5;
-            border: 2px solid #6ee7b7;
-        }
+.play-button-center {
+  width: 64px;
+  height: 64px;
+  background: var(--purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(139, 92, 246, 0.4);
+  transition: all 0.3s;
+  cursor: pointer;
+}
 
-        .option-title {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-        }
+.play-button-center svg {
+  width: 26px;
+  height: 26px;
+  color: white;
+  margin-left: 3px;
+}
 
-        .option.diy .option-title {
-            color: var(--danger);
-        }
+.video-thumbnail:hover .play-button-center {
+  transform: scale(1.08);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.5);
+}
 
-        .option.system .option-title {
-            color: var(--success);
-        }
+.video-thumbnail:hover {
+  border-color: rgba(139, 92, 246, 0.25);
+}
 
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-        }
+.cta-wrapper {
+  margin-bottom: 10px;
+}
 
-        .cta-step {
-            background: rgba(255,255,255,0.15);
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            margin: 0.75rem auto;
-            max-width: 500px;
-            text-align: left;
-        }
+.cta-button {
+  display: inline-block;
+  background: var(--gold);
+  color: #1a1a1a;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(251, 191, 36, 0.25);
+}
 
-        .delivery-note {
-            background: #fef3c7;
-            padding: 0.75rem 1rem;
-            border-radius: 6px;
-            margin-top: 1rem;
-            font-size: 0.9rem;
-            border-left: 3px solid var(--accent);
-        }
+.cta-button:hover {
+  background: #f5b800;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(251, 191, 36, 0.4);
+}
 
-        .delivery-note strong {
-            color: #92400e;
-        }
+.urgency-text {
+  font-size: 17px;
+  color: var(--snow);
+  font-weight: 500;
+  margin-top: 28px;
+  margin-bottom: 28px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
 
-        .structure-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1rem 0;
-            font-size: 0.95rem;
-        }
+.social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+  padding: 18px 32px;
+  background: rgba(139, 92, 246, 0.08);
+  border-radius: 0;
+  width: 100vw;
+  margin-left: calc(-5%);
+  margin-right: calc(-5%);
+  position: relative;
+  left: 0;
+}
 
-        .structure-table th {
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem;
-            text-align: left;
-        }
+.rating-text {
+  font-size: 15px;
+  color: var(--snow);
+  font-weight: 500;
+}
 
-        .structure-table td {
-            padding: 0.75rem;
-            border-bottom: 1px solid var(--light);
-        }
+.footer {
+  margin-top: auto;
+  padding: 40px 5%;
+  border-top: 1px solid var(--card-border);
+  width: 100%;
+}
 
-        .structure-table tr:nth-child(even) {
-            background: var(--light);
-        }
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
 
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8rem;
-            }
+.footer-links a {
+  font-size: 13px;
+  color: #666;
+  text-decoration: none;
+}
 
-            .two-options {
-                grid-template-columns: 1fr;
-            }
+.footer-links a:hover {
+  text-decoration: underline;
+  color: var(--purple-light);
+}
 
-            .section-header {
-                flex-wrap: wrap;
-            }
+.disclaimer {
+  max-width: 900px;
+  margin: 0 auto;
+  font-size: 11px;
+  color: #555;
+  line-height: 1.7;
+  text-align: center;
+}
 
-            .section-time {
-                margin-left: 0;
-                margin-top: 0.5rem;
-            }
-        }
-    </style>
+/* SECTION 2: Why AI PM / Why Now */
+.section-why-now {
+  padding: 80px 0;
+  background: #0d0d0d;
+  position: relative;
+}
+
+.section-headline {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 800;
+  text-align: center;
+  letter-spacing: -1px;
+  line-height: 1.2;
+  margin-bottom: 48px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.highlight-purple {
+  color: var(--purple-light);
+}
+
+.why-list {
+  max-width: 680px;
+  margin: 0 auto 40px;
+}
+
+.why-item {
+  display: flex;
+  gap: 20px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.why-item:last-child {
+  border-bottom: none;
+}
+
+.why-number {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 6px;
+  margin-top: 2px;
+}
+
+.why-item p {
+  font-size: 16px;
+  color: rgba(250, 250, 250, 0.85);
+  line-height: 1.7;
+}
+
+.section-cta-line {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--gold);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* SECTION 3: Why Your Background Fits */
+.section-background {
+  padding: 80px 0;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.03) 0%, var(--night) 100%);
+  position: relative;
+}
+
+.role-list {
+  max-width: 720px;
+  margin: 0 auto 48px;
+}
+
+.role-item {
+  padding: 28px 0 28px 24px;
+  border-left: 2px solid var(--purple);
+  margin-bottom: 24px;
+}
+
+.role-item:last-child {
+  margin-bottom: 0;
+}
+
+.role-label {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--purple-light);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.role-item p {
+  font-size: 16px;
+  color: rgba(250, 250, 250, 0.85);
+  line-height: 1.7;
+}
+
+.emphasis-line {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(20px, 2.5vw, 24px);
+  font-weight: 600;
+  line-height: 1.5;
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(250, 250, 250, 0.9);
+}
+
+/* SECTION 4: What This Free Training Shows */
+.section-training {
+  padding: 100px 0;
+  background: linear-gradient(180deg, var(--night) 0%, #0a0a10 100%);
+}
+
+.training-block {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  max-width: 950px;
+  margin: 0 auto;
+  padding: 48px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 24px;
+  position: relative;
+}
+
+.training-block::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, transparent 50%, rgba(139, 92, 246, 0.1) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.training-content {
+  flex: 1;
+}
+
+.section-headline-left {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 3.5vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  margin-bottom: 32px;
+}
+
+.training-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+}
+
+.training-checklist li {
+  font-size: 17px;
+  color: var(--snow);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding-left: 36px;
+  position: relative;
+}
+
+.training-checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: rgba(34, 197, 94, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--success);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+}
+
+.training-trust {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding-top: 24px;
+  border-top: 1px solid var(--card-border);
+}
+
+.training-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--purple);
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 4px solid var(--purple);
+  box-shadow: 0 16px 48px rgba(139, 92, 246, 0.4), 0 0 0 8px rgba(139, 92, 246, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 48px;
+  color: white;
+}
+
+.training-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* SECTION 5: Testimonials */
+.section-testimonials {
+  padding: 80px 0;
+  background: var(--night);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.testimonial-item {
+  text-align: center;
+  padding: 0 12px;
+}
+
+.quote-mark {
+  font-family: Georgia, serif;
+  font-size: 48px;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+.testimonial-quote {
+  font-size: 15px;
+  color: rgba(250, 250, 250, 0.85);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.testimonial-role {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* FINAL CTA Section */
+.section-final-cta {
+  padding: 100px 0 120px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--night) 0%, #0a0a10 100%);
+  position: relative;
+}
+
+.section-final-cta::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: radial-gradient(ellipse at center bottom, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.final-cta-lead {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  margin-bottom: 12px;
+  letter-spacing: -1px;
+  position: relative;
+}
+
+.final-cta-sub {
+  font-size: 19px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.cta-button-large {
+  font-size: 15px;
+  padding: 16px 40px;
+  position: relative;
+}
+
+
+.final-cta-micro {
+  font-size: 15px;
+  color: var(--text-secondary);
+  margin-top: 20px;
+  position: relative;
+}
+
+/* Modal Popup */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: var(--card);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 480px;
+  width: 100%;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(139, 92, 246, 0.1);
+}
+
+.modal-overlay.active .modal {
+  transform: scale(1);
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  background: var(--night);
+  border: 1px solid var(--card-border);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.modal-close:hover {
+  border-color: var(--purple);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+.modal-close svg {
+  width: 18px;
+  height: 18px;
+  color: var(--text-secondary);
+}
+
+.modal-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.modal-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--purple);
+  overflow: hidden;
+  margin: 0 auto 16px;
+  border: 3px solid var(--purple);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+}
+
+.modal-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  color: var(--success);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+  color: var(--snow);
+  line-height: 1.2;
+}
+
+.modal-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.modal-credibility {
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--card-border);
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: var(--night);
+  border: 1.5px solid var(--card-border);
+  color: var(--snow);
+  font-family: var(--font-body);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+}
+
+.form-group input::placeholder {
+  color: #666;
+}
+
+.btn-submit {
+  width: 100%;
+  background: var(--purple);
+  color: white;
+  padding: 18px 24px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  box-shadow: 0 4px 24px rgba(139, 92, 246, 0.35);
+}
+
+.btn-submit:hover {
+  background: var(--purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 36px rgba(139, 92, 246, 0.45);
+}
+
+.btn-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero {
+    padding: 32px 16px 48px;
+  }
+
+  .top-bar {
+    padding: 12px 16px;
+  }
+
+  .top-bar p {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 7vw, 36px);
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+
+  .subheadline {
+    font-size: 17px;
+  }
+
+  .objection-strip {
+    gap: 16px;
+    padding: 16px 0;
+  }
+
+  .audience-tag {
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+
+  .objection-pills {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .pill {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .social-proof-line {
+    font-size: 12px;
+    padding: 0 16px;
+    margin-bottom: 12px;
+  }
+
+  .video-container {
+    margin-bottom: 18px;
+  }
+
+  .cta-button {
+    padding: 18px 32px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .urgency-text {
+    font-size: 14px;
+    padding: 0 16px;
+  }
+
+  .social-proof {
+    padding: 14px 20px;
+    margin-top: 24px;
+  }
+
+  .rating-text {
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .modal {
+    padding: 32px 24px;
+    border-radius: 16px;
+  }
+
+  .modal-avatar {
+    width: 60px;
+    height: 60px;
+    font-size: 18px;
+    margin-bottom: 12px;
+  }
+
+  .modal-badge {
+    font-size: 10px;
+    padding: 5px 12px;
+  }
+
+  .modal-title {
+    font-size: 22px;
+  }
+
+  .modal-subtitle {
+    font-size: 14px;
+  }
+
+  .modal-credibility {
+    font-size: 12px;
+  }
+
+  .form-group input,
+  .form-group select {
+    padding: 15px 16px;
+    font-size: 16px;
+  }
+
+  .btn-submit {
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+
+  .thumbnail-content-v2 {
+    padding: 32px 24px;
+  }
+
+  .thumbnail-micro {
+    font-size: 10px;
+    padding: 5px 10px;
+    margin-bottom: 12px;
+  }
+
+  .thumbnail-headline {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .play-button-center {
+    width: 64px;
+    height: 64px;
+    box-shadow: 0 6px 24px rgba(139, 92, 246, 0.5), 0 0 0 6px rgba(139, 92, 246, 0.15);
+  }
+
+  .play-button-center svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  .presenter-card {
+    padding: 10px 20px 10px 10px;
+    gap: 12px;
+  }
+
+  .presenter-photo {
+    width: 48px;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  .presenter-transformation {
+    font-size: 15px;
+  }
+
+  .presenter-meta {
+    font-size: 12px;
+  }
+
+  .urgency-text {
+    font-size: 15px;
+  }
+
+  /* Section 2: Why Now - Mobile */
+  .section-why-now {
+    padding: 56px 0;
+  }
+
+  .section-headline {
+    font-size: 24px;
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+  }
+
+  .why-item {
+    padding: 20px 0;
+    gap: 16px;
+  }
+
+  .why-number {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .why-item p {
+    font-size: 15px;
+  }
+
+  .section-cta-line {
+    font-size: 15px;
+  }
+
+  /* Section 3: Background - Mobile */
+  .section-background {
+    padding: 56px 0;
+  }
+
+  .role-item {
+    padding: 20px 0 20px 20px;
+    margin-bottom: 20px;
+  }
+
+  .role-label {
+    font-size: 11px;
+    margin-bottom: 10px;
+  }
+
+  .role-item p {
+    font-size: 15px;
+  }
+
+  .emphasis-line {
+    font-size: 18px;
+  }
+
+  /* Section 4: Training - Mobile */
+  .section-training {
+    padding: 64px 0;
+  }
+
+  .training-block {
+    flex-direction: column-reverse;
+    gap: 32px;
+    padding: 32px 24px;
+  }
+
+  .section-headline-left {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .training-checklist li {
+    font-size: 15px;
+    margin-bottom: 14px;
+    padding-left: 32px;
+  }
+
+  .training-checklist li::before {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+    line-height: 22px;
+  }
+
+  .training-trust {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .training-photo {
+    width: 140px;
+    height: 140px;
+    font-size: 36px;
+    margin: 0 auto;
+    box-shadow: 0 12px 36px rgba(139, 92, 246, 0.4), 0 0 0 6px rgba(139, 92, 246, 0.1);
+  }
+
+  /* Section 5: Testimonials - Mobile */
+  .section-testimonials {
+    padding: 56px 0;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 400px;
+  }
+
+  .testimonial-item {
+    padding: 0;
+  }
+
+  .quote-mark {
+    font-size: 40px;
+    margin-bottom: 8px;
+  }
+
+  .testimonial-quote {
+    font-size: 15px;
+  }
+
+  .testimonial-role {
+    font-size: 11px;
+  }
+
+  /* Final CTA - Mobile */
+  .section-final-cta {
+    padding: 64px 0 80px;
+  }
+
+  .final-cta-lead {
+    font-size: 22px;
+  }
+
+  .final-cta-sub {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .cta-button-large {
+    font-size: 13px;
+    padding: 14px 28px;
+    width: 100%;
+    max-width: 320px;
+  }
+}
+</style>
 </head>
 <body>
-    <header>
-        <h1>Break Into AI Product Management</h1>
-        <p class="subtitle">VSL Script V6</p>
-        <div class="meta">
-            <span>15-18 min</span>
-            <span>Career switcher focus</span>
-            <span>Threat + opportunity</span>
-            <span>Conversational tone</span>
-        </div>
-        <div class="audience-tag">Primary: BA / Project Managers / Engineers → AI PM</div>
-    </header>
 
+<div class="page-wrapper">
+  <section class="hero">
     <div class="container">
+      <p class="audience-tag">For Business Analysts, Project Managers & Engineers</p>
+      <h1>The Practical <span class="highlight-gold">3-Step AI PM Career Switch Roadmap</span></h1>
 
-        <!-- 1. WELCOME + WHO THIS IS FOR -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">1</span>
-                <h2 class="section-title">WELCOME + WHO THIS IS FOR</h2>
-                <span class="section-time">30 sec</span>
-            </div>
+      <p class="subheadline">
+        Your current BA/PM/engineering experience is more usable for AI PM than you think — if you know how to position it the right way.
+      </p>
 
-            <div class="script-content">
-                <p>Hey, welcome.</p>
-                <p>If you're a business analyst, a project manager, an engineer — or really anyone who's been trying to break into product management — this is for you.</p>
-                <p>I'm going to show you how to land a high-paying AI product manager role. According to PwC, workers with AI skills earn <strong>56% higher wages</strong> on average. In India, AI PMs are making <strong>₹30-50 lakh</strong> while traditional PMs are stuck at ₹15-20 lakh.</p>
-                <p>Even if you don't have a PM title today. Even if you're not technical. Even if you've tried before and it didn't work.</p>
-                <p>Stay with me.</p>
-            </div>
+      <div class="objection-pills">
+        <span class="pill">No PM title needed</span>
+        <span class="pill">No ML background needed</span>
+        <span class="pill">No years of product experience</span>
+      </div>
 
-            <div class="delivery-note">
-                <strong>Energy:</strong> Warm, direct. Like talking to a friend. Not salesy.
+      <p class="watch-cta">Watch The Free Training</p>
+
+      <div class="presenter-card">
+        <div class="presenter-photo">
+          <img src="../photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan" onerror="this.parentElement.innerHTML='LN'">
+        </div>
+        <div class="presenter-info">
+          <div class="presenter-transformation">Former Engineer → Lead PM at Grab</div>
+          <div class="presenter-meta">Lakshmi Narasimhan | Ex-Delivery Hero | Ex-Dell EMC</div>
+        </div>
+      </div>
+
+      <p class="social-proof-line">Professionals from BA, PM, QA & Engineering backgrounds are already using this roadmap</p>
+
+      <div class="video-container">
+        <div class="video-thumbnail" id="video-trigger">
+          <div class="thumbnail-content-v2">
+            <span class="thumbnail-micro">Free 17-Min Training</span>
+            <h3 class="thumbnail-headline">
+              <span class="thumb-line">The 3-Step <span class="highlight-gold">AI PM</span></span>
+              <span class="thumb-line">Career <span class="highlight-gold">Switch</span> Roadmap</span>
+            </h3>
+            <div class="play-button-center">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cta-wrapper">
+        <button class="cta-button" id="cta-trigger">WATCH THE FREE AI PM TRAINING NOW</button>
+      </div>
+      <p class="urgency-text">17 minutes that can completely change how you view your BA/PM/engineering background — and how it fits into AI Product roles.</p>
+
+          </div>
+  </section>
+
+  <!-- SECTION 2: Why AI PM / Why Now -->
+  <section class="section-why-now">
+    <div class="container">
+      <h2 class="section-headline">Why More Tech Professionals Are Looking At <span class="highlight-gold">AI Product Management</span> Right Now</h2>
+
+      <div class="why-list">
+        <div class="why-item">
+          <span class="why-number">1</span>
+          <p>AI PM demand is rising because companies need people who can <span class="highlight-gold">decide what to build</span>, where AI belongs, and how to ship responsibly.</p>
         </div>
 
-        <!-- 2. THE THREE THINGS YOU'LL LEARN -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">2</span>
-                <h2 class="section-title">THE THREE THINGS YOU'LL LEARN</h2>
-                <span class="section-time">45 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>By the end of this video, you'll know three things:</p>
-                <p><strong>One</strong> — Why AI product management is the biggest career opportunity in tech right now — job postings are up <strong>300%</strong> in the last two years — and why your current role might actually be at risk if you don't move.</p>
-                <p><strong>Two</strong> — What hiring managers are actually looking for when they hire AI PMs — and I'll tell you, it's not what most people think.</p>
-                <p><strong>Three</strong> — The exact steps to position yourself for these roles, even if you've never had "Product Manager" on your resume.</p>
-                <p>I'll also share how I made this transition myself — from engineer to PM — and how I've helped dozens of others do the same thing.</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Clear, confident. Laying out what's coming.
-            </div>
+        <div class="why-item">
+          <span class="why-number">2</span>
+          <p>Most candidates still cannot show AI product thinking, portfolio proof, or confidence working with ML teams — which is why the <span class="highlight-gold">window is still open</span> for switchers.</p>
         </div>
 
-        <!-- 3. HANDLING THE OBJECTION -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">3</span>
-                <h2 class="section-title">HANDLING THE OBJECTION</h2>
-                <span class="section-time">30 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>Now, you might be thinking — "I've tried to break into PM before. I've applied to dozens of roles. And I keep hearing the same thing: 'You don't have PM experience.' How is this any different?"</p>
-                <p>I get it. It feels like a trap. You can't get the job without experience, but you can't get experience without the job.</p>
-                <p>Here's what I want you to understand: <span class="highlight">AI PM is different.</span> It's so new that nobody has 10 years of experience. The senior PMs at Google and Amazon? They're learning this too. The playing field is level in a way traditional PM never was.</p>
-                <p>And that's exactly why this is your window. You're not competing against people with years of PM experience. You're competing against people who are all figuring out AI at the same time.</p>
-                <p>The question is — will you be ready when the opportunity comes?</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Empathetic. Acknowledge their frustration.
-            </div>
+        <div class="why-item">
+          <span class="why-number">3</span>
+          <p>If you stay in pure execution, <span class="highlight-gold">automation risk rises</span>. If you move closer to product judgment and customer decisions, your career leverage increases.</p>
         </div>
+      </div>
 
-        <!-- 4. WHO AM I -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">4</span>
-                <h2 class="section-title">WHO AM I — Credibility + Story</h2>
-                <span class="section-time">60 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>Let me tell you a bit about myself.</p>
-                <p>I'm Lakshmi Narasimhan. I'm a Lead Product Manager at <strong>Grab</strong> — that's Southeast Asia's biggest super-app. My team handles the transaction platform that processes millions of orders every day.</p>
-                <p>Before Grab, I was at <strong>Delivery Hero</strong>. I launched Foodpanda's co-branded card in Taiwan, grew applications by 5x. Before that, Dell EMC, TCS — over 10 years building products across India, Southeast Asia, and Taiwan.</p>
-                <p>But here's the thing — <span class="highlight">I didn't start as a PM.</span></p>
-                <p>I was an engineer. I made the switch. And that's actually why I understand what you're going through. The feeling of wanting to get in but not knowing how. The rejections. The "you don't have PM experience" feedback.</p>
-                <p>I made that transition. And if I could do it, you can too. But here's what's different now — <strong>the window is wider than it was for me.</strong> AI PM didn't exist when I switched. Today, it's the fastest-growing PM category. Companies are desperate for people who get it.</p>
-                <p>I've been on the hiring side. I've interviewed hundreds of candidates — many of them coming from business analyst roles, project management, engineering, just like you. I know exactly what gets people hired — and what gets them rejected.</p>
-                <p>That's what I'm going to share with you today.</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Grounded, relatable. The engineer → PM story is KEY. Emphasize it.
-            </div>
-        </div>
-
-        <!-- 5. WHY AI PM IS THE OPPORTUNITY -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">5</span>
-                <h2 class="section-title">WHY AI PM IS THE OPPORTUNITY</h2>
-                <span class="section-time">90 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>So let's talk about what's happening right now.</p>
-                <p>AI is changing everything. You already know that. But here's what most people don't realize:</p>
-            </div>
-
-            <div class="threat-box">
-                <p><strong>Your current role? It's probably getting smaller.</strong></p>
-                <p style="margin-top: 0.75rem;">LinkedIn's latest data shows entry-level hiring in AI-augmented roles <strong>fell 8.9%</strong> year-over-year. That's not a typo. The junior roles are disappearing first.</p>
-                <p style="margin-top: 0.75rem;">If you're a business analyst — AI is already writing reports, doing analysis, pulling insights. Faster than you can.</p>
-                <p style="margin-top: 0.5rem;">If you're a project manager — AI tools are automating tracking, scheduling, status updates, even stakeholder communication.</p>
-                <p style="margin-top: 0.5rem;">If you're an engineer — AI is writing code. Amazon is already replacing traditional job titles with "builder." The coordination roles are shrinking.</p>
-            </div>
-
-            <div class="script-content">
-                <p>I'm not saying your job disappears tomorrow. But the trend is clear. These roles are shrinking.</p>
-                <p>But there's one role that's growing. Fast.</p>
-                <p><strong style="color: var(--primary); font-size: 1.2rem;">Product manager.</strong></p>
-                <p>And specifically — AI product manager.</p>
-            </div>
-
-            <div class="opportunity-box">
-                <p><strong>AI doesn't replace product managers. It makes them more valuable.</strong></p>
-                <p style="margin-top: 0.75rem;">See, AI can do a lot. But it can't decide what to build. It can't talk to customers. It can't prioritize. It can't say "no, we're not building that." That's the PM's job.</p>
-            </div>
-
-            <div class="script-content">
-                <p>And the numbers back this up:</p>
-                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
-                    <li>LinkedIn shows <strong>59,000+ AI PM job postings</strong> worldwide right now</li>
-                    <li>Roles requiring AI skills grew from 55 to <strong>nearly 10,000</strong> in just 4 years</li>
-                    <li>In India, AI PMs are earning <strong>₹30-50 lakh</strong> — while traditional PMs are stuck at ₹15-20 lakh</li>
-                    <li><strong>51% of AI PM roles</strong> are now outside traditional IT — healthcare, finance, consulting are all hiring</li>
-                </ul>
-                <p>And here's the best part — <span class="highlight">AI PM is so new that nobody has 10 years of experience. The playing field is completely open.</span></p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Start serious (threat), build to hopeful (opportunity). Let the contrast land.
-            </div>
-        </div>
-
-        <!-- 6. THE FOUR FEARS -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">6</span>
-                <h2 class="section-title">THE FOUR FEARS</h2>
-                <span class="section-time">60 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>Now, when I talk to people trying to make this switch, I hear the same four fears over and over:</p>
-
-                <div class="fear-item">
-                    <strong>One</strong> — "I don't have a technical background. I didn't study engineering. How can I work with AI?"
-                </div>
-
-                <div class="fear-item">
-                    <strong>Two</strong> — "I'm not a coder. I don't know Python or machine learning."
-                </div>
-
-                <div class="fear-item">
-                    <strong>Three</strong> — "I don't know how to talk to data scientists and ML engineers. I'll sound stupid."
-                </div>
-
-                <div class="fear-item">
-                    <strong>Four</strong> — "I'm not even a PM yet. How can I become an AI PM when I don't have any PM experience in the first place?"
-                </div>
-
-                <p style="margin-top: 1.5rem;">Sound familiar?</p>
-                <p>Here's what I want you to know: I hear these every single day. And every single one of them is based on a misunderstanding of what AI PMs actually do.</p>
-                <p style="margin-top: 1rem;">But here's the real challenge nobody talks about — it's not the technical stuff. It's the <span class="highlight">mindset shift</span>. Moving from executor to owner. From "here's what the stakeholder wants" to "here's what we should build and why." That's the real transition — and that's what we'll help you make.</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Understanding, not dismissive. These are real fears. The mindset shift line is key.
-            </div>
-        </div>
-
-        <!-- 7. WHAT HIRING MANAGERS ACTUALLY LOOK FOR -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">7</span>
-                <h2 class="section-title">WHAT HIRING MANAGERS ACTUALLY LOOK FOR</h2>
-                <span class="section-time">90 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>I've sat on the hiring side. I've interviewed hundreds of candidates. Let me tell you what we're actually evaluating.</p>
-                <p>It's not whether you can code. It's not whether you have a CS degree.</p>
-                <p>It's three things:</p>
-            </div>
-
-            <div class="what-recruiters-want">
-                <div class="recruiter-point">
-                    <span class="recruiter-point-number">1</span>
-                    <div>
-                        <strong>Probabilistic thinking.</strong><br>
-                        This is the #1 reason candidates fail AI PM interviews. Traditional products are deterministic — if user clicks A, system does B. AI products are probabilistic — the model will be right 95% of the time. How do you design for the 5%? What's the acceptable error rate? How do you fail gracefully? If you still think like a traditional PM, you'll try to "fix" the 5% like a bug. AI PMs design for uncertainty.
-                    </div>
-                </div>
-                <div class="recruiter-point">
-                    <span class="recruiter-point-number">2</span>
-                    <div>
-                        <strong>Proof.</strong><br>
-                        Can you show your work? When I ask "tell me about an AI product decision you made" — do you have something to point to? A document you wrote? A product you shipped? Something that shows how you think? Everyone has opinions about AI. Proof is what separates you.
-                    </div>
-                </div>
-                <div class="recruiter-point">
-                    <span class="recruiter-point-number">3</span>
-                    <div>
-                        <strong>Collaboration.</strong><br>
-                        Can you work with ML engineers without being intimidated? Can you push back when they over-engineer something? Can you ask the right questions? You don't need to do their job. You need to partner with them.
-                    </div>
-                </div>
-            </div>
-
-            <div class="script-content">
-                <p><span class="highlight">None of this requires a CS degree. None of this requires coding.</span> What it requires is learning how to think about AI products. And that's a skill you can build.</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Authoritative but reassuring. Insider knowledge.
-            </div>
-        </div>
-
-        <!-- 8. YOUR HIDDEN ADVANTAGES -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">8</span>
-                <h2 class="section-title">YOUR HIDDEN ADVANTAGES</h2>
-                <span class="section-time">60 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>And here's what nobody tells you — <strong>your background is actually an advantage.</strong></p>
-                <p>In fact, <strong>40-45% of all AI PM transitions</strong> come from business analysts and project managers. You're not the exception — you're the majority.</p>
-
-                <div class="advantage-card">
-                    <div class="advantage-card-role">If you're a Business Analyst...</div>
-                    <p>You already have data fluency. You know SQL. You can translate messy requirements into structured problems. That's exactly what AI products need — someone who can look at data quality, understand pipelines, and ask "what could go wrong?"</p>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-card-role">If you're a Project Manager...</div>
-                    <p>You know how to coordinate across teams and actually ship things. AI teams are full of researchers who build amazing demos that never launch. They need someone who can manage risk, handle stakeholders, and get products out the door.</p>
-                </div>
-
-                <div class="advantage-card">
-                    <div class="advantage-card-role">If you're an Engineer...</div>
-                    <p>You understand technical constraints. You can talk to ML engineers about trade-offs without nodding along and pretending. You know what's actually possible to build.</p>
-                </div>
-
-                <p style="margin-top: 1.5rem;">Here's how I think about it: <span class="highlight">You already have 80% of the skills. You just need the 20% that gets you through the door.</span></p>
-                <p>And here's a secret — the fastest path isn't always external. Many of our successful students got their first AI PM role <strong>inside their current company</strong>. They volunteered for an AI pilot, shipped something small, built the proof — then either got promoted internally or used that experience to land a better role outside.</p>
-                <p>That's what this course gives you — not just skills, but a strategy.</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Encouraging, revelatory. They haven't heard this before. The internal path is reassuring.
-            </div>
-        </div>
-
-        <!-- 9. THE TWO OPTIONS -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">9</span>
-                <h2 class="section-title">THE TWO OPTIONS</h2>
-                <span class="section-time">60 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>So at this point, you've got two options.</p>
-            </div>
-
-            <div class="two-options">
-                <div class="option diy">
-                    <div class="option-title">Option 1: Figure it out yourself</div>
-                    <p>You can spend the next year watching YouTube videos, reading blog posts, taking random courses. There's a lot of content out there. Some of it's good, some of it's garbage.</p>
-                    <p style="margin-top: 0.75rem;">Maybe it works. But here's the risk — AI is moving so fast that by the time you figure it out, the market has already moved. You're always one step behind.</p>
-                </div>
-                <div class="option system">
-                    <div class="option-title">Option 2: Work with someone who's done it</div>
-                    <p>Someone who's made the transition. Someone who's on the hiring side. Someone who can show you exactly what to focus on, in what order, without the trial and error.</p>
-                    <p style="margin-top: 0.75rem;"><strong>That's what I'm offering.</strong></p>
-                </div>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Neutral for option 1, warmer for option 2. Not pushy.
-            </div>
-        </div>
-
-        <!-- 10. WHAT YOU GET — THE COURSE -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">10</span>
-                <h2 class="section-title">WHAT YOU GET — THE COURSE</h2>
-                <span class="section-time">90 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>So here's what I've built for people like you.</p>
-                <p>It's an <strong>8-week AI Product Management course</strong>.</p>
-                <p>By the end of 8 weeks, here's where you'll be:</p>
-
-                <div class="step-card" style="border-color: var(--success);">
-                    <div class="step-card-title" style="color: var(--success);">You'll have a portfolio that proves you can do the work</div>
-                    <p>4 real AI product artifacts — teardowns, PRDs, roadmaps. When an interviewer asks "show me what you've built," you'll have something to show.</p>
-                </div>
-
-                <div class="step-card" style="border-color: var(--success);">
-                    <div class="step-card-title" style="color: var(--success);">You'll know how to talk to ML engineers without feeling lost</div>
-                    <p>The frameworks, the vocabulary, the right questions to ask. You won't be nodding along pretending anymore.</p>
-                </div>
-
-                <div class="step-card" style="border-color: var(--success);">
-                    <div class="step-card-title" style="color: var(--success);">You'll be positioned for AI PM roles — not competing for traditional PM scraps</div>
-                    <p>Your resume, your LinkedIn, your interview answers — all repositioned for the AI PM market where demand is high and competition is low.</p>
-                </div>
-
-                <div class="step-card" style="border-color: var(--success);">
-                    <div class="step-card-title" style="color: var(--success);">You'll have a clear path from where you are to where you want to be</div>
-                    <p>No more guessing. No more piecing together random advice. A roadmap built for your specific background — BA, project management, or engineering.</p>
-                </div>
-
-                <p style="margin-top: 1rem;">And here's something I don't think anyone else offers — I've interviewed hundreds of candidates from BA, project management, and engineering backgrounds. <span class="highlight">I'll personally help you position your experience so hiring managers see you as an AI PM, not "someone trying to break in."</span></p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Confident, clear on value. State the price without hesitation.
-            </div>
-        </div>
-
-        <!-- 11. PROOF IT WORKS -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">11</span>
-                <h2 class="section-title">PROOF IT WORKS</h2>
-                <span class="section-time">45 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>This isn't theory. People are making this transition right now.</p>
-
-                <div class="case-study">
-                    <div class="case-study-name">Rahul</div>
-                    <p>Rahul was a PM stuck in the same role for 3 years. Kept getting rejected from AI PM interviews. He joined the program, shipped an AI feature inside his own company, got promoted to Senior PM.</p>
-                    <span class="case-study-result">6 lakh raise</span>
-                </div>
-
-                <div class="case-study">
-                    <div class="case-study-name">Sneha</div>
-                    <p>Sneha was a business analyst. 32 years old. Thought it was "too late" to switch to PM. She used our transition playbook, built her portfolio, practiced AI PM interview scenarios.</p>
-                    <span class="case-study-result">PM role at Series B startup. 18 lakhs. 90 days.</span>
-                </div>
-
-                <p style="margin-top: 1rem;"><span class="highlight">These aren't exceptional people. They just had the right guidance.</span></p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Proud, warm. Real people, real results.
-            </div>
-        </div>
-
-        <!-- 12. BONUSES -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">12</span>
-                <h2 class="section-title">BONUSES</h2>
-                <span class="section-time">30 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>When you join, you also get:</p>
-
-                <div class="bonus-card">
-                    <div class="bonus-title">Resume Critique</div>
-                    <p>I'll personally review your resume and show you how to position your background for AI PM roles.</p>
-                </div>
-
-                <div class="bonus-card">
-                    <div class="bonus-title">AWS ML Certification Prep</div>
-                    <p>Mock exams included. This is a real credential that shows employers you understand the technical side.</p>
-                </div>
-
-                <p style="margin-top: 1rem;">These are worth over 15,000 rupees on their own. You get them included.</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Quick, value-add. Don't dwell.
-            </div>
-        </div>
-
-        <!-- 13. THE CLOSE -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">13</span>
-                <h2 class="section-title">THE CLOSE</h2>
-                <span class="section-time">60 sec</span>
-            </div>
-
-            <div class="script-content">
-                <p>Look, I'm going to be honest with you.</p>
-                <p>If you're waiting for the perfect time to make this move — it's not coming. The window is open right now. AI PM is new enough that you can break in. <strong>In 3 years? The market will be crowded. The "no experience" candidates won't have a shot.</strong></p>
-                <p>This is the moment.</p>
-                <p>8 weeks. You'll walk out with a portfolio, a roadmap, and the skills to land an AI PM role.</p>
-                <p>But I'm not looking for everyone. This isn't for people who want to "learn about AI" casually. This is for people who are serious about making the switch. Who are willing to put in the work for 8 weeks.</p>
-                <p>If that's not you, no hard feelings. But if it is — keep watching.</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Direct, honest. Create urgency without being salesy.
-            </div>
-        </div>
-
-        <!-- 14. CALL TO ACTION -->
-        <div class="section">
-            <div class="section-header">
-                <span class="section-number">14</span>
-                <h2 class="section-title">CALL TO ACTION</h2>
-                <span class="section-time">45 sec</span>
-            </div>
-
-            <div class="cta-section">
-                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">If that's you — here's what to do:</p>
-
-                <div class="cta-step">
-                    <strong>Step 1:</strong> Click the button below. Book a call with my team.
-                </div>
-
-                <div class="cta-step">
-                    <strong>Step 2:</strong> We'll talk about where you are, where you want to go, and whether this is the right fit.
-                </div>
-
-                <div class="cta-step">
-                    <strong>Step 3:</strong> No pressure. No hard sell. If it's not right for you, we'll tell you.
-                </div>
-
-                <p style="margin-top: 1.5rem;">But if you've been stuck, if you've been trying to break in, if you've been watching AI change everything and wondering where you fit —</p>
-                <p style="font-size: 1.3rem; margin-top: 1rem;"><strong>This is your shot. Click the button. Book the call.</strong></p>
-                <p style="margin-top: 1rem;">I'll see you inside.</p>
-            </div>
-
-            <div class="delivery-note">
-                <strong>Energy:</strong> Clear, inviting, final. End with warmth.
-            </div>
-        </div>
-
+      <p class="section-cta-line">This is why AI PM is becoming one of the most practical AI-era transitions in tech.</p>
     </div>
+  </section>
+
+  <!-- SECTION 3: Why Your Background Fits -->
+  <section class="section-background">
+    <div class="container">
+      <h2 class="section-headline">You May Already Have More Of The <span class="highlight-purple">AI PM Skillset</span> Than You Realize</h2>
+
+      <div class="role-list">
+        <div class="role-item">
+          <div class="role-label">Business Analysts</div>
+          <p>You already do one of the hardest parts of AI PM: <span class="highlight-gold">turning ambiguity, messy requirements, and business asks into structured product thinking</span>. You know SQL. You can translate chaos into clarity.</p>
+        </div>
+
+        <div class="role-item">
+          <div class="role-label">Project Managers</div>
+          <p>You already understand <span class="highlight-gold">coordination under uncertainty</span>: stakeholder alignment, execution movement, prioritization, and handling incomplete information. AI teams need people who ship.</p>
+        </div>
+
+        <div class="role-item">
+          <div class="role-label">Engineers</div>
+          <p>You already bring <span class="highlight-gold">technical-product judgment</span>: understanding what gets built, what is feasible, and how product decisions affect execution. You can talk to ML engineers without pretending.</p>
+        </div>
+      </div>
+
+      <p class="emphasis-line">The problem is usually not lack of experience.<br>It is not knowing how to <span class="highlight-purple">translate that experience</span> into AI PM credibility.</p>
+    </div>
+  </section>
+
+  <!-- SECTION 4: What This Free Training Shows You -->
+  <section class="section-training">
+    <div class="container">
+      <div class="training-block">
+        <div class="training-content">
+          <h2 class="section-headline-left">Inside This Free 17-Minute Training, Lakshmi Walks You Through:</h2>
+
+          <ul class="training-checklist">
+            <li>Why AI PM is becoming one of the most practical AI-era career switches</li>
+            <li>The 3-step roadmap to move from BA/PM/engineering into AI PM roles</li>
+            <li>What hiring managers actually need to see before they take candidates seriously</li>
+            <li>How to build AI PM proof without starting your career from zero</li>
+            <li>The common assumptions that make professionals disqualify themselves too early</li>
+          </ul>
+
+          <p class="training-trust">Led by Lakshmi Narasimhan — Former Engineer, Lead PM at Grab, Ex-Delivery Hero, Ex-Dell EMC</p>
+        </div>
+        <div class="training-photo">
+          <img src="../photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan" onerror="this.parentElement.innerHTML='LN'">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: Social Trust / Mini Testimonials -->
+  <section class="section-testimonials">
+    <div class="container">
+      <h2 class="section-headline">Built For Professionals Who Need To <span class="highlight-purple">Reposition For The AI Era</span></h2>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-item">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-quote">I stopped treating my BA background like a disadvantage. After this framework, I could finally explain my experience like a product candidate.</p>
+          <span class="testimonial-role">Business Analyst</span>
+        </div>
+
+        <div class="testimonial-item">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-quote">This made AI PM feel specific instead of vague. I finally understood what hiring managers actually want to see.</p>
+          <span class="testimonial-role">Project Manager</span>
+        </div>
+
+        <div class="testimonial-item">
+          <div class="quote-mark">"</div>
+          <p class="testimonial-quote">The roadmap made the switch feel practical. I could see what proof I needed to build instead of guessing.</p>
+          <span class="testimonial-role">Software Engineer</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA SECTION -->
+  <section class="section-final-cta">
+    <div class="container">
+      <p class="final-cta-lead">If you want to break into AI PM without starting from zero, this is the clearest next step.</p>
+      <p class="final-cta-sub">Watch the free training and see the 3-step roadmap, the hiring-manager lens, and how to turn your background into AI PM credibility.</p>
+
+      <button class="cta-button cta-button-large" id="final-cta-trigger">WATCH THE FREE AI PM TRAINING NOW</button>
+
+      <p class="final-cta-micro">Free access. No PM title required. Immediate clarity on your next move.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Refund Policy</a>
+    </div>
+    <p class="disclaimer">
+      This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.
+      <br><br>
+      DISCLAIMER: The results stated above are the results of specific individuals and are not typical. We're not implying you'll duplicate them (or do anything for that matter). The average person who buys any "how to" information gets little to no results. We're using these references for example purposes only. Your results will vary and depend on many factors including but not limited to your background, experience, and work ethic.
+    </p>
+  </footer>
+</div>
+
+<!-- Registration Popup Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" id="modal-close">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="modal-header">
+      <div class="modal-avatar">
+        <img src="../photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan" onerror="this.parentElement.innerHTML='LN'">
+      </div>
+      <span class="modal-badge">Free Instant Access</span>
+      <h2 class="modal-title">Unlock The Free AI PM Roadmap Training</h2>
+      <p class="modal-subtitle">Get immediate access to Lakshmi's 3-step AI PM switch roadmap.</p>
+    </div>
+
+    <form id="register-form">
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+      </div>
+
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="Email Address" required>
+      </div>
+
+      <div class="form-group">
+        <input type="tel" id="phone" name="phone" placeholder="WhatsApp Number (10 digits)" pattern="[0-9]{10}" required>
+      </div>
+
+      <button type="submit" class="btn-submit" id="submit-btn">GET INSTANT ACCESS NOW</button>
+
+      <p class="modal-credibility">Led by Lakshmi Narasimhan, Lead PM at Grab</p>
+    </form>
+  </div>
+</div>
+
+<script src="/lp/shared/tracking.js"></script>
+<script>
+// Modal functionality
+const modal = document.getElementById('modal');
+const modalClose = document.getElementById('modal-close');
+const ctaTrigger = document.getElementById('cta-trigger');
+const videoTrigger = document.getElementById('video-trigger');
+const finalCtaTrigger = document.getElementById('final-cta-trigger');
+let exitIntentShown = false;
+
+function openModal(source) {
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'ViewContent', {
+      content_name: 'AI PM VSL Modal Opened',
+      content_category: 'AI for Product Managers',
+      content_id: source || 'direct'
+    });
+  }
+}
+
+function closeModal() {
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// CTA and video click triggers
+ctaTrigger.addEventListener('click', function() { openModal('cta_click'); });
+videoTrigger.addEventListener('click', function() { openModal('video_click'); });
+if (finalCtaTrigger) finalCtaTrigger.addEventListener('click', function() { openModal('final_cta_click'); });
+
+// Close modal
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', function(e) {
+  if (e.target === modal) closeModal();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Exit Intent Detection (Desktop)
+document.addEventListener('mouseout', function(e) {
+  if (e.clientY < 10 && !exitIntentShown && !modal.classList.contains('active')) {
+    exitIntentShown = true;
+    sessionStorage.setItem('rewire_exit_intent_shown', 'true');
+    openModal('exit_intent');
+  }
+});
+
+// Mobile Exit Intent (scroll up after scrolling down)
+let lastScrollY = 0;
+let scrolledDown = false;
+window.addEventListener('scroll', function() {
+  const currentScrollY = window.scrollY;
+  if (currentScrollY > 200) scrolledDown = true;
+  if (scrolledDown && currentScrollY < lastScrollY - 50 && !exitIntentShown && !modal.classList.contains('active')) {
+    exitIntentShown = true;
+    sessionStorage.setItem('rewire_exit_intent_shown', 'true');
+    openModal('exit_intent_mobile');
+  }
+  lastScrollY = currentScrollY;
+});
+
+// Check if exit intent was already shown this session
+if (sessionStorage.getItem('rewire_exit_intent_shown')) {
+  exitIntentShown = true;
+}
+
+// Form submission
+document.getElementById('register-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('submit-btn');
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+
+  btn.disabled = true;
+  btn.textContent = 'Unlocking...';
+
+  // Store lead data
+  sessionStorage.setItem('rewire_lead_name', name);
+  sessionStorage.setItem('rewire_lead_email', email);
+  sessionStorage.setItem('rewire_lead_phone', phone);
+
+  // Track conversion
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', {
+      content_name: 'AI PM VSL Registration',
+      content_category: 'AI for Product Managers'
+    });
+  }
+
+  // TODO: Send to your email/CRM system (webhook)
+
+  setTimeout(function() {
+    window.location.href = 'watch.html';
+  }, 500);
+});
+</script>
+
 </body>
 </html>

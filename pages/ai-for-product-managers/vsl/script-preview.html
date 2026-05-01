@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rewire PM Course — VSL Script V6</title>
+    <style>
+        :root {
+            --primary: #7c3aed;
+            --primary-dark: #5b21b6;
+            --accent: #f59e0b;
+            --success: #10b981;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --gray: #6b7280;
+            --light: #f3f4f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .meta {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.85rem;
+        }
+
+        .meta span {
+            background: rgba(255,255,255,0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .audience-tag {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+        }
+
+        .section-number {
+            background: var(--primary);
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--primary-dark);
+        }
+
+        .section-time {
+            margin-left: auto;
+            background: var(--light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+
+        .script-content {
+            font-size: 1.1rem;
+        }
+
+        .script-content p {
+            margin-bottom: 1rem;
+        }
+
+        .highlight {
+            background: linear-gradient(to right, #fef3c7, #fde68a);
+            padding: 0 4px;
+            border-radius: 3px;
+        }
+
+        .threat-box {
+            background: linear-gradient(135deg, #fef2f2, #fee2e2);
+            border-left: 4px solid var(--danger);
+            padding: 1.5rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.5rem 0;
+        }
+
+        .opportunity-box {
+            background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.5rem 0;
+        }
+
+        .advantage-card {
+            background: var(--light);
+            border: 2px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .advantage-card-role {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study {
+            background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+            border-left: 4px solid var(--success);
+            padding: 1.5rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.5rem 0;
+        }
+
+        .case-study-name {
+            font-weight: 700;
+            color: var(--success);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-study-result {
+            background: var(--success);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            display: inline-block;
+            margin-top: 0.75rem;
+            font-weight: 600;
+        }
+
+        .fear-item {
+            background: #fef2f2;
+            border-left: 4px solid var(--danger);
+            padding: 1rem 1.5rem;
+            margin: 0.75rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .what-recruiters-want {
+            background: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .recruiter-point {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            align-items: flex-start;
+        }
+
+        .recruiter-point-number {
+            background: rgba(255,255,255,0.2);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-card {
+            background: var(--light);
+            border: 2px solid var(--primary);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .step-card-title {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .bonus-card {
+            background: linear-gradient(135deg, #fefce8, #fef9c3);
+            border-left: 4px solid var(--accent);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .bonus-title {
+            font-weight: 700;
+            color: #92400e;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .two-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .option {
+            padding: 1.5rem;
+            border-radius: 10px;
+        }
+
+        .option.diy {
+            background: #fef2f2;
+            border: 2px solid #fca5a5;
+        }
+
+        .option.system {
+            background: #ecfdf5;
+            border: 2px solid #6ee7b7;
+        }
+
+        .option-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .option.diy .option-title {
+            color: var(--danger);
+        }
+
+        .option.system .option-title {
+            color: var(--success);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .cta-step {
+            background: rgba(255,255,255,0.15);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin: 0.75rem auto;
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .delivery-note {
+            background: #fef3c7;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .delivery-note strong {
+            color: #92400e;
+        }
+
+        .structure-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+
+        .structure-table th {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .structure-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--light);
+        }
+
+        .structure-table tr:nth-child(even) {
+            background: var(--light);
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .two-options {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header {
+                flex-wrap: wrap;
+            }
+
+            .section-time {
+                margin-left: 0;
+                margin-top: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Break Into AI Product Management</h1>
+        <p class="subtitle">VSL Script V6</p>
+        <div class="meta">
+            <span>15-18 min</span>
+            <span>Career switcher focus</span>
+            <span>Threat + opportunity</span>
+            <span>Conversational tone</span>
+        </div>
+        <div class="audience-tag">Primary: BA / Project Managers / Engineers → AI PM</div>
+    </header>
+
+    <div class="container">
+
+        <!-- 1. WELCOME + WHO THIS IS FOR -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">1</span>
+                <h2 class="section-title">WELCOME + WHO THIS IS FOR</h2>
+                <span class="section-time">30 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>Hey, welcome.</p>
+                <p>If you're a business analyst, a project manager, an engineer — or really anyone who's been trying to break into product management — this is for you.</p>
+                <p>I'm going to show you how to land a high-paying AI product manager role. According to PwC, workers with AI skills earn <strong>56% higher wages</strong> on average. In India, AI PMs are making <strong>₹30-50 lakh</strong> while traditional PMs are stuck at ₹15-20 lakh.</p>
+                <p>Even if you don't have a PM title today. Even if you're not technical. Even if you've tried before and it didn't work.</p>
+                <p>Stay with me.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Warm, direct. Like talking to a friend. Not salesy.
+            </div>
+        </div>
+
+        <!-- 2. THE THREE THINGS YOU'LL LEARN -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">2</span>
+                <h2 class="section-title">THE THREE THINGS YOU'LL LEARN</h2>
+                <span class="section-time">45 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>By the end of this video, you'll know three things:</p>
+                <p><strong>One</strong> — Why AI product management is the biggest career opportunity in tech right now — job postings are up <strong>300%</strong> in the last two years — and why your current role might actually be at risk if you don't move.</p>
+                <p><strong>Two</strong> — What hiring managers are actually looking for when they hire AI PMs — and I'll tell you, it's not what most people think.</p>
+                <p><strong>Three</strong> — The exact steps to position yourself for these roles, even if you've never had "Product Manager" on your resume.</p>
+                <p>I'll also share how I made this transition myself — from engineer to PM — and how I've helped dozens of others do the same thing.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Clear, confident. Laying out what's coming.
+            </div>
+        </div>
+
+        <!-- 3. HANDLING THE OBJECTION -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">3</span>
+                <h2 class="section-title">HANDLING THE OBJECTION</h2>
+                <span class="section-time">30 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>Now, you might be thinking — "I've tried to break into PM before. I've applied to dozens of roles. And I keep hearing the same thing: 'You don't have PM experience.' How is this any different?"</p>
+                <p>I get it. It feels like a trap. You can't get the job without experience, but you can't get experience without the job.</p>
+                <p>Here's what I want you to understand: <span class="highlight">AI PM is different.</span> It's so new that nobody has 10 years of experience. The senior PMs at Google and Amazon? They're learning this too. The playing field is level in a way traditional PM never was.</p>
+                <p>And that's exactly why this is your window. You're not competing against people with years of PM experience. You're competing against people who are all figuring out AI at the same time.</p>
+                <p>The question is — will you be ready when the opportunity comes?</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Empathetic. Acknowledge their frustration.
+            </div>
+        </div>
+
+        <!-- 4. WHO AM I -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">4</span>
+                <h2 class="section-title">WHO AM I — Credibility + Story</h2>
+                <span class="section-time">60 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>Let me tell you a bit about myself.</p>
+                <p>I'm Lakshmi Narasimhan. I'm a Lead Product Manager at <strong>Grab</strong> — that's Southeast Asia's biggest super-app. My team handles the transaction platform that processes millions of orders every day.</p>
+                <p>Before Grab, I was at <strong>Delivery Hero</strong>. I launched Foodpanda's co-branded card in Taiwan, grew applications by 5x. Before that, Dell EMC, TCS — over 10 years building products across India, Southeast Asia, and Taiwan.</p>
+                <p>But here's the thing — <span class="highlight">I didn't start as a PM.</span></p>
+                <p>I was an engineer. I made the switch. And that's actually why I understand what you're going through. The feeling of wanting to get in but not knowing how. The rejections. The "you don't have PM experience" feedback.</p>
+                <p>I made that transition. And if I could do it, you can too. But here's what's different now — <strong>the window is wider than it was for me.</strong> AI PM didn't exist when I switched. Today, it's the fastest-growing PM category. Companies are desperate for people who get it.</p>
+                <p>I've been on the hiring side. I've interviewed hundreds of candidates — many of them coming from business analyst roles, project management, engineering, just like you. I know exactly what gets people hired — and what gets them rejected.</p>
+                <p>That's what I'm going to share with you today.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Grounded, relatable. The engineer → PM story is KEY. Emphasize it.
+            </div>
+        </div>
+
+        <!-- 5. WHY AI PM IS THE OPPORTUNITY -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">5</span>
+                <h2 class="section-title">WHY AI PM IS THE OPPORTUNITY</h2>
+                <span class="section-time">90 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>So let's talk about what's happening right now.</p>
+                <p>AI is changing everything. You already know that. But here's what most people don't realize:</p>
+            </div>
+
+            <div class="threat-box">
+                <p><strong>Your current role? It's probably getting smaller.</strong></p>
+                <p style="margin-top: 0.75rem;">LinkedIn's latest data shows entry-level hiring in AI-augmented roles <strong>fell 8.9%</strong> year-over-year. That's not a typo. The junior roles are disappearing first.</p>
+                <p style="margin-top: 0.75rem;">If you're a business analyst — AI is already writing reports, doing analysis, pulling insights. Faster than you can.</p>
+                <p style="margin-top: 0.5rem;">If you're a project manager — AI tools are automating tracking, scheduling, status updates, even stakeholder communication.</p>
+                <p style="margin-top: 0.5rem;">If you're an engineer — AI is writing code. Amazon is already replacing traditional job titles with "builder." The coordination roles are shrinking.</p>
+            </div>
+
+            <div class="script-content">
+                <p>I'm not saying your job disappears tomorrow. But the trend is clear. These roles are shrinking.</p>
+                <p>But there's one role that's growing. Fast.</p>
+                <p><strong style="color: var(--primary); font-size: 1.2rem;">Product manager.</strong></p>
+                <p>And specifically — AI product manager.</p>
+            </div>
+
+            <div class="opportunity-box">
+                <p><strong>AI doesn't replace product managers. It makes them more valuable.</strong></p>
+                <p style="margin-top: 0.75rem;">See, AI can do a lot. But it can't decide what to build. It can't talk to customers. It can't prioritize. It can't say "no, we're not building that." That's the PM's job.</p>
+            </div>
+
+            <div class="script-content">
+                <p>And the numbers back this up:</p>
+                <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                    <li>LinkedIn shows <strong>59,000+ AI PM job postings</strong> worldwide right now</li>
+                    <li>Roles requiring AI skills grew from 55 to <strong>nearly 10,000</strong> in just 4 years</li>
+                    <li>In India, AI PMs are earning <strong>₹30-50 lakh</strong> — while traditional PMs are stuck at ₹15-20 lakh</li>
+                    <li><strong>51% of AI PM roles</strong> are now outside traditional IT — healthcare, finance, consulting are all hiring</li>
+                </ul>
+                <p>And here's the best part — <span class="highlight">AI PM is so new that nobody has 10 years of experience. The playing field is completely open.</span></p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Start serious (threat), build to hopeful (opportunity). Let the contrast land.
+            </div>
+        </div>
+
+        <!-- 6. THE FOUR FEARS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">6</span>
+                <h2 class="section-title">THE FOUR FEARS</h2>
+                <span class="section-time">60 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>Now, when I talk to people trying to make this switch, I hear the same four fears over and over:</p>
+
+                <div class="fear-item">
+                    <strong>One</strong> — "I don't have a technical background. I didn't study engineering. How can I work with AI?"
+                </div>
+
+                <div class="fear-item">
+                    <strong>Two</strong> — "I'm not a coder. I don't know Python or machine learning."
+                </div>
+
+                <div class="fear-item">
+                    <strong>Three</strong> — "I don't know how to talk to data scientists and ML engineers. I'll sound stupid."
+                </div>
+
+                <div class="fear-item">
+                    <strong>Four</strong> — "I'm not even a PM yet. How can I become an AI PM when I don't have any PM experience in the first place?"
+                </div>
+
+                <p style="margin-top: 1.5rem;">Sound familiar?</p>
+                <p>Here's what I want you to know: I hear these every single day. And every single one of them is based on a misunderstanding of what AI PMs actually do.</p>
+                <p style="margin-top: 1rem;">But here's the real challenge nobody talks about — it's not the technical stuff. It's the <span class="highlight">mindset shift</span>. Moving from executor to owner. From "here's what the stakeholder wants" to "here's what we should build and why." That's the real transition — and that's what we'll help you make.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Understanding, not dismissive. These are real fears. The mindset shift line is key.
+            </div>
+        </div>
+
+        <!-- 7. WHAT HIRING MANAGERS ACTUALLY LOOK FOR -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">7</span>
+                <h2 class="section-title">WHAT HIRING MANAGERS ACTUALLY LOOK FOR</h2>
+                <span class="section-time">90 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>I've sat on the hiring side. I've interviewed hundreds of candidates. Let me tell you what we're actually evaluating.</p>
+                <p>It's not whether you can code. It's not whether you have a CS degree.</p>
+                <p>It's three things:</p>
+            </div>
+
+            <div class="what-recruiters-want">
+                <div class="recruiter-point">
+                    <span class="recruiter-point-number">1</span>
+                    <div>
+                        <strong>Probabilistic thinking.</strong><br>
+                        This is the #1 reason candidates fail AI PM interviews. Traditional products are deterministic — if user clicks A, system does B. AI products are probabilistic — the model will be right 95% of the time. How do you design for the 5%? What's the acceptable error rate? How do you fail gracefully? If you still think like a traditional PM, you'll try to "fix" the 5% like a bug. AI PMs design for uncertainty.
+                    </div>
+                </div>
+                <div class="recruiter-point">
+                    <span class="recruiter-point-number">2</span>
+                    <div>
+                        <strong>Proof.</strong><br>
+                        Can you show your work? When I ask "tell me about an AI product decision you made" — do you have something to point to? A document you wrote? A product you shipped? Something that shows how you think? Everyone has opinions about AI. Proof is what separates you.
+                    </div>
+                </div>
+                <div class="recruiter-point">
+                    <span class="recruiter-point-number">3</span>
+                    <div>
+                        <strong>Collaboration.</strong><br>
+                        Can you work with ML engineers without being intimidated? Can you push back when they over-engineer something? Can you ask the right questions? You don't need to do their job. You need to partner with them.
+                    </div>
+                </div>
+            </div>
+
+            <div class="script-content">
+                <p><span class="highlight">None of this requires a CS degree. None of this requires coding.</span> What it requires is learning how to think about AI products. And that's a skill you can build.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Authoritative but reassuring. Insider knowledge.
+            </div>
+        </div>
+
+        <!-- 8. YOUR HIDDEN ADVANTAGES -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">8</span>
+                <h2 class="section-title">YOUR HIDDEN ADVANTAGES</h2>
+                <span class="section-time">60 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>And here's what nobody tells you — <strong>your background is actually an advantage.</strong></p>
+                <p>In fact, <strong>40-45% of all AI PM transitions</strong> come from business analysts and project managers. You're not the exception — you're the majority.</p>
+
+                <div class="advantage-card">
+                    <div class="advantage-card-role">If you're a Business Analyst...</div>
+                    <p>You already have data fluency. You know SQL. You can translate messy requirements into structured problems. That's exactly what AI products need — someone who can look at data quality, understand pipelines, and ask "what could go wrong?"</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-card-role">If you're a Project Manager...</div>
+                    <p>You know how to coordinate across teams and actually ship things. AI teams are full of researchers who build amazing demos that never launch. They need someone who can manage risk, handle stakeholders, and get products out the door.</p>
+                </div>
+
+                <div class="advantage-card">
+                    <div class="advantage-card-role">If you're an Engineer...</div>
+                    <p>You understand technical constraints. You can talk to ML engineers about trade-offs without nodding along and pretending. You know what's actually possible to build.</p>
+                </div>
+
+                <p style="margin-top: 1.5rem;">Here's how I think about it: <span class="highlight">You already have 80% of the skills. You just need the 20% that gets you through the door.</span></p>
+                <p>And here's a secret — the fastest path isn't always external. Many of our successful students got their first AI PM role <strong>inside their current company</strong>. They volunteered for an AI pilot, shipped something small, built the proof — then either got promoted internally or used that experience to land a better role outside.</p>
+                <p>That's what this course gives you — not just skills, but a strategy.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Encouraging, revelatory. They haven't heard this before. The internal path is reassuring.
+            </div>
+        </div>
+
+        <!-- 9. THE TWO OPTIONS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">9</span>
+                <h2 class="section-title">THE TWO OPTIONS</h2>
+                <span class="section-time">60 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>So at this point, you've got two options.</p>
+            </div>
+
+            <div class="two-options">
+                <div class="option diy">
+                    <div class="option-title">Option 1: Figure it out yourself</div>
+                    <p>You can spend the next year watching YouTube videos, reading blog posts, taking random courses. There's a lot of content out there. Some of it's good, some of it's garbage.</p>
+                    <p style="margin-top: 0.75rem;">Maybe it works. But here's the risk — AI is moving so fast that by the time you figure it out, the market has already moved. You're always one step behind.</p>
+                </div>
+                <div class="option system">
+                    <div class="option-title">Option 2: Work with someone who's done it</div>
+                    <p>Someone who's made the transition. Someone who's on the hiring side. Someone who can show you exactly what to focus on, in what order, without the trial and error.</p>
+                    <p style="margin-top: 0.75rem;"><strong>That's what I'm offering.</strong></p>
+                </div>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Neutral for option 1, warmer for option 2. Not pushy.
+            </div>
+        </div>
+
+        <!-- 10. WHAT YOU GET — THE COURSE -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">10</span>
+                <h2 class="section-title">WHAT YOU GET — THE COURSE</h2>
+                <span class="section-time">90 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>So here's what I've built for people like you.</p>
+                <p>It's an <strong>8-week AI Product Management course</strong>.</p>
+                <p>By the end of 8 weeks, here's where you'll be:</p>
+
+                <div class="step-card" style="border-color: var(--success);">
+                    <div class="step-card-title" style="color: var(--success);">You'll have a portfolio that proves you can do the work</div>
+                    <p>4 real AI product artifacts — teardowns, PRDs, roadmaps. When an interviewer asks "show me what you've built," you'll have something to show.</p>
+                </div>
+
+                <div class="step-card" style="border-color: var(--success);">
+                    <div class="step-card-title" style="color: var(--success);">You'll know how to talk to ML engineers without feeling lost</div>
+                    <p>The frameworks, the vocabulary, the right questions to ask. You won't be nodding along pretending anymore.</p>
+                </div>
+
+                <div class="step-card" style="border-color: var(--success);">
+                    <div class="step-card-title" style="color: var(--success);">You'll be positioned for AI PM roles — not competing for traditional PM scraps</div>
+                    <p>Your resume, your LinkedIn, your interview answers — all repositioned for the AI PM market where demand is high and competition is low.</p>
+                </div>
+
+                <div class="step-card" style="border-color: var(--success);">
+                    <div class="step-card-title" style="color: var(--success);">You'll have a clear path from where you are to where you want to be</div>
+                    <p>No more guessing. No more piecing together random advice. A roadmap built for your specific background — BA, project management, or engineering.</p>
+                </div>
+
+                <p style="margin-top: 1rem;">And here's something I don't think anyone else offers — I've interviewed hundreds of candidates from BA, project management, and engineering backgrounds. <span class="highlight">I'll personally help you position your experience so hiring managers see you as an AI PM, not "someone trying to break in."</span></p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Confident, clear on value. State the price without hesitation.
+            </div>
+        </div>
+
+        <!-- 11. PROOF IT WORKS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">11</span>
+                <h2 class="section-title">PROOF IT WORKS</h2>
+                <span class="section-time">45 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>This isn't theory. People are making this transition right now.</p>
+
+                <div class="case-study">
+                    <div class="case-study-name">Rahul</div>
+                    <p>Rahul was a PM stuck in the same role for 3 years. Kept getting rejected from AI PM interviews. He joined the program, shipped an AI feature inside his own company, got promoted to Senior PM.</p>
+                    <span class="case-study-result">6 lakh raise</span>
+                </div>
+
+                <div class="case-study">
+                    <div class="case-study-name">Sneha</div>
+                    <p>Sneha was a business analyst. 32 years old. Thought it was "too late" to switch to PM. She used our transition playbook, built her portfolio, practiced AI PM interview scenarios.</p>
+                    <span class="case-study-result">PM role at Series B startup. 18 lakhs. 90 days.</span>
+                </div>
+
+                <p style="margin-top: 1rem;"><span class="highlight">These aren't exceptional people. They just had the right guidance.</span></p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Proud, warm. Real people, real results.
+            </div>
+        </div>
+
+        <!-- 12. BONUSES -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">12</span>
+                <h2 class="section-title">BONUSES</h2>
+                <span class="section-time">30 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>When you join, you also get:</p>
+
+                <div class="bonus-card">
+                    <div class="bonus-title">Resume Critique</div>
+                    <p>I'll personally review your resume and show you how to position your background for AI PM roles.</p>
+                </div>
+
+                <div class="bonus-card">
+                    <div class="bonus-title">AWS ML Certification Prep</div>
+                    <p>Mock exams included. This is a real credential that shows employers you understand the technical side.</p>
+                </div>
+
+                <p style="margin-top: 1rem;">These are worth over 15,000 rupees on their own. You get them included.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Quick, value-add. Don't dwell.
+            </div>
+        </div>
+
+        <!-- 13. THE CLOSE -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">13</span>
+                <h2 class="section-title">THE CLOSE</h2>
+                <span class="section-time">60 sec</span>
+            </div>
+
+            <div class="script-content">
+                <p>Look, I'm going to be honest with you.</p>
+                <p>If you're waiting for the perfect time to make this move — it's not coming. The window is open right now. AI PM is new enough that you can break in. <strong>In 3 years? The market will be crowded. The "no experience" candidates won't have a shot.</strong></p>
+                <p>This is the moment.</p>
+                <p>8 weeks. You'll walk out with a portfolio, a roadmap, and the skills to land an AI PM role.</p>
+                <p>But I'm not looking for everyone. This isn't for people who want to "learn about AI" casually. This is for people who are serious about making the switch. Who are willing to put in the work for 8 weeks.</p>
+                <p>If that's not you, no hard feelings. But if it is — keep watching.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Direct, honest. Create urgency without being salesy.
+            </div>
+        </div>
+
+        <!-- 14. CALL TO ACTION -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">14</span>
+                <h2 class="section-title">CALL TO ACTION</h2>
+                <span class="section-time">45 sec</span>
+            </div>
+
+            <div class="cta-section">
+                <p style="font-size: 1.2rem; margin-bottom: 1.5rem;">If that's you — here's what to do:</p>
+
+                <div class="cta-step">
+                    <strong>Step 1:</strong> Click the button below. Book a call with my team.
+                </div>
+
+                <div class="cta-step">
+                    <strong>Step 2:</strong> We'll talk about where you are, where you want to go, and whether this is the right fit.
+                </div>
+
+                <div class="cta-step">
+                    <strong>Step 3:</strong> No pressure. No hard sell. If it's not right for you, we'll tell you.
+                </div>
+
+                <p style="margin-top: 1.5rem;">But if you've been stuck, if you've been trying to break in, if you've been watching AI change everything and wondering where you fit —</p>
+                <p style="font-size: 1.3rem; margin-top: 1rem;"><strong>This is your shot. Click the button. Book the call.</strong></p>
+                <p style="margin-top: 1rem;">I'll see you inside.</p>
+            </div>
+
+            <div class="delivery-note">
+                <strong>Energy:</strong> Clear, inviting, final. End with warmth.
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

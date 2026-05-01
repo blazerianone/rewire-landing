@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register to Watch | AI PM Training | rewire.school</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878213525249030&ev=PageView&noscript=1"/></noscript>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 38' fill='none'><path d='M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='19' r='2' fill='%238b5cf6'/><circle cx='26' cy='19' r='2' fill='%238b5cf6'/><line x1='20' y1='19' x2='24' y2='19' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --purple-dark: #7C3AED;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+  --gold: #FBBF24;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.08) 0%, transparent 60%);
+}
+
+.container {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  margin-bottom: 24px;
+}
+
+.logo svg {
+  width: 48px;
+  height: 42px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--purple-light);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.highlight { color: var(--purple); }
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.form-card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--night);
+  border: 1px solid var(--card-border);
+  color: var(--snow);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  -webkit-appearance: none;
+}
+
+.form-group select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23888888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 44px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--purple);
+}
+
+.form-group input::placeholder {
+  color: var(--text-secondary);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.btn-primary {
+  width: 100%;
+  background: var(--gold);
+  color: #1a1a1a;
+  padding: 16px 28px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary:hover {
+  background: #f5b800;
+  transform: translateY(-2px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.form-note {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 14px;
+  text-align: center;
+}
+
+.presenter {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-border);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.presenter-photo {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--card-border);
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid var(--purple);
+}
+
+.presenter-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.presenter-info {
+  font-size: 12px;
+}
+
+.presenter-name {
+  font-weight: 600;
+  color: var(--snow);
+  font-size: 13px;
+}
+
+.presenter-title {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 480px) {
+  .page-wrapper {
+    padding: 24px 16px;
+  }
+
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="page-wrapper">
+  <div class="container">
+    <div class="logo">
+      <svg viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="18" cy="19" r="2" fill="#8b5cf6"/>
+        <circle cx="26" cy="19" r="2" fill="#8b5cf6"/>
+        <line x1="20" y1="19" x2="24" y2="19" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <span class="badge">Free 17-Min Training</span>
+
+    <h1>You're One Step Away From <span class="highlight">Your AI PM Breakthrough</span></h1>
+
+    <p class="subtitle">Enter your details to watch the free training instantly.</p>
+
+    <div class="form-card">
+      <form id="register-form">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" placeholder="you@company.com" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp Number *</label>
+            <input type="tel" id="whatsapp" name="whatsapp" placeholder="10-digit number" pattern="[0-9]{10}" required>
+          </div>
+          <div class="form-group">
+            <label for="role">Current Role</label>
+            <select id="role" name="role">
+              <option value="">Select your role</option>
+              <option value="Business Analyst">Business Analyst</option>
+              <option value="Project Manager">Project Manager</option>
+              <option value="Software Engineer">Software Engineer</option>
+              <option value="Product Manager">Product Manager</option>
+              <option value="Data Analyst">Data Analyst</option>
+              <option value="Consultant">Consultant</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-primary" id="submit-btn">YES! SHOW ME THE TRAINING</button>
+
+        <p class="form-note">100% free. No credit card required. Instant access.</p>
+      </form>
+
+      <div class="presenter">
+        <div class="presenter-photo">
+          <img src="../photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan" onerror="this.style.display='none'">
+        </div>
+        <div class="presenter-info">
+          <div class="presenter-name">Lakshmi Narasimhan M C</div>
+          <div class="presenter-title">Lead PM at Grab | Ex-Delivery Hero, Dell EMC</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/lp/shared/tracking.js"></script>
+<script>
+document.getElementById('register-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const btn = document.getElementById('submit-btn');
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+  const role = document.getElementById('role').value;
+
+  btn.disabled = true;
+  btn.textContent = 'Loading...';
+
+  // Store lead data in sessionStorage
+  sessionStorage.setItem('rewire_lead_name', name);
+  sessionStorage.setItem('rewire_lead_email', email);
+  sessionStorage.setItem('rewire_lead_whatsapp', whatsapp);
+  sessionStorage.setItem('rewire_lead_role', role);
+
+  // Track conversion
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', {
+      content_name: 'AI PM VSL Registration',
+      content_category: 'AI for Product Managers'
+    });
+  }
+
+  // TODO: Send to your email/CRM system (webhook)
+  // Example:
+  // fetch('YOUR_WEBHOOK_URL', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({ name, email, whatsapp, role })
+  // });
+
+  setTimeout(function() {
+    window.location.href = 'watch.html';
+  }, 500);
+});
+</script>
+
+</body>
+</html>
