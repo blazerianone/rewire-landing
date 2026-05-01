@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your AI PM Training Is Ready | rewire.school</title>
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', {
+  content_name: 'AI PM VSL Watch',
+  content_category: 'AI for Product Managers'
+});
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878213525249030&ev=ViewContent&noscript=1"/></noscript>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 38' fill='none'><path d='M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='19' r='2' fill='%238b5cf6'/><circle cx='26' cy='19' r='2' fill='%238b5cf6'/><line x1='20' y1='19' x2='24' y2='19' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --purple-dark: #7C3AED;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+.header {
+  padding: 20px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.logo svg {
+  width: 40px;
+  height: 35px;
+}
+
+.video-section {
+  padding: 40px 24px 40px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.06) 0%, transparent 50%);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-intro {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 24px;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  color: var(--success);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.highlight { color: var(--purple); }
+
+.video-note {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  margin-bottom: 32px;
+}
+
+.video-wrapper iframe,
+.video-wrapper video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--card) 0%, #1a1a1a 100%);
+  color: var(--text-secondary);
+}
+
+.timer-block {
+  text-align: center;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  margin-bottom: 0;
+  transition: opacity 0.4s ease;
+}
+
+.timer-block.hidden {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  visibility: hidden;
+}
+
+.timer-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.timer-display {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--purple);
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.timer-note {
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.play-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--purple);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 24px rgba(139, 92, 246, 0.4);
+}
+
+.play-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.5);
+}
+
+.play-icon svg {
+  width: 32px;
+  height: 32px;
+  color: white;
+  margin-left: 4px;
+}
+
+.cta-section {
+  text-align: center;
+}
+
+.cta-box {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 32px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.cta-box h2 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.cta-description {
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.cta-fallback {
+  margin-top: 16px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.cta-fallback a {
+  color: var(--purple-light);
+  text-decoration: none;
+}
+
+.cta-fallback a:hover {
+  text-decoration: underline;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: var(--purple);
+  color: white;
+  padding: 16px 36px;
+  border-radius: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--purple-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.4);
+}
+
+.btn-primary svg {
+  display: inline;
+  vertical-align: middle;
+  margin-left: 8px;
+  width: 18px;
+  height: 18px;
+}
+
+/* Progressive CTA reveal */
+.cta-section {
+  display: none;
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+}
+
+.cta-section.revealed {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  animation: fadeSlideIn 0.6s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sticky CTA after 80% */
+.cta-sticky {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--card);
+  border-top: 1px solid var(--purple);
+  padding: 16px 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+  box-shadow: 0 -4px 24px rgba(139, 92, 246, 0.2);
+}
+
+.cta-sticky.visible {
+  transform: translateY(0);
+}
+
+.cta-sticky p {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.cta-sticky .btn-primary {
+  padding: 12px 24px;
+  font-size: 14px;
+}
+
+
+.trainer-section {
+  padding: 40px 24px;
+  border-top: 1px solid var(--card-border);
+}
+
+.trainer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.trainer-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--card);
+  overflow: hidden;
+  border: 3px solid var(--purple);
+  margin-bottom: 20px;
+  box-shadow: 0 4px 24px rgba(139, 92, 246, 0.2);
+}
+
+.trainer-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trainer-info h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.trainer-role {
+  color: var(--purple-light);
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.trainer-credentials {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.trainer-tagline {
+  color: var(--snow);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 14px;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 20px;
+  margin-top: 8px;
+}
+
+@media (max-width: 640px) {
+  .video-section {
+    padding: 24px 16px 40px;
+  }
+
+  .cta-box {
+    padding: 24px;
+  }
+
+  .trainer-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .trainer-info h3 {
+    font-size: 20px;
+  }
+
+  .cta-sticky {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .cta-sticky p {
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <svg viewBox="0 0 44 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6" stroke="#8b5cf6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="18" cy="19" r="2" fill="#8b5cf6"/>
+      <circle cx="26" cy="19" r="2" fill="#8b5cf6"/>
+      <line x1="20" y1="19" x2="24" y2="19" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </div>
+</div>
+
+<section class="video-section">
+  <div class="container">
+    <div class="video-intro">
+      <span class="badge">&#10003; You're In</span>
+      <h1>Your Free <span class="highlight">AI PM Training</span> Is Ready</h1>
+      <p class="video-note">Watch this full 17-minute roadmap training with Lakshmi Narasimhan.</p>
+    </div>
+
+    <div class="video-wrapper">
+      <!-- Replace with actual video embed -->
+      <!-- Wistia example: -->
+      <!-- <script src="https://fast.wistia.com/embed/medias/VIDEO_ID.jsonp" async></script>
+      <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+      <div class="wistia_embed wistia_async_VIDEO_ID" style="height:100%;position:absolute;width:100%"></div> -->
+
+      <!-- YouTube example: -->
+      <!-- <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0" allowfullscreen></iframe> -->
+
+      <!-- Vimeo example: -->
+      <!-- <iframe src="https://player.vimeo.com/video/VIDEO_ID" allowfullscreen></iframe> -->
+
+      <!-- Placeholder until video is ready -->
+      <div class="video-placeholder" id="video-placeholder">
+        <div class="play-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+        </div>
+        <p>Video will be embedded here</p>
+        <p style="font-size: 12px; margin-top: 8px;">Duration: ~17 minutes</p>
+      </div>
+    </div>
+
+    <div class="timer-block" id="timer-block">
+      <p class="timer-label">Your AI PM Strategy Call Access Unlocks In</p>
+      <div class="timer-display" id="timer-display">06:00</div>
+      <p class="timer-note">Keep watching — Lakshmi will explain who this next step is best suited for.</p>
+    </div>
+
+    <div class="cta-section" id="cta-section">
+      <div class="cta-box" id="cta-box">
+        <h2>Ready For Personal Clarity on Your AI PM Switch?</h2>
+        <a href="book.html" class="btn-primary" id="book-btn">
+          Book Your Free AI PM Strategy Call
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <p class="cta-description">Speak with our team to understand your fit, readiness, and most practical next step.</p>
+        <p class="cta-fallback">Having trouble booking? <a href="https://wa.me/919790486948?text=Hi%2C%20I%20watched%20the%20AI%20PM%20training%20and%20would%20like%20to%20book%20a%20strategy%20call." target="_blank">Message us on WhatsApp</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trainer-section">
+  <div class="container">
+    <div class="trainer-card">
+      <div class="trainer-photo">
+        <img src="../photos/lakshmi-narasimhan.jpg" alt="Lakshmi Narasimhan" onerror="this.style.display='none'">
+      </div>
+      <div class="trainer-info">
+        <h3>Lakshmi Narasimhan</h3>
+        <div class="trainer-role">Lead Product Manager, Grab</div>
+        <div class="trainer-credentials">Ex-Delivery Hero | Ex-Dell EMC</div>
+        <div class="trainer-tagline">Former Engineer → AI PM Mentor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sticky CTA (appears after 80% watched) -->
+<div class="cta-sticky" id="cta-sticky">
+  <p>Ready to discuss your AI PM switch?</p>
+  <a href="book.html" class="btn-primary" id="sticky-book-btn">
+    Book Your Free Call
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;vertical-align:middle;margin-left:6px;">
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+      <polyline points="12 5 19 12 12 19"></polyline>
+    </svg>
+  </a>
+</div>
+
+<script src="/lp/shared/tracking.js"></script>
+<script>
+// Elements
+const timerBlock = document.getElementById('timer-block');
+const timerDisplay = document.getElementById('timer-display');
+const ctaSection = document.getElementById('cta-section');
+const ctaSticky = document.getElementById('cta-sticky');
+
+// State
+let ctaRevealed = false;
+let stickyRevealed = false;
+
+// Timer settings (6 minutes = 360 seconds, ~35% of 17 min video)
+const TIMER_DURATION = 360;
+let timeRemaining = TIMER_DURATION;
+
+// Video progress thresholds (fallback if timer doesn't trigger)
+const REVEAL_THRESHOLD = 0.40;
+const STICKY_THRESHOLD = 0.80;
+
+// Countdown timer
+const timerInterval = setInterval(function() {
+  timeRemaining--;
+
+  if (timeRemaining <= 0) {
+    clearInterval(timerInterval);
+    revealCTA();
+  } else {
+    const mins = Math.floor(timeRemaining / 60);
+    const secs = timeRemaining % 60;
+    timerDisplay.textContent = mins.toString().padStart(2, '0') + ':' + secs.toString().padStart(2, '0');
+  }
+}, 1000);
+
+function revealCTA() {
+  if (ctaRevealed) return;
+
+  // Hide timer, show CTA
+  timerBlock.classList.add('hidden');
+  ctaSection.classList.add('revealed');
+  ctaRevealed = true;
+
+  if (typeof fbq !== 'undefined') {
+    fbq('trackCustom', 'CTARevealed');
+  }
+}
+
+function revealSticky() {
+  if (stickyRevealed) return;
+
+  ctaSticky.classList.add('visible');
+  stickyRevealed = true;
+
+  if (typeof fbq !== 'undefined') {
+    fbq('trackCustom', 'StickyRevealed');
+  }
+}
+
+// Video progress handler (can also trigger reveal)
+function handleVideoProgress(percent) {
+  if (!ctaRevealed && percent >= REVEAL_THRESHOLD) {
+    clearInterval(timerInterval);
+    revealCTA();
+  }
+  if (!stickyRevealed && percent >= STICKY_THRESHOLD) {
+    revealSticky();
+  }
+}
+
+// For Wistia embed - uncomment when video is added
+/*
+window._wq = window._wq || [];
+_wq.push({ id: 'VIDEO_ID', onReady: function(video) {
+  video.bind('percentwatchedchanged', function(percent) {
+    handleVideoProgress(percent);
+  });
+}});
+*/
+
+// For YouTube embed - uncomment when video is added
+/*
+function onYouTubeIframeAPIReady() {
+  new YT.Player('youtube-player', {
+    events: {
+      'onStateChange': function(e) {
+        if (e.data === YT.PlayerState.PLAYING) {
+          setInterval(function() {
+            const percent = e.target.getCurrentTime() / e.target.getDuration();
+            handleVideoProgress(percent);
+          }, 1000);
+        }
+      }
+    }
+  });
+}
+*/
+
+// For Vimeo embed - uncomment when video is added
+/*
+var player = new Vimeo.Player(document.querySelector('iframe'));
+player.on('timeupdate', function(data) {
+  handleVideoProgress(data.percent);
+});
+*/
+
+// Track CTA clicks
+document.getElementById('book-btn').addEventListener('click', function() {
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'InitiateCheckout', {
+      content_name: 'AI PM VSL Book Call',
+      content_category: 'AI for Product Managers'
+    });
+  }
+});
+
+document.getElementById('sticky-book-btn').addEventListener('click', function() {
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'InitiateCheckout', {
+      content_name: 'AI PM VSL Book Call Sticky',
+      content_category: 'AI for Product Managers'
+    });
+  }
+});
+</script>
+
+</body>
+</html>
