@@ -117,6 +117,10 @@ section { padding: 96px 0; }
 @media (max-width: 500px) { .hero-cta-row { flex-direction: column; } }
 @media (max-width: 900px) { .hero-cta-row { justify-content: center; } }
 .hero-microcopy { font-size: 13px; color: var(--text-secondary); }
+.hero-trust-points { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 8px; }
+.hero-trust-points span { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--snow); }
+.hero-trust-points strong { color: var(--snow); font-weight: 600; }
+@media (max-width: 900px) { .hero-trust-points { justify-content: center; gap: 12px; } .hero-trust-points span { font-size: 13px; } }
 
 /* Hero proof card */
 .hero-proof-card {
@@ -303,7 +307,12 @@ body { padding-top: 40px; }
         <a href="#whats-included" class="btn btn-primary btn-lg">Start Building With AI</a>
         <a href="#curriculum" class="btn btn-secondary btn-lg">Explore The Curriculum</a>
       </div>
-      <p class="hero-microcopy">No coding needed • Weekend-only sessions • Demo Day included • Build real products</p>
+      <div class="hero-trust-points">
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <strong>No coding</strong> needed</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <strong>Weekends</strong> only</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <strong>Demo Day</strong> included</span>
+          <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg> <strong>Real products</strong> you ship</span>
+        </div>
     </div>
     <div class="hero-proof">
       <div class="hero-proof-card">
