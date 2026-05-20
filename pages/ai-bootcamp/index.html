@@ -242,6 +242,24 @@ section { padding: 96px 0; }
 .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5); }
 @media (max-width: 768px) { .wa-float { display: none; } }
 
+/* Fixed top strip */
+.top-strip {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: var(--purple);
+  padding: 10px 16px;
+  text-align: center;
+}
+.top-strip p {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+}
+body { padding-top: 40px; }
+
 /* Mobile sticky CTA */
 .mobile-sticky {
   display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
@@ -268,6 +286,11 @@ section { padding: 96px 0; }
 </style>
 </head>
 <body>
+
+<!-- FIXED TOP STRIP -->
+<div class="top-strip">
+  <p>For Students Who Want to Build Before They Graduate</p>
+</div>
 
 <!-- HERO -->
 <section class="hero">
