@@ -313,9 +313,64 @@ body { padding-top: 40px; }
   .offer-grid > div:last-child { border-left: none !important; }
 }
 
-/* Form input placeholders */
-#registration-form input::placeholder { color: rgba(255,255,255,0.5); }
-#registration-form select option { background: var(--purple-dark); }
+/* Form styling */
+.offer-form input, .offer-form select {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 2px solid #E8E8E8;
+  background: white;
+  color: #0A0A0A;
+  font-size: 15px;
+  font-family: var(--font-body);
+  transition: all 0.2s ease;
+  outline: none;
+}
+.offer-form input:focus, .offer-form select:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 4px rgba(139,92,246,0.12);
+}
+.offer-form input::placeholder { color: #999; }
+.offer-form label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+.offer-form .input-group { margin-bottom: 18px; }
+.offer-form .phone-row { display: flex; gap: 10px; }
+.offer-form .phone-prefix {
+  width: 70px;
+  background: #F5F5F5;
+  border-color: #E8E8E8;
+  text-align: center;
+  font-weight: 700;
+  color: #555;
+  flex-shrink: 0;
+}
+.offer-form .submit-btn {
+  width: 100%;
+  padding: 18px 28px;
+  border-radius: 14px;
+  border: none;
+  background: linear-gradient(135deg, var(--purple) 0%, #7C3AED 100%);
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 24px rgba(139,92,246,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.offer-form .submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(139,92,246,0.45);
+}
 </style>
 </head>
 <body>
@@ -686,105 +741,174 @@ body { padding-top: 40px; }
   </div>
 </section>
 
-<!-- OFFER SECTION - LIGHT -->
-<section id="whats-included" style="padding: 100px 0; background: #FAFAFA;">
-  <div class="container">
-    <div class="section-header" style="margin-bottom: 56px;">
-      <p style="font-size: 12px; font-weight: 700; letter-spacing: 2px; color: var(--purple); margin-bottom: 12px; text-transform: uppercase;">FOUNDING BATCH</p>
-      <h2 style="color: #0A0A0A;">Join The June 2026 Cohort</h2>
-      <p style="color: #555;">Small cohort. Real building. Only 30 students.</p>
+<!-- OFFER SECTION - REDESIGNED -->
+<section id="whats-included" style="padding: 100px 0; background: linear-gradient(180deg, #F8F7FF 0%, #FFFFFF 50%, #F8F7FF 100%); position: relative; overflow: hidden;">
+  <!-- Decorative background elements -->
+  <div style="position: absolute; top: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -100px; left: -100px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(139,92,246,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+
+  <div class="container" style="position: relative; z-index: 1;">
+    <!-- Section header with badge -->
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, var(--purple) 0%, #7C3AED 100%); color: white; padding: 8px 20px; border-radius: 50px; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; margin-bottom: 20px; box-shadow: 0 4px 20px rgba(139,92,246,0.3);">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        FOUNDING BATCH — JUNE 2026
+      </div>
+      <h2 style="color: #0A0A0A; font-size: clamp(28px, 4vw, 42px); margin-bottom: 12px;">Claim Your Spot</h2>
+      <p style="color: #666; font-size: 17px;">Only 30 students per cohort. Apply now to secure your seat.</p>
     </div>
 
-    <div style="max-width: 920px; margin: 0 auto; background: #FFFFFF; border-radius: 24px; overflow: hidden; box-shadow: 0 4px 60px rgba(0,0,0,0.12);">
+    <!-- Main offer card -->
+    <div style="max-width: 1000px; margin: 0 auto; background: #FFFFFF; border-radius: 28px; overflow: hidden; box-shadow: 0 8px 60px rgba(139,92,246,0.15), 0 2px 8px rgba(0,0,0,0.05); border: 1px solid rgba(139,92,246,0.1);">
+
+      <!-- Top banner with price -->
+      <div style="background: linear-gradient(135deg, #0A0A0A 0%, #1a1a1a 100%); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+            <span style="font-family: var(--font-display); font-size: 52px; font-weight: 800; color: white;">₹19,999</span>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <span style="font-size: 16px; color: #666; text-decoration: line-through;">₹55,000</span>
+              <span style="background: #22C55E; color: white; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 6px;">SAVE ₹35,000</span>
+            </div>
+          </div>
+          <p style="color: #888; font-size: 14px;">+ GST | 5 weeks | Live weekend sessions</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px; background: rgba(255,255,255,0.08); padding: 12px 20px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);">
+          <div style="width: 10px; height: 10px; background: #22C55E; border-radius: 50%; animation: pulse 2s infinite;"></div>
+          <span style="color: white; font-size: 14px; font-weight: 600;">18 of 30 seats remaining</span>
+        </div>
+      </div>
+
       <div class="offer-grid">
         <!-- LEFT: What's included -->
-        <div style="padding: 40px;">
-          <div style="display: flex; align-items: baseline; gap: 12px; margin-bottom: 8px;">
-            <span style="font-size: 18px; color: #999; text-decoration: line-through;">₹55,000</span>
-            <span style="font-family: var(--font-display); font-size: 48px; font-weight: 800; color: #0A0A0A;">₹19,999</span>
-            <span style="font-size: 14px; color: #666;">+ GST</span>
-          </div>
-          <p style="font-size: 14px; color: #666; margin-bottom: 28px;">5 weeks | Live weekend sessions | Build & launch 5 AI products</p>
+        <div style="padding: 36px 40px;">
 
-          <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px;">
-            <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: #222;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-              5 deployed AI products
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: #222;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Max 30 students per cohort
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: #222;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Demo Day presentation
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: #222;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Portfolio & resume prep
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: #222;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Private builder community
-            </div>
-            <div style="display: flex; align-items: center; gap: 12px; font-size: 15px; color: #222;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-              Lifetime access to recordings
-            </div>
-          </div>
-
-          <div style="background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3); border-radius: 12px; padding: 16px; margin-bottom: 24px;">
-            <p style="font-size: 14px; color: #16a34a; font-weight: 600; display: flex; align-items: center; gap: 8px;">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              100% refund after your first session if you're not satisfied.
-            </p>
-          </div>
-
-          <p style="font-size: 14px; color: var(--purple); line-height: 1.6; font-weight: 500;">By the end of this bootcamp, you'll have real AI products live on the internet with your name on them.</p>
-        </div>
-
-        <!-- RIGHT: Form - Purple background -->
-        <div style="padding: 40px; background: var(--purple); border-left: none;">
-          <h3 style="font-size: 24px; margin-bottom: 28px; color: white;">Claim Your Spot</h3>
-
-          <form id="registration-form" style="display: flex; flex-direction: column; gap: 18px;">
-            <div>
-              <label style="display: block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 6px;">Full Name *</label>
-              <input type="text" name="full_name" placeholder="Enter your full name" required style="width: 100%; padding: 14px 16px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; font-size: 15px; font-family: var(--font-body);">
-            </div>
-            <div>
-              <label style="display: block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 6px;">Email Address *</label>
-              <input type="email" name="email" placeholder="you@email.com" required style="width: 100%; padding: 14px 16px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; font-size: 15px; font-family: var(--font-body);">
-            </div>
-            <div>
-              <label style="display: block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 6px;">WhatsApp Number *</label>
-              <div style="display: flex; gap: 8px;">
-                <input type="text" value="+91" readonly style="width: 64px; padding: 14px 8px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.15); color: white; font-size: 15px; text-align: center; font-weight: 600;">
-                <input type="tel" name="phone" placeholder="98765 43210" required style="flex: 1; padding: 14px 16px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; font-size: 15px; font-family: var(--font-body);">
+          <!-- What you'll build -->
+          <div style="margin-bottom: 28px;">
+            <h4 style="font-size: 13px; font-weight: 700; color: var(--purple); letter-spacing: 1px; margin-bottom: 16px; text-transform: uppercase;">What You'll Build</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div style="background: #F8F7FF; border: 1px solid rgba(139,92,246,0.15); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><rect x="5" y="2" width="14" height="20" rx="2"/><circle cx="12" cy="18" r="1" fill="white"/></svg>
+                </div>
+                <span style="font-size: 14px; color: #222; font-weight: 500;">AI App</span>
+              </div>
+              <div style="background: #F8F7FF; border: 1px solid rgba(139,92,246,0.15); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--purple) 0%, #7C3AED 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <span style="font-size: 14px; color: #222; font-weight: 500;">AI Chatbot</span>
+              </div>
+              <div style="background: #F8F7FF; border: 1px solid rgba(139,92,246,0.15); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2"/></svg>
+                </div>
+                <span style="font-size: 14px; color: #222; font-weight: 500;">AI Agent</span>
+              </div>
+              <div style="background: #F8F7FF; border: 1px solid rgba(139,92,246,0.15); border-radius: 12px; padding: 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="width: 36px; height: 36px; background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/></svg>
+                </div>
+                <span style="font-size: 14px; color: #222; font-weight: 500;">Automation</span>
               </div>
             </div>
-            <div>
-              <label style="display: block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 6px;">College Name *</label>
-              <input type="text" name="college" placeholder="e.g. IIT Delhi, BITS Pilani" required style="width: 100%; padding: 14px 16px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; font-size: 15px; font-family: var(--font-body);">
+            <p style="font-size: 13px; color: #666; margin-top: 12px; text-align: center;">+ Capstone Project for Demo Day</p>
+          </div>
+
+          <!-- Divider -->
+          <div style="height: 1px; background: linear-gradient(90deg, transparent, #E5E5E5, transparent); margin: 24px 0;"></div>
+
+          <!-- What you'll get -->
+          <div style="margin-bottom: 24px;">
+            <h4 style="font-size: 13px; font-weight: 700; color: #666; letter-spacing: 1px; margin-bottom: 16px; text-transform: uppercase;">What's Included</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px 20px;">
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                Live weekend sessions
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                Max 30 per cohort
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                Demo Day presentation
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                Portfolio & resume prep
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                Builder community
+              </div>
+              <div style="display: flex; align-items: center; gap: 10px; font-size: 14px; color: #333;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                Lifetime recordings
+              </div>
+            </div>
+          </div>
+
+          <!-- Guarantee badge -->
+          <div style="background: linear-gradient(135deg, rgba(34,197,94,0.1) 0%, rgba(34,197,94,0.05) 100%); border: 1px solid rgba(34,197,94,0.25); border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; gap: 14px;">
+            <div style="width: 44px; height: 44px; background: #22C55E; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
             <div>
-              <label style="display: block; font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 6px;">Year *</label>
-              <select name="year" required style="width: 100%; padding: 14px 16px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; font-size: 15px; font-family: var(--font-body);">
-                <option value="" style="background: var(--purple);">Select your year</option>
-                <option value="About to join college" style="background: var(--purple);">About to join college</option>
-                <option value="1st Year" style="background: var(--purple);">1st Year</option>
-                <option value="2nd Year" style="background: var(--purple);">2nd Year</option>
-                <option value="3rd Year" style="background: var(--purple);">3rd Year</option>
-                <option value="4th Year" style="background: var(--purple);">4th Year</option>
+              <p style="font-size: 14px; color: #16a34a; font-weight: 700; margin-bottom: 2px;">100% Money-Back Guarantee</p>
+              <p style="font-size: 13px; color: #666;">Not satisfied after session 1? Full refund, no questions.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Form -->
+        <div style="padding: 40px; background: linear-gradient(180deg, #FAFAFA 0%, #F5F3FF 100%); border-left: 1px solid rgba(139,92,246,0.08);">
+          <div style="text-align: center; margin-bottom: 28px;">
+            <h3 style="font-size: 24px; margin-bottom: 8px; color: #0A0A0A;">Register Now</h3>
+            <p style="font-size: 14px; color: #666;">We'll reach out within 24 hours</p>
+          </div>
+
+          <form id="registration-form" class="offer-form">
+            <div class="input-group">
+              <label>Full Name</label>
+              <input type="text" name="full_name" placeholder="Enter your full name" required>
+            </div>
+            <div class="input-group">
+              <label>Email Address</label>
+              <input type="email" name="email" placeholder="you@email.com" required>
+            </div>
+            <div class="input-group">
+              <label>WhatsApp Number</label>
+              <div class="phone-row">
+                <input type="text" value="+91" readonly class="phone-prefix">
+                <input type="tel" name="phone" placeholder="98765 43210" required style="flex: 1;">
+              </div>
+            </div>
+            <div class="input-group">
+              <label>College Name</label>
+              <input type="text" name="college" placeholder="e.g. VIT, SRM, Anna University" required>
+            </div>
+            <div class="input-group">
+              <label>Current Year</label>
+              <select name="year" required>
+                <option value="">Select your year</option>
+                <option value="About to join college">About to join college</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
               </select>
             </div>
-            <button type="submit" style="width: 100%; padding: 18px 24px; border-radius: 12px; border: none; background: white; color: var(--purple); font-size: 17px; font-weight: 700; font-family: var(--font-display); cursor: pointer; margin-top: 8px; transition: all 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">Claim Your Spot</button>
+            <button type="submit" class="submit-btn" style="margin-top: 8px;">
+              Reserve My Spot
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
           </form>
 
-          <div style="display: flex; align-items: center; justify-content: center; gap: 6px; font-size: 13px; color: rgba(255,255,255,0.8); margin-top: 16px;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
-            <span><strong style="color: white;">Only 30 seats</strong> per cohort</span>
-          </div>
+          <p style="font-size: 12px; color: #888; text-align: center; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Your info is safe and secure
+          </p>
         </div>
       </div>
     </div>
