@@ -84,8 +84,12 @@ section { padding: 96px 0; }
   display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
   white-space: nowrap;
 }
-.btn-primary { background: #FFFFFF; color: var(--purple); font-weight: 600; box-shadow: 0 4px 24px rgba(255, 255, 255, 0.15); }
-.btn-primary:hover { background: #F3F4F6; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255, 255, 255, 0.25); }
+.btn-primary { background: #FFFFFF; color: var(--purple); font-weight: 600; box-shadow: 0 4px 24px rgba(255, 255, 255, 0.15); position: relative; overflow: hidden; }
+.btn-primary:hover { background: #F3F4F6; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(255, 255, 255, 0.35), 0 0 40px rgba(139,92,246,0.3); }
+.btn-primary::after { content: ''; position: absolute; inset: -2px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transform: translateX(-100%); transition: transform 0.6s; }
+.btn-primary:hover::after { transform: translateX(100%); }
+@keyframes subtle-pulse { 0%, 100% { box-shadow: 0 4px 24px rgba(255, 255, 255, 0.15); } 50% { box-shadow: 0 4px 32px rgba(255, 255, 255, 0.25), 0 0 20px rgba(139,92,246,0.2); } }
+.btn-glow { animation: subtle-pulse 2s ease-in-out infinite; }
 .btn-secondary { background: transparent; color: var(--snow); border: 1.5px solid var(--card-border); }
 .btn-secondary:hover { border-color: var(--purple); color: var(--purple-light); }
 .btn-lg { padding: 18px 40px; font-size: 17px; }
@@ -315,7 +319,7 @@ body { padding-top: 40px; }
         </div>
     </div>
     <div class="hero-proof">
-      <img src="hero-visual.png?v=2" alt="Ship Real Products - 5 AI Products, Live Sessions, Demo Day" style="width: 100%; max-width: 520px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
+      <img src="hero-visual.png?v=3" alt="Ship Real Products - 5 AI Products, Live Sessions, Demo Day" style="width: 100%; max-width: 520px; border-radius: 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.4);">
     </div>
   </div>
 </section>
