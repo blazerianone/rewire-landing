@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're In — AI Bootcamp for Graduates | rewire.school</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878213525249030&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 38' fill='none'><path d='M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='19' r='2' fill='%238b5cf6'/><circle cx='26' cy='19' r='2' fill='%238b5cf6'/><line x1='20' y1='19' x2='24' y2='19' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --purple: #8B5CF6;
+  --purple-light: #A78BFA;
+  --night: #0A0A0A;
+  --card: #111111;
+  --card-border: #1a1a1a;
+  --snow: #FAFAFA;
+  --text-secondary: #888888;
+  --success: #22C55E;
+  --font-display: 'Manrope', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: var(--night);
+  color: var(--snow);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.container {
+  max-width: 560px;
+  text-align: center;
+}
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: rgba(34, 197, 94, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+h1 {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--success);
+  margin-bottom: 12px;
+}
+.subtitle {
+  font-size: 20px;
+  color: var(--snow);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.description {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.next-steps {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px;
+  text-align: left;
+  margin-bottom: 24px;
+}
+.next-steps h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: var(--snow);
+  font-weight: 700;
+}
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 12px 0;
+  font-size: 14px;
+  color: var(--snow);
+  line-height: 1.5;
+}
+.step:not(:last-child) {
+  border-bottom: 1px solid var(--card-border);
+}
+.step-num {
+  width: 28px;
+  height: 28px;
+  background: rgba(34, 197, 94, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--success);
+  flex-shrink: 0;
+}
+.wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+}
+.wa-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(37, 211, 102, 0.4);
+}
+.batch-info {
+  margin-top: 24px;
+  padding: 16px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+}
+.batch-info p {
+  font-size: 15px;
+  color: var(--purple-light);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.batch-info span {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+.job-ready-note {
+  margin-top: 20px;
+  padding: 14px 18px;
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 12px;
+  font-size: 14px;
+  color: var(--success);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+.excitement-line {
+  font-size: 15px;
+  color: var(--purple-light);
+  margin-top: 24px;
+  font-style: italic;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="success-icon">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+      <path d="M22 4L12 14.01l-3-3"/>
+    </svg>
+  </div>
+
+  <h1>You're In!</h1>
+  <p class="subtitle">Your spot is reserved for June 2026</p>
+  <p class="description">We've received your registration. Our team will reach out on WhatsApp within 24 hours with batch details and next steps.</p>
+
+  <div class="next-steps">
+    <h3>What Happens Next</h3>
+    <div class="step">
+      <span class="step-num">1</span>
+      <span>You'll receive a WhatsApp message from us within 24 hours</span>
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <span>We'll share the batch schedule, payment details, and answer any questions</span>
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <span>Once confirmed, you'll get access to pre-bootcamp resources and the cohort group</span>
+    </div>
+  </div>
+
+  <a href="https://wa.me/917305082534?text=Hi%2C%20I%20just%20registered%20for%20the%20AI%20Bootcamp%20(Fresh%20Graduates).%20Looking%20forward%20to%20it!" class="wa-btn">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+    Message Us on WhatsApp
+  </a>
+
+  <div class="batch-info">
+    <p>AI Bootcamp — Fresh Graduates — June 2026</p>
+    <span>5 weeks | 5 AI products | Weekend sessions | Live online</span>
+  </div>
+
+  <div class="job-ready-note">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+    Includes job-ready support: Resume, LinkedIn, Interview prep
+  </div>
+
+  <p class="excitement-line">In just 5 weeks, you'll have real AI products live on the internet with your name on them.</p>
+</div>
+
+<script src="/lp/shared/tracking.js"></script>
+</body>
+</html>
