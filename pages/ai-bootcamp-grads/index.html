@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Bootcamp for Fresh Graduates — 5 Weeks, 5 Products | rewire.school</title>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '878213525249030');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=878213525249030&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+<meta name="description" content="5 weeks. 5 deployed AI products. A portfolio that proves you can build. Job-ready support included. No coding experience required.">
+<meta property="og:title" content="AI Bootcamp for Fresh Graduates — Build Your Portfolio in 5 Weeks | rewire.school">
+<meta property="og:description" content="Your resume says 'knows AI.' Make it say 'shipped 5 AI products.' Job-ready bootcamp for fresh graduates.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 38' fill='none'><path d='M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6' stroke='%238b5cf6' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'/><circle cx='18' cy='19' r='2' fill='%238b5cf6'/><circle cx='26' cy='19' r='2' fill='%238b5cf6'/><line x1='20' y1='19' x2='24' y2='19' stroke='%238b5cf6' stroke-width='2' stroke-linecap='round'/></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#0A0A0A;color:#FAFAFA;min-height:100vh}
+
+/* ── Top Bar ── */
+.top-bar{background:#F59E0B;text-align:center;padding:10px 16px;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:600;color:#0A0A0A;letter-spacing:0.5px}
+.top-bar span{font-weight:800}
+
+/* ── Container ── */
+.container{max-width:960px;margin:0 auto;padding:24px 20px 40px}
+
+/* ── Logo ── */
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.logo svg{color:#8B5CF6}
+.logo-text{font-family:'Manrope',sans-serif;font-weight:800;font-size:20px}
+.logo-text .re{color:#fff}
+.logo-text .wire{color:#8B5CF6}
+.logo-text .school{color:#6B7280;font-size:14px;font-weight:500;margin-left:2px}
+
+/* ── Hero: Two columns ── */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start;margin-bottom:40px}
+
+.hero-left .badge{display:inline-block;background:#F59E0B;color:#0A0A0A;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:1.5px;padding:8px 18px;border-radius:8px;text-transform:uppercase;margin-bottom:14px;border:none;box-shadow:0 2px 12px rgba(245,158,11,0.3)}
+.hero-left h1{font-family:'Manrope',sans-serif;font-weight:800;font-size:32px;line-height:1.15;letter-spacing:-0.5px;margin-bottom:14px}
+.hero-left h1 .em{color:#8B5CF6}
+.hero-left .sub{color:#9CA3AF;font-size:16px;line-height:1.6;margin-bottom:20px}
+
+.price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:6px;flex-wrap:wrap}
+.price-old{font-size:20px;color:#6B7280;text-decoration:line-through;font-family:'Manrope',sans-serif}
+.price-new{font-family:'Manrope',sans-serif;font-weight:800;font-size:40px;color:#fff;letter-spacing:-2px}
+.price-gst{font-size:13px;color:#78716C;font-family:'DM Sans',sans-serif}
+.price-save{display:inline-block;background:rgba(34,197,94,0.12);border:1px solid rgba(34,197,94,0.3);color:#22C55E;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:600;padding:4px 12px;border-radius:10px;margin-bottom:10px}
+.price-detail{font-size:14px;color:#78716C;margin-bottom:14px;line-height:1.5}
+
+/* ── Hero highlights ── */
+.hero-highlights{margin-top:16px;display:flex;flex-direction:column;gap:10px}
+.hero-hl{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#D1D5DB;line-height:1.5}
+.hero-hl .hl-icon{font-size:16px;flex-shrink:0;margin-top:1px}
+.hero-hl strong{color:#fff}
+
+/* ── Form (right column) ── */
+.hero-right .form-card{background:#111;border:1.5px solid #2A2A2A;border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.hero-right .form-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#8B5CF6,#22C55E)}
+.form-card h3{font-family:'Manrope',sans-serif;font-weight:700;font-size:17px;margin-bottom:3px}
+.form-card .form-sub{font-size:12px;color:#78716C;margin-bottom:16px}
+.form-group{margin-bottom:12px}
+.form-group label{display:block;font-size:11px;color:#78716C;margin-bottom:3px;font-weight:500}
+.form-group input,.form-group select{width:100%;padding:13px 14px;background:#1A1A1A;border:1.5px solid #2A2A2A;border-radius:10px;color:#fff;font-size:15px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus{border-color:#8B5CF6}
+.form-group input::placeholder{color:#555}
+.form-group select{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.form-group select option{background:#1A1A1A;color:#fff}
+.submit-btn{width:100%;padding:15px;background:#8B5CF6;color:#fff;border:none;border-radius:12px;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;cursor:pointer;margin-top:2px;transition:all 0.2s;box-shadow:0 4px 16px rgba(139,92,246,0.3)}
+.submit-btn:hover{background:#7C3AED;box-shadow:0 6px 20px rgba(139,92,246,0.4)}
+.submit-btn:disabled{opacity:0.5;cursor:not-allowed}
+.form-note{font-size:10px;color:#555;text-align:center;margin-top:8px;line-height:1.5}
+.form-includes{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:14px;padding-top:12px;border-top:1px solid #2A2A2A}
+.form-inc{display:flex;align-items:center;gap:5px;font-size:12px;color:#9CA3AF}
+.form-inc .ck{color:#22C55E;font-weight:700;font-size:13px}
+
+/* ── Success ── */
+.success-card{background:#111;border:2px solid rgba(34,197,94,0.3);border-radius:16px;padding:28px 24px;text-align:center;display:none}
+.success-card .icon{width:52px;height:52px;border-radius:50%;background:rgba(34,197,94,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:26px}
+.success-card h3{font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;color:#22C55E;margin-bottom:6px}
+.success-card p{font-size:13px;color:#9CA3AF;line-height:1.6}
+
+/* ── Section titles ── */
+.section-title{font-family:'Manrope',sans-serif;font-weight:800;font-size:22px;margin-bottom:16px;border-left:3px solid #8B5CF6;padding-left:12px}
+.section-sub{color:#9CA3AF;font-size:15px;margin-bottom:24px;margin-top:-8px;padding-left:16px;line-height:1.5}
+
+/* ── Tools pills ── */
+.tools-wrap{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:40px}
+.tool-pill{background:#1A1A1A;border:1px solid #2A2A2A;border-radius:10px;padding:10px 18px;display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:#D1D5DB;font-weight:500;transition:border-color 0.2s}
+.tool-pill:hover{border-color:#8B5CF6}
+.tool-pill img,.tool-pill svg{width:20px;height:20px;flex-shrink:0}
+.tool-pill .tool-dot{width:20px;height:20px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0}
+
+/* ── Problem cards ── */
+.problem-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:40px}
+.problem-card{background:#111;border:1px solid #2A2A2A;border-left:3px solid #EF4444;border-radius:12px;padding:20px 18px}
+.problem-card h4{font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;margin-bottom:8px;color:#FAFAFA}
+.problem-card p{font-size:14px;color:#9CA3AF;line-height:1.5}
+
+/* ── Week cards ── */
+.weeks-grid{display:grid;gap:14px;margin-bottom:40px}
+.week-card{background:#111;border:1px solid #2A2A2A;border-radius:12px;padding:20px;display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start}
+.week-num{width:56px;height:56px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Manrope',sans-serif}
+.week-num span:first-child{font-size:9px;color:#C4B5FD;text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.week-num span:last-child{font-size:22px;font-weight:800;color:#8B5CF6;line-height:1}
+.week-content .week-tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:#C4B5FD;margin-bottom:4px;display:block}
+.week-content h4{font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;margin-bottom:6px}
+.week-content p{font-size:14px;color:#9CA3AF;line-height:1.5}
+.week-content .interview-line{margin-top:8px;padding:8px 12px;background:rgba(139,92,246,0.06);border-left:3px solid #8B5CF6;border-radius:0 8px 8px 0;font-size:12px;color:#C4B5FD;font-family:'JetBrains Mono',monospace}
+
+/* ── Job-ready grid ── */
+.job-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px}
+.job-card{background:#111;border:1px solid #2A2A2A;border-radius:12px;padding:18px 16px;display:flex;gap:12px;align-items:flex-start}
+.job-card .job-check{color:#22C55E;font-size:18px;font-weight:700;flex-shrink:0;margin-top:1px}
+.job-card h4{font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;margin-bottom:4px}
+.job-card p{font-size:13px;color:#9CA3AF;line-height:1.4}
+.roles-box{background:rgba(139,92,246,0.06);border:1px solid rgba(139,92,246,0.15);border-radius:12px;padding:18px 24px;text-align:center;margin-bottom:40px}
+.roles-box h4{font-family:'Manrope',sans-serif;font-size:14px;font-weight:700;color:#C4B5FD;margin-bottom:10px}
+.roles-box .roles-list{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.roles-box .roles-list span{padding:6px 14px;background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);border-radius:20px;font-size:12px;color:#FAFAFA;font-family:'JetBrains Mono',monospace}
+
+/* ── Trainer ── */
+.trainer-card{background:#111;border:1px solid #2A2A2A;border-radius:16px;padding:28px;display:grid;grid-template-columns:140px 1fr;gap:24px;align-items:center;margin-bottom:40px}
+.trainer-avatar{width:140px;height:140px;border-radius:16px;overflow:hidden;border:2px solid rgba(139,92,246,0.3);flex-shrink:0}
+.trainer-avatar img{width:100%;height:100%;object-fit:cover}
+.trainer-info h4{font-family:'Manrope',sans-serif;font-weight:800;font-size:20px;margin-bottom:2px}
+.trainer-role{color:#C4B5FD;font-size:13px;margin-bottom:12px;font-weight:500}
+.trainer-stats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.trainer-stats span{padding:5px 10px;background:rgba(139,92,246,0.08);border:1px solid rgba(139,92,246,0.15);border-radius:8px;font-size:11px;color:#FAFAFA;font-family:'JetBrains Mono',monospace}
+.trainer-bio{font-size:14px;color:#9CA3AF;line-height:1.6;margin-bottom:12px}
+.trainer-quote{font-style:italic;color:#9CA3AF;font-size:13px;border-left:3px solid #8B5CF6;padding-left:14px}
+
+/* ── Don't need ── */
+.dontneed-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:40px}
+.dontneed-item{display:flex;align-items:center;gap:12px;padding:16px 20px;background:#111;border:1px solid #2A2A2A;border-radius:12px;font-size:15px;font-family:'Manrope',sans-serif;font-weight:600}
+.dontneed-x{width:28px;height:28px;background:rgba(239,68,68,0.1);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#EF4444;font-weight:700;font-size:14px}
+
+/* ── FAQ ── */
+.faq-list{margin-bottom:40px}
+.faq-item{border-bottom:1px solid #2A2A2A}
+.faq-question{padding:16px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'Manrope',sans-serif;font-weight:600;font-size:15px;color:#FAFAFA;background:none;border:none;width:100%;text-align:left}
+.faq-question:hover{color:#C4B5FD}
+.faq-chevron{transition:transform 0.3s;flex-shrink:0;margin-left:16px}
+.faq-item.open .faq-chevron{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.3s ease,padding 0.3s ease}
+.faq-item.open .faq-answer{max-height:200px;padding-bottom:16px}
+.faq-answer p{color:#9CA3AF;font-size:14px;line-height:1.6}
+
+/* ── Final CTA ── */
+.final-cta{text-align:center;padding:40px 20px;background:radial-gradient(ellipse at 50% 50%,rgba(139,92,246,0.1) 0%,transparent 60%);margin-bottom:20px}
+.final-cta h2{font-family:'Manrope',sans-serif;font-weight:800;font-size:24px;line-height:1.3;max-width:680px;margin:0 auto 24px}
+.final-cta h2 .em{color:#8B5CF6}
+.final-cta-btns{display:flex;justify-content:center;gap:14px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:#8B5CF6;color:#fff;border:none;border-radius:12px;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;transition:all 0.2s;box-shadow:0 4px 16px rgba(139,92,246,0.3)}
+.btn-primary:hover{background:#7C3AED;box-shadow:0 6px 20px rgba(139,92,246,0.4)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:#fff;border:1.5px solid #2A2A2A;border-radius:12px;font-family:'Manrope',sans-serif;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;transition:all 0.2s}
+.btn-outline:hover{border-color:#8B5CF6;background:rgba(139,92,246,0.05)}
+
+/* ── Footer ── */
+.footer{text-align:center;margin-top:24px;padding-top:16px;border-top:1px solid #1A1A1A}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:4px}
+.footer p{font-size:10px;color:#4B5563}
+.footer a{color:#C4B5FD;text-decoration:none}
+
+/* ── Floating WhatsApp ── */
+.whatsapp-float{position:fixed;bottom:24px;right:24px;z-index:999;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:transform 0.3s;text-decoration:none}
+.whatsapp-float:hover{transform:scale(1.1)}
+
+/* ── Mobile sticky CTA ── */
+.mobile-sticky-cta{display:none;position:fixed;bottom:0;left:0;right:0;z-index:998;padding:12px 16px;background:rgba(10,10,10,0.95);backdrop-filter:blur(10px);border-top:1px solid #2A2A2A}
+.mobile-sticky-cta .btn-primary{width:100%;justify-content:center}
+
+/* ── Responsive ── */
+@media(max-width:700px){
+  .hero{grid-template-columns:1fr;gap:20px}
+  .hero-left h1{font-size:24px}
+  .price-new{font-size:34px}
+  .problem-grid{grid-template-columns:1fr}
+  .week-card{grid-template-columns:48px 1fr;gap:12px;padding:16px}
+  .week-num{width:48px;height:48px}
+  .week-num span:last-child{font-size:18px}
+  .job-grid{grid-template-columns:1fr}
+  .trainer-card{grid-template-columns:1fr;text-align:center;justify-items:center}
+  .trainer-stats{justify-content:center}
+  .trainer-quote{text-align:left}
+  .dontneed-grid{grid-template-columns:1fr}
+  .container{padding:16px 16px 32px}
+  .form-includes{grid-template-columns:1fr}
+  .final-cta h2{font-size:20px}
+  .mobile-sticky-cta{display:block}
+  .whatsapp-float{bottom:80px}
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div class="top-bar">JUNE 2026 BATCH &middot; Only <span>30 seats</span> per cohort &middot; Includes Job-Ready Support</div>
+
+<div class="container">
+
+  <!-- ── LOGO ── -->
+  <div class="logo">
+    <svg width="28" height="24" viewBox="0 0 44 38" fill="none"><path d="M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="19" r="2" fill="#8B5CF6"/><circle cx="26" cy="19" r="2" fill="#8B5CF6"/><line x1="20" y1="19" x2="24" y2="19" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/></svg>
+    <span class="logo-text"><span class="re">re</span><span class="wire">wire</span><span class="school">.school</span></span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO — Two Column Grid
+       ═══════════════════════════════════════════ -->
+  <div class="hero">
+    <!-- LEFT: Offer details -->
+    <div class="hero-left">
+      <span class="badge">AI BOOTCAMP &middot; FRESH GRADUATES</span>
+      <h1>Get <span class="em">Job-Ready with AI</span> in 5 Weeks</h1>
+      <p class="sub">Build 5 real AI products. Get a portfolio that proves you can build — not just talk. Resume prep, LinkedIn optimization & interview coaching included.</p>
+
+      <div class="price-row">
+        <span class="price-old">&#8377;55,000</span>
+        <span class="price-new">&#8377;19,999</span>
+        <span class="price-gst">+ GST (&#8377;23,599 incl. GST)</span>
+      </div>
+      <div class="price-save">&#10003; Includes post-course job-ready support</div>
+      <div class="price-detail">5 weekends &middot; 2 sessions/week &middot; Online via Zoom &middot; Max 30 students</div>
+
+      <!-- Who is this for -->
+      <div style="margin-top:16px;padding:16px 18px;background:rgba(245,158,11,0.08);border:1.5px solid rgba(245,158,11,0.3);border-radius:12px;font-size:14px;color:#FAFAFA;line-height:1.8">
+        <strong style="color:#F59E0B;font-size:12px;font-family:'JetBrains Mono',monospace;letter-spacing:1.5px;display:block;margin-bottom:6px">&#127919; WHO IS THIS FOR</strong>
+        <span style="color:#F59E0B;font-weight:700">2023, 2024, 2025 passouts</span> &middot; BE / B.Tech / BCA / MCA / B.Sc / M.Sc / Any degree &middot; <span style="color:#22C55E;font-weight:600">No coding experience needed</span>
+      </div>
+
+      <!-- Highlights to balance form height -->
+      <div class="hero-highlights">
+        <div class="hero-hl"><span class="hl-icon">&#9889;</span><span><strong>No coding needed</strong> — vibe coding handles the tech</span></div>
+        <div class="hero-hl"><span class="hl-icon">&#128640;</span><span><strong>5 deployed products</strong> — live on the internet by week 5</span></div>
+        <div class="hero-hl"><span class="hl-icon">&#128188;</span><span><strong>Job-ready support</strong> — resume, LinkedIn, mock interviews</span></div>
+        <div class="hero-hl"><span class="hl-icon">&#127891;</span><span><strong>Demo Day</strong> — present your capstone to a real audience</span></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Registration form -->
+    <div class="hero-right">
+      <div class="form-card" id="formCard">
+        <h3>Start Building Your Portfolio</h3>
+        <p class="form-sub">We'll reach out with batch details</p>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="fname" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="email" placeholder="you@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>WhatsApp Number</label>
+          <input type="tel" id="phone" placeholder="+91 98765 43210" required>
+        </div>
+        <div class="form-group">
+          <label>Year of Graduation</label>
+          <select id="gradYear" required>
+            <option value="" disabled selected>Select year</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Degree &amp; Branch</label>
+          <input type="text" id="degree" placeholder="e.g. B.Tech CSE" required>
+        </div>
+        <button class="submit-btn" id="submitBtn" onclick="submitForm()">Register for June Batch &rarr;</button>
+
+        <div class="form-includes">
+          <div class="form-inc"><span class="ck">&#10003;</span> 5 live products</div>
+          <div class="form-inc"><span class="ck">&#10003;</span> Job-ready support</div>
+          <div class="form-inc"><span class="ck">&#10003;</span> No coding needed</div>
+          <div class="form-inc"><span class="ck">&#10003;</span> 100% refund guarantee</div>
+          <div class="form-inc"><span class="ck">&#10003;</span> Resume + LinkedIn prep</div>
+          <div class="form-inc"><span class="ck">&#10003;</span> Builder community</div>
+        </div>
+      </div>
+
+      <!-- Success -->
+      <div class="success-card" id="successCard">
+        <div class="icon">&#10003;</div>
+        <h3>You're In!</h3>
+        <p>Thank you! We'll reach out on WhatsApp within 24 hours with batch details and next steps.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       2. TOOLS YOU'LL MASTER
+       ═══════════════════════════════════════════ -->
+  <div class="section-title">Tools You'll Master</div>
+  <p style="text-align:center;font-size:13px;color:#78716C;margin-top:-8px;margin-bottom:16px">AI platforms, vibe coding tools, automation & deployment</p>
+  <div class="tools-wrap">
+    <span class="tool-pill"><span class="tool-dot" style="background:#D97706;color:#fff">C</span> Claude</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:#10A37F;color:#fff">G</span> ChatGPT</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:#4285F4;color:#fff">G</span> Gemini</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:#FF6B6B;color:#fff">L</span> Lovable</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:#1389FD;color:#fff">B</span> Bolt</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:#000;color:#fff;border:1px solid #333">v0</span> v0</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:#EA4B71;color:#fff">n</span> n8n</span>
+    <span class="tool-pill"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg> GitHub</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:#8B5CF6;color:#fff">C</span> Cursor</span>
+    <span class="tool-pill"><span class="tool-dot" style="background:#D97706;color:#fff">A</span> Artifacts</span>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       3. THE PROBLEM
+       ═══════════════════════════════════════════ -->
+  <div class="section-title">The hiring gap nobody talks about.</div>
+  <div class="problem-grid">
+    <div class="problem-card">
+      <h4>Everyone lists 'AI skills'</h4>
+      <p>Recruiters see through buzzwords. When 500 applicants all say "familiar with AI," nobody stands out. You need proof.</p>
+    </div>
+    <div class="problem-card">
+      <h4>Certificates don't get hired</h4>
+      <p>Courses teach you to pass quizzes. We teach you to ship products. Hiring managers check what you've built, not what you've watched.</p>
+    </div>
+    <div class="problem-card">
+      <h4>The interview question changed</h4>
+      <p>It's not "do you know AI?" anymore. It's "what have you built with it?" If you can't answer that, the interview is already over.</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       4. WHAT YOU'LL BUILD
+       ═══════════════════════════════════════════ -->
+  <div class="section-title">5 Weeks. 5 Products. All Deployed.</div>
+  <p class="section-sub">Every week you build something real, deploy it live, and add it to your portfolio.</p>
+
+  <div class="weeks-grid">
+    <div class="week-card">
+      <div class="week-num"><span>Week</span><span>1</span></div>
+      <div class="week-content">
+        <span class="week-tag">Your First AI App</span>
+        <h4>Ship a live AI tool</h4>
+        <p>Go from zero to a deployed AI application. Learn prompt engineering, vibe coding, and deployment basics.</p>
+        <div class="interview-line">Interview line: "I built and deployed this in week 1."</div>
+      </div>
+    </div>
+    <div class="week-card">
+      <div class="week-num"><span>Week</span><span>2</span></div>
+      <div class="week-content">
+        <span class="week-tag">AI Chatbot with Memory</span>
+        <h4>Production-grade chatbot</h4>
+        <p>Build a chatbot that remembers context, handles conversations intelligently, and connects to real APIs.</p>
+        <div class="interview-line">Shows you understand APIs, state management, deployment</div>
+      </div>
+    </div>
+    <div class="week-card">
+      <div class="week-num"><span>Week</span><span>3</span></div>
+      <div class="week-content">
+        <span class="week-tag">Autonomous AI Agent</span>
+        <h4>An agent that acts, not just responds</h4>
+        <p>Build an AI agent that can reason, plan, and take autonomous actions.</p>
+        <div class="interview-line">The skill that separates builders from users</div>
+      </div>
+    </div>
+    <div class="week-card">
+      <div class="week-num"><span>Week</span><span>4</span></div>
+      <div class="week-content">
+        <span class="week-tag">AI Automation Pipeline</span>
+        <h4>Connect AI to real services</h4>
+        <p>Build automation that connects AI to Gmail, Notion, Slack & Google Drive using MCP and n8n pipelines.</p>
+        <div class="interview-line">This is what companies actually need</div>
+      </div>
+    </div>
+    <div class="week-card">
+      <div class="week-num"><span>Week</span><span>5</span></div>
+      <div class="week-content">
+        <span class="week-tag">Capstone Project</span>
+        <h4>Scope, build, demo</h4>
+        <p>Choose your own problem. Design the solution. Build it. Present it on Demo Day.</p>
+        <div class="interview-line">Goes on resume, LinkedIn, and portfolio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       5. POST-COURSE: JOB-READY PATH
+       ═══════════════════════════════════════════ -->
+  <div class="section-title">We don't stop at the course.</div>
+  <p class="section-sub">The bootcamp gives you skills. The post-course support turns those skills into opportunities.</p>
+
+  <div class="job-grid">
+    <div class="job-card">
+      <span class="job-check">&#10003;</span>
+      <div>
+        <h4>Resume preparation</h4>
+        <p>Position your 5 shipped projects for specific job descriptions.</p>
+      </div>
+    </div>
+    <div class="job-card">
+      <span class="job-check">&#10003;</span>
+      <div>
+        <h4>LinkedIn optimization</h4>
+        <p>Headline, about section, featured projects &mdash; optimized for recruiters.</p>
+      </div>
+    </div>
+    <div class="job-card">
+      <span class="job-check">&#10003;</span>
+      <div>
+        <h4>Interview preparation</h4>
+        <p>AI-specific questions, project walkthroughs of YOUR products.</p>
+      </div>
+    </div>
+    <div class="job-card">
+      <span class="job-check">&#10003;</span>
+      <div>
+        <h4>Mock interviews</h4>
+        <p>Structured practice with honest, detailed feedback.</p>
+      </div>
+    </div>
+    <div class="job-card">
+      <span class="job-check">&#10003;</span>
+      <div>
+        <h4>Career guidance</h4>
+        <p>1:1 sessions to identify the right roles and companies for you.</p>
+      </div>
+    </div>
+    <div class="job-card">
+      <span class="job-check">&#10003;</span>
+      <div>
+        <h4>Partner recruitment network</h4>
+        <p>Curated interview referrals for qualified graduates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="roles-box">
+    <h4>Roles you'll be ready for</h4>
+    <div class="roles-list">
+      <span>AI Application Developer</span>
+      <span>AI Automation Specialist</span>
+      <span>Junior AI Engineer</span>
+      <span>AI Product Analyst</span>
+      <span>AI-First Freelancer</span>
+      <span>No-Code / AI Builder</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       6. YOUR TRAINER
+       ═══════════════════════════════════════════ -->
+  <div class="section-title">Your Trainer</div>
+
+  <div class="trainer-card">
+    <div class="trainer-avatar">
+      <img src="sam.jpeg" alt="Samraat Bansal" loading="lazy">
+    </div>
+    <div class="trainer-info">
+      <h4>Samraat Bansal</h4>
+      <p class="trainer-role">AI Engineer at Emergent (YC S24) &middot; Previously at Juspay</p>
+      <div class="trainer-stats">
+        <span>YC S24 AI Engineer</span>
+        <span>Ex-Juspay</span>
+        <span>39K-star OSS</span>
+        <span>550+ students</span>
+        <span>4.8/5 rating</span>
+      </div>
+      <p class="trainer-bio">AI Engineer at Emergent (Y Combinator S24). Previously at Juspay, where he built production AI systems at scale &mdash; reduced engineering resolution time by 80%. Open-source contributor on a 39K-star project. Has mentored 550+ students with a 4.8/5 rating.</p>
+      <p class="trainer-quote">"He knows what hiring managers look for &mdash; because he builds the AI systems they're hiring for."</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       7. WHAT YOU DON'T NEED
+       ═══════════════════════════════════════════ -->
+  <div class="section-title">What you don't need</div>
+
+  <div class="dontneed-grid">
+    <div class="dontneed-item">
+      <div class="dontneed-x">&#10005;</div>
+      No coding experience
+    </div>
+    <div class="dontneed-item">
+      <div class="dontneed-x">&#10005;</div>
+      No AI background
+    </div>
+    <div class="dontneed-item">
+      <div class="dontneed-x">&#10005;</div>
+      No specific degree
+    </div>
+    <div class="dontneed-item">
+      <div class="dontneed-x">&#10005;</div>
+      No expensive tools
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       8. FAQ
+       ═══════════════════════════════════════════ -->
+  <div class="section-title">Frequently Asked Questions</div>
+
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question">
+        Do I need coding experience?
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>No. Vibe coding platforms handle the technical parts. You describe what you want in plain English, and AI helps you build it. We've had students with zero programming background ship production-ready products.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        I graduated in a non-tech stream. Can I still join?
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Yes. Commerce, arts, and science graduates are welcome. The course is designed for anyone who wants to build &mdash; your degree doesn't limit your capability.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        What job support do I get?
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>Resume preparation, LinkedIn optimization, interview prep with AI-specific questions, mock interviews with honest feedback, career guidance sessions, and curated referrals through our partner recruitment network.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Is this a placement guarantee?
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>No. We make you genuinely capable &mdash; real skills, real portfolio, real support. Opportunities follow when you're actually good at what you do.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        What's the weekly schedule?
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>2 live sessions per week (Saturday &amp; Sunday) plus async support and office hours throughout the week. Each session is hands-on &mdash; you build during the session, not just watch.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        What's the refund policy?
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>100% refund after the first session. No questions asked. If it's not for you, you get your money back.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        How is this different from other AI courses?
+        <svg class="faq-chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="faq-answer">
+        <p>You ship 5 real products &mdash; not certificates, a portfolio. Plus dedicated job-ready support after the course. Most courses end with a quiz. Ours ends with a Demo Day and a job-search plan.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end .container -->
+
+<!-- ═══════════════════════════════════════════
+     9. FINAL CTA
+     ═══════════════════════════════════════════ -->
+<div class="final-cta">
+  <h2>In 5 weeks, you'll have 5 shipped products and <span class="em">a story worth telling in every interview.</span></h2>
+  <div class="final-cta-btns">
+    <a href="#formCard" class="btn-primary" onclick="document.getElementById('formCard').scrollIntoView({behavior:'smooth'});return false;">Register for June Batch &rarr;</a>
+    <a href="https://wa.me/917305082534?text=Hi%2C%20I%27m%20interested%20in%20the%20AI%20Bootcamp%20for%20fresh%20graduates" class="btn-outline" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     10. FOOTER
+     ═══════════════════════════════════════════ -->
+<div class="container">
+  <div class="footer">
+    <div class="footer-logo">
+      <svg width="18" height="16" viewBox="0 0 44 38" fill="none"><path d="M12 3C9 3 6 6 6 9v4l-2 5 2 5v4c0 3 3 6 6 6" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 3c3 0 6 3 6 6v4l2 5-2 5v4c0 3-3 6-6 6" stroke="#8B5CF6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="19" r="2" fill="#8B5CF6"/><circle cx="26" cy="19" r="2" fill="#8B5CF6"/><line x1="20" y1="19" x2="24" y2="19" stroke="#8B5CF6" stroke-width="2" stroke-linecap="round"/></svg>
+      <span style="font-family:'Manrope',sans-serif;font-weight:700;font-size:13px"><span style="color:#fff">re</span><span style="color:#8B5CF6">wire</span><span style="color:#6B7280">.school</span></span>
+    </div>
+    <p>&copy; 2026 rewire.school &middot; <a href="mailto:hello@rewire.school">hello@rewire.school</a></p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     11. FLOATING WHATSAPP + MOBILE STICKY CTA
+     ═══════════════════════════════════════════ -->
+<a href="https://wa.me/917305082534?text=Hi%2C%20I%27m%20interested%20in%20the%20AI%20Bootcamp%20for%20fresh%20graduates" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<div class="mobile-sticky-cta">
+  <a href="#formCard" class="btn-primary" onclick="document.getElementById('formCard').scrollIntoView({behavior:'smooth'});return false;">Register for June Batch &rarr;</a>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCRIPTS
+     ═══════════════════════════════════════════ -->
+<script>
+async function submitForm() {
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  const gradYear = document.getElementById('gradYear').value;
+  const degree = document.getElementById('degree').value.trim();
+  if (!name || !email || !phone || !gradYear || !degree) { alert('Please fill all fields'); return; }
+
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting...';
+
+  const urlParams = new URLSearchParams(window.location.search);
+
+  try {
+    await fetch('https://script.google.com/macros/s/AKfycbyAeMjvB5AaCX3YJssJcLwWYgkKDSktnCGlV_tfV_daWyDSsHxAtkYui2jyym28Qi5oyQ/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name, email, phone,
+        graduation_year: gradYear,
+        degree_branch: degree,
+        course: 'AI Bootcamp - Fresh Graduates',
+        utm_source: urlParams.get('utm_source') || '',
+        utm_medium: urlParams.get('utm_medium') || '',
+        utm_campaign: urlParams.get('utm_campaign') || '',
+        utm_content: urlParams.get('utm_content') || '',
+        timestamp: new Date().toISOString()
+      })
+    });
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Lead', { content_name: 'AI Bootcamp - Fresh Graduates' });
+    }
+  } catch(e) {}
+
+  document.getElementById('formCard').style.display = 'none';
+  document.getElementById('successCard').style.display = 'block';
+}
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var item = this.closest('.faq-item');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+    if (!isOpen) item.classList.add('open');
+  });
+});
+</script>
+
+</body>
+</html>
