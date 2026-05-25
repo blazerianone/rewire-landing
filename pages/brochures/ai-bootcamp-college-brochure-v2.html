@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Bootcamp for College Students | rewire.school</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+@page {
+  size: 210mm 297mm;
+  margin: 0;
+}
+
+:root {
+  --white: #ffffff;
+  --off-white: #fafafa;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --black: #030712;
+
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-200: #e9d5ff;
+  --purple-300: #d8b4fe;
+  --purple-400: #c084fc;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7c3aed;
+  --purple-800: #6b21a8;
+  --purple-900: #581c87;
+
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --pink-400: #f472b6;
+  --pink-500: #ec4899;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--gray-800);
+  background: var(--gray-200);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--white);
+  position: relative;
+  page-break-after: always;
+  overflow: hidden;
+}
+
+.page:last-child { page-break-after: auto; }
+
+@media screen {
+  .page { margin: 20px auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+  body { padding: 20px 0; }
+}
+
+@media print {
+  html, body { margin: 0; padding: 0; background: white; }
+  .page { margin: 0; padding: 0; box-shadow: none; }
+}
+
+/* Geometric Accents */
+.geo-triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.geo-triangle-purple {
+  border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-bottom: 70px solid var(--purple-500);
+}
+
+
+/* ============================================
+   PAGE 1: COVER
+   ============================================ */
+.cover {
+  background: linear-gradient(165deg, var(--gray-900) 0%, var(--black) 50%, #0c0118 100%);
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(147,51,234,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(147,51,234,0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.cover-hero-image {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 380px;
+  height: 420px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+}
+
+.cover-hero-image::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, var(--purple-400), var(--purple-600), #c4f042);
+  z-index: -1;
+}
+
+.cover-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(147,51,234,0.2), transparent 50%);
+}
+
+/* Floating Icons around hexagon */
+.cover-float-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: rgba(147, 51, 234, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-300);
+}
+
+.cover-glow {
+  position: absolute;
+  top: 120px;
+  right: 80px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(147,51,234,0.3) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 48px 48px 0;
+}
+
+.cover-logo { height: 52px; width: auto; }
+
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.cover-cohort-badge {
+  background: rgba(147, 51, 234, 0.2);
+  border: 1px solid rgba(147, 51, 234, 0.4);
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-300);
+}
+
+.cover-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 420px;
+}
+
+.cover-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-400);
+  margin-bottom: 24px;
+}
+
+.cover-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple-500), var(--purple-400));
+  border-radius: 1px;
+}
+
+.cover-title {
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.cover-title span {
+  background: linear-gradient(135deg, var(--purple-400), #c4f042);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cover-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-400);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* Circular Stats - Larger & More Impactful */
+.cover-stats-circular {
+  display: flex;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.circular-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.circular-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(147, 51, 234, 0.1);
+}
+
+.circular-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.08);
+}
+
+.circular-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--purple-400);
+  border-right-color: var(--purple-400);
+  border-bottom-color: var(--purple-400);
+}
+
+.circular-ring-full::after {
+  border-color: var(--purple-400);
+}
+
+.circular-ring-lime::after {
+  border-color: #c4f042;
+}
+
+.circular-stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.circular-stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cover-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 48px;
+  margin-top: auto;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.cover-pricing-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 18px 24px;
+}
+
+.cover-price-section { display: flex; align-items: center; gap: 16px; }
+
+.cover-price-left { display: flex; flex-direction: column; align-items: flex-start; }
+
+.cover-price-badge {
+  display: inline-flex;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--purple-300);
+  background: rgba(147, 51, 234, 0.2);
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.cover-price-original { font-size: 13px; color: var(--gray-500); text-decoration: line-through; }
+
+.cover-price-row { display: flex; align-items: baseline; gap: 6px; }
+
+.cover-price-current {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.cover-price-note { font-size: 11px; color: var(--gray-400); }
+
+.cover-divider {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.15), transparent);
+}
+
+.cover-cta-url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, var(--purple-500), var(--purple-600));
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(147, 51, 234, 0.4);
+}
+
+/* ============================================
+   INTERIOR PAGES
+   ============================================ */
+.interior {
+  display: flex;
+  flex-direction: column;
+  height: 297mm;
+  width: 210mm;
+  padding: 20px 28px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.interior-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gray-200);
+  margin-bottom: 16px;
+  height: 36px;
+}
+
+.interior-logo { height: 20px; width: auto; }
+
+.interior-page-info {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.interior-content { flex: 1; overflow: hidden; }
+
+.interior-footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid var(--gray-200);
+  height: 32px;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 16px;
+  font-size: 11px;
+  color: var(--gray-500);
+}
+
+.footer-contact a { color: var(--gray-600); text-decoration: none; }
+.footer-page { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gray-400); }
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-header-bar {
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(180deg, var(--purple-500), var(--purple-400));
+  border-radius: 2px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--gray-900);
+  letter-spacing: -0.02em;
+}
+
+/* ============================================
+   PAGE 2: OVERVIEW - Flowing Cards
+   ============================================ */
+.flowing-cards {
+  display: flex;
+  gap: 0;
+  margin: 20px 0;
+}
+
+.flowing-card {
+  flex: 1;
+  padding: 20px 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.flowing-card::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 12px solid transparent;
+  border-left-color: inherit;
+}
+
+.flowing-card:last-child::after { display: none; }
+
+.flowing-card-purple {
+  background: var(--purple-600);
+  color: white;
+  border-radius: 12px 0 0 12px;
+}
+.flowing-card-purple::after { border-left-color: var(--purple-600); }
+
+.flowing-card-teal {
+  background: var(--teal-500);
+  color: white;
+}
+.flowing-card-teal::after { border-left-color: var(--teal-500); }
+
+.flowing-card-amber {
+  background: var(--amber-500);
+  color: white;
+  border-radius: 0 12px 12px 0;
+}
+
+.flowing-card-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.flowing-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.flowing-card-text {
+  font-size: 12px;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* Donut Charts */
+.donut-charts-row {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  margin: 32px 0;
+}
+
+.donut-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.donut-ring {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-ring svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.donut-ring circle {
+  fill: none;
+  stroke-width: 8;
+}
+
+.donut-ring .bg { stroke: var(--gray-200); }
+.donut-ring .progress { stroke-linecap: round; }
+
+.donut-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.donut-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Connected Tool Bar */
+.tool-bar {
+  display: flex;
+  margin: 24px 0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tool-segment {
+  flex: 1;
+  padding: 14px 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  position: relative;
+}
+
+.tool-segment::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.3);
+}
+
+.tool-segment:last-child::after { display: none; }
+
+.tool-segment-purple { background: var(--purple-600); }
+.tool-segment-blue { background: var(--blue-500); }
+.tool-segment-teal { background: var(--teal-500); }
+.tool-segment-green { background: var(--green-500); }
+.tool-segment-amber { background: var(--amber-500); }
+.tool-segment-orange { background: var(--orange-500); }
+.tool-segment-pink { background: var(--pink-500); }
+
+/* ============================================
+   PAGE 3-5: CURRICULUM - Color-coded Cards
+   ============================================ */
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.curriculum-card {
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.curriculum-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.curriculum-card-purple {
+  background: linear-gradient(135deg, var(--purple-50), var(--white));
+  border: 1px solid var(--purple-200);
+}
+.curriculum-card-purple::before { background: var(--purple-500); }
+
+.curriculum-card-teal {
+  background: linear-gradient(135deg, #f0fdfa, var(--white));
+  border: 1px solid #99f6e4;
+}
+.curriculum-card-teal::before { background: var(--teal-500); }
+
+.curriculum-card-blue {
+  background: linear-gradient(135deg, #eff6ff, var(--white));
+  border: 1px solid #bfdbfe;
+}
+.curriculum-card-blue::before { background: var(--blue-500); }
+
+.curriculum-card-amber {
+  background: linear-gradient(135deg, #fffbeb, var(--white));
+  border: 1px solid #fde68a;
+}
+.curriculum-card-amber::before { background: var(--amber-500); }
+
+.curriculum-card-green {
+  background: linear-gradient(135deg, #f0fdf4, var(--white));
+  border: 1px solid #bbf7d0;
+}
+.curriculum-card-green::before { background: var(--green-500); }
+
+.curriculum-card-pink {
+  background: linear-gradient(135deg, #fdf2f8, var(--white));
+  border: 1px solid #fbcfe8;
+}
+.curriculum-card-pink::before { background: var(--pink-500); }
+
+.curriculum-week {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.curriculum-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 10px;
+}
+
+.curriculum-topics {
+  list-style: none;
+  font-size: 11px;
+  color: var(--gray-600);
+}
+
+.curriculum-topics li {
+  padding: 3px 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.curriculum-topics li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.curriculum-card-purple .curriculum-topics li::before { background: var(--purple-400); }
+.curriculum-card-teal .curriculum-topics li::before { background: var(--teal-400); }
+.curriculum-card-blue .curriculum-topics li::before { background: var(--blue-400); }
+.curriculum-card-amber .curriculum-topics li::before { background: var(--amber-400); }
+.curriculum-card-green .curriculum-topics li::before { background: var(--green-400); }
+.curriculum-card-pink .curriculum-topics li::before { background: var(--pink-400); }
+
+.curriculum-output {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.curriculum-output-label {
+  font-weight: 700;
+  color: var(--green-600);
+}
+
+/* ============================================
+   TRAINER - Hexagonal Frame
+   ============================================ */
+.trainer-section {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
+.trainer-hex-container {
+  position: relative;
+  width: 140px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.trainer-hex {
+  width: 120px;
+  height: 140px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+  position: relative;
+}
+
+.trainer-hex img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trainer-hex-accent {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.trainer-hex-accent-tl {
+  top: -5px;
+  left: 10px;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 26px solid var(--purple-500);
+}
+
+.trainer-hex-accent-br {
+  bottom: 5px;
+  right: -10px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 35px solid var(--purple-400);
+}
+
+.trainer-info { flex: 1; }
+.trainer-name { font-size: 18px; font-weight: 800; color: var(--gray-900); margin-bottom: 4px; }
+.trainer-role { font-size: 12px; color: var(--purple-600); font-weight: 600; margin-bottom: 10px; }
+.trainer-bio { font-size: 12px; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px; }
+
+.trainer-stats-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.trainer-stat-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+}
+
+.trainer-stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--purple-600);
+}
+
+.trainer-stat-label {
+  font-size: 10px;
+  color: var(--gray-500);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   RESULTS - Large Circular Stats
+   ============================================ */
+.results-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin: 24px 0;
+}
+
+.result-circle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-ring {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.result-ring::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: white;
+}
+
+.result-ring-purple { background: conic-gradient(var(--purple-500) 0deg 270deg, var(--gray-200) 270deg 360deg); }
+.result-ring-green { background: conic-gradient(var(--green-500) 0deg 252deg, var(--gray-200) 252deg 360deg); }
+.result-ring-amber { background: conic-gradient(var(--amber-500) 0deg 324deg, var(--gray-200) 324deg 360deg); }
+
+.result-value {
+  position: relative;
+  z-index: 1;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--gray-900);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.result-label {
+  font-size: 11px;
+  color: var(--gray-600);
+  text-align: center;
+  max-width: 100px;
+}
+
+/* ============================================
+   OUTCOMES - Icon Cards
+   ============================================ */
+.outcome-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.outcome-card {
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.outcome-card-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outcome-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.outcome-card-text {
+  font-size: 11px;
+  color: var(--gray-500);
+}
+
+.outcome-card-purple {
+  background: linear-gradient(135deg, var(--purple-50), var(--white));
+  border: 1px solid var(--purple-200);
+}
+.outcome-card-purple .outcome-card-icon { background: var(--purple-100); color: var(--purple-600); }
+
+.outcome-card-teal {
+  background: linear-gradient(135deg, #f0fdfa, var(--white));
+  border: 1px solid #99f6e4;
+}
+.outcome-card-teal .outcome-card-icon { background: #ccfbf1; color: var(--teal-500); }
+
+.outcome-card-amber {
+  background: linear-gradient(135deg, #fffbeb, var(--white));
+  border: 1px solid #fde68a;
+}
+.outcome-card-amber .outcome-card-icon { background: #fef3c7; color: var(--amber-600); }
+
+.outcome-card-blue {
+  background: linear-gradient(135deg, #eff6ff, var(--white));
+  border: 1px solid #bfdbfe;
+}
+.outcome-card-blue .outcome-card-icon { background: #dbeafe; color: var(--blue-600); }
+
+.outcome-card-pink {
+  background: linear-gradient(135deg, #fdf2f8, var(--white));
+  border: 1px solid #fbcfe8;
+}
+.outcome-card-pink .outcome-card-icon { background: #fce7f3; color: var(--pink-500); }
+
+.outcome-card-green {
+  background: linear-gradient(135deg, #f0fdf4, var(--white));
+  border: 1px solid #bbf7d0;
+}
+.outcome-card-green .outcome-card-icon { background: #dcfce7; color: var(--green-600); }
+
+/* FAQ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.faq-item {
+  padding: 12px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+}
+
+.faq-question {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.faq-answer {
+  font-size: 11px;
+  color: var(--gray-600);
+  line-height: 1.5;
+}
+
+/* Who Is This For - Visual Cards */
+.audience-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.audience-card {
+  padding: 16px 12px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid var(--gray-200);
+  background: var(--white);
+}
+
+.audience-card-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 10px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.audience-card-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.audience-card-text {
+  font-size: 10px;
+  color: var(--gray-500);
+}
+
+/* What You Don't Need - Checkmarks */
+.no-need-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--gray-50);
+  border-radius: 12px;
+}
+
+.no-need-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+}
+
+.no-need-check {
+  width: 20px;
+  height: 20px;
+  background: var(--green-500);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.no-need-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+/* Products Built - Timeline Style */
+.products-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 16px;
+  position: relative;
+}
+
+.products-timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  bottom: 20px;
+  width: 3px;
+  background: linear-gradient(180deg, var(--purple-500), var(--teal-500), var(--blue-500), var(--amber-500), var(--green-500));
+  border-radius: 2px;
+}
+
+.product-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  position: relative;
+}
+
+.product-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.product-content {
+  flex: 1;
+  padding: 12px 16px;
+  background: var(--gray-50);
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+}
+
+.product-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+.product-desc {
+  font-size: 11px;
+  color: var(--gray-500);
+  margin-top: 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page cover">
+  <!-- Geometric Accent - left side only -->
+  <div style="position: absolute; bottom: 200px; left: -20px; width: 0; height: 0; border-top: 25px solid transparent; border-bottom: 25px solid transparent; border-left: 43px solid var(--purple-400);"></div>
+
+  <!-- Glow behind hexagon -->
+  <div class="cover-glow"></div>
+
+  <!-- Hero Image Hexagon -->
+  <div class="cover-hero-image">
+    <img src="hero-coding.png" alt="AI Bootcamp">
+  </div>
+
+  <!-- Floating Icons -->
+  <div class="cover-float-icon" style="top: 50px; right: 340px;">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4v2a4 4 0 0 1-8 0V6a4 4 0 0 1 4-4zM5 10a7 7 0 0 0 14 0M8 18h8M12 18v4"/></svg>
+  </div>
+  <div class="cover-float-icon" style="top: 200px; right: 400px;">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </div>
+  <div class="cover-float-icon" style="top: 380px; right: 380px;">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+  </div>
+  <div class="cover-float-icon" style="top: 140px; right: -10px; background: rgba(196, 240, 66, 0.15); border-color: rgba(196, 240, 66, 0.3); color: #c4f042;">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </div>
+
+  <div class="cover-inner">
+    <div class="cover-top">
+      <img src="logo-white.png" alt="Rewire" class="cover-logo">
+      <div class="cover-cohort-badge">June 2026 Cohort</div>
+    </div>
+
+    <div class="cover-main">
+      <div class="cover-eyebrow">Live Online Bootcamp</div>
+      <h1 class="cover-title">
+        AI Bootcamp for<br><span>College Students</span>
+      </h1>
+      <p class="cover-subtitle">
+        Build your AI portfolio before placement season.<br>
+        5 weeks. 5 products. Zero coding needed.
+      </p>
+
+      <!-- Circular Stats -->
+      <div class="cover-stats-circular">
+        <div class="circular-stat">
+          <div class="circular-ring circular-ring-full">
+            <span class="circular-stat-value">5</span>
+          </div>
+          <span class="circular-stat-label">Weeks</span>
+        </div>
+        <div class="circular-stat">
+          <div class="circular-ring circular-ring-lime">
+            <span class="circular-stat-value">5</span>
+          </div>
+          <span class="circular-stat-label">Products</span>
+        </div>
+        <div class="circular-stat">
+          <div class="circular-ring circular-ring-full">
+            <span class="circular-stat-value">30</span>
+          </div>
+          <span class="circular-stat-label">Students</span>
+        </div>
+        <div class="circular-stat">
+          <div class="circular-ring circular-ring-lime">
+            <span class="circular-stat-value">Live</span>
+          </div>
+          <span class="circular-stat-label">Weekends</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-pricing-card">
+        <div class="cover-price-section">
+          <div class="cover-price-left">
+            <span class="cover-price-badge">Founding Batch</span>
+            <span class="cover-price-original">Rs. 55,000</span>
+            <div class="cover-price-row">
+              <span class="cover-price-current">Rs. 19,999</span>
+              <span class="cover-price-note">+GST</span>
+            </div>
+          </div>
+        </div>
+        <div class="cover-divider"></div>
+        <a href="https://rewire.school/" class="cover-cta-url">
+          Apply at rewire.school
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: OVERVIEW ==================== -->
+<div class="page interior">
+  <!-- Geometric Accents - corner positioned -->
+  <div style="position: absolute; bottom: 100px; left: -20px; width: 0; height: 0; border-top: 30px solid transparent; border-bottom: 30px solid transparent; border-left: 52px solid var(--purple-600);"></div>
+
+  <div class="interior-header">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Overview</span>
+  </div>
+
+  <div class="interior-content">
+    <!-- The Problem - Flowing Cards -->
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">The Placement Gap</h2>
+    </div>
+
+    <div class="flowing-cards">
+      <div class="flowing-card flowing-card-purple">
+        <div class="flowing-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="flowing-card-title">Every resume looks the same</div>
+        <div class="flowing-card-text">Same courses, same projects. When 300 students apply from the same campus, you need something different.</div>
+      </div>
+      <div class="flowing-card flowing-card-teal">
+        <div class="flowing-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="flowing-card-title">College projects don't impress</div>
+        <div class="flowing-card-text">Academic projects end with a PPT. We teach you to ship real products that live on the internet.</div>
+      </div>
+      <div class="flowing-card flowing-card-amber">
+        <div class="flowing-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+        </div>
+        <div class="flowing-card-title">The question changed</div>
+        <div class="flowing-card-text">It's not "what's your CGPA?" anymore. It's "what have you built?" If you can't show something live, the interview is over.</div>
+      </div>
+    </div>
+
+    <!-- About Rewire.School -->
+    <div class="section-header" style="margin-top: 28px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">About Rewire.School</h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 3fr 2fr; gap: 20px; margin-top: 12px;">
+      <div style="padding: 16px; background: var(--gray-50); border: 1px solid var(--gray-200); border-left: 4px solid var(--purple-500); border-radius: 10px;">
+        <p style="font-size: 12px; line-height: 1.6; color: var(--gray-700); margin-bottom: 10px;">
+          Rewire is a career transformation platform for ambitious students who want to learn AI as something they can <strong>build</strong> with. Our programmes are live, cohort-based, and focused on one thing — <em>did your work change after this?</em>
+        </p>
+        <p style="font-size: 12px; line-height: 1.6; color: var(--gray-700); margin-bottom: 12px;">
+          We don't teach theory for the sake of it. Every session ends with something shipped. Every week adds a product to your portfolio. By the end, you have proof — not just a certificate.
+        </p>
+        <div style="background: linear-gradient(135deg, var(--gray-900), var(--purple-800)); color: var(--purple-200); padding: 12px 14px; border-radius: 8px;">
+          <p style="font-size: 13px; font-weight: 600; font-style: italic; line-height: 1.4; margin: 0;">"AI will not replace you. But someone who can build with AI might."</p>
+        </div>
+      </div>
+      <div style="border-radius: 10px; overflow: hidden; border: 3px solid var(--purple-500);">
+        <img src="hero-coding.png" alt="Rewire Office" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+      </div>
+    </div>
+
+    <!-- Who Is This For -->
+    <div class="section-header" style="margin-top: 24px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">Who Is This For?</h2>
+    </div>
+
+    <div class="audience-cards">
+      <div class="audience-card">
+        <div class="audience-card-icon" style="background: var(--purple-100);">
+          <svg width="24" height="24" fill="none" stroke="var(--purple-600)" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c6 3 10 0 10 0v-5"/></svg>
+        </div>
+        <div class="audience-card-title">Portfolio Before Placements</div>
+        <div class="audience-card-text">3rd & 4th years — walk into campus drives with 5 live products in your portfolio.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon" style="background: #ccfbf1;">
+          <svg width="24" height="24" fill="none" stroke="var(--teal-500)" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </div>
+        <div class="audience-card-title">Head Start Before College</div>
+        <div class="audience-card-text">About to join? Start building from day one instead of waiting semesters.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon" style="background: #fef3c7;">
+          <svg width="24" height="24" fill="none" stroke="var(--amber-600)" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="audience-card-title">Curious Builders (17-20)</div>
+        <div class="audience-card-text">1st & 2nd years curious about AI. Any stream — engineering, arts, commerce.</div>
+      </div>
+      <div class="audience-card">
+        <div class="audience-card-icon" style="background: #dbeafe;">
+          <svg width="24" height="24" fill="none" stroke="var(--blue-600)" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="audience-card-title">Startup or Internship Ideas</div>
+        <div class="audience-card-text">Build a side project or impress at internships with real AI products.</div>
+      </div>
+    </div>
+
+    <!-- What You Don't Need -->
+    <div class="no-need-row">
+      <div class="no-need-item">
+        <div class="no-need-check">
+          <svg width="12" height="12" fill="none" stroke="white" stroke-width="3"><polyline points="10 3 4 9 1 6"/></svg>
+        </div>
+        <span class="no-need-text">No coding</span>
+      </div>
+      <div class="no-need-item">
+        <div class="no-need-check">
+          <svg width="12" height="12" fill="none" stroke="white" stroke-width="3"><polyline points="10 3 4 9 1 6"/></svg>
+        </div>
+        <span class="no-need-text">No AI background</span>
+      </div>
+      <div class="no-need-item">
+        <div class="no-need-check">
+          <svg width="12" height="12" fill="none" stroke="white" stroke-width="3"><polyline points="10 3 4 9 1 6"/></svg>
+        </div>
+        <span class="no-need-text">No specific degree</span>
+      </div>
+      <div class="no-need-item">
+        <div class="no-need-check">
+          <svg width="12" height="12" fill="none" stroke="white" stroke-width="3"><polyline points="10 3 4 9 1 6"/></svg>
+        </div>
+        <span class="no-need-text">No expensive tools</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <span>+91 73050 82534</span>
+      <a href="https://rewire.school/">rewire.school</a>
+    </div>
+    <span class="footer-page">02</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3: WHAT YOU'LL BUILD & TOOLS ==================== -->
+<div class="page interior">
+  <!-- Geometric Accents - corner positioned -->
+
+  <div class="interior-header">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Programme</span>
+  </div>
+
+  <div class="interior-content">
+    <!-- What You'll Build - Timeline -->
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">What You'll Build</h2>
+    </div>
+
+    <div class="products-timeline">
+      <div class="product-item">
+        <div class="product-number" style="background: var(--purple-500);">1</div>
+        <div class="product-content">
+          <div class="product-title">Single-Purpose AI Tool</div>
+          <div class="product-desc">Live on the internet - resume reviewer, flashcard generator</div>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-number" style="background: var(--teal-500);">2</div>
+        <div class="product-content">
+          <div class="product-title">Domain-Specific Chatbot</div>
+          <div class="product-desc">With memory & personality - tutor, journaling companion</div>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-number" style="background: var(--blue-500);">3</div>
+        <div class="product-content">
+          <div class="product-title">Autonomous AI Agent</div>
+          <div class="product-desc">Multi-step task completion - research assistant, data processor</div>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-number" style="background: var(--amber-500);">4</div>
+        <div class="product-content">
+          <div class="product-title">Automation Pipeline</div>
+          <div class="product-desc">Gmail, Notion, Slack connected - inbox triage, content engine</div>
+        </div>
+      </div>
+      <div class="product-item">
+        <div class="product-number" style="background: var(--green-500);">5</div>
+        <div class="product-content">
+          <div class="product-title">Capstone Product</div>
+          <div class="product-desc">Scoped, pitched, built, demoed - your portfolio centerpiece</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tools - Connected Bar -->
+    <div class="section-header" style="margin-top: 32px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">Tools You'll Master</h2>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div style="font-size: 11px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Vibe Coding</div>
+      <div class="tool-bar">
+        <div class="tool-segment tool-segment-purple">Lovable</div>
+        <div class="tool-segment tool-segment-blue">Bolt</div>
+        <div class="tool-segment tool-segment-teal">v0</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div style="font-size: 11px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">LLMs</div>
+      <div class="tool-bar">
+        <div class="tool-segment tool-segment-orange">Claude</div>
+        <div class="tool-segment tool-segment-green">GPT</div>
+        <div class="tool-segment tool-segment-blue">Gemini</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 16px;">
+      <div style="font-size: 11px; font-weight: 600; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Automation & Dev Tools</div>
+      <div class="tool-bar">
+        <div class="tool-segment tool-segment-amber">n8n</div>
+        <div class="tool-segment tool-segment-purple">MCP</div>
+        <div class="tool-segment tool-segment-pink">GitHub</div>
+        <div class="tool-segment tool-segment-teal">Cursor</div>
+      </div>
+    </div>
+
+    <!-- About Rewire -->
+    <div style="margin-top: 32px; padding: 20px; background: linear-gradient(135deg, var(--gray-900), var(--purple-900)); border-radius: 12px; color: white;">
+      <div style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">About Rewire.School</div>
+      <p style="font-size: 12px; line-height: 1.6; color: var(--gray-300); margin-bottom: 12px;">
+        Rewire is a career transformation platform for ambitious students who want to learn AI as something they can <strong style="color: white;">build</strong> with. Our programmes are live, cohort-based, and focused on one thing - <em>did your work change after this?</em>
+      </p>
+      <div style="font-size: 13px; font-weight: 600; font-style: italic; color: var(--purple-300);">
+        "AI will not replace you. But someone who can build with AI might."
+      </div>
+    </div>
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <span>+91 73050 82534</span>
+      <a href="https://rewire.school/">rewire.school</a>
+    </div>
+    <span class="footer-page">03</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 4: CURRICULUM GRID ==================== -->
+<div class="page interior">
+  <!-- Geometric Accents - corner positioned -->
+  <div style="position: absolute; bottom: 80px; left: -20px; width: 0; height: 0; border-top: 25px solid transparent; border-bottom: 25px solid transparent; border-left: 43px solid var(--purple-600);"></div>
+
+  <div class="interior-header">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Curriculum</span>
+  </div>
+
+  <div class="interior-content">
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">5-Week Curriculum</h2>
+    </div>
+
+    <div class="curriculum-grid">
+      <!-- Week 1 -->
+      <div class="curriculum-card curriculum-card-purple">
+        <div class="curriculum-week" style="color: var(--purple-600);">Week 1</div>
+        <div class="curriculum-title">Foundations & First Ship</div>
+        <ul class="curriculum-topics">
+          <li>Tokens, context windows, temperature</li>
+          <li>Compare Claude / GPT-4o / Gemini</li>
+          <li>Lovable / Bolt / v0 / Artifacts</li>
+          <li>Prompting for building, not chatting</li>
+          <li>Debug AI-generated code</li>
+          <li>Push to a public URL</li>
+        </ul>
+        <div class="curriculum-output">
+          <span class="curriculum-output-label">Ship:</span> Single-Purpose AI Tool
+        </div>
+      </div>
+
+      <!-- Week 2 -->
+      <div class="curriculum-card curriculum-card-teal">
+        <div class="curriculum-week" style="color: var(--teal-500);">Week 2</div>
+        <div class="curriculum-title">State, Personality & Chatbots</div>
+        <ul class="curriculum-topics">
+          <li>Stateless LLMs & adding memory</li>
+          <li>Context windows - what fits, what doesn't</li>
+          <li>System prompts for personality</li>
+          <li>API security & .env files</li>
+          <li>Tone iteration & personality tuning</li>
+          <li>Token pricing & cost awareness</li>
+        </ul>
+        <div class="curriculum-output">
+          <span class="curriculum-output-label">Ship:</span> Chatbot with Memory
+        </div>
+      </div>
+
+      <!-- Week 3 -->
+      <div class="curriculum-card curriculum-card-blue">
+        <div class="curriculum-week" style="color: var(--blue-600);">Week 3</div>
+        <div class="curriculum-title">Tools, Agents & AI That Does</div>
+        <ul class="curriculum-topics">
+          <li>Agent vs workflow vs chatbot</li>
+          <li>Function calling - giving AI tools</li>
+          <li>The agent loop: think -> act -> observe</li>
+          <li>Claude Code & Cursor as examples</li>
+          <li>Design the toolset</li>
+          <li>Failure testing & edge cases</li>
+        </ul>
+        <div class="curriculum-output">
+          <span class="curriculum-output-label">Ship:</span> Autonomous Agent
+        </div>
+      </div>
+
+      <!-- Week 4 -->
+      <div class="curriculum-card curriculum-card-amber">
+        <div class="curriculum-week" style="color: var(--amber-600);">Week 4</div>
+        <div class="curriculum-title">Integration - MCP & Automation</div>
+        <ul class="curriculum-topics">
+          <li>What MCP is & why it matters</li>
+          <li>Connect Gmail / Notion / Slack / Drive</li>
+          <li>Safe integrations & permissions</li>
+          <li>n8n: Triggers & actions</li>
+          <li>LLMs inside automation flows</li>
+          <li>Reliability & error handling</li>
+        </ul>
+        <div class="curriculum-output">
+          <span class="curriculum-output-label">Ship:</span> Automation Pipeline
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 5 - Full Width Capstone -->
+    <div class="curriculum-card curriculum-card-green" style="margin-top: 16px; border: 2px solid var(--green-400);">
+      <div style="display: flex; gap: 24px;">
+        <div style="flex: 1;">
+          <div class="curriculum-week" style="color: var(--green-600);">Week 5 - Capstone</div>
+          <div class="curriculum-title">Your Portfolio Centerpiece</div>
+          <ul class="curriculum-topics">
+            <li>Craft a 90-second pitch</li>
+            <li>Peer feedback & iteration</li>
+            <li>Cut scope ruthlessly - then build</li>
+          </ul>
+        </div>
+        <div style="flex: 1;">
+          <div class="curriculum-week" style="color: var(--green-600);">Demo Day</div>
+          <div class="curriculum-title">Present to the Cohort</div>
+          <ul class="curriculum-topics">
+            <li>5-minute live demo</li>
+            <li>Feedback from peers & trainer</li>
+            <li>Shareable link for portfolio</li>
+          </ul>
+        </div>
+      </div>
+      <div class="curriculum-output" style="margin-top: 16px; background: linear-gradient(135deg, #dcfce7, white);">
+        <span class="curriculum-output-label">Ship:</span> Real AI Product - scoped, built, demoed. This becomes the centerpiece of your portfolio.
+      </div>
+    </div>
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <span>+91 73050 82534</span>
+      <a href="https://rewire.school/">rewire.school</a>
+    </div>
+    <span class="footer-page">04</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 5: TRAINER & RESULTS ==================== -->
+<div class="page interior">
+  <!-- Geometric Accents - corner positioned -->
+
+  <div class="interior-header">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Trainer & Results</span>
+  </div>
+
+  <div class="interior-content">
+    <!-- Trainer Section -->
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">Your Trainer</h2>
+    </div>
+
+    <div class="trainer-section">
+      <div class="trainer-hex-container">
+        <div class="trainer-hex">
+          <img src="sam.jpeg" alt="Samraat Bansal">
+        </div>
+        <div class="trainer-hex-accent trainer-hex-accent-tl"></div>
+        <div class="trainer-hex-accent trainer-hex-accent-br"></div>
+      </div>
+      <div class="trainer-info">
+        <div class="trainer-name">Samraat Bansal</div>
+        <div class="trainer-role">AI Engineer at Emergent (YC S24) / Ex-Juspay</div>
+        <div class="trainer-bio">
+          3+ years building production AI systems. Reduced engineering resolution time by 80% at Juspay using AI-powered tools. Currently at Emergent (YC S24), building AI infrastructure. Believes AI literacy should start in college. Frustrated by theory-heavy, build-light courses. Wants to create builders, not certificate holders.
+        </div>
+        <div class="trainer-stats-row">
+          <div class="trainer-stat-badge">
+            <span class="trainer-stat-value">YC S24</span>
+            <span class="trainer-stat-label">Backed</span>
+          </div>
+          <div class="trainer-stat-badge">
+            <span class="trainer-stat-value">Ex-Juspay</span>
+            <span class="trainer-stat-label">Background</span>
+          </div>
+          <div class="trainer-stat-badge">
+            <span class="trainer-stat-value">39K-star</span>
+            <span class="trainer-stat-label">OSS Contrib</span>
+          </div>
+          <div class="trainer-stat-badge">
+            <span class="trainer-stat-value">550+</span>
+            <span class="trainer-stat-label">Students</span>
+          </div>
+          <div class="trainer-stat-badge">
+            <span class="trainer-stat-value">4.8/5</span>
+            <span class="trainer-stat-label">Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="section-header" style="margin-top: 36px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">Results from Pilot Cohorts</h2>
+    </div>
+
+    <div class="results-row">
+      <div class="result-circle">
+        <div class="result-ring result-ring-purple">
+          <span class="result-value">6h<br>to 45m</span>
+        </div>
+        <span class="result-label">Weekly reporting time reduced</span>
+      </div>
+      <div class="result-circle">
+        <div class="result-ring result-ring-green">
+          <span class="result-value">70%</span>
+        </div>
+        <span class="result-label">Manual work eliminated</span>
+      </div>
+      <div class="result-circle">
+        <div class="result-ring result-ring-amber">
+          <span class="result-value">1st<br>Ship</span>
+        </div>
+        <span class="result-label">Led to internship interviews</span>
+      </div>
+    </div>
+
+    <!-- Quote -->
+    <div style="margin-top: 32px; padding: 24px; background: linear-gradient(135deg, var(--purple-50), white); border: 1px solid var(--purple-200); border-radius: 12px; text-align: center;">
+      <svg width="32" height="32" fill="var(--purple-300)" viewBox="0 0 24 24" style="margin-bottom: 12px;"><path d="M11.192 15.757c0-.88-.23-1.618-.69-2.217-.326-.412-.768-.683-1.327-.812-.55-.128-1.07-.137-1.54-.028-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L9.373 5c-.8.396-1.56.898-2.26 1.505-.71.607-1.34 1.305-1.9 2.094s-.98 1.68-1.25 2.69-.346 2.04-.217 3.1c.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l.002.003zm9.124 0c0-.88-.23-1.618-.69-2.217-.326-.42-.768-.695-1.327-.825-.55-.13-1.07-.14-1.54-.03-.16-.95.1-1.956.76-3.022.66-1.065 1.515-1.867 2.558-2.403L18.49 5c-.8.396-1.555.898-2.26 1.505-.708.607-1.34 1.305-1.894 2.094-.556.79-.97 1.68-1.24 2.69-.273 1.01-.345 2.04-.217 3.1.168 1.4.62 2.52 1.356 3.35.735.84 1.652 1.26 2.748 1.26.965 0 1.766-.29 2.4-.878.628-.576.94-1.365.94-2.368l-.007.003z"/></svg>
+      <p style="font-size: 15px; font-style: italic; color: var(--gray-700); max-width: 480px; margin: 0 auto;">
+        "I built something real and it lives on the internet. That's what I tell interviewers now."
+      </p>
+      <p style="font-size: 12px; color: var(--gray-500); margin-top: 8px;">- Student from Pilot Cohort</p>
+    </div>
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <span>+91 73050 82534</span>
+      <a href="https://rewire.school/">rewire.school</a>
+    </div>
+    <span class="footer-page">05</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 6: OUTCOMES ==================== -->
+<div class="page interior">
+  <!-- Geometric Accents - corner positioned -->
+  <div style="position: absolute; bottom: 100px; left: -20px; width: 0; height: 0; border-top: 30px solid transparent; border-bottom: 30px solid transparent; border-left: 52px solid var(--purple-600);"></div>
+
+  <div class="interior-header">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Outcomes</span>
+  </div>
+
+  <div class="interior-content">
+    <!-- After the Bootcamp -->
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">After the Bootcamp</h2>
+    </div>
+
+    <div class="outcome-cards">
+      <div class="outcome-card outcome-card-purple">
+        <div class="outcome-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="outcome-card-title">Portfolio Curation</div>
+        <div class="outcome-card-text">5 products, polished & shareable</div>
+      </div>
+      <div class="outcome-card outcome-card-amber">
+        <div class="outcome-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
+        </div>
+        <div class="outcome-card-title">Product Mentorship</div>
+        <div class="outcome-card-text">Guidance on shipping quality</div>
+      </div>
+      <div class="outcome-card outcome-card-green">
+        <div class="outcome-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+        </div>
+        <div class="outcome-card-title">Campus Coaching</div>
+        <div class="outcome-card-text">Interview prep with AI focus</div>
+      </div>
+      <div class="outcome-card outcome-card-blue">
+        <div class="outcome-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div class="outcome-card-title">LinkedIn Optimization</div>
+        <div class="outcome-card-text">Profile that showcases builds</div>
+      </div>
+      <div class="outcome-card outcome-card-pink">
+        <div class="outcome-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="outcome-card-title">Peer Network</div>
+        <div class="outcome-card-text">Alumni community of builders</div>
+      </div>
+      <div class="outcome-card outcome-card-teal">
+        <div class="outcome-card-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="outcome-card-title">Demo Day Access</div>
+        <div class="outcome-card-text">Present to mentors & guests</div>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="section-header" style="margin-top: 28px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-question">Do I need to know coding?</div>
+        <div class="faq-answer">No. We use vibe coding - you describe what you want, AI writes the code. You learn to direct it, debug it, and ship it.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">I'm not from a tech stream. Can I join?</div>
+        <div class="faq-answer">Yes. Arts, commerce, science - any stream. The programme requires curiosity and willingness to build, not a CS degree.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What's the weekly schedule?</div>
+        <div class="faq-answer">2 live sessions on Saturday & Sunday (1.5-2 hours each) plus async support throughout the week on the cohort channel.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">Will this help with placements?</div>
+        <div class="faq-answer">Yes - through real skills and a portfolio. You'll walk into interviews with 5 live products, not just a certificate.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">What's the refund policy?</div>
+        <div class="faq-answer">100% refund if you're not satisfied after the first session. No questions asked. We're confident you'll stay.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">How is this different from other AI courses?</div>
+        <div class="faq-answer">You ship 5 real products in 5 weeks. No pre-recorded videos. No certificates without proof. Everything you build is live.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <span>+91 73050 82534</span>
+      <a href="https://rewire.school/">rewire.school</a>
+    </div>
+    <span class="footer-page">06</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 7: ENROLLMENT (DARK) ==================== -->
+<div class="page" style="background: linear-gradient(165deg, var(--gray-900) 0%, var(--black) 50%, #0c0118 100%); color: var(--white); position: relative; overflow: hidden;">
+  <!-- Geometric Accents - corner positioned -->
+  <div style="position: absolute; bottom: 120px; left: -25px; width: 0; height: 0; border-top: 35px solid transparent; border-bottom: 35px solid transparent; border-left: 60px solid var(--purple-600);"></div>
+
+  <!-- Purple glow -->
+  <div style="position: absolute; top: 0; right: 0; width: 100%; height: 100%; background: radial-gradient(ellipse at 80% 20%, rgba(147,51,234,0.15) 0%, transparent 50%); pointer-events: none;"></div>
+
+  <div style="position: relative; z-index: 1; display: flex; flex-direction: column; height: 297mm; width: 210mm; padding: 24px 32px; box-sizing: border-box;">
+    <!-- Header -->
+    <div style="flex-shrink: 0; height: 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1);">
+      <img src="logo-white.png" alt="Rewire" style="height: 22px; width: auto;">
+      <span style="font-size: 12px; font-weight: 500; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.05em;">Enrollment</span>
+    </div>
+
+    <!-- Content -->
+    <div style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+      <!-- Hero -->
+      <div style="text-align: center; margin-bottom: 32px;">
+        <h1 style="font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 12px;">
+          Ready to <span style="color: var(--purple-400);">Build with AI</span>?
+        </h1>
+        <p style="font-size: 15px; color: var(--gray-400); max-width: 400px; margin: 0 auto;">Your portfolio of 5 AI products starts here. No coding required.</p>
+      </div>
+
+      <!-- Pricing Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 28px;">
+        <!-- Pricing Card -->
+        <div style="background: linear-gradient(135deg, var(--purple-600) 0%, var(--purple-800) 100%); border-radius: 16px; padding: 28px; text-align: center; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);"></div>
+          <div style="position: relative; z-index: 1;">
+            <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple-200); margin-bottom: 8px;">Founding Batch Price</div>
+            <div style="font-size: 14px; color: var(--purple-300); text-decoration: line-through; margin-bottom: 4px;">Rs. 55,000</div>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 48px; font-weight: 800; color: white; margin-bottom: 4px;">Rs. 19,999</div>
+            <div style="font-size: 13px; color: var(--purple-200);">+GST (Rs. 23,599 inclusive)</div>
+            <div style="display: inline-block; background: rgba(255,255,255,0.15); padding: 10px 20px; border-radius: 24px; font-size: 13px; font-weight: 600; margin-top: 16px;">June 2026 / 30 Seats Only</div>
+          </div>
+        </div>
+
+        <!-- What's Included -->
+        <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; padding: 24px;">
+          <div style="font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 14px;">What's Included</div>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="font-size: 13px; color: var(--gray-300); padding: 6px 0; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--green-400);">&#10003;</span> 5 weeks live training (Sat-Sun)</li>
+            <li style="font-size: 13px; color: var(--gray-300); padding: 6px 0; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--green-400);">&#10003;</span> Personal mentorship</li>
+            <li style="font-size: 13px; color: var(--gray-300); padding: 6px 0; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--green-400);">&#10003;</span> Async support via cohort channel</li>
+            <li style="font-size: 13px; color: var(--gray-300); padding: 6px 0; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--green-400);">&#10003;</span> 5 deployed products</li>
+            <li style="font-size: 13px; color: var(--gray-300); padding: 6px 0; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--green-400);">&#10003;</span> Demo day participation</li>
+            <li style="font-size: 13px; color: var(--gray-300); padding: 6px 0; padding-left: 24px; position: relative;"><span style="position: absolute; left: 0; color: var(--green-400);">&#10003;</span> Alumni network access</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Social Proof -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 32px; margin-bottom: 28px; padding: 18px; background: rgba(255,255,255,0.03); border-radius: 12px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--purple-400);">550+</div>
+          <div style="font-size: 12px; color: var(--gray-400);">Students Trained</div>
+        </div>
+        <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.1);"></div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--amber-400);">4.8/5</div>
+          <div style="font-size: 12px; color: var(--gray-400);">Rating</div>
+        </div>
+        <div style="width: 1px; height: 28px; background: rgba(255,255,255,0.1);"></div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; color: var(--green-400);">YC S24</div>
+          <div style="font-size: 12px; color: var(--gray-400);">Backed Trainer</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <a href="https://rewire.school/" style="display: block; background: linear-gradient(135deg, var(--purple-500), var(--purple-600)); color: white; text-decoration: none; padding: 22px 32px; border-radius: 14px; text-align: center; font-size: 18px; font-weight: 700; margin-bottom: 24px; box-shadow: 0 8px 32px rgba(147, 51, 234, 0.4);">
+        <span style="display: flex; align-items: center; justify-content: center; gap: 12px;">
+          Apply Now at rewire.school
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </a>
+
+      <!-- Contact -->
+      <div style="display: flex; align-items: center; justify-content: center; gap: 40px;">
+        <a href="mailto:hello@rewire.school" style="color: var(--gray-400); text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          hello@rewire.school
+        </a>
+        <a href="https://wa.me/917305082534" style="color: var(--gray-400); text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          +91 73050 82534
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div style="flex-shrink: 0; height: 36px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.06);">
+      <img src="logo-white.png" alt="Rewire" style="height: 20px; opacity: 0.4;">
+      <div style="font-size: 11px; color: var(--gray-600); font-style: italic;">Built with AI. Obviously.</div>
+      <span style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gray-600);">07</span>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
