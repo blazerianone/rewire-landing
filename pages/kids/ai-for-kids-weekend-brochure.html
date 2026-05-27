@@ -1,0 +1,2118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build with AI for Kids | rewire.school</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+@page {
+  size: 210mm 297mm;
+  margin: 0;
+}
+
+:root {
+  --white: #ffffff;
+  --off-white: #fafafa;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --black: #030712;
+
+  --purple-50: #faf5ff;
+  --purple-100: #f3e8ff;
+  --purple-200: #e9d5ff;
+  --purple-300: #d8b4fe;
+  --purple-400: #c084fc;
+  --purple-500: #a855f7;
+  --purple-600: #9333ea;
+  --purple-700: #7c3aed;
+  --purple-800: #6b21a8;
+  --purple-900: #581c87;
+
+  --green-400: #4ade80;
+  --green-500: #22c55e;
+  --green-600: #16a34a;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --blue-400: #60a5fa;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --pink-400: #f472b6;
+  --pink-500: #ec4899;
+  --teal-400: #2dd4bf;
+  --teal-500: #14b8a6;
+  --orange-400: #fb923c;
+  --orange-500: #f97316;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--gray-800);
+  background: var(--gray-200);
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  height: 297mm;
+  background: var(--white);
+  position: relative;
+  page-break-after: always;
+  overflow: hidden;
+}
+
+.page:last-child { page-break-after: auto; }
+
+@media screen {
+  .page { margin: 20px auto; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); }
+  body { padding: 20px 0; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--purple-600), var(--purple-500), #c4f042);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-lime {
+  background: linear-gradient(135deg, var(--purple-400), #c4f042);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media print {
+  html, body { margin: 0; padding: 0; background: white; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; color-adjust: exact !important; }
+  .page { margin: 0; padding: 0; box-shadow: none; }
+
+  /* Remove link focus/hover states for print */
+  a, a:hover, a:focus, a:active, a:visited {
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    border: none !important;
+    -webkit-appearance: none !important;
+  }
+
+  /* Remove any browser button/link highlights */
+  *:focus, *:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Section titles - dark gray for readability in print */
+  .section-title {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #1f2937 !important;
+    background-clip: unset !important;
+    color: #1f2937 !important;
+  }
+
+  /* Gradient text accents - purple */
+  .gradient-text {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #7c3aed !important;
+    background-clip: unset !important;
+    color: #7c3aed !important;
+  }
+
+  /* Lime gradient text */
+  .cover-title span, .gradient-text-lime {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    -webkit-text-fill-color: #84cc16 !important;
+    background-clip: unset !important;
+    color: #84cc16 !important;
+  }
+
+  /* Replace gradients with solid colors for print */
+  .cover {
+    background: #111827 !important;
+  }
+  .interior {
+    background: #fafafa !important;
+  }
+
+  /* CTA buttons - solid purple background for print */
+  .cover-cta-url {
+    background: #7c3aed !important;
+  }
+
+  /* Page 8 CTA button */
+  a[href="https://rewire.school/kids"][style*="background: linear-gradient"] {
+    background: #7c3aed !important;
+  }
+
+  /* Glassmorphism/backdrop-filter doesn't work in print */
+  [style*="backdrop-filter"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  /* Ensure borders are visible */
+  * {
+    border-color: currentColor !important;
+  }
+}
+
+/* COVER */
+.cover {
+  background: linear-gradient(165deg, var(--gray-900) 0%, var(--black) 50%, #0c0118 100%);
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(147,51,234,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 80%, rgba(147,51,234,0.08) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.cover-hero-image {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  width: 380px;
+  height: 420px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+}
+
+.cover-hero-image::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: linear-gradient(135deg, var(--purple-400), var(--purple-600), #c4f042);
+  z-index: -1;
+}
+
+.cover-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(147,51,234,0.2), transparent 50%);
+}
+
+.cover-float-icon {
+  position: absolute;
+  width: 48px;
+  height: 48px;
+  background: #2e1065;
+  border: 1px solid #581c87;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-300);
+}
+
+.cover-glow {
+  position: absolute;
+  top: 120px;
+  right: 80px;
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, rgba(147,51,234,0.3) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cover-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 48px 48px 0;
+}
+
+.cover-logo { height: 52px; width: auto; }
+
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 80px;
+}
+
+.cover-cohort-badge {
+  background: var(--purple-600);
+  border: 1px solid var(--purple-500);
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: white;
+}
+
+.cover-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 420px;
+}
+
+.cover-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-400);
+  margin-bottom: 24px;
+}
+
+.cover-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--purple-500), var(--purple-400));
+  border-radius: 1px;
+}
+
+.cover-title {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 24px;
+}
+
+.cover-title span {
+  background: linear-gradient(135deg, var(--purple-400), #c4f042);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cover-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-400);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.cover-stats-circular {
+  display: flex;
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.circular-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.circular-ring {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #1e1b4b;
+}
+
+.circular-ring::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid #312e81;
+}
+
+.circular-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--purple-400);
+  border-right-color: var(--purple-400);
+  border-bottom-color: var(--purple-400);
+}
+
+.circular-ring-full::after { border-color: var(--purple-400); }
+.circular-ring-lime::after { border-color: #c4f042; }
+
+.circular-stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.circular-stat-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.cover-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 28px 48px;
+  margin-top: auto;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.cover-pricing-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  background: #1e1b4b;
+  border: 1px solid #3730a3;
+  border-radius: 16px;
+  padding: 18px 24px;
+}
+
+.cover-price-section { display: flex; align-items: center; gap: 16px; }
+.cover-price-left { display: flex; flex-direction: column; align-items: flex-start; }
+
+.cover-price-badge {
+  display: inline-flex;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: white;
+  background: #7c3aed;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.cover-price-original { font-size: 13px; color: var(--gray-500); text-decoration: line-through; }
+.cover-price-row { display: flex; align-items: baseline; gap: 6px; }
+
+.cover-price-current {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.cover-price-note { font-size: 11px; color: var(--gray-400); }
+
+.cover-divider {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,0.15), transparent);
+}
+
+.cover-cta-url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: #7c3aed;
+  padding: 14px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(147, 51, 234, 0.4);
+}
+
+/* INTERIOR PAGES */
+.interior {
+  display: flex;
+  flex-direction: column;
+  height: 297mm;
+  width: 210mm;
+  padding: 20px 28px;
+  box-sizing: border-box;
+  position: relative;
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    linear-gradient(165deg, #fefefe 0%, #faf8ff 40%, #f8f5ff 100%);
+  background-blend-mode: overlay, normal;
+}
+
+.interior::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(147,51,234,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.interior::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(196,240,66,0.03) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.interior-header {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, var(--purple-500), var(--purple-300), transparent) 1;
+  margin-bottom: 16px;
+  height: 36px;
+  position: relative;
+}
+
+.interior-logo { height: 20px; width: auto; }
+
+.interior-page-info {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.interior-content { flex: 1; overflow: hidden; }
+
+.interior-footer {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--purple-300), var(--purple-500)) 1;
+  height: 32px;
+}
+
+.footer-contact {
+  display: flex;
+  gap: 16px;
+  font-size: 11px;
+  color: var(--gray-500);
+}
+
+.footer-contact a { color: var(--gray-600); text-decoration: none; }
+.footer-page { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--gray-400); }
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.section-header-bar {
+  width: 4px;
+  height: 26px;
+  background: linear-gradient(180deg, var(--purple-500), var(--purple-400));
+  border-radius: 2px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  background: linear-gradient(90deg, var(--purple-600) 0%, var(--purple-500) 60%, #c4f042 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Curriculum cards */
+.curriculum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.curriculum-card {
+  border-radius: 12px;
+  padding: 14px 16px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 16px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.curriculum-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+.curriculum-card-purple {
+  background: linear-gradient(135deg, var(--purple-50), var(--white));
+  border: 1px solid var(--purple-200);
+}
+.curriculum-card-purple::before { background: var(--purple-500); }
+
+.curriculum-card-teal {
+  background: linear-gradient(135deg, #f0fdfa, var(--white));
+  border: 1px solid #99f6e4;
+}
+.curriculum-card-teal::before { background: var(--teal-500); }
+
+.curriculum-card-blue {
+  background: linear-gradient(135deg, #eff6ff, var(--white));
+  border: 1px solid #bfdbfe;
+}
+.curriculum-card-blue::before { background: var(--blue-500); }
+
+.curriculum-card-amber {
+  background: linear-gradient(135deg, #fffbeb, var(--white));
+  border: 1px solid #fde68a;
+}
+.curriculum-card-amber::before { background: var(--amber-500); }
+
+.curriculum-card-green {
+  background: linear-gradient(135deg, #f0fdf4, var(--white));
+  border: 1px solid #bbf7d0;
+}
+.curriculum-card-green::before { background: var(--green-500); }
+
+.curriculum-week {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+
+.curriculum-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 6px;
+}
+
+.curriculum-topics {
+  list-style: none;
+  font-size: 11px;
+  color: var(--gray-600);
+}
+
+.curriculum-topics li {
+  padding: 2px 0;
+  padding-left: 14px;
+  position: relative;
+}
+
+.curriculum-topics li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+
+.curriculum-card-purple .curriculum-topics li::before { background: var(--purple-400); }
+.curriculum-card-teal .curriculum-topics li::before { background: var(--teal-400); }
+.curriculum-card-blue .curriculum-topics li::before { background: var(--blue-400); }
+.curriculum-card-amber .curriculum-topics li::before { background: var(--amber-400); }
+.curriculum-card-green .curriculum-topics li::before { background: var(--green-400); }
+
+.curriculum-output {
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.curriculum-output-label {
+  font-weight: 700;
+  color: var(--green-600);
+}
+
+/* Tools showcase */
+.tools-showcase {
+  background: linear-gradient(135deg, rgba(250, 248, 255, 0.9) 0%, rgba(245, 240, 255, 0.9) 100%);
+  backdrop-filter: blur(8px);
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 16px;
+  border: 1px solid rgba(147, 51, 234, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02), 0 8px 16px rgba(147, 51, 234, 0.06);
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tool-category {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tool-category-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--purple-600);
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--purple-300);
+}
+
+.tool-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tool-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 10px 14px;
+  border-radius: 24px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(147, 51, 234, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.tool-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.tool-dot-purple { background: var(--purple-500); }
+.tool-dot-gray { background: var(--gray-600); }
+.tool-dot-lime { background: #84cc16; }
+.tool-dot-orange { background: #f97316; }
+.tool-dot-teal { background: var(--teal-500); }
+.tool-dot-blue { background: #3b82f6; }
+
+.tool-pill-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+/* Trainer */
+.trainer-section {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 16px;
+}
+
+.trainer-photo-container {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--purple-500);
+}
+
+.trainer-photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trainer-info { flex: 1; }
+.trainer-name { font-size: 18px; font-weight: 800; color: var(--gray-900); margin-bottom: 4px; }
+.trainer-role { font-size: 12px; color: var(--purple-600); font-weight: 600; margin-bottom: 10px; }
+.trainer-bio { font-size: 12px; color: var(--gray-600); line-height: 1.6; margin-bottom: 16px; }
+
+.trainer-stats-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.trainer-stat-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.trainer-stat-value {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--purple-600);
+}
+
+.trainer-stat-label {
+  font-size: 9px;
+  color: var(--gray-500);
+  text-transform: uppercase;
+}
+
+/* Outcomes */
+.outcome-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.outcome-card {
+  padding: 18px 14px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+
+.outcome-card-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 10px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.outcome-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.outcome-card-text {
+  font-size: 11px;
+  color: var(--gray-500);
+  line-height: 1.5;
+}
+
+.outcome-card-purple {
+  background: linear-gradient(135deg, var(--purple-50), var(--white));
+  border: 1px solid var(--purple-200);
+}
+.outcome-card-purple .outcome-card-icon { background: var(--purple-100); color: var(--purple-600); }
+
+.outcome-card-teal {
+  background: linear-gradient(135deg, #f0fdfa, var(--white));
+  border: 1px solid #99f6e4;
+}
+.outcome-card-teal .outcome-card-icon { background: #ccfbf1; color: var(--teal-500); }
+
+.outcome-card-amber {
+  background: linear-gradient(135deg, #fffbeb, var(--white));
+  border: 1px solid #fde68a;
+}
+.outcome-card-amber .outcome-card-icon { background: #fef3c7; color: var(--amber-600); }
+
+/* FAQ */
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.faq-item {
+  padding: 14px 16px;
+  background: white;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 4px 8px rgba(0, 0, 0, 0.03);
+}
+
+.faq-question {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-900);
+  margin-bottom: 4px;
+}
+
+.faq-answer {
+  font-size: 11px;
+  color: var(--gray-600);
+  line-height: 1.55;
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page cover">
+  <div style="position: absolute; bottom: 200px; left: -20px; width: 0; height: 0; border-top: 25px solid transparent; border-bottom: 25px solid transparent; border-left: 43px solid var(--purple-400);"></div>
+
+  <div class="cover-glow"></div>
+
+  <div class="cover-hero-image">
+    <img src="kids-hero.png" alt="Build with AI for Kids">
+  </div>
+
+  <div class="cover-float-icon" style="top: 50px; right: 340px;">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </div>
+  <div class="cover-float-icon" style="top: 200px; right: 400px;">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+  </div>
+  <div class="cover-float-icon" style="top: 380px; right: 380px;">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+  </div>
+  <div class="cover-float-icon" style="top: 140px; right: -10px; background: #365314; border-color: #4d7c0f; color: #c4f042;">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+  </div>
+
+  <div class="cover-inner">
+    <div class="cover-top">
+      <img src="logo-white.png" alt="Rewire" class="cover-logo">
+      <div class="cover-cohort-badge">Weekend Batch - Ages 10-16</div>
+    </div>
+
+    <div class="cover-main">
+      <div class="cover-eyebrow">Live Online Course</div>
+      <h1 class="cover-title">
+        Build with AI<br><span>for Kids</span>
+      </h1>
+      <p class="cover-subtitle">
+        Your child builds a website, a web app, and an AI portfolio - over 10 weekends. Then presents it all to you on Demo Day.
+      </p>
+      <p style="font-size: 13px; color: white; margin-bottom: 20px; padding: 10px 16px; background: #581c87; border-radius: 8px; border-left: 3px solid #c4f042;">
+        Ages 10-16 - Sat + Sun (90 min each) - Mid-week Q&A - No coding needed
+      </p>
+
+      <div class="cover-stats-circular">
+        <div class="circular-stat">
+          <div class="circular-ring circular-ring-full">
+            <span class="circular-stat-value">10</span>
+          </div>
+          <span class="circular-stat-label">Weeks</span>
+        </div>
+        <div class="circular-stat">
+          <div class="circular-ring circular-ring-lime">
+            <span class="circular-stat-value">90m</span>
+          </div>
+          <span class="circular-stat-label">Per Session</span>
+        </div>
+        <div class="circular-stat">
+          <div class="circular-ring circular-ring-full">
+            <span class="circular-stat-value">10</span>
+          </div>
+          <span class="circular-stat-label">Max Batch</span>
+        </div>
+        <div class="circular-stat">
+          <div class="circular-ring circular-ring-lime">
+            <span class="circular-stat-value">Live</span>
+          </div>
+          <span class="circular-stat-label">Online</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-footer">
+      <div class="cover-pricing-card">
+        <div class="cover-price-section">
+          <div class="cover-price-left">
+            <span class="cover-price-badge">Launch Batch</span>
+            <span class="cover-price-original">Rs. 49,999</span>
+            <div class="cover-price-row">
+              <span class="cover-price-current">Rs. 14,999</span>
+            </div>
+          </div>
+        </div>
+        <div class="cover-divider"></div>
+        <a href="https://rewire.school/kids" class="cover-cta-url">
+          Enroll at rewire.school/kids
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: WHY THIS MATTERS ==================== -->
+<div class="page interior" style="padding: 24px 32px;">
+  <div style="position: absolute; top: 60px; right: -15px; width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-right: 35px solid var(--purple-100);"></div>
+  <div style="position: absolute; bottom: 120px; left: -10px; width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 26px solid var(--purple-200);"></div>
+
+  <div class="interior-header">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Why This Matters</span>
+  </div>
+
+  <div class="interior-content" style="padding-top: 16px;">
+    <!-- The Reality -->
+    <div style="margin-bottom: 28px;">
+      <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 18px;">
+        <div style="width: 5px; height: 32px; background: linear-gradient(180deg, var(--purple-500), var(--purple-400)); border-radius: 3px;"></div>
+        <h2 class="gradient-text" style="font-size: 26px; font-weight: 800; letter-spacing: -0.03em; margin: 0;">The Reality Your Child Faces</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;">
+        <!-- Card 1 -->
+        <div style="background: linear-gradient(145deg, var(--purple-600), var(--purple-700)); border-radius: 18px; padding: 20px 18px; color: white; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: -25px; right: -25px; width: 90px; height: 90px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 44px; font-weight: 800; opacity: 0.12; position: absolute; top: 12px; right: 16px;">01</div>
+          <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; position: relative;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div style="font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; position: relative;">AI is now mandatory</div>
+          <div style="font-size: 13px; opacity: 0.9; line-height: 1.55; position: relative;">CBSE makes AI a subject from 2026-27. By 2030, AI fluency will be a baseline expectation, not a bonus.</div>
+        </div>
+
+        <!-- Card 2 -->
+        <div style="background: linear-gradient(145deg, var(--teal-500), #0d9488); border-radius: 18px; padding: 20px 18px; color: white; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: -25px; right: -25px; width: 90px; height: 90px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 44px; font-weight: 800; opacity: 0.12; position: absolute; top: 12px; right: 16px;">02</div>
+          <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; position: relative;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <div style="font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; position: relative;">Consumer vs Creator gap</div>
+          <div style="font-size: 13px; opacity: 0.9; line-height: 1.55; position: relative;">Every child scrolls and watches. Very few are building. The advantage goes to those who create, not consume.</div>
+        </div>
+
+        <!-- Card 3 -->
+        <div style="background: linear-gradient(145deg, var(--amber-500), #d97706); border-radius: 18px; padding: 20px 18px; color: white; position: relative; overflow: hidden;">
+          <div style="position: absolute; top: -25px; right: -25px; width: 90px; height: 90px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 44px; font-weight: 800; opacity: 0.12; position: absolute; top: 12px; right: 16px;">03</div>
+          <div style="width: 48px; height: 48px; background: rgba(255,255,255,0.2); border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; position: relative;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div style="font-size: 15px; font-weight: 700; margin-bottom: 4px; line-height: 1.3; position: relative;">Schools can't keep up</div>
+          <div style="font-size: 13px; opacity: 0.9; line-height: 1.55; position: relative;">There's no formal AI curriculum in Indian schools. Kids learn from random YouTube videos without guidance.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- About Rewire Kids -->
+    <div style="background: linear-gradient(135deg, var(--gray-900), #1a1a2e); border-radius: 18px; padding: 24px; margin-bottom: 28px; display: flex; gap: 24px; align-items: flex-start;">
+      <div style="width: 130px; height: 150px; flex-shrink: 0; border-radius: 14px; overflow: hidden; border: 3px solid var(--purple-500);">
+        <img src="kids-hero.png" alt="Rewire Kids" style="width: 100%; height: 100%; object-fit: cover;">
+      </div>
+      <div style="flex: 1; color: white;">
+        <div style="font-size: 20px; font-weight: 700; margin-bottom: 12px;">About Rewire Kids</div>
+        <div style="font-size: 13px; color: var(--gray-300); line-height: 1.65; margin-bottom: 10px;">
+          Rewire Kids is our commitment to the next generation. We don't teach tools for their own sake - we teach children how to <strong style="color: white;">think, build, and create</strong> with AI. Over 10 weekends, your child moves from passive user to active creator.
+        </div>
+        <div style="font-size: 13px; color: var(--gray-300); line-height: 1.65; margin-bottom: 12px;">
+          Every session ends with something built. By Demo Day, they have proof - a live website, a working app, an image portfolio - not just a certificate.
+        </div>
+        <div style="font-size: 13px; font-weight: 600; font-style: italic; color: var(--purple-300); padding-left: 14px; border-left: 3px solid var(--purple-500);">"Most kids will use AI. But yours will BUILD with it."</div>
+      </div>
+    </div>
+
+    <!-- Who Is This For -->
+    <div style="margin-bottom: 16px;">
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
+        <div style="width: 4px; height: 28px; background: linear-gradient(180deg, var(--purple-500), var(--purple-400)); border-radius: 2px;"></div>
+        <h2 class="gradient-text" style="font-size: 22px; font-weight: 800; letter-spacing: -0.02em; margin: 0;">Who Is This For?</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
+        <div style="padding: 16px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 3px 10px rgba(0,0,0,0.04); border-left: 4px solid var(--purple-500);">
+          <div style="font-size: 14px; font-weight: 700; color: var(--purple-600); margin-bottom: 5px;">Ages 10-16 (Grades 5-12)</div>
+          <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">Perfect age to start building. Old enough to follow along, young enough to adapt naturally.</div>
+        </div>
+        <div style="padding: 16px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 3px 10px rgba(0,0,0,0.04); border-left: 4px solid var(--teal-500);">
+          <div style="font-size: 14px; font-weight: 700; color: var(--teal-500); margin-bottom: 5px;">Curious About Technology</div>
+          <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">If they're already on screens, let's channel that into creation instead of consumption.</div>
+        </div>
+        <div style="padding: 16px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 3px 10px rgba(0,0,0,0.04); border-left: 4px solid var(--amber-500);">
+          <div style="font-size: 14px; font-weight: 700; color: var(--amber-600); margin-bottom: 5px;">No Prior Experience Needed</div>
+          <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">Never used AI or built anything? Perfect. We start from zero and get them building fast.</div>
+        </div>
+        <div style="padding: 16px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 3px 10px rgba(0,0,0,0.04); border-left: 4px solid var(--blue-500);">
+          <div style="font-size: 14px; font-weight: 700; color: var(--blue-600); margin-bottom: 5px;">Parents Who Want More</div>
+          <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">You want your child to be ready for the future - not just consuming it.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parent-Child Illustration -->
+    <div style="display: flex; justify-content: center; margin-top: 16px;">
+      <img src="parent-child-illustration.png" alt="Child showing creation to parent" style="height: 110px; width: auto;">
+    </div>
+
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <a href="https://wa.me/917305082534" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+91 73050 82534</a>
+      <a href="https://rewire.school/kids">rewire.school/kids</a>
+    </div>
+    <span class="footer-page">02</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3: WHAT THEY'LL BUILD ==================== -->
+<div class="page interior">
+  <div style="position: absolute; top: 100px; right: -12px; width: 0; height: 0; border-top: 18px solid transparent; border-bottom: 18px solid transparent; border-right: 31px solid rgba(196,240,66,0.3);"></div>
+  <div style="position: absolute; bottom: 150px; left: -8px; width: 0; height: 0; border-top: 12px solid transparent; border-bottom: 12px solid transparent; border-left: 21px solid var(--purple-200);"></div>
+
+  <div class="interior-header">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">What They'll Build</span>
+  </div>
+
+  <div class="interior-content">
+    <!-- Programme at a Glance -->
+    <div style="margin-bottom: 20px;">
+      <div class="section-header">
+        <div class="section-header-bar"></div>
+        <h2 class="section-title">Programme at a Glance</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 14px;">
+        <div style="text-align: center; padding: 12px 6px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 32px; height: 32px; margin: 0 auto 6px; background: linear-gradient(135deg, #dbeafe, #bfdbfe); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--gray-900);">10</div>
+          <div style="font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em;">Days</div>
+        </div>
+        <div style="text-align: center; padding: 12px 6px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 32px; height: 32px; margin: 0 auto 6px; background: linear-gradient(135deg, #fef3c7, #fde68a); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--gray-900);">1 hr</div>
+          <div style="font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em;">Per Day</div>
+        </div>
+        <div style="text-align: center; padding: 12px 6px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 32px; height: 32px; margin: 0 auto 6px; background: linear-gradient(135deg, #dcfce7, #bbf7d0); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--gray-900);">Live</div>
+          <div style="font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em;">Online</div>
+        </div>
+        <div style="text-align: center; padding: 12px 6px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 32px; height: 32px; margin: 0 auto 6px; background: linear-gradient(135deg, #e9d5ff, #d8b4fe); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9333ea" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--gray-900);">Website</div>
+          <div style="font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em;">Live URL</div>
+        </div>
+        <div style="text-align: center; padding: 12px 6px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 32px; height: 32px; margin: 0 auto 6px; background: linear-gradient(135deg, #fce7f3, #fbcfe8); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#db2777" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--gray-900);">Web App</div>
+          <div style="font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em;">Working</div>
+        </div>
+        <div style="text-align: center; padding: 12px 6px; background: white; border: 1px solid var(--gray-200); border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.04);">
+          <div style="width: 32px; height: 32px; margin: 0 auto 6px; background: linear-gradient(135deg, #fee2e2, #fecaca); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 14px; font-weight: 700; color: var(--gray-900);">Demo</div>
+          <div style="font-size: 10px; color: var(--gray-500); text-transform: uppercase; letter-spacing: 0.05em;">Week 10</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">Tangible Deliverables</h2>
+    </div>
+
+    <!-- 3 Main Deliverables -->
+    <div class="outcome-cards" style="margin-bottom: 16px;">
+      <div class="outcome-card outcome-card-purple">
+        <div class="outcome-card-icon">
+          <svg width="20" height="20" fill="none" stroke="var(--purple-600)" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M2 10h16"/><path d="M10 2a12 12 0 0 1 3 8 12 12 0 0 1-3 8 12 12 0 0 1-3-8 12 12 0 0 1 3-8z"/></svg>
+        </div>
+        <div class="outcome-card-title">Live Website</div>
+        <div class="outcome-card-text">Real site with live URL. Mobile-responsive. Shareable.</div>
+      </div>
+      <div class="outcome-card outcome-card-teal">
+        <div class="outcome-card-icon">
+          <svg width="20" height="20" fill="none" stroke="var(--teal-500)" stroke-width="2"><rect x="4" y="2" width="12" height="16" rx="2"/><line x1="10" y1="14" x2="10.01" y2="14"/></svg>
+        </div>
+        <div class="outcome-card-title">Working Web App</div>
+        <div class="outcome-card-text">Login, database, AI features. Works on any device.</div>
+      </div>
+      <div class="outcome-card outcome-card-amber">
+        <div class="outcome-card-icon">
+          <svg width="20" height="20" fill="none" stroke="var(--amber-600)" stroke-width="2"><rect x="3" y="3" width="14" height="14" rx="2"/><circle cx="7" cy="7" r="1.5"/><path d="M17 12l-4-4L4 17"/></svg>
+        </div>
+        <div class="outcome-card-title">AI Portfolio</div>
+        <div class="outcome-card-text">AI images, videos, multimedia. School-ready.</div>
+      </div>
+    </div>
+
+    <!-- Demo Day Highlight -->
+    <div style="background: linear-gradient(135deg, #f0fdf4, #ecfdf5); border: 2px solid #86efac; border-radius: 10px; padding: 10px 14px; margin-bottom: 10px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 38px; height: 38px; background: var(--green-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="18" height="18" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 800; color: var(--gray-900); margin-bottom: 2px;">Demo Day - Week 10</div>
+          <div style="font-size: 10px; color: var(--gray-600); line-height: 1.4;">Parents invited. Each student presents their website, app & portfolio live. Certificate ceremony.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Built by Past Students -->
+    <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px; padding: 10px;">
+      <div style="font-size: 9px; font-weight: 700; color: var(--purple-600); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; text-align: center;">Built by Past Students (Ages 11-15)</div>
+
+      <!-- Websites Row -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 8px;">
+        <div style="background: #1a1a2e; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.1);">
+          <img src="student-site-1.png" alt="Sanjay's Art Gallery" style="width: 100%; height: auto; max-height: 100px; object-fit: contain;">
+          <div style="padding: 6px; text-align: center; background: white;">
+            <div style="font-size: 10px; font-weight: 700; color: var(--gray-800);">Art Gallery Website</div>
+            <div style="font-size: 9px; color: var(--gray-500);">Sanjay, 11</div>
+          </div>
+        </div>
+        <div style="background: #1a1a2e; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.1);">
+          <img src="student-site-2.png" alt="Rahul's Portfolio" style="width: 100%; height: auto; max-height: 100px; object-fit: contain;">
+          <div style="padding: 6px; text-align: center; background: white;">
+            <div style="font-size: 10px; font-weight: 700; color: var(--gray-800);">Portfolio Website</div>
+            <div style="font-size: 9px; color: var(--gray-500);">Rahul, 15</div>
+          </div>
+        </div>
+        <div style="background: #1a1a2e; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 12px rgba(0,0,0,0.1);">
+          <img src="student-site-3.png" alt="QuickBite App" style="width: 100%; height: auto; max-height: 100px; object-fit: contain;">
+          <div style="padding: 6px; text-align: center; background: white;">
+            <div style="font-size: 10px; font-weight: 700; color: var(--gray-800);">Food Ordering App</div>
+            <div style="font-size: 9px; color: var(--gray-500);">Team Project</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Art Row -->
+      <div style="font-size: 9px; font-weight: 600; color: var(--gray-600); text-align: center; margin-bottom: 6px;">AI Movie Posters</div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+        <img src="student-art-1.jpeg" alt="AI Art" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; object-position: top; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="student-art-2.jpeg" alt="AI Art" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; object-position: top; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="student-art-3.jpeg" alt="AI Art" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; object-position: top; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+        <img src="student-art-4.jpeg" alt="AI Art" style="width: 100%; aspect-ratio: 2/3; object-fit: cover; object-position: top; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+      </div>
+    </div>
+
+    </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <a href="https://wa.me/917305082534" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+91 73050 82534</a>
+      <a href="https://rewire.school/kids">rewire.school/kids</a>
+    </div>
+    <span class="footer-page">03</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 4: CURRICULUM ==================== -->
+<div class="page interior" style="position: relative; overflow: hidden;">
+  <!-- Background gradient mesh -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(160deg, rgba(147,51,234,0.03) 0%, transparent 30%, rgba(20,184,166,0.03) 50%, transparent 70%, rgba(59,130,246,0.03) 100%); pointer-events: none;"></div>
+
+  <!-- Radial glows -->
+  <div style="position: absolute; top: -80px; left: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(147,51,234,0.07) 0%, transparent 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -60px; right: -60px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(20,184,166,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+
+  <!-- Floating organic shapes -->
+  <div style="position: absolute; top: 140px; right: 35px; width: 45px; height: 45px; background: linear-gradient(135deg, rgba(147,51,234,0.1), rgba(147,51,234,0.04)); border-radius: 50% 30% 50% 50%; transform: rotate(-15deg);"></div>
+  <div style="position: absolute; bottom: 200px; left: 25px; width: 35px; height: 35px; background: linear-gradient(135deg, rgba(20,184,166,0.1), rgba(20,184,166,0.04)); border-radius: 30% 50% 30% 50%; transform: rotate(25deg);"></div>
+
+  <!-- Floating dots -->
+  <div style="position: absolute; top: 300px; left: 50px; width: 6px; height: 6px; background: var(--purple-400); border-radius: 50%; opacity: 0.4;"></div>
+  <div style="position: absolute; top: 450px; right: 70px; width: 8px; height: 8px; background: var(--teal-400); border-radius: 50%; opacity: 0.5;"></div>
+  <div style="position: absolute; bottom: 280px; left: 100px; width: 5px; height: 5px; background: var(--blue-400); border-radius: 50%; opacity: 0.4;"></div>
+
+  <div class="interior-header" style="position: relative; z-index: 1;">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Curriculum</span>
+  </div>
+
+  <div class="interior-content" style="position: relative; z-index: 1;">
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">The 10-Week Weekend Journey</h2>
+    </div>
+
+    <div class="curriculum-grid" style="gap: 10px;">
+      <!-- Weeks 1-2 -->
+      <div class="curriculum-card curriculum-card-purple" style="padding: 12px; box-shadow: 0 4px 16px rgba(147,51,234,0.1), 0 1px 3px rgba(0,0,0,0.04); border-radius: 14px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: rgba(147,51,234,0.08); border-radius: 50%;"></div>
+        <div class="curriculum-week" style="color: var(--purple-600); font-size: 12px; position: relative;">Weeks 1-3</div>
+        <div class="curriculum-title" style="font-size: 15px; position: relative;">AI Foundations</div>
+        <ul class="curriculum-topics" style="font-size: 12px; position: relative;">
+          <li>"You Are the Director" + Claude intro</li>
+          <li>SPARK Framework - how to talk to AI</li>
+          <li>AI for Study + Creativity</li>
+          <li>Image generation with Leonardo AI</li>
+          <li>THINK Framework - AI ethics + discernment</li>
+        </ul>
+        <div class="curriculum-output" style="font-size: 12px; padding: 6px 10px; position: relative;">
+          <span class="curriculum-output-label">Output:</span> SPARK workbook + image portfolio
+        </div>
+      </div>
+
+      <!-- Weeks 3-4 -->
+      <div class="curriculum-card curriculum-card-teal" style="padding: 12px; box-shadow: 0 4px 16px rgba(20,184,166,0.1), 0 1px 3px rgba(0,0,0,0.04); border-radius: 14px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: rgba(20,184,166,0.08); border-radius: 50%;"></div>
+        <div class="curriculum-week" style="color: var(--teal-500); font-size: 12px; position: relative;">Weeks 4-6</div>
+        <div class="curriculum-title" style="font-size: 15px; position: relative;">Research + Website</div>
+        <ul class="curriculum-topics" style="font-size: 12px; position: relative;">
+          <li>NotebookLM - AI that reads your notes</li>
+          <li>Audio overviews, quizzes & discernment</li>
+          <li>Website anatomy - how sites are built</li>
+          <li>Build your website with Lovable</li>
+          <li>Refine, deploy + peer presentation</li>
+        </ul>
+        <div class="curriculum-output" style="font-size: 12px; padding: 6px 10px; position: relative;">
+          <span class="curriculum-output-label">Output:</span> Live deployed website
+        </div>
+      </div>
+
+      <!-- Weeks 5-6 -->
+      <div class="curriculum-card curriculum-card-blue" style="padding: 12px; box-shadow: 0 4px 16px rgba(59,130,246,0.1), 0 1px 3px rgba(0,0,0,0.04); border-radius: 14px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: rgba(59,130,246,0.08); border-radius: 50%;"></div>
+        <div class="curriculum-week" style="color: var(--blue-600); font-size: 12px; position: relative;">Weeks 7-9</div>
+        <div class="curriculum-title" style="font-size: 15px; position: relative;">Web App + Ship</div>
+        <ul class="curriculum-topics" style="font-size: 12px; position: relative;">
+          <li>What is a web app? UI concepts</li>
+          <li>Build your app with Bolt - generate</li>
+          <li>Debug + add features</li>
+          <li>Polish + deploy to live URL</li>
+          <li>Demo prep + portfolio compilation</li>
+        </ul>
+        <div class="curriculum-output" style="font-size: 12px; padding: 6px 10px; position: relative;">
+          <span class="curriculum-output-label">Output:</span> Working web app + portfolio
+        </div>
+      </div>
+
+      <!-- Week 10: Demo Day -->
+      <div class="curriculum-card curriculum-card-green" style="border: 2px solid var(--green-400); padding: 12px; box-shadow: 0 4px 16px rgba(34,197,94,0.12), 0 1px 3px rgba(0,0,0,0.04); border-radius: 14px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -20px; right: -20px; width: 60px; height: 60px; background: rgba(34,197,94,0.1); border-radius: 50%;"></div>
+        <div class="curriculum-week" style="color: var(--green-600); font-size: 12px; position: relative;">Week 10: Demo Day</div>
+        <div class="curriculum-title" style="font-size: 15px; position: relative;">Demo Day - Parents Invited</div>
+        <ul class="curriculum-topics" style="font-size: 12px; position: relative;">
+          <li>2-3 min live demo: website + web app + best AI image</li>
+          <li>Parent Q&A - students answer in their own words</li>
+          <li>Certificate of Completion ceremony</li>
+          <li>Cohort reflection + next course preview</li>
+        </ul>
+        <div class="curriculum-output" style="background: linear-gradient(135deg, #dcfce7, white); font-size: 12px; padding: 6px 10px; position: relative;">
+          <span class="curriculum-output-label">Parents see real proof - live URLs, working apps!</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Frameworks -->
+    <div class="section-header" style="margin-top: 12px; margin-bottom: 10px;">
+      <div class="section-header-bar" style="height: 20px;"></div>
+      <h2 class="section-title" style="font-size: 20px;">Proprietary Frameworks They'll Learn</h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+      <div style="background: linear-gradient(135deg, #fffbeb, white); border: 1px solid #fde68a; border-radius: 12px; padding: 12px; box-shadow: 0 4px 16px rgba(245,158,11,0.1), 0 1px 3px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: rgba(245,158,11,0.1); border-radius: 50%;"></div>
+        <div style="display: inline-block; background: #F59E0B; color: white; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 4px; letter-spacing: 0.5px; margin-bottom: 6px; position: relative;">SPARK</div>
+        <div style="font-size: 14px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; position: relative;">How to Talk to AI</div>
+        <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5; position: relative;">
+          <div style="padding: 2px 0;"><strong style="color: #F59E0B;">S</strong>ubject - What is this about?</div>
+          <div style="padding: 2px 0;"><strong style="color: #F59E0B;">P</strong>urpose - What do you want to achieve?</div>
+          <div style="padding: 2px 0;"><strong style="color: #F59E0B;">A</strong>udience - Who is this for?</div>
+          <div style="padding: 2px 0;"><strong style="color: #F59E0B;">R</strong>esult - What format do you want?</div>
+          <div style="padding: 2px 0;"><strong style="color: #F59E0B;">K</strong>ickoff - Context + Role + Task</div>
+        </div>
+      </div>
+      <div style="background: linear-gradient(135deg, #f0fdf4, white); border: 1px solid #bbf7d0; border-radius: 12px; padding: 12px; box-shadow: 0 4px 16px rgba(34,197,94,0.1), 0 1px 3px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -15px; right: -15px; width: 50px; height: 50px; background: rgba(34,197,94,0.1); border-radius: 50%;"></div>
+        <div style="display: inline-block; background: #22C55E; color: white; font-size: 11px; font-weight: 800; padding: 5px 12px; border-radius: 4px; letter-spacing: 0.5px; margin-bottom: 6px; position: relative;">THINK</div>
+        <div style="font-size: 14px; font-weight: 600; color: var(--gray-800); margin-bottom: 4px; position: relative;">How to Use AI Responsibly</div>
+        <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5; position: relative;">
+          <div style="padding: 2px 0;"><strong style="color: #22C55E;">T</strong>est - Verify what AI tells you</div>
+          <div style="padding: 2px 0;"><strong style="color: #22C55E;">H</strong>uman-check - Always review the output</div>
+          <div style="padding: 2px 0;"><strong style="color: #22C55E;">I</strong>nvestigate - Dig deeper when unsure</div>
+          <div style="padding: 2px 0;"><strong style="color: #22C55E;">N</strong>avigate - Choose the right tool</div>
+          <div style="padding: 2px 0;"><strong style="color: #22C55E;">K</strong>now-limits - Understand what AI can't do</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parent Updates Timeline -->
+    <div style="margin-top: 40px; padding: 14px 18px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 10px;">
+      <div style="font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 12px; text-align: center;">Parent Updates at Every Milestone</div>
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; position: relative;">
+        <!-- Connecting horizontal line -->
+        <div style="position: absolute; top: 17px; left: 30px; right: 30px; height: 3px; background: linear-gradient(90deg, #c4b5fd 0%, #c4b5fd 75%, #bbf7d0 100%);"></div>
+        <div style="text-align: center; position: relative;">
+          <div style="width: 36px; height: 36px; background: white; border: 3px solid #a78bfa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-size: 12px; font-weight: 700; color: var(--purple-600);">W1</div>
+          <div style="font-size: 11px; color: var(--gray-500);">Welcome</div>
+        </div>
+        <div style="text-align: center; position: relative;">
+          <div style="width: 36px; height: 36px; background: white; border: 3px solid #a78bfa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-size: 12px; font-weight: 700; color: var(--purple-600);">W3</div>
+          <div style="font-size: 11px; color: var(--gray-500);">Image Portfolio</div>
+        </div>
+        <div style="text-align: center; position: relative;">
+          <div style="width: 36px; height: 36px; background: white; border: 3px solid #a78bfa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-size: 12px; font-weight: 700; color: var(--purple-600);">W6</div>
+          <div style="font-size: 11px; color: var(--gray-500);">Website Live</div>
+        </div>
+        <div style="text-align: center; position: relative;">
+          <div style="width: 36px; height: 36px; background: white; border: 3px solid #a78bfa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-size: 12px; font-weight: 700; color: var(--purple-600);">W9</div>
+          <div style="font-size: 11px; color: var(--gray-500);">App Shipped</div>
+        </div>
+        <div style="text-align: center; position: relative;">
+          <div style="width: 36px; height: 36px; background: white; border: 3px solid #4ade80; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 6px; font-size: 11px; font-weight: 700; color: var(--green-600);">W10</div>
+          <div style="font-size: 11px; color: var(--green-600); font-weight: 600;">Demo Day!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <a href="https://wa.me/917305082534" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+91 73050 82534</a>
+      <a href="https://rewire.school/kids">rewire.school/kids</a>
+    </div>
+    <span class="footer-page">04</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 5: HOW IT WORKS + BONUS SESSIONS ==================== -->
+<div class="page interior" style="position: relative; overflow: hidden;">
+  <!-- Background -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(145deg, rgba(147,51,234,0.03) 0%, transparent 35%, rgba(196,240,66,0.04) 65%, transparent 100%); pointer-events: none;"></div>
+  <div style="position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(147,51,234,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -60px; left: -60px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(196,240,66,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+
+  <div class="interior-header" style="position: relative; z-index: 1;">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">How It Works</span>
+  </div>
+
+  <div class="interior-content" style="position: relative; z-index: 1;">
+    <!-- How the Program Works -->
+    <div class="section-header" style="margin-bottom: 14px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">How the Program Works</h2>
+    </div>
+    <p style="font-size: 12px; color: var(--gray-600); margin-bottom: 16px;">Two weekend sessions, a midweek Q&A, and a hands-on assignment every week.</p>
+
+    <!-- 4 Columns: Sat, Sun, Q&A, Assignment -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px;">
+      <!-- Saturday -->
+      <div style="background: linear-gradient(135deg, var(--purple-50), white); border: 1px solid var(--purple-200); border-radius: 12px; padding: 16px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--purple-500);"></div>
+        <div style="font-size: 11px; font-weight: 700; color: var(--purple-600); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">01 Saturday</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">90-min Live Class</div>
+        <div style="font-size: 12px; color: var(--gray-600); line-height: 1.55;">25-30 min theory + 55-65 min hands-on practice. Concepts introduced and immediately applied.</div>
+      </div>
+
+      <!-- Sunday -->
+      <div style="background: linear-gradient(135deg, #f0fdfa, white); border: 1px solid #99f6e4; border-radius: 12px; padding: 16px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--teal-500);"></div>
+        <div style="font-size: 11px; font-weight: 700; color: var(--teal-600); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">02 Sunday</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">90-min Build Class</div>
+        <div style="font-size: 12px; color: var(--gray-600); line-height: 1.55;">Project work - students build on what they learnt Saturday, with the trainer guiding live.</div>
+      </div>
+
+      <!-- Mid-week Q&A -->
+      <div style="background: linear-gradient(135deg, #eff6ff, white); border: 1px solid #bfdbfe; border-radius: 12px; padding: 16px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--blue-500);"></div>
+        <div style="font-size: 11px; font-weight: 700; color: var(--blue-600); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">03 Wed / Thu</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">Mid-week Live Q&A</div>
+        <div style="font-size: 12px; color: var(--gray-600); line-height: 1.55;">45-60 min addressing questions from the weekend. Recordings shared after.</div>
+      </div>
+
+      <!-- Mini Assignment -->
+      <div style="background: linear-gradient(135deg, #fffbeb, white); border: 1px solid #fde68a; border-radius: 12px; padding: 16px; position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--amber-500);"></div>
+        <div style="font-size: 11px; font-weight: 700; color: var(--amber-600); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 6px;">04 Sun - Fri</div>
+        <div style="font-size: 14px; font-weight: 700; color: var(--gray-900); margin-bottom: 8px;">Mini Assignment</div>
+        <div style="font-size: 12px; color: var(--gray-600); line-height: 1.55;">Issued every Sunday, submitted by Friday. Practice that locks in the week's learning.</div>
+      </div>
+    </div>
+
+    <!-- Bonus Recorded Sessions -->
+    <div class="section-header" style="margin-bottom: 12px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">5 Bonus Recorded Sessions</h2>
+    </div>
+    <p style="font-size: 12px; color: var(--gray-600); margin-bottom: 14px;">30 minutes each. Self-paced. Released at the right moment. Shareable with parents.</p>
+
+    <!-- Bonus Sessions Grid -->
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 16px;">
+      <!-- Bonus 1: AI Video -->
+      <div style="background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start;">
+        <div style="width: 40px; height: 40px; background: var(--purple-100); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: var(--purple-600);">01</span>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--gray-900); margin-bottom: 3px;">AI Video Generation</div>
+          <div style="font-size: 11px; color: var(--purple-600); font-weight: 600; margin-bottom: 4px;">After Week 3</div>
+          <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">Runway or Kling AI. Create a 10-second clip.</div>
+        </div>
+      </div>
+
+      <!-- Bonus 2: AI Music -->
+      <div style="background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start;">
+        <div style="width: 40px; height: 40px; background: var(--teal-100); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: var(--teal-600);">02</span>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--gray-900); margin-bottom: 3px;">AI Music Generation</div>
+          <div style="font-size: 11px; color: var(--teal-600); font-weight: 600; margin-bottom: 4px;">After Week 3</div>
+          <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">Suno. Create a theme track or short audio piece.</div>
+        </div>
+      </div>
+
+      <!-- Bonus 3: THINK Framework -->
+      <div style="background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start;">
+        <div style="width: 40px; height: 40px; background: var(--green-100); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: var(--green-600);">03</span>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--gray-900); margin-bottom: 3px;">THINK Framework Deep Dive</div>
+          <div style="font-size: 11px; color: var(--green-600); font-weight: 600; margin-bottom: 4px;">Before Week 2</div>
+          <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">Full 5-step ethics session. Shareable with parents.</div>
+        </div>
+      </div>
+
+      <!-- Bonus 4: How AI Works -->
+      <div style="background: white; border: 1px solid var(--gray-200); border-radius: 10px; padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start;">
+        <div style="width: 40px; height: 40px; background: var(--blue-100); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: var(--blue-600);">04</span>
+        </div>
+        <div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--gray-900); margin-bottom: 3px;">How AI Really Works</div>
+          <div style="font-size: 11px; color: var(--blue-600); font-weight: 600; margin-bottom: 4px;">After Week 1</div>
+          <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">Models, training, tokens, hallucinations explained simply.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bonus 5: Full width -->
+    <div style="background: linear-gradient(135deg, var(--purple-50), white); border: 1px solid var(--purple-200); border-radius: 10px; padding: 14px 16px; display: flex; gap: 14px; align-items: flex-start; margin-bottom: 18px;">
+      <div style="width: 40px; height: 40px; background: var(--purple-100); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <span style="font-family: 'JetBrains Mono', monospace; font-size: 15px; font-weight: 700; color: var(--purple-600);">05</span>
+      </div>
+      <div>
+        <div style="font-size: 13px; font-weight: 700; color: var(--gray-900); margin-bottom: 3px;">Vibe Coding - Build a Mini Game</div>
+        <div style="font-size: 11px; color: var(--purple-600); font-weight: 600; margin-bottom: 4px;">After Week 8</div>
+        <div style="font-size: 12px; color: var(--gray-600); line-height: 1.5;">Use Lovable or Bolt to build a browser game from an English description in 30 min. Stretch activity for motivated students.</div>
+      </div>
+    </div>
+
+    <!-- Summary banner -->
+    <div style="margin-top: 50px; background: var(--gray-900); border-radius: 12px; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center;">
+      <div style="color: white;">
+        <div style="font-size: 15px; font-weight: 700; margin-bottom: 4px;">All 5 bonus recordings included with every seat</div>
+        <div style="font-size: 12px; color: var(--gray-400);">Self-paced. Released after the matching weekend session. Shareable with parents.</div>
+      </div>
+      <div style="display: flex; gap: 24px;">
+        <div style="text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: var(--purple-400);">5</div>
+          <div style="font-size: 10px; color: var(--gray-400); text-transform: uppercase;">Videos</div>
+        </div>
+        <div style="text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 24px; font-weight: 700; color: var(--purple-400);">30m</div>
+          <div style="font-size: 10px; color: var(--gray-400); text-transform: uppercase;">Each</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <a href="https://wa.me/917305082534" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+91 73050 82534</a>
+      <a href="https://rewire.school/kids">rewire.school/kids</a>
+    </div>
+    <span class="footer-page">06</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 7: TRAINER & TOOLS ==================== -->
+<div class="page interior" style="position: relative; overflow: hidden;">
+  <!-- Background gradient mesh -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(145deg, rgba(147,51,234,0.03) 0%, transparent 35%, rgba(196,240,66,0.04) 65%, transparent 100%); pointer-events: none;"></div>
+
+  <!-- Radial glows -->
+  <div style="position: absolute; top: -100px; right: -100px; width: 350px; height: 350px; background: radial-gradient(circle, rgba(147,51,234,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -80px; left: -80px; width: 280px; height: 280px; background: radial-gradient(circle, rgba(196,240,66,0.08) 0%, transparent 70%); pointer-events: none;"></div>
+
+  <!-- Floating organic shapes -->
+  <div style="position: absolute; top: 150px; right: 45px; width: 50px; height: 50px; background: linear-gradient(135deg, rgba(147,51,234,0.1), rgba(147,51,234,0.04)); border-radius: 30% 50% 50% 50%; transform: rotate(20deg);"></div>
+  <div style="position: absolute; bottom: 220px; left: 35px; width: 40px; height: 40px; background: linear-gradient(135deg, rgba(196,240,66,0.12), rgba(196,240,66,0.04)); border-radius: 50% 50% 30% 50%; transform: rotate(-15deg);"></div>
+
+  <!-- Floating dots -->
+  <div style="position: absolute; top: 280px; left: 60px; width: 7px; height: 7px; background: var(--purple-400); border-radius: 50%; opacity: 0.4;"></div>
+  <div style="position: absolute; top: 400px; right: 80px; width: 5px; height: 5px; background: #c4f042; border-radius: 50%; opacity: 0.5;"></div>
+  <div style="position: absolute; bottom: 320px; right: 120px; width: 6px; height: 6px; background: var(--teal-400); border-radius: 50%; opacity: 0.4;"></div>
+  <div style="position: absolute; top: 520px; left: 100px; width: 8px; height: 8px; background: var(--purple-300); border-radius: 50%; opacity: 0.3;"></div>
+
+  <div class="interior-header" style="position: relative; z-index: 1;">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Trainer & Tools</span>
+  </div>
+
+  <div class="interior-content" style="position: relative; z-index: 1;">
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">Your Child's Instructor</h2>
+    </div>
+
+    <div class="trainer-section" style="box-shadow: 0 6px 24px rgba(147,51,234,0.08), 0 2px 8px rgba(0,0,0,0.04); border-radius: 16px; position: relative; overflow: hidden;">
+      <div style="position: absolute; top: -30px; right: -30px; width: 100px; height: 100px; background: rgba(147,51,234,0.06); border-radius: 50%;"></div>
+      <div class="trainer-photo-container" style="box-shadow: 0 4px 16px rgba(147,51,234,0.2);">
+        <img src="trainer-shaik.jpg" alt="Shaik Abdul Quddus">
+      </div>
+      <div class="trainer-info">
+        <div class="trainer-name">Shaik Abdul Quddus</div>
+        <div class="trainer-role">Tech Professional | 10+ Years in Industry</div>
+        <div class="trainer-bio">
+          10+ years building technology at IBM, Cognizant, Accenture, and Tech Mahindra. A certified professional who brings real-world tech experience to help kids learn AI the right way - with live guidance, safe tools, and hands-on projects. Passionate about making AI accessible and age-appropriate.
+        </div>
+        <div class="trainer-stats-row">
+          <div class="trainer-stat-badge" style="box-shadow: 0 2px 6px rgba(147,51,234,0.15);">
+            <span class="trainer-stat-value">IBM</span>
+          </div>
+          <div class="trainer-stat-badge" style="box-shadow: 0 2px 6px rgba(147,51,234,0.15);">
+            <span class="trainer-stat-value">Cognizant</span>
+          </div>
+          <div class="trainer-stat-badge" style="box-shadow: 0 2px 6px rgba(147,51,234,0.15);">
+            <span class="trainer-stat-value">Accenture</span>
+          </div>
+          <div class="trainer-stat-badge" style="box-shadow: 0 2px 6px rgba(147,51,234,0.15);">
+            <span class="trainer-stat-value">Tech Mahindra</span>
+          </div>
+          <div class="trainer-stat-badge" style="box-shadow: 0 2px 6px rgba(147,51,234,0.15);">
+            <span class="trainer-stat-value">4x Certified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 24px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">Tools They'll Master</h2>
+    </div>
+
+    <div class="tools-showcase" style="margin-top: 12px; padding: 20px; box-shadow: 0 6px 24px rgba(147,51,234,0.08), 0 2px 8px rgba(0,0,0,0.04); border-radius: 16px;">
+      <div class="tools-grid">
+        <!-- AI Assistants -->
+        <div class="tool-category">
+          <div class="tool-category-label">AI Assistants</div>
+          <div class="tool-pills">
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-orange"></span>
+              <span class="tool-pill-name">Claude</span>
+            </div>
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-teal"></span>
+              <span class="tool-pill-name">ChatGPT</span>
+            </div>
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-blue"></span>
+              <span class="tool-pill-name">Gemini</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Creative -->
+        <div class="tool-category">
+          <div class="tool-category-label">Creative</div>
+          <div class="tool-pills">
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-purple"></span>
+              <span class="tool-pill-name">Leonardo AI</span>
+            </div>
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-lime"></span>
+              <span class="tool-pill-name">NotebookLM</span>
+            </div>
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-orange"></span>
+              <span class="tool-pill-name">Suno (Music)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Building -->
+        <div class="tool-category">
+          <div class="tool-category-label">Building</div>
+          <div class="tool-pills">
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-purple"></span>
+              <span class="tool-pill-name">Lovable</span>
+            </div>
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-gray"></span>
+              <span class="tool-pill-name">Bolt.new</span>
+            </div>
+            <div class="tool-pill">
+              <span class="tool-dot tool-dot-blue"></span>
+              <span class="tool-pill-name">Canva</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- How We're Different -->
+    <div class="section-header" style="margin-top: 20px;">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">How We're Different</h2>
+    </div>
+
+    <div style="margin-top: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden; border-radius: 18px; box-shadow: 0 8px 32px rgba(147,51,234,0.1), 0 4px 12px rgba(0,0,0,0.06); border: 1px solid var(--gray-200);">
+      <!-- Left Column: Others -->
+      <div style="background: var(--gray-50); padding: 18px; border-right: 1px solid var(--gray-200);">
+        <div style="text-align: center; font-size: 11px; font-weight: 700; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--gray-200);">YouTube / Other Courses</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--gray-200);">
+            <svg width="18" height="18" fill="none" stroke="#d1d5db" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M6 9h6"/></svg>
+            <span style="font-size: 13px; color: var(--gray-500);">Recorded videos</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--gray-200);">
+            <svg width="18" height="18" fill="none" stroke="#d1d5db" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M6 9h6"/></svg>
+            <span style="font-size: 13px; color: var(--gray-500);">100+ students per batch</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--gray-200);">
+            <svg width="18" height="18" fill="none" stroke="#d1d5db" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M6 9h6"/></svg>
+            <span style="font-size: 13px; color: var(--gray-500);">Certificate only</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--gray-200);">
+            <svg width="18" height="18" fill="none" stroke="#d1d5db" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M6 9h6"/></svg>
+            <span style="font-size: 13px; color: var(--gray-500);">No parent involvement</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--gray-200);">
+            <svg width="18" height="18" fill="none" stroke="#d1d5db" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M6 9h6"/></svg>
+            <span style="font-size: 13px; color: var(--gray-500);">No refund policy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Us -->
+      <div style="background: linear-gradient(135deg, var(--purple-50), white); padding: 18px; position: relative;">
+        <div style="text-align: center; font-size: 11px; font-weight: 700; color: var(--purple-600); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 2px solid var(--purple-300);">Build with AI for Kids</div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--purple-200);">
+            <svg width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5"><circle cx="9" cy="9" r="7"/><path d="M6 9l2 2 4-4"/></svg>
+            <span style="font-size: 13px; color: var(--gray-800); font-weight: 600;">30 hours LIVE instruction</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--purple-200);">
+            <svg width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5"><circle cx="9" cy="9" r="7"/><path d="M6 9l2 2 4-4"/></svg>
+            <span style="font-size: 13px; color: var(--gray-800); font-weight: 600;">Max 10 students - real attention</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--purple-200);">
+            <svg width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5"><circle cx="9" cy="9" r="7"/><path d="M6 9l2 2 4-4"/></svg>
+            <span style="font-size: 13px; color: var(--gray-800); font-weight: 600;">5+ real projects + Demo Day</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--purple-200);">
+            <svg width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5"><circle cx="9" cy="9" r="7"/><path d="M6 9l2 2 4-4"/></svg>
+            <span style="font-size: 13px; color: var(--gray-800); font-weight: 600;">Weekly updates + Demo Day</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: white; border-radius: 8px; border: 1px solid var(--purple-200);">
+            <svg width="18" height="18" fill="none" stroke="#22c55e" stroke-width="2.5"><circle cx="9" cy="9" r="7"/><path d="M6 9l2 2 4-4"/></svg>
+            <span style="font-size: 13px; color: var(--gray-800); font-weight: 600;">100% refund after first session</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="interior-footer">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <a href="https://wa.me/917305082534" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+91 73050 82534</a>
+      <a href="https://rewire.school/kids">rewire.school/kids</a>
+    </div>
+    <span class="footer-page">05</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 7: TESTIMONIALS ==================== -->
+<div class="page interior" style="position: relative; overflow: hidden;">
+  <!-- Background design elements -->
+  <div style="position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(147,51,234,0.08) 0%, transparent 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -60px; left: -60px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(16,185,129,0.08) 0%, transparent 70%); pointer-events: none;"></div>
+
+  <!-- Floating organic shapes -->
+  <div style="position: absolute; top: 180px; right: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, rgba(147,51,234,0.1), rgba(147,51,234,0.05)); border-radius: 50% 50% 50% 30%; transform: rotate(15deg);"></div>
+  <div style="position: absolute; bottom: 200px; left: 25px; width: 40px; height: 40px; background: linear-gradient(135deg, rgba(196,240,66,0.15), rgba(196,240,66,0.05)); border-radius: 30% 50% 50% 50%; transform: rotate(-20deg);"></div>
+  <div style="position: absolute; top: 400px; left: 50px; width: 8px; height: 8px; background: var(--purple-300); border-radius: 50%; opacity: 0.5;"></div>
+  <div style="position: absolute; top: 320px; right: 60px; width: 6px; height: 6px; background: var(--green-400); border-radius: 50%; opacity: 0.6;"></div>
+  <div style="position: absolute; bottom: 300px; right: 100px; width: 10px; height: 10px; background: var(--amber-300); border-radius: 50%; opacity: 0.4;"></div>
+
+  <!-- Giant decorative quote mark -->
+  <div style="position: absolute; top: 140px; left: -20px; font-family: Georgia, serif; font-size: 280px; color: var(--purple-100); opacity: 0.4; line-height: 1; pointer-events: none; z-index: 0;">"</div>
+
+  <div class="interior-header" style="position: relative; z-index: 1;">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">The Transformation</span>
+  </div>
+
+  <div class="interior-content" style="position: relative; z-index: 1;">
+    <!-- Transformation Section -->
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">From Consumer to Creator in 10 Weekends</h2>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px;">
+      <!-- Before -->
+      <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 14px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.04), 0 1px 3px rgba(0,0,0,0.03);">
+        <div style="display: inline-block; background: var(--gray-200); color: var(--gray-600); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px;">Before the Course</div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--gray-700); margin-bottom: 12px;">Passive AI User</div>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="font-size: 12px; color: var(--gray-600); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--gray-400);">-</span>Uses ChatGPT to copy homework answers</li>
+          <li style="font-size: 12px; color: var(--gray-600); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--gray-400);">-</span>Thinks AI is "magic" or "scary"</li>
+          <li style="font-size: 12px; color: var(--gray-600); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--gray-400);">-</span>Consumes content for hours, creates nothing</li>
+          <li style="font-size: 12px; color: var(--gray-600); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--gray-400);">-</span>No idea how apps and websites are made</li>
+          <li style="font-size: 12px; color: var(--gray-600); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--gray-400);">-</span>Struggles to explain what they're learning</li>
+        </ul>
+      </div>
+      <!-- After -->
+      <div style="background: linear-gradient(135deg, #f0fdf4, #ecfdf5); border: 2px solid var(--green-400); border-radius: 14px; padding: 20px; box-shadow: 0 4px 20px rgba(16,185,129,0.12), 0 1px 3px rgba(0,0,0,0.03); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -30px; right: -30px; width: 80px; height: 80px; background: rgba(16,185,129,0.1); border-radius: 50%;"></div>
+        <div style="display: inline-block; background: var(--green-500); color: white; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 4px 12px; border-radius: 20px; margin-bottom: 14px; position: relative;">After 10 Weekends</div>
+        <div style="font-size: 15px; font-weight: 700; color: var(--green-700); margin-bottom: 12px; position: relative;">Confident AI Builder</div>
+        <ul style="list-style: none; padding: 0; margin: 0; position: relative;">
+          <li style="font-size: 12px; color: var(--gray-700); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--green-500);">+</span>Uses AI as a creative partner for projects</li>
+          <li style="font-size: 12px; color: var(--gray-700); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--green-500);">+</span>Understands how AI works and its limitations</li>
+          <li style="font-size: 12px; color: var(--gray-700); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--green-500);">+</span>Has built 3 real projects they can show anyone</li>
+          <li style="font-size: 12px; color: var(--gray-700); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--green-500);">+</span>Knows how to build websites and apps</li>
+          <li style="font-size: 12px; color: var(--gray-700); padding: 6px 0; padding-left: 20px; position: relative; line-height: 1.5;"><span style="position: absolute; left: 0; color: var(--green-500);">+</span>Presents their work confidently to parents</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">What They're Saying</h2>
+    </div>
+
+    <!-- Featured testimonial - larger with glow -->
+    <div style="background: linear-gradient(135deg, var(--purple-50), var(--white)); border: 1px solid var(--purple-200); border-radius: 18px; padding: 22px; margin-bottom: 14px; position: relative; box-shadow: 0 8px 32px rgba(147,51,234,0.1), 0 2px 8px rgba(0,0,0,0.04);">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="var(--purple-200)" style="position: absolute; top: 18px; right: 22px; opacity: 0.5;"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+      <div style="display: flex; gap: 16px; align-items: flex-start;">
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; flex-shrink: 0;">
+          <div style="width: 58px; height: 58px; border-radius: 50%; background: #7c3aed; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 20px;">SV</div>
+          <span style="background: var(--purple-500); color: white; font-size: 8px; font-weight: 700; padding: 3px 8px; border-radius: 10px; text-transform: uppercase; letter-spacing: 0.05em;">Student</span>
+        </div>
+        <div style="flex: 1;">
+          <p style="font-size: 13px; color: var(--gray-700); line-height: 1.7; margin-bottom: 12px; font-style: italic;">"Before the AI session, I used to give prompts very basically - I couldn't even get good outputs. Now I can create websites, generate videos, and build product branding websites. It's so good to see that even being in 7th standard, I can do all these things!"</p>
+          <div style="font-size: 13px; font-weight: 700; color: var(--gray-900);">Sri Vibha K. <span style="font-weight: 400; color: var(--gray-500);">- Class 7, Coimbatore</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parent testimonials - slightly offset for visual interest -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+      <div style="background: linear-gradient(135deg, #fffbeb, white); border: 1px solid #fde68a; border-radius: 16px; padding: 18px; position: relative; box-shadow: 0 6px 24px rgba(245,158,11,0.1), 0 2px 6px rgba(0,0,0,0.03); transform: translateY(0);">
+        <div style="position: absolute; top: -8px; right: 20px;">
+          <span style="background: #F59E0B; color: white; font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Parent</span>
+        </div>
+        <div style="color: #F59E0B; font-size: 12px; margin-bottom: 10px; margin-top: 4px;">*****</div>
+        <p style="font-size: 13px; color: var(--gray-700); line-height: 1.65; margin-bottom: 12px; font-style: italic;">"My son used to just watch YouTube all day. Now he's the one showing ME how to use AI to edit photos. On Demo Day, he walked us through his portfolio website - I had tears in my eyes."</p>
+        <div style="font-size: 12px; font-weight: 700; color: var(--gray-900);">Priya M. <span style="font-weight: 400; color: var(--gray-500);">- Parent of 14-year-old</span></div>
+      </div>
+      <div style="background: linear-gradient(135deg, #f0fdf4, white); border: 1px solid #bbf7d0; border-radius: 16px; padding: 18px; position: relative; box-shadow: 0 6px 24px rgba(16,185,129,0.1), 0 2px 6px rgba(0,0,0,0.03); transform: translateY(6px);">
+        <div style="position: absolute; top: -8px; right: 20px;">
+          <span style="background: #22c55e; color: white; font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Parent</span>
+        </div>
+        <div style="color: #F59E0B; font-size: 12px; margin-bottom: 10px; margin-top: 4px;">*****</div>
+        <p style="font-size: 13px; color: var(--gray-700); line-height: 1.65; margin-bottom: 12px; font-style: italic;">"I was skeptical - another online course, right? But when my daughter built a working app in week 3 and explained exactly how the AI helped her, I knew this was different. Worth every rupee."</p>
+        <div style="font-size: 12px; font-weight: 700; color: var(--gray-900);">Rajesh K. <span style="font-weight: 400; color: var(--gray-500);">- Parent of 13-year-old</span></div>
+      </div>
+    </div>
+
+    <div style="background: linear-gradient(135deg, var(--purple-50), white); border: 1px solid var(--purple-200); border-radius: 16px; padding: 18px; margin-top: 14px; position: relative; box-shadow: 0 6px 24px rgba(147,51,234,0.08), 0 2px 6px rgba(0,0,0,0.03);">
+      <div style="position: absolute; top: -8px; right: 20px;">
+        <span style="background: #7c3aed; color: white; font-size: 9px; font-weight: 700; padding: 5px 12px; border-radius: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Parent</span>
+      </div>
+      <div style="color: #F59E0B; font-size: 12px; margin-bottom: 10px; margin-top: 4px;">*****</div>
+      <p style="font-size: 13px; color: var(--gray-700); line-height: 1.65; margin-bottom: 12px; font-style: italic;">"The instructor actually cared if my son understood. Small batch, real projects, no filler. He's already using what he learned for his school projects. That's rare."</p>
+      <div style="font-size: 12px; font-weight: 700; color: var(--gray-900);">Anitha S. <span style="font-weight: 400; color: var(--gray-500);">- Parent of 15-year-old, Bangalore</span></div>
+    </div>
+  </div>
+
+  <div class="interior-footer" style="position: relative; z-index: 1;">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <a href="https://wa.me/917305082534" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+91 73050 82534</a>
+      <a href="https://rewire.school/kids">rewire.school/kids</a>
+    </div>
+    <span class="footer-page">07</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 8: SKILLS & FAQ ==================== -->
+<div class="page interior" style="position: relative; overflow: hidden;">
+  <!-- Gradient mesh background -->
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(147,51,234,0.03) 0%, transparent 40%, rgba(16,185,129,0.03) 60%, transparent 100%); pointer-events: none;"></div>
+
+  <!-- Background design elements -->
+  <div style="position: absolute; top: -100px; left: -100px; width: 350px; height: 350px; background: radial-gradient(circle, rgba(147,51,234,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+  <div style="position: absolute; bottom: -80px; right: -80px; width: 300px; height: 300px; background: radial-gradient(circle, rgba(16,185,129,0.06) 0%, transparent 70%); pointer-events: none;"></div>
+
+  <!-- Floating organic shapes -->
+  <div style="position: absolute; top: 120px; right: 40px; width: 50px; height: 50px; background: linear-gradient(135deg, rgba(147,51,234,0.08), rgba(147,51,234,0.03)); border-radius: 50% 30% 50% 50%; transform: rotate(-25deg);"></div>
+  <div style="position: absolute; bottom: 180px; left: 30px; width: 35px; height: 35px; background: linear-gradient(135deg, rgba(16,185,129,0.1), rgba(16,185,129,0.03)); border-radius: 30% 50% 30% 50%; transform: rotate(20deg);"></div>
+  <div style="position: absolute; top: 280px; left: 60px; width: 6px; height: 6px; background: var(--purple-400); border-radius: 50%; opacity: 0.4;"></div>
+  <div style="position: absolute; top: 450px; right: 80px; width: 8px; height: 8px; background: var(--green-400); border-radius: 50%; opacity: 0.5;"></div>
+  <div style="position: absolute; bottom: 250px; left: 120px; width: 5px; height: 5px; background: var(--amber-400); border-radius: 50%; opacity: 0.4;"></div>
+  <div style="position: absolute; top: 380px; right: 140px; width: 7px; height: 7px; background: var(--purple-300); border-radius: 50%; opacity: 0.3;"></div>
+
+  <div class="interior-header" style="position: relative; z-index: 1;">
+    <img src="logo-dark.png" alt="Rewire" class="interior-logo">
+    <span class="interior-page-info">Skills & FAQ</span>
+  </div>
+
+  <div class="interior-content" style="position: relative; z-index: 1;">
+    <div class="section-header">
+      <div class="section-header-bar"></div>
+      <h2 class="section-title">After 10 Weekends, Your Child Will...</h2>
+    </div>
+
+    <!-- Skills Grid - with icon glows and varied styling -->
+    <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-bottom: 28px;">
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, var(--purple-50), rgba(147,51,234,0.03)); border-radius: 14px; border: 1px solid rgba(147,51,234,0.1); box-shadow: 0 2px 8px rgba(147,51,234,0.05);">
+        <div style="width: 24px; height: 24px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">Use <strong>ChatGPT, Claude, and Gemini</strong> - know which AI is best for what</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(16,185,129,0.02)); border-radius: 14px; border: 1px solid rgba(16,185,129,0.12); box-shadow: 0 2px 8px rgba(16,185,129,0.05);">
+        <div style="width: 24px; height: 24px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">Write prompts that get <strong>exactly the output they want</strong></span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(16,185,129,0.02)); border-radius: 14px; border: 1px solid rgba(16,185,129,0.12); box-shadow: 0 2px 8px rgba(16,185,129,0.05);">
+        <div style="width: 24px; height: 24px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">Generate <strong>AI art from text descriptions</strong> (Leonardo, DALL-E)</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, var(--purple-50), rgba(147,51,234,0.03)); border-radius: 14px; border: 1px solid rgba(147,51,234,0.1); box-shadow: 0 2px 8px rgba(147,51,234,0.05);">
+        <div style="width: 24px; height: 24px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">Build and publish a <strong>live website without code</strong></span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, var(--purple-50), rgba(147,51,234,0.03)); border-radius: 14px; border: 1px solid rgba(147,51,234,0.1); box-shadow: 0 2px 8px rgba(147,51,234,0.05);">
+        <div style="width: 24px; height: 24px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">Create a <strong>working app</strong> using AI tools like Bolt.new</span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(16,185,129,0.02)); border-radius: 14px; border: 1px solid rgba(16,185,129,0.12); box-shadow: 0 2px 8px rgba(16,185,129,0.05);">
+        <div style="width: 24px; height: 24px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">Use AI for <strong>research, homework, and problem-solving</strong></span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, rgba(16,185,129,0.06), rgba(16,185,129,0.02)); border-radius: 14px; border: 1px solid rgba(16,185,129,0.12); box-shadow: 0 2px 8px rgba(16,185,129,0.05);">
+        <div style="width: 24px; height: 24px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;">Spot AI mistakes and <strong>fact-check AI outputs</strong></span>
+      </div>
+      <div style="display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; background: linear-gradient(135deg, var(--purple-50), rgba(147,51,234,0.03)); border-radius: 14px; border: 1px solid rgba(147,51,234,0.1); box-shadow: 0 2px 8px rgba(147,51,234,0.05);">
+        <div style="width: 24px; height: 24px; background: #22c55e; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <span style="font-size: 14px; color: var(--gray-700); line-height: 1.5;"><strong>Present their work confidently</strong> - explain what they built and how</span>
+      </div>
+    </div>
+
+    <!-- Decorative divider -->
+    <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 20px;">
+      <div style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--purple-200), transparent);"></div>
+      <div style="width: 8px; height: 8px; background: var(--purple-300); border-radius: 50%; opacity: 0.5;"></div>
+      <div style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--purple-200), transparent);"></div>
+    </div>
+
+    <div class="section-header" style="margin-bottom: 14px;">
+      <div class="section-header-bar" style="height: 24px;"></div>
+      <h2 class="section-title" style="font-size: 26px;">Got Questions?</h2>
+    </div>
+
+    <!-- FAQ Grid - with colored shadows and layered depth -->
+    <div class="faq-grid" style="gap: 14px;">
+      <div style="padding: 16px 18px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 4px 16px rgba(147,51,234,0.06), 0 1px 3px rgba(0,0,0,0.04); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--purple-400), var(--purple-500));"></div>
+        <div class="faq-question" style="font-size: 14px; margin-bottom: 6px; padding-left: 8px;">Is this safe for my child?</div>
+        <div class="faq-answer" style="font-size: 13px; line-height: 1.6; padding-left: 8px;">Yes. Age-appropriate tools only. Live instructor in every session. AI ethics is part of the curriculum. We teach responsible use.</div>
+      </div>
+      <div style="padding: 16px 18px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 4px 16px rgba(16,185,129,0.06), 0 1px 3px rgba(0,0,0,0.04); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--green-400), var(--green-500));"></div>
+        <div class="faq-question" style="font-size: 14px; margin-bottom: 6px; padding-left: 8px;">Does my child need coding experience?</div>
+        <div class="faq-answer" style="font-size: 13px; line-height: 1.6; padding-left: 8px;">No. Everything is built through natural language prompts - describing what you want while AI generates code. Zero prerequisites.</div>
+      </div>
+      <div style="padding: 16px 18px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 4px 16px rgba(16,185,129,0.06), 0 1px 3px rgba(0,0,0,0.04); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--green-400), var(--green-500));"></div>
+        <div class="faq-question" style="font-size: 14px; margin-bottom: 6px; padding-left: 8px;">What if my child misses a session?</div>
+        <div class="faq-answer" style="font-size: 13px; line-height: 1.6; padding-left: 8px;">Recordings are available. Plus mid-week Q&A sessions help catch up. We ensure no one falls behind.</div>
+      </div>
+      <div style="padding: 16px 18px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 4px 16px rgba(147,51,234,0.06), 0 1px 3px rgba(0,0,0,0.04); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--purple-400), var(--purple-500));"></div>
+        <div class="faq-question" style="font-size: 14px; margin-bottom: 6px; padding-left: 8px;">What devices/software are needed?</div>
+        <div class="faq-answer" style="font-size: 13px; line-height: 1.6; padding-left: 8px;">Laptop or desktop (not tablet). Chrome or Firefox browser. Stable internet. All tools are free or have free tiers.</div>
+      </div>
+      <div style="padding: 16px 18px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 4px 16px rgba(147,51,234,0.06), 0 1px 3px rgba(0,0,0,0.04); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--purple-400), var(--purple-500));"></div>
+        <div class="faq-question" style="font-size: 14px; margin-bottom: 6px; padding-left: 8px;">What's the refund policy?</div>
+        <div class="faq-answer" style="font-size: 13px; line-height: 1.6; padding-left: 8px;">100% refund if you're not satisfied after the first session. No questions asked. We want happy families.</div>
+      </div>
+      <div style="padding: 16px 18px; background: white; border: 1px solid var(--gray-200); border-radius: 14px; box-shadow: 0 4px 16px rgba(16,185,129,0.06), 0 1px 3px rgba(0,0,0,0.04); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(180deg, var(--green-400), var(--green-500));"></div>
+        <div class="faq-question" style="font-size: 14px; margin-bottom: 6px; padding-left: 8px;">What if my child struggles?</div>
+        <div class="faq-answer" style="font-size: 13px; line-height: 1.6; padding-left: 8px;">Small batches (max 30) mean real attention. Mid-week Q&A for extra help. WhatsApp support for quick questions.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="interior-footer" style="position: relative; z-index: 1;">
+    <div class="footer-contact">
+      <a href="mailto:hello@rewire.school">hello@rewire.school</a>
+      <a href="https://wa.me/917305082534" style="color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>+91 73050 82534</a>
+      <a href="https://rewire.school/kids">rewire.school/kids</a>
+    </div>
+    <span class="footer-page">08</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 9: ENROLLMENT (DARK) ==================== -->
+<div class="page" style="background: #0c0118; color: var(--white); position: relative; overflow: hidden; padding: 0;">
+
+  <!-- Full-width Hero Photo Banner -->
+  <div style="width: 100%; height: 340px; position: relative; overflow: hidden;">
+    <img src="kids-portfolio-hero.png" alt="Student showing their AI portfolio" style="width: 100%; height: 100%; object-fit: cover; object-position: center top;">
+    <!-- Bottom fade into dark background -->
+    <div style="position: absolute; bottom: 0; left: 0; width: 100%; height: 120px; background: linear-gradient(180deg, transparent 0%, #0c0118 100%);"></div>
+    <!-- Logo overlay -->
+    <div style="position: absolute; top: 24px; left: 32px;">
+      <img src="logo-white.png" alt="Rewire" style="height: 28px; width: auto; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));">
+    </div>
+    <!-- Page label -->
+    <div style="position: absolute; top: 24px; right: 32px;">
+      <span style="font-size: 12px; font-weight: 600; color: white; text-transform: uppercase; letter-spacing: 0.1em; background: #1f2937; padding: 8px 16px; border-radius: 6px;">Enrollment</span>
+    </div>
+  </div>
+
+  <!-- Content Section -->
+  <div style="padding: 32px 40px 28px; text-align: center;">
+    <!-- Badge -->
+    <div style="display: inline-block; background: #581c87; border: 1px solid #7c3aed; padding: 10px 24px; border-radius: 50px; font-size: 13px; font-weight: 600; color: white; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 24px;">Next Batch: June 13, 2026</div>
+
+    <!-- Heading -->
+    <h1 style="font-size: 48px; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 12px;">
+      Your Child's <span class="gradient-text-lime">AI Journey</span> Starts Here
+    </h1>
+    <p style="font-size: 17px; color: var(--gray-400); line-height: 1.5; margin-bottom: 36px;">10 weekends. Real projects. No coding needed.</p>
+
+    <!-- Price Card - Centered -->
+    <div style="display: inline-block; background: #1e1b4b; border: 1px solid #3730a3; border-radius: 20px; padding: 28px 40px; margin-bottom: 32px;">
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <div style="text-align: left;">
+          <div style="font-size: 15px; color: var(--gray-500); text-decoration: line-through; margin-bottom: 4px;">Rs. 49,999</div>
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 52px; font-weight: 800; color: white; line-height: 1;">Rs. 14,999</div>
+        </div>
+        <div style="background: #c4f042; color: var(--gray-900); padding: 18px 24px; border-radius: 14px; text-align: center;">
+          <div style="font-family: 'JetBrains Mono', monospace; font-size: 28px; font-weight: 800; line-height: 1;">70%</div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase;">OFF</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div style="margin-bottom: 28px;">
+      <a href="https://rewire.school/kids" style="display: inline-flex; align-items: center; gap: 12px; background: #7c3aed; color: white; text-decoration: none; padding: 22px 48px; border-radius: 16px; font-size: 20px; font-weight: 700; box-shadow: 0 12px 40px rgba(147, 51, 234, 0.5);">
+        Enroll at rewire.school/kids
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Contact -->
+    <div style="display: flex; justify-content: center; align-items: center; gap: 32px; font-size: 15px;">
+      <a href="mailto:hello@rewire.school" style="color: var(--gray-400); text-decoration: none; display: flex; align-items: center; gap: 8px;">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        hello@rewire.school
+      </a>
+      <a href="https://wa.me/917305082534" style="color: var(--gray-400); text-decoration: none; display: flex; align-items: center; gap: 8px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        +91 73050 82534
+      </a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.08);">
+    <img src="logo-white.png" alt="Rewire" style="height: 20px; opacity: 0.5;">
+    <span style="font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--gray-500);">08</span>
+  </div>
+</div>
+
+</body>
+</html>
